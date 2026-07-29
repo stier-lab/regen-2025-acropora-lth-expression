@@ -92,23 +92,34 @@ knitr::include_graphics(fig("06_symbiont_density_by_day.png"))
 
 ### 3. Heat blocks regeneration but spares healing — the headline
 
-Wounds close at the same rate whether or not corals are heated. What heat breaks is the **next** step: regrowing skeleton and new corallites.
+Wounds close at the same rate whether or not corals are heated — and heated corals also **reform the axial polyp and a tip**. What they largely fail to do is bud the **new corallites** (new calyx cups) that mark true skeletal regeneration.
 
-- New-corallite regeneration stalls under heat (interval-censored time ratio **1.32**, *p* = 1.4e-7; Cox HR **0.22**)
-- **67%** of heated corals closed the wound but never regenerated, vs **0%** at ambient
-- You can see it in the photos: both temps seal over, but the heated fragments never rebuild the tip
+To be exact about what "not regenerated" means, here is the Day-15 breakdown for wounded corals (fraction of corals positive; n = 12 per treatment):
+
+| Trait (Day 15, wounded) | 28 °C | 31 °C |
+|---|---|---|
+| Wound sealed (`wound_smoothed`) | 100% | 100% |
+| Axial polyp formed (`axial_polyp_formation`) | 100% | 100% |
+| Tip present (`tip_exist`) | 92% | 92% |
+| Tip extended (`tip_extension`) | 92% | 75% |
+| **New corallites budded (`new_corallites_on_tip`)** | **100%** | **33%** |
+
+The healing traits — and even a reformed tip and polyp — are essentially identical between temperatures. The entire signal is one trait, `new_corallites_on_tip`: the budding of *new* skeletal corallites on the tip. That is what "not regenerated" means here, and it is what the survival models test:
+
+- New-corallite budding stalls under heat (interval-censored time ratio **1.32**, *p* = 1.4e-7; Cox HR **0.22**)
+- **67%** of heated corals closed the wound and reformed a tip but never budded new corallites, vs **0%** at ambient
 
 ```{r, fig.cap="Time-to-event by treatment: wounds close equally, but new-corallite regeneration stalls under heat."}
 knitr::include_graphics(fig("14_morphology_KM.png"))
 ```
 
-The photo timeline makes it plain — both temperatures seal the wound, but the heated fragments never rebuild the tip.
+In the photo timeline below, both temperatures seal the wound and reform a tip; the difference is whether *new corallites* bud on it (the small new calyx cups). Look for those, not the tip itself.
 
 ```{r, fig.cap="Photo timeline — ambient (top) vs heated (bottom), Day 0 → Day 15."}
 knitr::include_graphics(img("slide15_morphology_timeline.jpg"))
 ```
 
-Same thing as time-lapse — ambient (left) heals **and** regrows; heated (right) heals but stalls (loops, D0 → D15):
+Same thing as time-lapse — ambient (left) heals and buds new corallites; heated (right) heals and reforms a tip but stalls before new-corallite budding (loops, D0 → D15):
 
 ```{r, results='asis'}
 vid <- function(f, cap) sprintf(
@@ -117,20 +128,28 @@ vid <- function(f, cap) sprintf(
    <source src="data:video/mp4;base64,%s" type="video/mp4"></video>
    <figcaption>%s</figcaption></figure>',
   xfun::base64_encode(img(f)), cap)
-cat(vid("morphology_ambient_healing.mp4", "Ambient — heals and regrows"),
-    vid("morphology_heated_healing.mp4", "Heated — heals but stalls"))
+cat(vid("morphology_ambient_healing.mp4", "Ambient — heals + buds new corallites"),
+    vid("morphology_heated_healing.mp4", "Heated — heals + reforms tip, but no new corallites"))
 ```
 
 ### 4. Genotype decides how badly
 
 The three genets did not respond alike. Genet **C** held its photochemistry, color, and symbionts far better than A and D.
 
-- Heat hit C about **2.7–3.5× less** than A/D
+- Heat hit C about **2.7–3.5× less** than A/D (per response — e.g. symbiont loss ~3.5× steeper, Fv/Fm ~2.6× steeper in A/D)
 - Multivariate displacement under heat: C = 1.02 vs A = 3.71, D = 3.38
 
 ```{r, fig.cap="Standardized heat sensitivity per genet across responses — C is the resilient outlier."}
 knitr::include_graphics(fig("19_genet_dashboard.png"))
 ```
+
+**How "heat sensitivity" is computed** (`code/19`) — a per-genet composite of 11 standardized heat effects:
+
+- **Four continuous responses** (Fv/Fm, color, growth, symbionts): the 31 °C − 28 °C contrast at the **Day-14 endpoint**, **averaged over wound state** (both wounded and unwounded corals contribute).
+- **Seven wounded-only morphology traits**: a per-genet **Cox hazard ratio** (time-to-onset), so time enters as the hazard rather than an endpoint.
+- Each effect is **row-max scaled** within its own response (most-sensitive genet = 1), then averaged per genet.
+
+So it uses all responses, includes the unwounded treatments for the physiology metrics, and handles time two ways (endpoint for physiology, hazard for morphology). It is a **relative ranking** of the three genets — a synthesis for the figure, not a formal test. Composite: C = 0.01 vs A = 0.56, D = 0.43.
 
 ### 5. Chronic, but sublethal
 
@@ -143,7 +162,7 @@ knitr::include_graphics(fig("26_thermal_context.png"))
 ## Take-homes
 
 - Chronic sub-bleaching heat drives a colony-wide decline — growth down 34%, symbionts and photochemistry down — driven by temperature, not the wound.
-- Wounds still **heal** under heat, but corals stop **regenerating** (67% close but never regrow the tip vs 0% at ambient). Healing and regeneration are separate processes, and heat hits only the second.
+- Wounds still **heal** under heat, and heated corals reform a tip and polyp — but they stop budding **new corallites** (`new_corallites_on_tip`: 33% vs 100%; 67% seal + reform a tip yet never bud new corallites, vs 0% at ambient). Healing and new-corallite regeneration are separate steps, and heat hits only the second.
 - Genotype matters: genet C is markedly more resilient, so which colonies you pick changes the outcome.
 - At <span class="t31">31 °C</span> this is chronic sub-bleaching stress (~4.4 °C under the acute ED50), not acute shock — a different regime than most heat-stress work.
 
