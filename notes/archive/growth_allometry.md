@@ -1,15 +1,16 @@
 # Growth metric: % skeletal mass change (and why areal calcification is not used)
 
-Original decision 2026-06-04 (areal calcification); **reversed 2026-06** after M.
-Brzezinski confirmed whole-fragment surface area was never measured. Implemented
-in `code/05_buoyant_weight.R`; flows through the growth models in `12`, `13`, the
-PCA in `15`/`16`, and the resilience dashboard in `19`.
+Original decision 2026-06-04 (areal calcification); **reversed in June 2026** after M.
+Brzezinski confirmed whole-fragment surface area was never measured. Add the
+exact confirmation date and medium before citing the personal communication.
+Implemented in `code/05_buoyant_weight.R`; used by the growth models in `12`,
+`13`, the PCA in `15`/`16`, and the resilience dashboard in `19`.
 
 > **Status:** growth is reported as **% skeletal mass change** (primary) and
 > **specific growth rate, SGR** (robustness). An areal calcification rate
 > (mg CaCO₃ cm⁻² d⁻¹) is **not** used — see "Why areal calcification cannot be
-> used" below. The heat conclusion is the same under both surface-area-free
-> metrics.
+> used" below. The heat conclusion points the same direction under both metrics,
+> but the primary tank-level growth test remains a trend (p = 0.057).
 
 ## The question
 
@@ -19,7 +20,7 @@ calcification rate (mass gain per calcifying surface area).
 
 ## Why areal calcification cannot be used
 
-Areal calcification = 1000 · ΔM(g) / SA(cm²) / days. The numerator (ΔM) is the
+Mass gain per surface area per day = 1000 · ΔM(g) / SA(cm²) / days. The numerator (ΔM) is the
 mass gain of the **whole** buoyant-weighed fragment. The only surface area we
 have (`wax_clean$sa_curve_cm2`, from wax dipping) is for the **small
 sub-fragment** taken for the symbiont slurry — the rest of each fragment was
@@ -31,17 +32,16 @@ therefore expressed as % mass change and SGR, which need no surface area.
 (The same wax SA *is* valid for symbiont density in `code/06`, where the cell
 count and the SA come from the same sub-fragment.)
 
-## Allometric properties of % mass change
+## Checks for size bias in % mass change
 
-% mass change normalizes by skeletal mass and assumes growth proportional to
-current mass (exponential growth). For a surface-mediated process this is an
-approximation, but the bias is weak here because fragments were size-standardized
-(7–10 g) and the mass gain is independent of size (n = 48, all biopsied
-terminally at day 15):
+% mass change normalizes by skeletal mass and assumes growth is proportional to
+current mass. That is an approximation for a surface-mediated process, but the
+bias is weak here because fragments were size-standardized (7–10 g) and mass
+gain is independent of size (n = 48, all biopsied terminally at day 15):
 
 | Check | Result | Reading |
 |---|---|---|
-| log-log exponent `ln(Mf) ~ ln(Mi)` | b = 0.97 | growth ≈ proportional over this range |
+| slope of `ln(Mf) ~ ln(Mi)` | b = 0.97 | growth approximately proportional over this range |
 | ΔM vs initial mass | r = 0.12, p = 0.42 | absolute gain independent of size |
 | ΔM vs surface area | r = 0.06 | gain does not track sub-fragment SA across individuals |
 | initial mass by treatment | 8.27 vs 8.08 g | balanced — no treatment bias |
@@ -58,6 +58,8 @@ tank-level exact permutation (temperature was randomized at the tank level):
 28 °C − 31 °C = 2.07 percentage points, p = 0.057.
 
 Genet × treatment interaction for growth is non-significant under both metrics
-(n = 4 per genet × treatment cell — underpowered); genet c is directionally the
-least heat-suppressed (≈−17% vs ≈−39% and ≈−43% for a and d), consistent with its
-resilience in PAM/color/symbionts, but not statistically significant for growth.
+(n = 4 per genet × treatment cell — underpowered); genet c lost less growth under
+heat (≈−17% vs ≈−39% and ≈−43% for a and d), consistent with its resilience in
+PAM/color/symbionts, but not statistically significant for growth.
+
+SGR formula to keep with the method: `100 * (ln(final dry mass) - ln(initial dry mass)) / days`.

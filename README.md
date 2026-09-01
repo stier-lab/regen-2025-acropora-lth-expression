@@ -1,4 +1,4 @@
-# LTH: Long-Term Heating × Wounding × Gene Expression in *Acropora pulchra*
+# LTH: 15-day heat x wound experiment with RNA-seq samples in *Acropora pulchra*
 
 > Project #17 · Gump Station, Mo'orea, French Polynesia · May–July 2025 · Repo: `stier-lab/17.-LTH_expression_by_temperature_2025` · Updated 2026-07-02
 
@@ -9,11 +9,17 @@
   <b>Heated&nbsp;31&nbsp;°C</b> (right, orange) closes the wound but never regenerates.</sub>
 </p>
 
-A heat × wounding experiment on the branching coral *A. pulchra*: we clipped the growing tip off half the fragments, held corals at **28 °C** or **31 °C (+3 °C)**, and tracked healing, growth, physiology, and symbionts for 15 days, plus tissue for gene expression (RNA-seq).
+A 15-day heat x wound experiment on the branching coral *A. pulchra*: we clipped about 1 cm from the growing tip of half the fragments, held corals at **28 °C** or **31 °C (+3 °C)**, and tracked tissue closure, skeletal regrowth, growth, physiology, and symbionts for 15 days. We also collected tissue for RNA-seq.
 
-**The phenotype result:** heat doesn't slow recovery uniformly — corals seal the wound (healing) at the same rate hot or not, but heated corals fail to rebuild skeleton at the tip (regeneration). Heat breaks one phase, not the other. (The paper's lead result is the transcriptomic mechanism; RNA-seq pending. The Intro/Discussion/Abstract and the RNA-seq pipeline are out of scope for this repo.)
+**The phenotype result:** heat does not slow recovery uniformly. Corals close the wound with tissue (coenosarc coverage) at the same rate at 28 °C and 31 °C, but heated corals often fail to rebuild the apical skeleton and new corallites. Heat breaks skeletal regeneration, not tissue closure. RNA-seq is pending; this repo is the phenotype analysis and the sample handoff for the future transcriptomics paper.
 
 **More detail:** full results → `RESULTS.docx` · figures → `figures/FIGURE_INDEX.docx` · data → `data/DATA_DICTIONARY.docx` · RNA-seq notes → `docs/rnaseq/`.
+
+**Terms used consistently here:**
+
+- **Wounded** = about 1 cm removed from the growing tip on D0 with a band saw.
+- **No-wound control** = fragments assigned to the no-wound level. The exact sham/handling procedure still needs to be verified before manuscript wording calls this a "sham" control.
+- **Thicket/genet label** = field source labels A, C, and D. These are treated as genet proxies in the phenotype analysis, but they are not yet matched to Cunning et al. (2024)'s numbered genets.
 
 ## Quick start
 
@@ -30,12 +36,12 @@ Requires R ≥ 4.3. Everything regenerates from `code/_run_all.R`; **never hand-
 | Factor | Levels |
 |---|---|
 | **Temperature** | 28 °C (ambient) vs 31 °C (heated). Ramped 1 °C/day. |
-| **Wound** | Wounded (~1 cm clipped off growing tip) vs unwounded sham. Applied 7 days after reaching target temp. |
-| **Genotype (thicket)** | A, C, D — fixed effect (only 3 field genets). |
+| **Wound** | Wounded (~1 cm clipped from growing tip) vs no-wound control. Applied 7 days after reaching target temp. |
+| **Thicket/genet label** | A, C, D — fixed effect (only 3 field thicket labels). |
 | **Tank** | 8 total, 4 per temperature (28 °C: 3, 6, 9, 12; 31 °C: 4, 5, 10, 11). Random effect. |
 | **Time** | Daily obs; destructive biopsies D0, D1, D3, D10, D15. |
 
-**n = 208 fragments** (192 gene-expression + destructive physiology; 48 also tracked non-destructively; 16 for microscope photography). **Site:** Mahana / Tiahura, NW Mo'orea — thickets A (17.49735 °S / 149.91557 °W), C (17.49808 / 149.91595), D (17.49726 / 149.91581), the same reef as Cunning et al. 2024's CBASS genets.
+**n = 208 fragments total.** The main destructive sampling set has 192 fragments; 48 of those were also tracked non-destructively for physiology through Day 15; 144 selected margin libraries form the current RNA-seq design (D1, D3, D10); and a separate 16-fragment photo-only set was photographed for microscope time-lapse imagery. **Site:** Mahana / Tiahura, NW Mo'orea — thickets A (17.49735 °S / 149.91557 °W), C (17.49808 °S / 149.91595 °W), D (17.49726 °S / 149.91581 °W), the same reef as Cunning et al. 2024's CBASS genets.
 
 ## Key findings (phenotype half)
 
@@ -46,7 +52,9 @@ Organismal context, not the paper's lead result. Numbers trace to `output/tables
 3. **Genotype matters: C > D > A.** Genet C defends its physiology and regenerates best; its multivariate state shifts **3.6× less** under heat than A's (PCA displacement 1.02 vs 3.71). See `figures/19_genet_dashboard.pdf`.
 4. **Chronic-sublethal, not acute.** 31 °C sits **~4.4 °C below** the acute CBASS Fv/Fm ED50 (35.4 °C; Cunning et al. 2024) — weeks of sub-bleaching stress, not acute photoinhibition. See `figures/26_thermal_context.pdf`.
 
-**Stats in brief:** per-response linear mixed models (`response ~ treatment × wound × day × thicket + (1|tank) + (1|id)`, type-III); binomial GLMMs (penalized where separation occurs) for the 8 binary healing traits; interval-censored Weibull AFT (+ Kaplan–Meier / Cox) for recovery milestones; PCA for the multivariate summary; DHARMa diagnostics throughout. Genet is a fixed effect (only 3 levels). Growth = % skeletal mass change (no areal calcification — surface area unmeasured). Full methods in `RESULTS.docx`.
+**Models used:** per-response linear mixed models (`response ~ treatment x wound x day x thicket + (1|tank) + (1|id)`, type-III); binomial GLMMs (penalized where separation occurs) for the 8 binary healing traits; interval-censored Weibull AFT (+ Kaplan-Meier / Cox) for recovery milestones; PCA for the multivariate summary; DHARMa diagnostics throughout. Thicket/genet label is a fixed effect because there are only 3 levels. Growth = % skeletal mass change (no areal calcification because whole-fragment surface area was not measured). Full methods in `RESULTS.docx`.
+
+The separate 16-fragment microscope/photo cohort is analyzed in `code/11_microscope_physio.R` as supporting visual-validation evidence. It is not pooled with the main morphology models because it is wounded-only and includes only genets A/C.
 
 ## Repository map
 
@@ -72,7 +80,7 @@ Raw data is exported **from** Google Drive (the project of record: raw Sheets, f
 
 ## RNA-seq (next)
 
-144 libraries shipped to UC Davis; counts will land in `data/raw/sequencing/`. The per-library phenotype covariate table is already built (`output/tables/31_rnaseq_phenotype_covariates.csv`, joined by `Fragment_ID`). Design notes, the genet-matching plan (call SNPs from host reads → match A/C/D to Cunning's genets), and candidate genes are in `docs/rnaseq/`.
+144 selected margin libraries were shipped to UC Davis; counts will land in `data/raw/sequencing/`. The current RNA-seq analysis design uses D1, D3, and D10 margin samples. Any D0/D15 tissue should be described as collected tissue, not part of the 144-library design, unless the sequencing plan changes. The per-library phenotype covariate table is already built (`output/tables/31_rnaseq_phenotype_covariates.csv`, joined by `Fragment_ID`). Design notes, the genet-matching plan (call SNPs from host reads, then match A/C/D to Cunning's genets), and candidate genes are in `docs/rnaseq/`.
 
 ## License and funding
 
