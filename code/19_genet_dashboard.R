@@ -1,44 +1,50 @@
 # =============================================================================
-# Purpose: Integrative cross-response genet dashboard. For each of the 3
-#          genets (a, c, d), compute a standardized "heat sensitivity" effect
+# Purpose: Integrative cross-response source-thicket dashboard. For each of the
+#          3 source thickets (a, c, d), compute a standardized "heat sensitivity" effect
 #          across each usable response variable (PAM, color, growth, symbionts,
 #          and morphology time-to-onset traits). Build a forest plot of all
-#          effect sizes to identify which genet is most/least thermally
+#          effect sizes to identify which source thicket is most/least thermally
 #          sensitive across every dimension.
 #
-#          Also produces a composite heat-sensitivity ranking per genet: the
+#          Also produces a composite heat-sensitivity ranking per source thicket: the
 #          mean standardized heat effect across finite response-level effects.
 #
 # What & why: synthesis script. Other analyses test whether heat affects a
 #   given response; this one addresses the cross-cutting question of which
-#   genet best tolerates heat overall. To put effects measured in different
+#   source thicket best tolerates heat overall. To put effects measured in different
 #   units on one axis (Fv/Fm, a colour score, growth,
 #   symbiont counts, and wound-healing hazard ratios), each effect is rescaled
 #   WITHIN its own response so the largest-magnitude effect = 1 (the "z"
 #   column — a row-max standardization, not a statistical z-score). Positive
-#   means the genet's phenotype is worse at 31 °C than 28 °C, i.e. more heat-
-#   sensitive. Averaging these standardized values per genet yields a single
-#   resilience ranking; in this dataset genet C is the most resilient. Nothing
+#   means the source thicket's phenotype is worse at 31 °C than 28 °C, i.e. more heat-
+#   sensitive. Averaging these standardized values per source thicket yields a single
+#   resilience ranking; in this dataset source C is the least heat-sensitive group. Nothing
 #   here fits a new model — every number is a re-summary of upstream tables.
 # Input:   output/tables/12_genet_treatment_effects.csv   (continuous responses)
-#          output/tables/14_cox_hazard_ratios.csv         (per-genet HR for KM)
+#          output/tables/14_cox_hazard_ratios.csv         (per-source HR for KM)
 #          output/tables/15_genet_pca_displacement.csv    (multivariate)
 # Output:  figures/19_genet_dashboard.{pdf,png}            — forest plot
 #          figures/19b_genet_resilience_ranking.{pdf,png}  — composite score
+#          figures/19e_source_heat_penalty_summary.{pdf,png}
+#                                                               — read-first
+#                                                                 domain summary
+#          figures/19f_source_physiology_heat_penalties.{pdf,png}
+#                                                               — physiology-only
+#                                                                 detail
 #          figures/19d_wound_healing_heat_penalties.{pdf,png}
 #                                                               — morphology-only
-#                                                                 genet penalty
+#                                                                 source penalty
 #          output/tables/19_genet_resilience_summary.csv
 # =============================================================================
 
 # 00_setup.R loads packages, shared paths (TBL_DIR, FIG_DIR), theme_pub(),
-# save_fig(), and the genet colour palette PAL_GENO used below.
+# save_fig(), and the source-thicket colour palette PAL_GENO used below.
 source(here::here("code", "00_setup.R"))
 
 # ---- Load upstream effect tables ------------------------------------------
-# Three sources, one per analysis domain: per-genet continuous LMM contrasts
+# Three sources, one per analysis domain: per-source continuous LMM contrasts
 # (script 12), wound-healing Cox hazard ratios (script 14), and the
-# multivariate per-genet PCA displacement (script 15).
+# multivariate per-source PCA displacement (script 15).
 cont <- read_csv(file.path(TBL_DIR, "12_genet_treatment_effects.csv"),
                  show_col_types = FALSE)
 cox  <- read_csv(file.path(TBL_DIR, "14_cox_hazard_ratios.csv"),
@@ -48,7 +54,7 @@ pca  <- read_csv(file.path(TBL_DIR, "15_genet_pca_displacement.csv"),
 
 # ---- Standardize continuous-response effects ------------------------------
 # Continuous responses (from script 12) give estimate = mean(28C) - mean(31C)
-# at the response-specific endpoint per genet x wound, with SE:
+# at the response-specific endpoint per source thicket x wound, with SE:
 # PAM/color at experimental Day 14, symbionts at the final biopsy, and growth
 # as a start-to-end response. We collapse over wound (both wounded and
 # unwounded corals contribute), then row-max scale within each response.
@@ -66,7 +72,7 @@ cont_eff <- cont |>
   ungroup() |>
   mutate(metric = "Delta phenotype (28C - 31C, response endpoint)")
 
-# ---- Standardize Cox hazard ratios (per genet) ----------------------------
+# ---- Standardize Cox hazard ratios (per source thicket) -------------------
 # HR < 1 means 31C delays/prevents trait expression — i.e., heat sensitivity.
 # Convert to log(HR) so negative = heat-impaired, positive = heat-promoted.
 cox_per_genet <- cox |>
@@ -121,7 +127,129 @@ all_eff <- all_eff |>
   mutate(response_label = factor(response_label,
                                   levels = unique(response_label[order(domain, response_label)])))
 
-# Forest plot: each point is one genet's standardized heat effect on one
+# ---- Simple read-first summaries -----------------------------------------
+# These are intentionally aggregated views for the team-summary HTML. The
+# detailed dashboard below keeps the response-level audit trail.
+source_order <- c("A", "D", "C")
+
+domain_summary <- all_eff |>
+  mutate(summary_group = case_when(
+    domain == "Physiology"   ~ "Physiology + growth",
+    domain == "Wound closure" ~ "Wound closure",
+    domain == "Regeneration" ~ "Regeneration",
+    TRUE                     ~ domain
+  )) |>
+  group_by(summary_group, thicket) |>
+  summarise(mean_penalty = mean(z, na.rm = TRUE),
+            n_responses = n(),
+            .groups = "drop")
+
+overall_summary <- all_eff |>
+  group_by(thicket) |>
+  summarise(mean_penalty = mean(z, na.rm = TRUE),
+            n_responses = n(),
+            .groups = "drop") |>
+  mutate(summary_group = "All responses")
+
+quick_summary <- bind_rows(overall_summary, domain_summary) |>
+  mutate(
+    summary_group = factor(summary_group,
+                           levels = c("All responses", "Physiology + growth",
+                                      "Wound closure", "Regeneration")),
+    source_label = factor(str_to_upper(thicket), levels = source_order),
+    label_y = case_when(
+      mean_penalty >= 0       ~ mean_penalty + 0.06,
+      abs(mean_penalty) < 0.05 ~ -0.08,
+      TRUE                    ~ mean_penalty / 2
+    ),
+    label_vjust = if_else(mean_penalty >= 0, 0, 0.5)
+  )
+
+p_quick <- ggplot(quick_summary,
+                  aes(source_label, mean_penalty, fill = thicket)) +
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = -Inf, ymax = 0,
+           fill = "#009E73", alpha = 0.03) +
+  annotate("rect", xmin = -Inf, xmax = Inf, ymin = 0, ymax = Inf,
+           fill = "#D55E00", alpha = 0.035) +
+  geom_hline(yintercept = 0, linetype = "dashed", colour = "grey55",
+             linewidth = 0.35) +
+  geom_col(width = 0.62, colour = "black", linewidth = 0.25,
+           alpha = 0.88) +
+  geom_text(aes(y = label_y,
+                label = sprintf("%.2f", mean_penalty),
+                vjust = label_vjust),
+            size = 3.0, colour = "grey20") +
+  facet_wrap(~ summary_group, nrow = 1) +
+  scale_fill_manual(values = PAL_GENO, guide = "none") +
+  scale_y_continuous(
+    breaks = c(-0.4, 0, 0.5, 1),
+    labels = c("earlier/\nbetter", "little/no\npenalty", "0.5", "largest\npenalty")
+  ) +
+  coord_cartesian(ylim = c(-0.48, 1.12), clip = "off") +
+  labs(x = NULL,
+       y = "Average heat penalty",
+       title = "Source C has the smallest heat penalty",
+       subtitle = str_wrap(
+         "Bars average standardized 31C vs 28C effects within each response group. The detailed response-by-response audit is shown below.",
+         width = 105
+       )) +
+  theme_pub(9) +
+  theme(plot.title = element_text(face = "bold"),
+        panel.grid.major.x = element_blank(),
+        strip.text = element_text(face = "bold"),
+        legend.position = "none")
+
+save_fig(p_quick, "19e_source_heat_penalty_summary", width = 190, height = 110)
+
+physiology_detail <- cont_eff |>
+  mutate(
+    response_label = case_when(
+      response == "pam_fvfm"          ~ "Fv/Fm",
+      response == "color_dscale"      ~ "Color",
+      response == "growth_pct"        ~ "Growth",
+      response == "log_zoox_density"  ~ "Symbionts",
+      TRUE                            ~ response
+    ),
+    response_label = factor(response_label,
+                            levels = rev(c("Fv/Fm", "Color", "Growth", "Symbionts")))
+  )
+
+p_physiology <- ggplot(physiology_detail,
+                       aes(z, response_label,
+                           colour = thicket, shape = thicket)) +
+  annotate("rect", xmin = -Inf, xmax = 0, ymin = -Inf, ymax = Inf,
+           fill = "#009E73", alpha = 0.025) +
+  annotate("rect", xmin = 0, xmax = Inf, ymin = -Inf, ymax = Inf,
+           fill = "#D55E00", alpha = 0.035) +
+  geom_vline(xintercept = 0, linetype = "dashed", colour = "grey55",
+             linewidth = 0.35) +
+  geom_point(size = 3.4, alpha = 0.95,
+             position = position_dodge(width = 0.45)) +
+  scale_colour_manual(values = PAL_GENO, name = "Source",
+                      labels = c(a = "A", c = "C", d = "D")) +
+  scale_shape_manual(values = SHP_GENO, name = "Source",
+                     labels = c(a = "A", c = "C", d = "D")) +
+  scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
+                     labels = c("better\nat 31C", "",
+                                "little/no\npenalty", "",
+                                "worse\nat 31C")) +
+  coord_cartesian(xlim = c(-1.05, 1.05)) +
+  labs(x = "Heat effect within each physiology response",
+       y = NULL,
+       title = "Physiology: C loses less under heat",
+       subtitle = str_wrap(
+         "Each point is a source-specific endpoint contrast, scaled within that response. C sits closer to little/no penalty for all four colony-wide responses.",
+         width = 100
+       )) +
+  theme_pub(9) +
+  theme(plot.title = element_text(face = "bold"),
+        panel.grid.major.y = element_line(colour = "grey95", linewidth = 0.2),
+        legend.position = "bottom")
+
+save_fig(p_physiology, "19f_source_physiology_heat_penalties", width = 160,
+         height = 82)
+
+# Forest plot: each point is one source thicket's standardized heat effect on one
 # response, faceted by domain. Dashed line at x = 0 marks "no heat effect".
 dash_mean <- all_eff |>
   group_by(thicket) |>
@@ -168,9 +296,9 @@ p_dash_detail <- ggplot(all_eff,
   geom_vline(xintercept = 0, linetype = "dashed", colour = "grey55",
              linewidth = 0.35) +
   geom_point(size = 3.0, alpha = 0.95) +
-  scale_colour_manual(values = PAL_GENO, name = "Genet",
+  scale_colour_manual(values = PAL_GENO, name = "Source",
                       labels = c(a = "A", c = "C", d = "D")) +
-  scale_shape_manual(values = SHP_GENO, name = "Genet",
+  scale_shape_manual(values = SHP_GENO, name = "Source",
                      labels = c(a = "A", c = "C", d = "D")) +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
                      labels = c("better/faster\nat 31C", "",
@@ -189,9 +317,9 @@ p_dash_detail <- ggplot(all_eff,
 p_dash <- p_dash_mean + p_dash_detail +
   plot_layout(widths = c(0.82, 2.35), guides = "collect") +
   plot_annotation(
-    title = "Genet C is least harmed by heat",
+    title = "Source C is least harmed by heat",
     subtitle = str_wrap(
-      "Each response is first converted to a 31C vs 28C heat effect and put on a common within-response scale. C stays close to little/no penalty, while A and D show larger losses or delays.",
+      "A/C/D are field source labels, not verified genetic individuals. Each response is first converted to a 31C vs 28C heat effect and put on a common within-response scale. C stays close to little/no penalty, while A and D show larger losses or delays.",
       width = 105
     ),
     caption = str_wrap(
@@ -206,7 +334,7 @@ p_dash <- p_dash_mean + p_dash_detail +
 save_fig(p_dash, "19_genet_dashboard", width = 200, height = 185)
 
 # ---- Composite thermal resilience score ----------------------------------
-# Per genet: mean standardized heat sensitivity across finite response effects.
+# Per source thicket: mean standardized heat sensitivity across finite response effects.
 # Lower composite = smaller heat penalty and therefore greater resilience.
 resilience <- all_eff |>
   group_by(thicket) |>
@@ -227,10 +355,10 @@ composite_n_note <- resilience |>
   paste(collapse = ", ")
 
 # This summary table is the primary output: script 20 reads it (and its
-# rank_overall column) back in as the "Genet resilience" rows.
+# rank_overall column) back in as the "source resilience" rows.
 write_csv(resilience, file.path(TBL_DIR, "19_genet_resilience_summary.csv"))
 
-# Bar chart of the composite ranking; each bar is annotated with that genet's
+# Bar chart of the composite ranking; each bar is annotated with that source's
 # multivariate PCA displacement as an independent cross-check on the ordering.
 p_rank <- ggplot(resilience,
                   aes(reorder(thicket, -mean_sensitivity),
@@ -240,7 +368,7 @@ p_rank <- ggplot(resilience,
                                 n_responses, pca_displacement)),
             vjust = -0.25, lineheight = 0.95, size = 3, colour = "grey20") +
   scale_fill_manual(values = PAL_GENO, guide = "none") +
-  labs(x = "Genet",
+  labs(x = "Source thicket",
        y = "Mean relative heat penalty\n(row-scaled, unitless)",
        title = "Composite of standardized heat effects",
        subtitle = str_wrap(
@@ -248,7 +376,7 @@ p_rank <- ggplot(resilience,
          width = 55
        ),
        caption = str_wrap(
-         paste0("Finite effects averaged per genet: ", composite_n_note,
+         paste0("Finite effects averaged per source thicket: ", composite_n_note,
                 ". Missing or non-finite hazard ratios are omitted. PCA displacement is a separate descriptive check using centered/scaled final physiology values."),
          width = 70
        )) +
@@ -258,7 +386,7 @@ p_rank <- ggplot(resilience,
 save_fig(p_rank, "19b_genet_resilience_ranking", width = 130, height = 110)
 
 # ---- Decomposed dashboard: heat-only vs heat-while-wounded ---------------
-# The composite above pools across wound state. To answer "is genet C
+# The composite above pools across wound state. To answer "is source C
 # resilient to heat per se, or only to heat-while-wounded?" we split the
 # continuous-response standardized effect into two scopes. Morphology Cox
 # effects remain wounded-only by design.
@@ -319,8 +447,8 @@ p_decomp <- ggplot(decomp,
              colour = "grey60", linewidth = 0.3) +
   geom_point(size = 2.8, alpha = 0.9) +
   facet_grid(domain ~ scope, scales = "free_y", space = "free_y") +
-  scale_colour_manual(values = PAL_GENO, name = "Genet") +
-  scale_shape_manual(values = c(a = 16, c = 17, d = 15), name = "Genet") +
+  scale_colour_manual(values = PAL_GENO, name = "Source") +
+  scale_shape_manual(values = c(a = 16, c = 17, d = 15), name = "Source") +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
                      labels = c("-1", "-0.5", "0", "0.5", "1\nrow max")) +
   coord_cartesian(xlim = c(-1.05, 1.05)) +
@@ -344,7 +472,7 @@ save_fig(p_decomp, "19c_decomposed_resilience", width = 200, height = 175)
 
 # ---- Focused wound-healing heat penalties --------------------------------
 # Same row-max-scaled Cox effects as the dashboard, filtered to the wounded-only
-# morphology milestones so the genet pattern is visible without the physiology
+# morphology milestones so the source-thicket pattern is visible without the physiology
 # rows. Positive values mean the milestone was delayed under 31C.
 morph_penalty <- cox_eff |>
   mutate(
@@ -419,9 +547,9 @@ p_morph_traits <- ggplot(morph_penalty,
              linewidth = 0.35) +
   geom_point(size = 3.1, alpha = 0.95,
              position = position_dodge(width = 0.45)) +
-  scale_colour_manual(values = PAL_GENO, name = "Genet",
+  scale_colour_manual(values = PAL_GENO, name = "Source",
                       labels = c(a = "A", c = "C", d = "D")) +
-  scale_shape_manual(values = SHP_GENO, name = "Genet",
+  scale_shape_manual(values = SHP_GENO, name = "Source",
                      labels = c(a = "A", c = "C", d = "D")) +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
                      labels = c("earlier\nat 31C", "",
@@ -438,13 +566,13 @@ p_morph_traits <- ggplot(morph_penalty,
 p_morph <- p_morph_mean + p_morph_traits +
   plot_layout(widths = c(0.8, 2.2), guides = "collect") +
   plot_annotation(
-    title = "Heat delays wound healing less in genet C",
+    title = "Heat delays wound healing less in source C",
     subtitle = str_wrap(
       "Dots left of the dashed line reached a milestone earlier at 31C; dots right of the line were delayed. C clusters near no delay or earlier onset, while A and D show the largest delays for some steps.",
       width = 105
     ),
     caption = str_wrap(
-      "Scores compare genets within each milestone after putting Cox timing effects on a common scale. n = 8 wounded fragments per genet and milestone (4 at 28C, 4 at 31C); pigment over wound for genet A is omitted because the hazard ratio was non-finite.",
+      "Scores compare source thickets within each milestone after putting Cox timing effects on a common scale. n = 8 wounded fragments per source thicket and milestone (4 at 28C, 4 at 31C); pigment over wound for source A is omitted because the hazard ratio was non-finite.",
       width = 105
     )
   ) &
@@ -455,7 +583,7 @@ p_morph <- p_morph_mean + p_morph_traits +
 save_fig(p_morph, "19d_wound_healing_heat_penalties", width = 185,
          height = 115)
 
-# Per-genet × scope mean sensitivity
+# Per-source-thicket × scope mean sensitivity
 resilience_decomp <- decomp |>
   group_by(thicket, scope) |>
   summarise(mean_sensitivity = mean(z, na.rm = TRUE),
@@ -465,12 +593,14 @@ resilience_decomp <- decomp |>
 write_csv(resilience_decomp,
           file.path(TBL_DIR, "19c_resilience_decomp_by_scope.csv"))
 
-cat("\n=== Genet resilience summary ===\n")
+cat("\n=== Source-thicket resilience summary ===\n")
 print(resilience |> mutate(across(where(is.numeric), \(x) round(x, 3))))
 cat("\n=== Decomposed resilience by scope ===\n")
 print(resilience_decomp |> mutate(across(where(is.numeric), \(x) round(x, 3))))
 cat("\nWrote 19_genet_dashboard.{pdf,png}, 19b_genet_resilience_ranking.{pdf,png},",
     "19c_decomposed_resilience.{pdf,png},",
+    "19e_source_heat_penalty_summary.{pdf,png},",
+    "19f_source_physiology_heat_penalties.{pdf,png},",
     "19d_wound_healing_heat_penalties.{pdf,png},",
     "19_genet_resilience_summary.csv,",
     "19c_resilience_decomp_by_scope.csv\n")
