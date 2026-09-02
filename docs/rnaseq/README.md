@@ -26,6 +26,10 @@ The RNA-seq analysis has not been run yet. The **phenotype analysis** (Methods +
 | Plate maps / IDs | `notes/LTH_PlateLayout_with_IDs`, `data/raw/plate_layout/` |
 | Per-library phenotype covariate table | `output/tables/31_rnaseq_phenotype_covariates.csv` (built by `code/31_rnaseq_covariate_table.R`) |
 | Raw un-recoded library lookup | `output/tables/31_rnaseq_library_lookup_raw.csv` |
+| Tentative expression-phenotype integration plan | `docs/rnaseq/expression_integration_analysis_plan.md` |
+| Coral expression literature synthesis | `docs/rnaseq/coral_expression_literature_synthesis.md` |
+| Candidate gene evidence table | `docs/rnaseq/candidate_genes_reference.csv` |
+| Literature search log | `docs/rnaseq/literature_search_log.md` |
 | Per-genet resilience scores | `output/tables/19_genet_resilience_summary.csv` |
 | Cached Cunning 2024 ED50 | `data/external/cunning2024_apulchra_ed50.csv` |
 | Thicket GPS / metadata | `data/raw/metadata/metadata.csv` |
@@ -94,64 +98,40 @@ Every link runs both ways (confirm / extend / revise). Timecourse alignment:
 
 ---
 
-## 5. Candidate genes — literature + lab reference (optional)
+## 5. Candidate genes and literature synthesis
 
-**Prior context for interpretation, not a target panel — do not filter the DE analysis to these genes.** Every gene-citation pair below was checked by reading the paper. Source tags: a paper name means the gene is named *in that paper*; **(lab)** means it comes from lab planning docs with no external primary source confirmed; ⚠ marks a discrepancy. Machine-readable twin: `candidate_genes_reference.csv`. The heat x wound interaction is the molecular LTH phenotype; higher baseline expression of stress-response genes ("frontloading," Barshis 2013) is one possible gene-expression test of the C > D > A resilience ranking.
+Use the literature as prior context, not as a target panel. Do not filter the
+DE analysis to these genes.
 
-### Table 1 — Wound-healing / regeneration candidates
+Current evidence package:
 
-| Gene / pathway | Functional role | Axis | Why it matters for LTH | Source (verified) |
-|---|---|---|---|---|
-| **c-Fos** | Immediate-early transcription factor | Wound (acute) | Up in the *earliest* regeneration stage; cleanest acute marker — is the acute response intact under heat? | **Xu 2023** ✓ (up, earliest stages) |
-| **JNK cascade** | Stress-activated MAP-kinase signalling | Wound (acute) | Implicated via GO enrichment; regulates c-Fos | **Xu 2023** ✓ (GO) |
-| **NF-κB** | Innate-immune signalling | Wound / immunity | "NF-κB-inducing kinase" in GO enrichment | **Xu 2023** ✓ (GO) |
-| **Wnt ligands + β-catenin** (APC, Wntless) | Axis patterning, regeneration | Regeneration | Core **regeneration** pathway — the phase heat impairs | **Xu 2023** ✓ (Wnt-1/2b/4/7b/8/8a/16/10; β-catenin). ⚠ *Wnt3* specifically is **not** in Xu — it is the NSF panel's pick (lab) |
-| **FGF ligands / FGF-receptors / Sprouty** | Growth-factor signalling; wound-specific | Regeneration | Proliferative regrowth marker; expected suppressed if regeneration is blocked under heat | **Xu 2023** ✓ (FGF1/2/7/10/15/18; 3 FGF-Rs; sprouty) |
-| **ADAMTS metalloproteases** | ECM remodelling | Wound | ECM turnover at the wound bed (ADAMTS18-like) | **Xu 2023** ✓ |
-| **Galaxin** | Skeletal organic-matrix / biomineralization | Skeletal repair | New-skeleton/corallite formation — the LTH regeneration milestone (`new_corallites_on_tip`) | **Xu 2023** ✓ |
-| **Ca²⁺-transport genes** (carbonic anhydrase, SLC4γ) | Calcification ion transport | Skeletal repair | Calcification under heat (LTH 34 % growth drop) | Xu 2023 ✓ for "calcium-ion transmembrane transport" (GO); *carbonic anhydrase / SLC4γ* named only in **(lab)** signaling notes |
-| **MMPs (matrix metalloproteinases)** | Tissue/ECM remodelling | Wound | Remodelling during closure/regrowth | **(lab)** Common-Garden H10. ⚠ Xu reports **ADAMTS, not MMPs** |
-| **TGF-β** | Wound repair / cell migration (vertebrate paradigm) | (see note) | Listed in the NSF panel — **but test, don't assume** | **(lab)** NSF Aim-2. ⚠ **Xu 2023 explicitly found TGF-β *not* involved in coral regeneration** |
-| **PCNA** | Proliferation marker (Phoenix-effect test) | Regeneration | Reads out proliferation | **(lab)** NSF Aim-2 — ⚠ **not** named in Xu 2023; the planning-doc co-cite ("Tinoco 2023") does not exist. Substitute a verified proliferation marker before use |
-| **Granular amoebocytes + melanin-bearing immune cells** *(cellular — no gene symbols)* | Four-phase wound response: degranulation → immune infiltration (6 h) → proliferation (24 h) → maturation/apoptosis (48 h) | Wound / immunity | Cellular framework + timeline for the healing phase | **Palmer 2011** ✓ (cells/timeline). ⚠ names **no genes**; phenoloxidase & phagocytosis discussed only re *other* organisms, not shown in coral |
+- Concise synthesis: `docs/rnaseq/coral_expression_literature_synthesis.md`
+- Machine-readable evidence table: `docs/rnaseq/candidate_genes_reference.csv`
+- Search provenance and follow-up gaps: `docs/rnaseq/literature_search_log.md`
 
-### Table 2 — Thermal-stress candidates
+Highest-value candidate processes for LTH:
 
-| Gene / family | Functional role | Direction under heat | Why it matters for LTH | Source (verified) |
-|---|---|---|---|---|
-| **HSP70 (+ HSP75)** | Core heat-shock chaperones | Up acutely; **higher constitutive baseline ("frontloaded") in tolerant** | Thermal-response + genet test: frontloading predicts resilient genet C carries higher baseline | **Barshis 2013** ✓ (HSP70/HSPA5); **Bay & Palumbi 2015** ✓ (HSP75). (HSP90 not named in either — omitted) |
-| **Small HSPs** (HSPB1/Hsp23, Hsp16.2) | Small heat-shock chaperones | Up acute; lower in tolerant genotypes | Acute-stress reporters; contrast with frontloaded HSP70 | **Barshis 2013** ✓ |
-| **HSF (heat-shock transcription factor)** | Master regulator of the HSP response | Activates HSPs under heat | Upstream switch; CRISPR knockout reduces thermal tolerance | **Cleves & Tinoco 2020** ✓ (PDF verified; 10.1073/pnas.1920779117) |
-| **Cu/Zn-SOD; catalase; peroxidasin** | Reactive-oxygen-species detox | Catalase up in bleaching; SOD & peroxidasin in tolerant | Sub-bleaching oxidative load — likely cost diverting resources from regeneration at 31 °C | **Barshis 2013** ✓ (Cu/Zn-SOD, peroxidasin); **Seneca & Palumbi 2010** ✓ (catalase, AmCat) |
-| **TNFR; TRAF3 (TNF/apoptosis)** | Programmed cell death + immune signalling | TRAF3 among top up-regulated; frontloaded in tolerant | Cell-fate decisions under heat; links stress to tissue loss | **Barshis 2013** ✓ |
-| **Ubiquitin–proteasome** (E3/RING-finger ligases; proteasome) | Protein quality control | Up acute; elevated pre-stress in tolerant | Proteostasis under thermal load | **Bay & Palumbi 2015** ✓ (ubiquitin/RING-finger); **Dixon 2015** ✓ (proteasome) |
-| **Ion / Ca²⁺ transporters + oxidoreductases** | Ion homeostasis, redox balance | Higher pre-stress in heat-tolerant larvae (heritable) | Heritable heat-tolerance correlate; Ca²⁺ handling also links to calcification | **Dixon 2015** ✓ |
-| **Chromoprotein / GFP-like pigments** | Photoprotection (screening pigments) | Up in bleaching | Molecular side of the LTH color-card paling | **Seneca & Palumbi 2010** ✓ (AmCh) |
-| **C-type lectin** | Symbiont recognition / innate immunity | Up in bleaching | Host–symbiont signalling under heat (LTH symbiont loss) | **Seneca & Palumbi 2010** ✓ (AmCTL). (Barshis named *mannose-binding* lectin, down — different lectin) |
-| **Signalling / TF network modules** (GPCR signalling, sequence-specific TFs up; ECM modules down) | Co-expressed regulatory modules (WGCNA) | Rapidly modulated; faster recovery in resilient species | Module-level resilience view | **Thomas 2019** ✓ (module-level; no individual gene names) |
+| LTH question | Candidate processes | Most useful contrast |
+|---|---|---|
+| Did the sampled margin capture a wound signal? | c-Fos/AP-1, JNK/MAPK, TLR/NOD/NF-kB, ECM remodeling, oxidative response | wounded vs unwounded at Day 1 and Day 3 |
+| Does heat spare closure but block regeneration? | Wnt, FGF, calicoblast fate, galaxin/SAARP/mucin, carbonic anhydrase, Ca2+ handling, skeletal matrix proteins | 31 C vs 28 C in wounded Day 10 margins |
+| Is the heat response chronic rather than an acute spike? | HSPs, ubiquitin-proteasome, redox, mitochondria, metabolism, cell adhesion, immune/apoptosis | 31 C vs 28 C in unwounded margins across Day 1, 3, 10 |
+| Does source C differ from A/D? | frontloaded or dampened stress modules, redox/proteostasis, symbiosis, cell adhesion, ion transport | temperature x source-thicket label, with SNP clusters added when available |
+| Do organismal traits map to expression? | WGCNA modules for stress, symbiosis, pigment, calcification, growth, regeneration | module eigengenes vs PAM, color, symbionts, growth, and morphology milestones |
 
-**Two ways to read the LTH data:**
-- **Frontloading (Barshis 2013):** tolerance means a *higher constitutive baseline* of stress genes, not a bigger acute induction. → Compare **per-genet baselines** (C vs A) at D0 — the molecular test of C > D > A.
-- **Heat-tolerance ↔ growth tradeoff (Cornwell 2021, phenotypic — no genes):** resilient colonies grow less and carry fewer symbionts. → A candidate mechanism for the LTH 34 % growth reduction.
+Evidence tiers in the CSV:
 
-**Caveats.** This is prior context, not a target panel. Most genes come from congeners — wound genes from *A. millepora* (Xu 2023) plus the lab *A. pulchra* near/far pilot; thermal genes from *Acropora* spp. and *Porites astreoides* (Dixon 2015). Establish orthology to the *A. pulchra* Conn 2025 genome before mapping these to loci (deferred). Think pathways, not single loci — expect multiple paralogs per family.
+| Tier | Meaning |
+|---|---|
+| A | Direct coral expression evidence from Acropora or an LTH-like heat/injury design |
+| B | Direct coral expression evidence from another genus, life stage, or related stress design |
+| C | Review, meta-analysis, genomic association, or phenotype-only support |
+| D | Lab-only, contradicted, or not yet source-verified |
 
-### References (verified)
-
-| Citation | Title (short) | Venue | DOI | Verification |
-|---|---|---|---|---|
-| Xu et al. 2023 | Wound healing & regeneration in *Acropora millepora* | Front. Ecol. Evol. | 10.3389/fevo.2022.979278 | ✅ PDF read |
-| Palmer et al. 2011 | Corals use similar immune cells & wound-healing processes | PLoS ONE | 10.1371/journal.pone.0023992 | ✅ PDF read |
-| Barshis et al. 2013 | Genomic basis for coral resilience (frontloading) | PNAS | 10.1073/pnas.1210224110 | ✅ PDF read |
-| Seneca & Palumbi 2010 | Gene expression in a coral undergoing natural bleaching | Mar. Biotechnol. | 10.1007/s10126-009-9247-5 | ✅ PDF read |
-| Bay & Palumbi 2015 | Rapid acclimation via transcriptome change | Genome Biol. Evol. | 10.1093/gbe/evv085 | ✅ PDF read |
-| Dixon et al. 2015 | Genomic determinants of heat tolerance across latitudes | Science | 10.1126/science.1261224 | ✅ PDF read |
-| Thomas et al. 2019 | Transcriptomic resilience + symbiont shuffling | Mol. Ecol. | 10.1111/mec.15143 | ✅ PDF read |
-| Cornwell et al. 2021 | Heat tolerance × symbiont load → growth tradeoff (phenotypic) | eLife | 10.7554/eLife.64790 | ✅ PDF read (no genes) |
-| Cleves & Tinoco et al. 2020 | CRISPR knockout of a heat-shock TF reduces thermal tolerance | PNAS | 10.1073/pnas.1920779117 | ✅ PDF read |
-| Hemond, Kaluziak & Vollmer 2014 | Genetics of colony form & function in Caribbean *Acropora* | BMC Genomics | 10.1186/1471-2164-15-1133 | ✅ NotebookLM |
-
-*Lab-internal sources: 2023 *A. pulchra* near/far DEG pilot (76 near / 165 far DEGs at Day 7; 36 TRIzol samples at −80 °C, unprocessed); NSF BIO/OCE Aim-2 candidate panel; Mar-15-2026 Keck signaling notes.*
+Key guardrail: HSP70/HSP90 are useful but not sufficient. In chronic,
+sublethal heat, the signal may appear as dampening, altered recovery, redox or
+proteostasis load, metabolism, symbiosis, or cell-adhesion changes rather than a
+simple acute heat-shock spike.
 
 ---
 
