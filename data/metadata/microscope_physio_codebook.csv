@@ -1,0 +1,19 @@
+column,unit,description
+thicket,NA,Arbitrary alphabetical thicket/genet label used before genotype matching
+wound,yes/no,Whether the coral was wounded; all rows in this microscope cohort are wounded
+tank,NA,Tank assignment
+sample,NA,Sample purpose; all rows are photo-only microscope corals
+treatment,C,Temperature treatment in Celsius
+id,Number,Specific coral fragment ID
+date,MM/DD/YYYY,Date of microscope scoring/photo collection
+day,NA,Day post-wounding; D0 is the day of wounding
+tissue_over_wound,yes/no,Whether coenosarc/tissue was present and consistently covering the wound area under microscope assessment
+hole_in_center,yes/no,Whether a central hole was present in the wound under microscope assessment
+polyp_in_hole,yes/no,Whether a polyp was present in the central hole under microscope assessment
+wound_smoothed,yes/no,Whether the wound showed skeletal remodeling or smoothing under microscope assessment
+pigment_over_wound,yes/no,Whether the wound area appeared pigmented; scored only through day 7 in the current sheet
+tip_exist,yes/no,Whether the axial corallite/tip was visible under microscope assessment
+tip_extension,yes/no,Whether the axial corallite extended vertically under microscope assessment
+new_corallites_on_tip,yes/no,Whether newly budding corallites were present along the axial corallite
+use_photo,yes/no,Whether the image series is useful for illustrating trends; not a response variable
+notes,NA,General scoring/photo notes

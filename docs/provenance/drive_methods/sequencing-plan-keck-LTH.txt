@@ -1,0 +1,187 @@
+﻿Proposal for Long Term Heating Experiment Analysis of Heat x Wounding 
+LTH Main Gene Expression Analysis Plan — Margin-Only (Days 1, 3, 10)
+Updated plan incorporating four tanks per temperature, each with three genotypes (A, C, D). This represents the main gene expression analysis for Margin-only biopsies collected at three timepoints (Days 1, 3, and 9) after wounding. Day 1 captures the wound response after 24 hours.
+1. Experimental Factors
+·           Temperature: 28 °C and 31 °C
+·           Wound: Wounded (cut) vs Unwounded (sham-handled)
+·           Timepoints: Day 1 (24 hrs post-wound Margin), Day 3, Day 10, Day 15[a][b] (Day 15 samples exist but will not be analyzed)
+·           Position: Margin (M) only for all timepoints
+·           Genotypes: A, C, D per tank (with 1 fragment per genotype per day per wound ttt = 24 frags total/tank)
+·           Tanks: 4 per temperature (8 total across both treatments) 
+
+
+  
+
+2. Sampling Design and Counts
+At each timepoint (Days 1, 3, 10) we sample both Wounded (W) and Unwounded (U) margins from all four tanks per temperature, with three genotypes (thickets a, c, d) represented in each tank.
+* Tank sets by temperature:
+
+   * 28 °C: tanks 3, 6, 9, 12
+
+   * 31 °C: tanks 4, 5, 10, 11
+
+Counts per timepoint:
+      * Per temperature × day × wound: 4 tanks × 3 genotypes = 12 samples
+
+      * Per temperature × day (W + U): 12 W + 12 U = 24 samples
+
+      * Across both temperatures per day: 24 (28 °C) + 24 (31 °C) = 48 samples
+
+Total across all days:
+         * 3 days × 48 samples/day = 144 libraries
+
+This design ensures balanced replication across temperature, wound status, timepoint, and genotype, yielding a total of 144 libraries.
+In summary: 3 genotypes (A,C,D) x 2 wound ttts (U, W) x [4 tanks x 2 temps (28,31)] x 3 days x 1?? distance (??) = 144
+
+
+3. Batch-Robust Plating and Sequencing[c][d][e]
+Samples will be distributed across two 96-well plates (88 sample wells + 8 controls per plate). Plates are balanced such that no single factor (temperature, wound, day, tank, genotype) defines a plate or lane.
+Plate Details
+
+
+Each 96-well plate will contain 72 primary coral RNA samples, along with 8 fixed control wells and up to 8 optional technical anchor wells reserved for cross-plate normalization. This layout maximizes use of plate capacity while maintaining strict factor balance across all experimental variables.
+Composition per plate:
+            * Per day: Each plate includes 24 samples, divided evenly across temperatures and wound treatments:
+
+               * 12 samples from the 28 °C treatment (6 wounded, 6 unwounded)
+
+               * 12 samples from the 31 °C treatment (6 wounded, 6 unwounded)
+
+                  * Across three sampling days (1, 3, and 10): 24 samples × 3 days = 72 primary libraries per plate.
+
+                  * Across both plates: 72 × 2 = 144 total coral libraries.
+
+The remaining 16 wells per plate (8 fixed + 8 optional) serve quality-control and normalization functions:
+Fixed controls (8 per plate):
+                     * 2 RNA extraction no-template controls (NTCs) to detect contamination.
+
+                     * 2 library preparation blanks (no RNA added) to detect cross-sample carry-over.
+
+                     * 2 ERCC or spike-in RNA standards to monitor library construction efficiency and sequencing consistency.
+
+                     * 2 technical replicate samples drawn from the coral RNA pool (“anchor” samples) that will be used for cross-plate and cross-run batch correction.
+
+Optional technical anchors (up to 8 per plate):
+If space permits, we will include additional technical replicates selected to span key treatment combinations (e.g., one Wounded and one Unwounded sample from each temperature). These replicates enable formal batch-effect estimation and correction during downstream data analysis.
+Plate design rationale:
+Distributing each day’s 28 °C and 31 °C samples evenly across the two plates ensures that temperature, wound status, and day are never confounded with plate or run. Every plate therefore contains a complete microcosm of the experiment—a balanced subset of all conditions. Both plates will be pooled and sequenced together on the same NovaSeq run to eliminate sequencing-lane effects. Extraction and library-prep batches will follow the same interleaved design, ensuring that each batch contains the same representation of temperatures, wound states, tanks, and genotypes.
+This layout provides clean, factor-balanced coverage across biological and technical sources of variation, simplifying statistical modeling and minimizing the need for post-hoc batch correction.
+
+
+Extraction, Library Prep, and Sequencing details
+EZNA Total RNA extraction kit starting with DNA/RNA shield preserved samples
+NEBNext Ultra Directional RNA Library prep kit. We’ve used ¼ reactions successfully so that’s probably what I would do here.
+Sequence on a single NovaSeq 25B lane which outputs 3.1 billion read pairs which should be about 16 million per sample if the total sample number is 192
+________________
+Anchor/Control references 
+Construction of RNA reference materials for improving the quantification of transcriptomic data
+
+
+Multi-omics data integration using ratio-based quantitative profiling with Quartet reference materials
+
+
+4. Factor Balancing
+To ensure that no single experimental factor (e.g., temperature, wound status, tank, or genotype) aligns with a specific plate, batch, or sequencing lane, all samples will be fully interleaved across plates and processing steps. This interleaving prevents technical artifacts (such as batch or plate effects) from mimicking biological differences.
+Each Temp × Day × Wound combination includes 12 samples (4 tanks × 3 genotypes). These 12 samples are divided evenly across the two 96-well plates—six on Plate 1 and six on Plate 2. This guarantees that every treatment condition is represented on both plates.
+Both plates therefore contain equal representation of all experimental factors—temperature, wound state, day, tank, and genotype—ensuring that any minor technical variation (plate or sequencing run) is statistically orthogonal to the biological design.
+Extraction and library preparation batches will follow this same interleaved structure. Each extraction batch will include RNA from both temperatures, both wound conditions, and multiple tanks and genotypes. This prevents any single batch or processing day from being dominated by one treatment.
+To further minimize bias from tank–plate associations, genotype assignments are rotated across plates and days. For each temperature, we assign genotypes to plates using a structured but alternating pattern, ensuring that all tanks and genotypes appear on both plates across the time series:
+                        * 28 °C tanks: 3, 6, 9, 12
+
+                        * 31 °C tanks: 4, 5, 10, 11
+
+Example daily mapping:
+                           * Tanks 3 & 9 (28 °C) and 4 & 10 (31 °C): genotypes A and C → Plate 1; genotype D → Plate 2
+
+                           * Tanks 6 & 12 (28 °C) and 5 & 11 (31 °C): genotype D → Plate 1; genotypes A and C → Plate 2
+
+On the next sampling day, the assignment will be flipped (A/C ↔ D), and permuted again on the third day to prevent any consistent tank-to-plate pairing over time.
+Under this layout, each plate on every day contains:
+                              * Equal numbers of samples from 28 °C and 31 °C treatments
+
+                              * Equal numbers of Wounded (W) and Unwounded (U) fragments
+
+                              * Representation from all four tanks at each temperature
+
+                              * All three genotypes (A, C, D) represented at both temperatures
+
+This design ensures that potential variation due to extraction, library prep, or sequencing plate is completely disentangled from biological treatments. Any residual technical variation can be modeled statistically without collinearity, thereby maximizing power to detect true Temperature × Wound × Time effects.
+Controls Per Plate ? (guessing here)[f]
+·           2 extraction NTCs
+·           2 library blanks/NTCs
+·           2 ERCC or spike-in controls
+·           2 technical replicates (cross-plate anchors)[g][h]
+4. RNA and Library Quality Control
+·           (guessing here) RNA input: 50–100 ng per sample; RIN ≥ 7 or DV200 > 70%.
+·           (guessing here) Sequencing depth: ≥ 20 million paired-end reads per library
+·           (guessing here) ≥ 50% of reads assigned to host genes; record host:symbiont ratio for each library.
+·           Metadata should include: plate, well, extraction batch, library batch, lane, tank, genotype, temperature, wound, day, and QC metrics.
+
+
+Here’s my attempt at visualizing it, heres a spreadsheet of what this could look like  - LTH_PlateLayout_with_IDs
+
+
+
+
+
+
+5. Hypotheses
+1.         Early Stress and Immune Activation (Day 1): Immediately after wounding, we expect coral tissue at the margin to rapidly activate genes that protect cells from stress and initiate the healing process. These include genes that neutralize reactive oxygen species (ROS)—the molecular “smoke” produced by tissue damage—and genes that strengthen cell membranes and secrete protective proteins into the wound area. Unwounded corals should show little change at this stage. Warm-water (31 °C) corals are likely to show a stronger and longer stress response, suggesting that heat amplifies injury sensitivity.
+
+2.         Temperature Modifies the Healing Program: At 28 °C, we expect corals to begin transitioning from defense to repair within the first few days—genes involved in tissue growth, calcium deposition, and extracellular matrix (ECM) rebuilding should increase. At 31 °C, these same repair signals may remain muted or delayed, while stress and protein-damage pathways stay elevated. In effect, heat forces the coral to remain in a reactive, damage-control mode instead of progressing into repair. 
+3.         Progression from Defense to Repair to Recovery (Day 1 to 3 to 9): We expect healing to unfold in distinct stages: Day 1: Shock and defense (injury detection, inflamatory response, ROS control, immune activation, cell migration and proliferation to re-establish initial epithelial barrier). Day 3: Structural rebuilding (collagen production, extracellular matrix reformation (matrix metalloproteases). Day 10: Remodeling and strengthening (skeletal organic matrix and calcification proteins). By Day 10, corals at 28 °C may look transcriptionally similar to unwounded controls, indicating recovery of the “growing tip” state, while 31 °C corals may still express stress-associated genes.
+
+4.         Temperature × Wound Interaction: We expect heat not only to amplify the duration of stress phase but also to delay a shift to baseline (calcification). Warm-exposed corals may exhibit a prolonged inflammatory signature, whereas ambient-exposed corals should activate genes tied to cell proliferation and calcification earlier in the recovery process.
+
+5.         Whole-Coral (Systemic) Effects of Heat: Even in unwounded fragments, we expect high temperature to reduce expression of genes involved in mitochondrial energy production and increase lipid-metabolism genes—reflecting a general metabolic slowdown. This reallocation of energy likely leaves fewer resources available for regeneration when injury occurs.
+
+6.         Integration with Physiology: We expect gene clusters related to photosynthesis, pigment production, and energy metabolism to correlate with measured physiological traits—particularly PAM fluorescence, color, and buoyant weight. Stronger correlations at 28 °C would suggest tight molecular–physiological coupling, whereas weaker ones at 31 °C would indicate heat-induced decoupling between molecular repair and visible recovery.
+
+7.         Genotype Differences in Recovery Strategy: We expect some coral genotypes to ramp up repair genes more quickly and suppress stress genes faster, resulting in faster healing and better physiological recovery. Other genotypes may sustain prolonged oxidative-stress signatures, showing inherent sensitivity to combined wounding and thermal stress.
+ 
+ 
+________________
+
+
+Table 1. This table summarizes representative genes drawn from Han et al. (2025) and related coral regeneration studies. Each functional category groups genes with similar biological roles relevant to coral wound healing and thermal response. These gene sets can be used for gene set enrichment analyses (GSEA) or module interpretation in bulk RNA-seq data from Acropora pulchra margin samples.
+Oxidative Stress & Defense: Genes involved in detoxifying reactive oxygen species (ROS), maintaining redox balance, and protecting cellular proteins from damage during the early stress response.
+Extracellular Matrix (ECM) & Remodeling: Genes mediating collagen synthesis, matrix turnover, protease regulation, and tissue adhesion during structural rebuilding of the wound.
+Biomineralization & Skeletal Organic Matrix (SOM): Genes associated with secretion of organic matrix proteins, calcium handling, and skeletal deposition that restore coral skeletal integrity.
+Metabolism & Energy Reallocation: Genes reflecting shifts in mitochondrial respiration, ATP synthesis, and lipid or carbohydrate metabolism that redistribute energetic resources during healing and under heat stress.
+Signaling & Cell Communication: Genes coordinating cell proliferation, inflammatory control, and intercellular signaling to synchronize stress response and tissue regeneration.
+Together, these categories provide a functional framework for interpreting coral gene-expression trajectories across wound-healing stages and temperature treatments.
+Category
+	Example Genes (Marker List)
+	Biological Role / Interpretation
+	Oxidative Stress & Defense
+	CAT, AOS-LOX, CYBA, PXDN, PRDX4, GSTK1, SODC, GPX1, GSTM3, HSP70, HSP90AA1, DNAJB1, TXN, TXNRD1
+	Detoxify ROS, maintain redox balance, protect proteins from heat and oxidative damage
+	Extracellular Matrix (ECM) & Remodeling
+	COL1A2, COL4A1, THBS2, LAMC1, DAG1, SDC1, SDC4, MMP24, MMP25, TIMP1, CTSL, PZP, PSAP, PLOD1
+	Structural rebuilding, cell adhesion, protease/inhibitor balance, wound closure
+	Biomineralization & Skeletal Organic Matrix (SOM)
+	GALAXIN, SAARP1, SAARP2, MUCIN, CDCP1, PRG4, CARP4, CARP5, CA2, BMP1, CARP7, EF-hand Ca²+-binding
+	Deposition of new skeleton, matrix secretion, CaCO₃ nucleation
+	Metabolism & Energy Reallocation
+	ATP5A1, ATP5B, COX1, COX3, SDHB, NDUFA9, ACSL4, SCP2, CPT1A, PDHA1, PFKFB3, LDHA, FABP1, PPARA
+	ATP synthesis, mitochondrial respiration, lipid utilization, glycolytic adjustment
+	Signaling & Cell Communication
+	TGFBR1, TGFB1, FGF2, EGFR, NOTCH1, JUN, MAPK3, NFKBIA, IL1R, STAT3, CREB3L1
+	Coordinate stress response, inflammation, and cell proliferation during repair
+	 
+
+
+[a]Above says 1, 3, 10. Here 3, 10, 15. I have a comment below about excluding a point which would be a shame.
+[b]i revised this to refer to the experimental design.  it has 1, 3, 10, 15.  But we are on.y processing 1, 3, 10
+[c]I've never seen library prep and sequencing laid out like this before. I'll let Rachel weigh in. Briefly, the plates are for library prep. Then there is QC after prepping before sequencing in case libraries have to prepared again. For sequencing, samples will get run on lanes and these have max samples. Given how everything is broken up here, in theory you could just batch consecutive numbers in the lanes.
+[d]I was doing some thinking/reading about trying to put the same sample or a mixture of all samples on each plate to see how much they differed in their reads
+[e]Just a few details/thoughts:
+
+
+*There is no down side to doing a fraction of a plate. If we don't need a whole plate we shouldn't fill it
+
+
+*I guess I can see the advantage of having a few samples across two plates, but that's a pretty cautious approach I don't see taken commonly. We can account for batch effects as long as we balance across the other samples. If we really want to test directly for them, let's just do a few samples in both batches.
+[f]from here to the end....I'm clueless.
+[g]We should talk about which of these is valuable. I'm hesitant to use spikes because they can eat reads and (if you don't have super strong libraries because we never do) can really take over a run. I think my advice would be to balance across plates and (maybe) rerun a couple samples across batches
+[h]Looking at the references - I think these are mainly for measuring small differences in absolute expression values. I don't really think those are signals we will likely be able to pick up given the wild world of real life ;) I could also be convinced differently but not sure why a relative value is not what we want here

@@ -1,0 +1,257 @@
+thicket ,wound,tank,sample,treatment,id,date,day,tissue_over_wound,hole_in_center,polyp_in_hole,wound_smoothed,pigment_over_wound,tip_exist,tip_extension,new_corallites_on_tip,use_photo,notes
+c,yes,9,photo,28,15,07/05/2025,0,no,no,no,no,no,no,no,no,no,"no rfp, no gfp; good angle"
+c,yes,9,photo,28,16,07/05/2025,0,no,no,no,no,no,no,no,no,no,slight rfp? no gfp
+c,yes,6,photo,28,14,07/05/2025,0,no,no,no,no,no,no,no,no,no,"no rfp, no gfp"
+a,yes,9,photo,28,12,07/05/2025,0,no,no,no,no,no,no,no,no,yes,"no rfp, no gfp"
+a,yes,9,photo,28,13,07/05/2025,0,no,no,no,no,no,no,no,no,yes,"no rfp, no gfp; good angle"
+c,yes,6,photo,28,9,07/05/2025,0,no,no,no,no,no,no,no,no,yes,slight rfp? no gfp; good angle
+a,yes,6,photo,28,10,07/05/2025,0,no,no,no,no,no,no,no,no,yes,"no rfp, slight gfp?"
+a,yes,6,photo,28,11,07/05/2025,0,no,no,no,no,no,no,no,no,yes,"no rfp, no gfp"
+a,yes,5,photo,31,3,07/05/2025,0,no,no,no,no,no,no,no,no,no,"slight rfp, slight gfp?"
+c,yes,4,photo,31,5,07/05/2025,0,no,no,no,no,no,no,no,no,no,slight rfp? no gfp; good angle
+c,yes,4,photo,31,6,07/05/2025,0,no,no,no,no,no,no,no,no,no,"no rfp, no gfp"
+a,yes,4,photo,31,2,07/05/2025,0,no,no,no,no,no,no,no,no,no,slight rfp? slight gfp?
+a,yes,5,photo,31,4,07/05/2025,0,no,no,no,no,no,no,no,no,no,slight rfp? slight gfp? good angle
+c,yes,5,photo,31,8,07/05/2025,0,no,no,no,no,no,no,no,no,no,slight rfp? no gfp; good angle
+a,yes,4,photo,31,1,07/05/2025,0,no,no,no,no,no,no,no,no,yes,"no rfp, slight gfp? good angle"
+c,yes,5,photo,31,7,07/05/2025,0,no,no,no,no,no,no,no,no,yes,slight rfp? no gfp
+c,yes,9,photo,28,15,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+c,yes,9,photo,28,16,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+c,yes,6,photo,28,14,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+a,yes,9,photo,28,12,07/06/2025,1,yes,no,no,no,no,no,no,no,yes,NA
+a,yes,9,photo,28,13,07/06/2025,1,yes,no,no,no,no,no,no,no,yes,NA
+c,yes,6,photo,28,9,07/06/2025,1,yes,no,no,no,no,no,no,no,yes,NA
+a,yes,6,photo,28,10,07/06/2025,1,yes,no,no,no,no,no,no,no,yes,NA
+a,yes,6,photo,28,11,07/06/2025,1,yes,no,no,no,no,no,no,no,yes,NA
+a,yes,5,photo,31,3,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+c,yes,4,photo,31,5,07/06/2025,1,,no,no,no,no,no,no,no,no,NA
+c,yes,4,photo,31,6,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+a,yes,4,photo,31,2,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+a,yes,5,photo,31,4,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+c,yes,5,photo,31,8,07/06/2025,1,yes,no,no,no,no,no,no,no,no,NA
+a,yes,4,photo,31,1,07/06/2025,1,yes,no,no,no,no,no,no,no,yes,NA
+c,yes,5,photo,31,7,07/06/2025,1,,no,no,no,no,no,no,no,yes,NA
+c,yes,9,photo,28,15,07/07/2025,2,yes,no,no,no,no,no,no,no,no,Beginning to see pattern of hole in center tissue
+c,yes,9,photo,28,16,07/07/2025,2,yes,no,no,no,no,no,no,no,no,NA
+c,yes,6,photo,28,14,07/07/2025,2,yes,no,no,no,no,no,no,no,no,NA
+a,yes,9,photo,28,12,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,NA
+a,yes,9,photo,28,13,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,NA
+c,yes,6,photo,28,9,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,"Same as D1, tissue over wound with zooxanthellae with thicker tissue"
+a,yes,6,photo,28,10,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,NA
+a,yes,6,photo,28,11,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,"Same as D1, tissue over wound with zooxanthellae in tissue, thicker tissue"
+a,yes,5,photo,31,3,07/07/2025,2,yes,no,no,no,no,no,no,no,no,Polyp in hole?
+c,yes,4,photo,31,5,07/07/2025,2,yes,no,no,no,no,no,no,no,no,Polyp in hole?
+c,yes,4,photo,31,6,07/07/2025,2,yes,no,no,no,no,no,no,no,no,Polyp in hole?
+a,yes,4,photo,31,2,07/07/2025,2,yes,no,no,no,no,no,no,no,no,NA
+a,yes,5,photo,31,4,07/07/2025,2,yes,no,no,no,no,no,no,no,no,NA
+c,yes,5,photo,31,8,07/07/2025,2,yes,no,no,no,no,no,no,no,no,NA
+a,yes,4,photo,31,1,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,Polyp in hole?
+c,yes,5,photo,31,7,07/07/2025,2,yes,no,no,no,no,no,no,no,yes,NA
+c,yes,9,photo,28,15,07/08/2025,3,yes,yes,yes,no,no,no,no,no,no,"looks like polyp visible since D2, otherwise center polyp clearly visible, no gfp/rfp"
+c,yes,9,photo,28,16,07/08/2025,3,yes,yes,yes,no,no,no,no,no,no,"center polyp clearly visible, no gfp/rfp"
+c,yes,6,photo,28,14,07/08/2025,3,yes,yes,yes,no,no,no,no,no,no,"center polyp clearly visible, no gfp/rfp"
+a,yes,9,photo,28,12,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"center polyp clearly visible, no gfp/rfp"
+a,yes,9,photo,28,13,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"center polyp clearly visible, no gfp/rfp"
+c,yes,6,photo,28,9,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"center polyp clearly visible, no gfp/rfp"
+a,yes,6,photo,28,10,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"center polyp clearly visible, no gfp/rfp"
+a,yes,6,photo,28,11,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"center polyp clearly visible, no gfp/rfp"
+a,yes,5,photo,31,3,07/08/2025,3,yes,yes,yes,no,yes,no,no,no,no,"colored on wound, good pic! no gfp/rfp"
+c,yes,4,photo,31,5,07/08/2025,3,yes,yes,yes,no,no,no,no,no,no,"hard to align, no gfp/rfp"
+c,yes,4,photo,31,6,07/08/2025,3,yes,yes,yes,no,no,no,no,no,no,"polyp already visible since D2, great pic!"
+a,yes,4,photo,31,2,07/08/2025,3,yes,no,no,no,yes,no,no,no,no,"center polyp clearly visible, no gfp/rfp, more colored on wound than others"
+a,yes,5,photo,31,4,07/08/2025,3,yes,yes,yes,no,yes,no,no,no,no,"center polyp clearly visible, no gfp/rfp, more colored on wound than others"
+c,yes,5,photo,31,8,07/08/2025,3,yes,yes,yes,no,no,no,no,no,no,"center polyp clearly visible, no gfp/rfp"
+a,yes,4,photo,31,1,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"great pic, no gfp/rfp"
+c,yes,5,photo,31,7,07/08/2025,3,yes,yes,yes,no,no,no,no,no,yes,"center polyp clearly visible, no gfp/rfp"
+c,yes,9,photo,28,15,07/09/2025,4,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,9,photo,28,16,07/09/2025,4,yes,yes,yes,no,no,no,no,no,no,NA
+c,yes,6,photo,28,14,07/09/2025,4,yes,yes,yes,no,no,no,no,no,no,NA
+a,yes,9,photo,28,12,07/09/2025,4,yes,yes,yes,no,yes,no,no,no,yes,coloration
+a,yes,9,photo,28,13,07/09/2025,4,yes,yes,yes,yes,yes,no,no,no,yes,coloration
+c,yes,6,photo,28,9,07/09/2025,4,yes,yes,yes,no,no,no,no,no,yes,NA
+a,yes,6,photo,28,10,07/09/2025,4,yes,yes,yes,yes,no,no,no,no,yes,NA
+a,yes,6,photo,28,11,07/09/2025,4,yes,yes,yes,yes,no,no,no,no,yes,NA
+a,yes,5,photo,31,3,07/09/2025,4,yes,yes,yes,yes,yes,no,no,no,no,coloration
+c,yes,4,photo,31,5,07/09/2025,4,yes,yes,yes,no,no,no,no,no,no,NA
+c,yes,4,photo,31,6,07/09/2025,4,yes,yes,yes,yes,no,no,no,no,no,NA
+a,yes,4,photo,31,2,07/09/2025,4,yes,yes,yes,yes,yes,no,no,no,no,coloration
+a,yes,5,photo,31,4,07/09/2025,4,yes,yes,yes,yes,yes,no,no,no,no,coloration
+c,yes,5,photo,31,8,07/09/2025,4,yes,yes,yes,no,no,no,no,no,no,NA
+a,yes,4,photo,31,1,07/09/2025,4,yes,yes,yes,no,yes,no,no,no,yes,coloration
+c,yes,5,photo,31,7,07/09/2025,4,yes,yes,yes,no,no,no,no,no,yes,NA
+c,yes,9,photo,28,15,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,9,photo,28,16,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,6,photo,28,14,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,no,NA
+a,yes,9,photo,28,12,07/10/2025,5,yes,yes,yes,yes,no,yes,no,no,yes,NA
+a,yes,9,photo,28,13,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,yes,NA
+c,yes,6,photo,28,9,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,yes,NA
+a,yes,6,photo,28,10,07/10/2025,5,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+a,yes,6,photo,28,11,07/10/2025,5,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+a,yes,5,photo,31,3,07/10/2025,5,yes,yes,yes,yes,no,yes,no,no,no,NA
+c,yes,4,photo,31,5,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,4,photo,31,6,07/10/2025,5,yes,yes,yes,yes,yes,no,no,no,no,NA
+a,yes,4,photo,31,2,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,no,NA
+a,yes,5,photo,31,4,07/10/2025,5,yes,yes,yes,yes,yes,yes,no,no,no,NA
+c,yes,5,photo,31,8,07/10/2025,5,yes,yes,yes,yes,no,yes,no,no,no,NA
+a,yes,4,photo,31,1,07/10/2025,5,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+c,yes,5,photo,31,7,07/10/2025,5,yes,yes,yes,yes,no,no,no,no,yes,NA
+c,yes,9,photo,28,15,07/11/2025,6,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,9,photo,28,16,07/11/2025,6,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,6,photo,28,14,07/11/2025,6,yes,yes,yes,yes,no,yes,no,no,no,NA
+a,yes,9,photo,28,12,07/11/2025,6,yes,yes,yes,yes,no,yes,no,no,yes,NA
+a,yes,9,photo,28,13,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+c,yes,6,photo,28,9,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+a,yes,6,photo,28,10,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+a,yes,6,photo,28,11,07/11/2025,6,yes,yes,yes,yes,no,yes,no,no,yes,NA
+a,yes,5,photo,31,3,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,no,NA
+c,yes,4,photo,31,5,07/11/2025,6,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,4,photo,31,6,07/11/2025,6,yes,yes,yes,yes,no,no,no,no,no,NA
+a,yes,4,photo,31,2,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,no,NA
+a,yes,5,photo,31,4,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,no,NA
+c,yes,5,photo,31,8,07/11/2025,6,yes,yes,yes,yes,no,no,no,no,no,NA
+a,yes,4,photo,31,1,07/11/2025,6,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+c,yes,5,photo,31,7,07/11/2025,6,yes,yes,yes,yes,no,no,no,no,yes,NA
+c,yes,9,photo,28,15,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,no,NA
+c,yes,9,photo,28,16,07/12/2025,7,yes,yes,yes,yes,yes,no,no,no,no,NA
+c,yes,6,photo,28,14,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,no,NA
+a,yes,9,photo,28,12,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,yes,maybe tip extension
+a,yes,9,photo,28,13,07/12/2025,7,yes,yes,yes,yes,yes,yes,no,no,yes,NA
+c,yes,6,photo,28,9,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,yes,maybe tip extension
+a,yes,6,photo,28,10,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,yes,maybe tip extension
+a,yes,6,photo,28,11,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,yes,maybe tip extension
+a,yes,5,photo,31,3,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,no,maybe tip extension
+c,yes,4,photo,31,5,07/12/2025,7,yes,yes,yes,yes,no,no,no,no,no,NA
+c,yes,4,photo,31,6,07/12/2025,7,yes,yes,yes,yes,yes,yes,no,no,no,NA
+a,yes,4,photo,31,2,07/12/2025,7,yes,yes,yes,yes,yes,yes,no,no,no,maybe tip extension
+a,yes,5,photo,31,4,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,no,NA
+c,yes,5,photo,31,8,07/12/2025,7,yes,yes,yes,yes,no,no,no,no,no,NA
+a,yes,4,photo,31,1,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,yes,maybe tip extension
+c,yes,5,photo,31,7,07/12/2025,7,yes,yes,yes,yes,no,yes,no,no,yes,NA
+c,yes,9,photo,28,15,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,9,photo,28,16,07/13/2025,8,yes,yes,yes,yes,NA,yes,no,no,no,NA
+c,yes,6,photo,28,14,07/13/2025,8,yes,yes,yes,yes,NA,yes,no,no,no,NA
+a,yes,9,photo,28,12,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,9,photo,28,13,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,6,photo,28,9,07/13/2025,8,yes,yes,yes,yes,NA,yes,no,no,yes,NA
+a,yes,6,photo,28,10,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,11,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,5,photo,31,3,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,5,07/13/2025,8,yes,yes,yes,yes,NA,no,no,no,no,NA
+c,yes,4,photo,31,6,07/13/2025,8,yes,yes,yes,yes,NA,yes,no,no,no,NA
+a,yes,4,photo,31,2,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,5,photo,31,4,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,5,photo,31,8,07/13/2025,8,yes,yes,yes,yes,NA,no,no,no,no,NA
+a,yes,4,photo,31,1,07/13/2025,8,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,5,photo,31,7,07/13/2025,8,yes,yes,yes,yes,NA,yes,no,no,yes,NA
+c,yes,9,photo,28,15,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,9,photo,28,16,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,6,photo,28,14,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,9,photo,28,12,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,9,photo,28,13,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,6,photo,28,9,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,10,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,11,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,5,photo,31,3,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,5,07/14/2025,9,yes,yes,yes,yes,NA,no,no,no,no,NA
+c,yes,4,photo,31,6,07/14/2025,9,yes,yes,yes,yes,NA,yes,no,no,no,NA
+a,yes,4,photo,31,2,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,5,photo,31,4,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,5,photo,31,8,07/14/2025,9,yes,yes,yes,yes,NA,yes,no,no,no,NA
+a,yes,4,photo,31,1,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,5,photo,31,7,07/14/2025,9,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,9,photo,28,15,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,9,photo,28,16,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,6,photo,28,14,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,9,photo,28,12,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,9,photo,28,13,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,6,photo,28,9,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,10,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,11,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,5,photo,31,3,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,5,07/15/2025,10,yes,yes,yes,yes,NA,yes,no,no,no,NA
+c,yes,4,photo,31,6,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,2,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,5,photo,31,4,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,5,photo,31,8,07/15/2025,10,yes,yes,yes,yes,NA,yes,no,no,no,NA
+a,yes,4,photo,31,1,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,5,photo,31,7,07/15/2025,10,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,9,photo,28,15,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,9,photo,28,16,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,6,photo,28,14,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,9,photo,28,12,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,9,photo,28,13,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,6,photo,28,9,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,10,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,11,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,5,photo,31,3,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,5,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,6,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,2,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,5,photo,31,4,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,5,photo,31,8,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,1,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,5,photo,31,7,07/16/2025,11,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,9,photo,28,15,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,9,photo,28,16,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,6,photo,28,14,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+a,yes,9,photo,28,12,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,9,photo,28,13,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+c,yes,6,photo,28,9,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,10,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,6,photo,28,11,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,5,photo,31,3,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,5,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,6,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,2,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,5,photo,31,4,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,5,photo,31,8,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,1,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,5,photo,31,7,07/17/2025,12,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,9,photo,28,15,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,9,photo,28,16,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+c,yes,6,photo,28,14,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+a,yes,9,photo,28,12,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,9,photo,28,13,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+c,yes,6,photo,28,9,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,6,photo,28,10,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,6,photo,28,11,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+a,yes,5,photo,31,3,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,5,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,4,photo,31,6,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,2,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,5,photo,31,4,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+c,yes,5,photo,31,8,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,no,NA
+a,yes,4,photo,31,1,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,5,photo,31,7,07/18/2025,13,yes,yes,yes,yes,NA,yes,yes,no,yes,NA
+c,yes,9,photo,28,15,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+c,yes,9,photo,28,16,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+c,yes,6,photo,28,14,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+a,yes,9,photo,28,12,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,9,photo,28,13,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+c,yes,6,photo,28,9,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,6,photo,28,10,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,6,photo,28,11,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,5,photo,31,3,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,no,paling
+c,yes,4,photo,31,5,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,no,no,slight paling
+c,yes,4,photo,31,6,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,no,no,slight paling
+a,yes,4,photo,31,2,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,no,no,paling
+a,yes,5,photo,31,4,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,yes,no,paling
+c,yes,5,photo,31,8,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,no,no,no paling
+a,yes,4,photo,31,1,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,no,yes,paling
+c,yes,5,photo,31,7,07/19/2025,14,yes,yes,yes,yes,NA,yes,yes,no,yes,slight paling
+c,yes,9,photo,28,15,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+c,yes,9,photo,28,16,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+c,yes,6,photo,28,14,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,no,NA
+a,yes,9,photo,28,12,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,9,photo,28,13,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+c,yes,6,photo,28,9,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,6,photo,28,10,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,6,photo,28,11,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,yes,NA
+a,yes,5,photo,31,3,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,no,paling
+c,yes,4,photo,31,5,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,no,no,slight paling
+c,yes,4,photo,31,6,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,no,no,slight paling
+a,yes,4,photo,31,2,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,no,no,"paling, broken? re-glued?"
+a,yes,5,photo,31,4,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,yes,no,paling
+c,yes,5,photo,31,8,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,no,no,no paling
+a,yes,4,photo,31,1,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,no,yes,paling
+c,yes,5,photo,31,7,07/20/2025,15,yes,yes,yes,yes,NA,yes,yes,no,yes,slight paling

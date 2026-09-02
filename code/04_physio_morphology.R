@@ -42,6 +42,16 @@ raw <- suppressWarnings(
   janitor::clean_names() |>
   filter(!is.na(species) & !is.na(id))
 
+parse_lth_date <- function(x) {
+  if (inherits(x, "Date")) return(x)
+  if (inherits(x, "POSIXt")) return(lubridate::as_date(x))
+  lubridate::as_date(lubridate::parse_date_time(
+    as.character(x),
+    orders = c("mdy HMS", "mdy", "ymd HMS", "ymd"),
+    quiet = TRUE
+  ))
+}
+
 # ---- Clean -----------------------------------------------------------------
 # Type-coerce the design columns and turn the nine yes/no trait columns into
 # 0/1 integers so they can be modelled and averaged as proportions.
@@ -50,7 +60,7 @@ ph <- raw |>
   rename(thicket = matches("^thicket"),
          wound   = wounded) |>
   mutate(
-    date      = as_date(date),
+    date      = parse_lth_date(date),
     day       = as.integer(day),                 # day relative to wounding (D0)
     # Treatment as set-point (28/31 °C); 28C is the reference level.
     treatment = factor(as.integer(treatment), levels = c(28, 31),

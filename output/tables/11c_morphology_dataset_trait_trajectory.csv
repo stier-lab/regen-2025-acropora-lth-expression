@@ -1,0 +1,464 @@
+dataset,dataset_label,day,treatment,trait,short_label,label,trait_order,phase,phase_short,facet_trait,n_scored,n_yes,prop
+microscope_physio,Microscope photos,0,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,0,0
+microscope_physio,Microscope photos,1,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,2,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,3,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,4,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,5,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,6,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,7,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,8,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,9,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,10,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,11,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,12,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,13,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,14,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,15,28C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,0,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,0,0
+microscope_physio,Microscope photos,1,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,6,6,1
+microscope_physio,Microscope photos,2,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,3,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,4,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,5,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,6,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,7,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,8,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,9,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,10,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,11,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,12,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,13,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,14,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,15,31C,tissue_over_wound,Tissue cover,Tissue over wound,1,Wound covering,Covering,Microscope: Tissue cover,8,8,1
+microscope_physio,Microscope photos,0,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,0,0
+microscope_physio,Microscope photos,1,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,0,0
+microscope_physio,Microscope photos,2,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,0,0
+microscope_physio,Microscope photos,3,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,4,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,5,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,6,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,7,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,8,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,9,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,10,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,11,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,12,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,13,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,14,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,15,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,0,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,0,0
+microscope_physio,Microscope photos,1,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,0,0
+microscope_physio,Microscope photos,2,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,0,0
+microscope_physio,Microscope photos,3,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,7,0.875
+microscope_physio,Microscope photos,4,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,5,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,6,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,7,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,8,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,9,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,10,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,11,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,12,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,13,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,14,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,15,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Microscope: Axial polyp,8,8,1
+microscope_physio,Microscope photos,0,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,1,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,2,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,3,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,4,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,4,0.5
+microscope_physio,Microscope photos,5,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,6,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,7,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,8,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,9,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,10,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,11,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,12,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,13,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,14,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,15,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,0,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,1,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,2,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,3,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,0,0
+microscope_physio,Microscope photos,4,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,4,0.5
+microscope_physio,Microscope photos,5,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,6,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,7,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,8,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,9,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,10,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,11,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,12,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,13,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,14,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,15,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Microscope: Wound smoothed,8,8,1
+microscope_physio,Microscope photos,0,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,1,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,2,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,3,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,4,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,2,0.25
+microscope_physio,Microscope photos,5,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,2,0.25
+microscope_physio,Microscope photos,6,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,3,0.375
+microscope_physio,Microscope photos,7,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,2,0.25
+microscope_physio,Microscope photos,0,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,1,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,2,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,0,0
+microscope_physio,Microscope photos,3,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,3,0.375
+microscope_physio,Microscope photos,4,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,4,0.5
+microscope_physio,Microscope photos,5,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,3,0.375
+microscope_physio,Microscope photos,6,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,4,0.5
+microscope_physio,Microscope photos,7,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Microscope: Pigment,8,2,0.25
+microscope_physio,Microscope photos,0,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,1,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,2,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,3,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,4,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,5,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,3,0.375
+microscope_physio,Microscope photos,6,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,6,0.75
+microscope_physio,Microscope photos,7,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,7,0.875
+microscope_physio,Microscope photos,8,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,9,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,10,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,11,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,12,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,13,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,14,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,15,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,0,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,1,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,2,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,3,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,4,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,0,0
+microscope_physio,Microscope photos,5,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,4,0.5
+microscope_physio,Microscope photos,6,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,4,0.5
+microscope_physio,Microscope photos,7,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,6,0.75
+microscope_physio,Microscope photos,8,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,6,0.75
+microscope_physio,Microscope photos,9,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,7,0.875
+microscope_physio,Microscope photos,10,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,11,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,12,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,13,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,14,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,15,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Microscope: Tip exists,8,8,1
+microscope_physio,Microscope photos,0,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,1,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,2,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,3,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,4,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,5,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,6,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,7,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,8,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,5,0.625
+microscope_physio,Microscope photos,9,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,10,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,11,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,12,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,13,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,14,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,15,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,0,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,1,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,2,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,3,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,4,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,5,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,6,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,7,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,0,0
+microscope_physio,Microscope photos,8,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,4,0.5
+microscope_physio,Microscope photos,9,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,5,0.625
+microscope_physio,Microscope photos,10,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,6,0.75
+microscope_physio,Microscope photos,11,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,12,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,13,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,14,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,15,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Microscope: Tip extension,8,8,1
+microscope_physio,Microscope photos,0,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,1,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,2,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,3,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,4,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,5,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,6,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,7,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,8,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,9,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,10,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,11,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,12,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,4,0.5
+microscope_physio,Microscope photos,13,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,5,0.625
+microscope_physio,Microscope photos,14,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,8,1
+microscope_physio,Microscope photos,15,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,8,1
+microscope_physio,Microscope photos,0,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,1,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,2,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,3,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,4,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,5,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,6,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,7,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,8,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,9,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,10,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,11,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,12,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,13,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,0,0
+microscope_physio,Microscope photos,14,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,2,0.25
+microscope_physio,Microscope photos,15,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Microscope: New corallites,8,2,0.25
+physio_morphology,Main morphology,0,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,1,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,2,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,3,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,4,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,0,0
+physio_morphology,Main morphology,5,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,6,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,7,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,8,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,9,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,10,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,11,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,12,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,13,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,14,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,15,28C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,0,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,1,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,2,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,3,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,4,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,0,0
+physio_morphology,Main morphology,5,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,6,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,10,0.8333333333333334
+physio_morphology,Main morphology,7,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,8,0.6666666666666666
+physio_morphology,Main morphology,8,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,9,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,10,0.8333333333333334
+physio_morphology,Main morphology,10,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,12,1
+physio_morphology,Main morphology,11,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,9,0.75
+physio_morphology,Main morphology,12,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,11,0.9166666666666666
+physio_morphology,Main morphology,13,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,10,0.8333333333333334
+physio_morphology,Main morphology,14,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,8,0.6666666666666666
+physio_morphology,Main morphology,15,31C,polyps_out,Polyps out,Polyps out,2,General condition,Condition,Main: Polyps out,12,8,0.6666666666666666
+physio_morphology,Main morphology,0,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,0,0
+physio_morphology,Main morphology,1,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,0,0
+physio_morphology,Main morphology,2,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,0,0
+physio_morphology,Main morphology,3,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,6,0.5
+physio_morphology,Main morphology,4,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,10,0.8333333333333334
+physio_morphology,Main morphology,5,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,10,0.8333333333333334
+physio_morphology,Main morphology,6,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,7,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,8,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,9,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,10,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,11,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,12,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,13,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,14,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,15,28C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,0,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,0,0
+physio_morphology,Main morphology,1,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,0,0
+physio_morphology,Main morphology,2,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,0,0
+physio_morphology,Main morphology,3,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,8,0.6666666666666666
+physio_morphology,Main morphology,4,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,5,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,6,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,7,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,8,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,11,0.9166666666666666
+physio_morphology,Main morphology,9,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,10,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,11,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,12,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,13,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,14,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,15,31C,axial_polyp_formation,Axial polyp,Axial polyp formation,3,Wound closure,Closure,Main: Axial polyp,12,12,1
+physio_morphology,Main morphology,0,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,1,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,2,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,3,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,4,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,8,0.6666666666666666
+physio_morphology,Main morphology,5,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,8,0.6666666666666666
+physio_morphology,Main morphology,6,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,7,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,8,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,9,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,10,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,11,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,12,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,13,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,14,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,15,28C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,0,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,1,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,2,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,3,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,0,0
+physio_morphology,Main morphology,4,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,11,0.9166666666666666
+physio_morphology,Main morphology,5,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,11,0.9166666666666666
+physio_morphology,Main morphology,6,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,7,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,8,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,9,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,10,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,11,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,12,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,13,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,14,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,15,31C,wound_smoothed,Wound smoothed,Wound smoothed,4,Wound closure,Closure,Main: Wound smoothed,12,12,1
+physio_morphology,Main morphology,0,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,1,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,2,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,3,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,2,0.16666666666666666
+physio_morphology,Main morphology,4,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,5,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,6,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,7,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,8,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,9,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,1,0,0
+physio_morphology,Main morphology,10,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,11,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,12,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,13,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,14,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,15,28C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,0,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,1,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,2,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,3,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,1,0.08333333333333333
+physio_morphology,Main morphology,4,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,2,0.16666666666666666
+physio_morphology,Main morphology,5,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,2,0.16666666666666666
+physio_morphology,Main morphology,6,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,7,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,8,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,10,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,11,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,12,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,13,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,14,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,0,0
+physio_morphology,Main morphology,15,31C,pigment_over_wound,Pigment,Pigment over wound,5,Wound covering,Covering,Main: Pigment,12,4,0.3333333333333333
+physio_morphology,Main morphology,0,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,1,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,2,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,3,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,4,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,5,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,6,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,9,0.75
+physio_morphology,Main morphology,7,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,9,0.75
+physio_morphology,Main morphology,8,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,12,1
+physio_morphology,Main morphology,9,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,10,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,11,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,12,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,13,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,14,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,15,28C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,0,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,1,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,2,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,3,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,4,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,5,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,0,0
+physio_morphology,Main morphology,6,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,7,0.5833333333333334
+physio_morphology,Main morphology,7,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,7,0.5833333333333334
+physio_morphology,Main morphology,8,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,12,1
+physio_morphology,Main morphology,9,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,10,0.8333333333333334
+physio_morphology,Main morphology,10,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,11,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,12,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,13,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,14,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,15,31C,tip_exist,Tip exists,Tip exists,6,Regeneration,Regeneration,Main: Tip exists,12,11,0.9166666666666666
+physio_morphology,Main morphology,0,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,1,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,2,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,3,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,4,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,5,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,6,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,7,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,8,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,9,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,10,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,11,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,12,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,13,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,14,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,15,28C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,11,0.9166666666666666
+physio_morphology,Main morphology,0,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,1,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,2,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,3,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,4,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,5,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,6,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,7,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,0,0
+physio_morphology,Main morphology,8,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,8,0.6666666666666666
+physio_morphology,Main morphology,9,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,6,0.5
+physio_morphology,Main morphology,10,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,7,0.5833333333333334
+physio_morphology,Main morphology,11,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,7,0.5833333333333334
+physio_morphology,Main morphology,12,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,7,0.5833333333333334
+physio_morphology,Main morphology,13,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,7,0.5833333333333334
+physio_morphology,Main morphology,14,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,8,0.6666666666666666
+physio_morphology,Main morphology,15,31C,tip_extension,Tip extension,Tip extension,7,Regeneration,Regeneration,Main: Tip extension,12,9,0.75
+physio_morphology,Main morphology,0,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,1,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,2,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,3,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,4,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,5,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,6,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,7,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,8,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,9,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,10,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,11,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,12,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,9,0.75
+physio_morphology,Main morphology,13,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,9,0.75
+physio_morphology,Main morphology,14,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,11,0.9166666666666666
+physio_morphology,Main morphology,15,28C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,12,1
+physio_morphology,Main morphology,0,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,1,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,2,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,3,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,4,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,5,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,6,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,7,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,8,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,9,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,10,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,11,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,0,0
+physio_morphology,Main morphology,12,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,1,0.08333333333333333
+physio_morphology,Main morphology,13,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,1,0.08333333333333333
+physio_morphology,Main morphology,14,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,4,0.3333333333333333
+physio_morphology,Main morphology,15,31C,new_corallites_on_tip,New corallites,New corallites on tip,8,Regeneration,Regeneration,Main: New corallites,12,4,0.3333333333333333
+physio_morphology,Main morphology,0,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,1,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,2,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,3,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,4,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,5,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,6,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,7,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,8,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,9,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,10,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,11,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,12,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,13,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,14,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,15,28C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,0,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,1,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,2,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,3,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,4,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,5,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,6,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,7,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,8,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,9,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,10,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,11,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,12,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,13,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,14,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0
+physio_morphology,Main morphology,15,31C,algae_on_wound,Algae,Algae on wound,9,Fouling,Fouling,Main: Algae,12,0,0

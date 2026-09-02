@@ -945,6 +945,65 @@ resilience_scope_rows <- if (file.exists(file.path(TBL_DIR, "19c_resilience_deco
 } else tibble()
 
 # ===========================================================================
+# Block 19 — Microscope-only morphology validation (script 11)
+# ===========================================================================
+# The microscope/photo cohort is a separate 16-coral validation dataset, not
+# pooled with the main morphology models. Include only the exploratory endpoint
+# and first-observed timing checks in the master table so manuscript users can
+# cite them as supporting microscope evidence without confusing them for the
+# main n=48 morphology inference.
+micro_rows <- if (file.exists(file.path(TBL_DIR, "11_microscope_event_tests.csv"))) {
+  micro_tests <- read_csv(file.path(TBL_DIR, "11_microscope_event_tests.csv"),
+                          show_col_types = FALSE)
+  bind_rows(
+    micro_tests |>
+      transmute(
+        domain = "Microscope morphology",
+        response = label,
+        model_type = "photo-only endpoint Fisher exact",
+        term = sprintf("endpoint D%s: 31C - 28C", endpoint_day),
+        test = "Fisher exact",
+        statistic = NA_real_,
+        df1 = 1, df2 = NA_real_, n = n_28 + n_31,
+        estimate = risk_diff_31_minus_28,
+        units = "proportion difference",
+        pct_change = NA_real_,
+        ci_low = NA_real_, ci_high = NA_real_,
+        p_value = fisher_p,
+        qualitative = sprintf(
+          "Microscope endpoint: %s at 28C vs %s at 31C (risk diff=%+.2f; exploratory)",
+          sprintf("%d/%d", yes_28, n_28),
+          sprintf("%d/%d", yes_31, n_31),
+          risk_diff_31_minus_28
+        ),
+        source_script = "code/11_microscope_physio.R",
+        source_artifact = "output/tables/11_microscope_event_tests.csv"
+      ),
+    micro_tests |>
+      transmute(
+        domain = "Microscope morphology",
+        response = label,
+        model_type = "photo-only first-observed timing",
+        term = "log-rank: 31C vs 28C",
+        test = "log-rank chi-sq",
+        statistic = logrank_chisq,
+        df1 = logrank_df, df2 = NA_real_, n = n_28 + n_31,
+        estimate = NA_real_,
+        units = NA_character_,
+        pct_change = NA_real_,
+        ci_low = NA_real_, ci_high = NA_real_,
+        p_value = logrank_p,
+        qualitative = sprintf(
+          "Microscope first-observed timing for %s (exploratory log-rank p=%s)",
+          trait, fmt_p(logrank_p)
+        ),
+        source_script = "code/11_microscope_physio.R",
+        source_artifact = "output/tables/11_microscope_event_tests.csv"
+      )
+  )
+} else tibble()
+
+# ===========================================================================
 # Combine and write
 # ===========================================================================
 # Stack every block into one long table (optional blocks contribute nothing
@@ -957,7 +1016,8 @@ master <- bind_rows(anova12, genet_rows, r2_rows,
                     clmm_rows, bw_means_rows, bw_pct_drop, zoox_means_rows,
                     ts_rows, coxph_rows, thermal_rows,
                     lag_rows, icc_rows, mt_rows, probc_rows,
-                    resilience_rows, resilience_scope_rows) |>
+                    resilience_rows, resilience_scope_rows,
+                    micro_rows) |>
   mutate(across(c(statistic, estimate, pct_change, ci_low, ci_high, p_value),
                 \(x) round(x, 4))) |>
   arrange(domain, response, model_type, term) |>

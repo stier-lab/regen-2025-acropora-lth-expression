@@ -1,0 +1,8 @@
+"file","column","unit","description"
+"Example_calculations_copy_of_Stier_05302025_test.xlsx","Sheet1","NA","Example chlorophyll calculation sheet copied from Drive"
+"Example_calculations_copy_of_Stier_05302025_test.xlsx","Read 1","fluorescence or absorbance","Example plate read 1"
+"Example_calculations_copy_of_Stier_05302025_test.xlsx","Read 2","fluorescence or absorbance","Example plate read 2"
+"Example_calculations_copy_of_Stier_05302025_test.xlsx","Surface Area","cm2","Example surface-area sheet"
+"Example_calculations_copy_of_Stier_05302025_test.xlsx","read 1 versus read 2","ug/cm2","Example comparison of reads and chlorophyll totals"
+"project","chlorophyll assay","ug/cm2","Planned assay; project metadata column is not populated and pipeline marks this as a handled gap"
+

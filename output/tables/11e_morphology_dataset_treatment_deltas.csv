@@ -1,0 +1,31 @@
+dataset,dataset_label,trait,short_label,label,phase,facet_event,trait_order,phase_short,n_corals_28C,n_corals_31C,prop_ever_28C,prop_ever_31C,median_first_yes_day_28C,median_first_yes_day_31C,endpoint_day_28C,endpoint_day_31C,n_endpoint_scored_28C,n_endpoint_scored_31C,n_endpoint_yes_28C,n_endpoint_yes_31C,prop_endpoint_28C,prop_endpoint_31C,endpoint_delta_31C_minus_28C,ever_delta_31C_minus_28C,median_first_day_delta_31C_minus_28C
+microscope_physio,Microscope photos,tissue_over_wound,Tissue cover,Tissue over wound,Wound covering,"Microscope
+Covering",1,Covering,8,8,1,1,1,1,15,15,8,8,8,8,1,1,0,0,0
+microscope_physio,Microscope photos,axial_polyp_formation,Axial polyp,Axial polyp formation,Wound closure,"Microscope
+Closure",3,Closure,8,8,1,1,3,3,15,15,8,8,8,8,1,1,0,0,0
+microscope_physio,Microscope photos,wound_smoothed,Wound smoothed,Wound smoothed,Wound closure,"Microscope
+Closure",4,Closure,8,8,1,1,4.5,4.5,15,15,8,8,8,8,1,1,0,0,0
+microscope_physio,Microscope photos,pigment_over_wound,Pigment,Pigment over wound,Wound covering,"Microscope
+Covering",5,Covering,8,8,0.75,0.625,5,3,7,7,8,8,2,2,0.25,0.25,0,-0.125,-2
+microscope_physio,Microscope photos,tip_exist,Tip exists,Tip exists,Regeneration,"Microscope
+Regeneration",6,Regeneration,8,8,1,1,6,5.5,15,15,8,8,8,8,1,1,0,0,-0.5
+microscope_physio,Microscope photos,tip_extension,Tip extension,Tip extension,Regeneration,"Microscope
+Regeneration",7,Regeneration,8,8,1,1,8,8.5,15,15,8,8,8,8,1,1,0,0,0.5
+microscope_physio,Microscope photos,new_corallites_on_tip,New corallites,New corallites on tip,Regeneration,"Microscope
+Regeneration",8,Regeneration,8,8,1,0.25,12.5,14,15,15,8,8,8,2,1,0.25,-0.75,-0.75,1.5
+physio_morphology,Main morphology,polyps_out,Polyps out,Polyps out,General condition,"Main
+Condition",2,Condition,12,12,1,1,0,0,15,15,12,12,12,8,1,0.6666666666666666,-0.33333333333333337,0,0
+physio_morphology,Main morphology,axial_polyp_formation,Axial polyp,Axial polyp formation,Wound closure,"Main
+Closure",3,Closure,12,12,1,1,3.5,3,15,15,12,12,12,12,1,1,0,0,-0.5
+physio_morphology,Main morphology,wound_smoothed,Wound smoothed,Wound smoothed,Wound closure,"Main
+Closure",4,Closure,12,12,1,1,4,4,15,15,12,12,12,12,1,1,0,0,0
+physio_morphology,Main morphology,pigment_over_wound,Pigment,Pigment over wound,Wound covering,"Main
+Covering",5,Covering,12,12,0.3333333333333333,0.5,3.5,15,15,15,12,12,1,4,0.08333333333333333,0.3333333333333333,0.25,0.16666666666666669,11.5
+physio_morphology,Main morphology,tip_exist,Tip exists,Tip exists,Regeneration,"Main
+Regeneration",6,Regeneration,12,12,1,1,6,6,15,15,12,12,11,11,0.9166666666666666,0.9166666666666666,0,0,0
+physio_morphology,Main morphology,tip_extension,Tip extension,Tip extension,Regeneration,"Main
+Regeneration",7,Regeneration,12,12,0.9166666666666666,0.9166666666666666,8,8,15,15,12,12,11,9,0.9166666666666666,0.75,-0.16666666666666663,0,0
+physio_morphology,Main morphology,new_corallites_on_tip,New corallites,New corallites on tip,Regeneration,"Main
+Regeneration",8,Regeneration,12,12,1,0.3333333333333333,12,14,15,15,12,12,12,4,1,0.3333333333333333,-0.6666666666666667,-0.6666666666666667,2
+physio_morphology,Main morphology,algae_on_wound,Algae,Algae on wound,Fouling,"Main
+Fouling",9,Fouling,12,12,0,0,NA,NA,15,15,12,12,0,0,0,0,0,0,NA

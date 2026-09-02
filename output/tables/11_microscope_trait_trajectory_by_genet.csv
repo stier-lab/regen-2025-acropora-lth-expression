@@ -1,0 +1,417 @@
+day,treatment,thicket,trait,label,n,n_yes,prop
+0,28C,a,axial_polyp_formation,Axial polyp formation,4,0,0
+0,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+0,28C,a,pigment_over_wound,Pigment over wound,4,0,0
+0,28C,a,tip_exist,Tip exists,4,0,0
+0,28C,a,tip_extension,Tip extension,4,0,0
+0,28C,a,tissue_over_wound,Tissue over wound,4,0,0
+0,28C,a,wound_smoothed,Wound smoothed,4,0,0
+0,28C,c,axial_polyp_formation,Axial polyp formation,4,0,0
+0,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+0,28C,c,pigment_over_wound,Pigment over wound,4,0,0
+0,28C,c,tip_exist,Tip exists,4,0,0
+0,28C,c,tip_extension,Tip extension,4,0,0
+0,28C,c,tissue_over_wound,Tissue over wound,4,0,0
+0,28C,c,wound_smoothed,Wound smoothed,4,0,0
+0,31C,a,axial_polyp_formation,Axial polyp formation,4,0,0
+0,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+0,31C,a,pigment_over_wound,Pigment over wound,4,0,0
+0,31C,a,tip_exist,Tip exists,4,0,0
+0,31C,a,tip_extension,Tip extension,4,0,0
+0,31C,a,tissue_over_wound,Tissue over wound,4,0,0
+0,31C,a,wound_smoothed,Wound smoothed,4,0,0
+0,31C,c,axial_polyp_formation,Axial polyp formation,4,0,0
+0,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+0,31C,c,pigment_over_wound,Pigment over wound,4,0,0
+0,31C,c,tip_exist,Tip exists,4,0,0
+0,31C,c,tip_extension,Tip extension,4,0,0
+0,31C,c,tissue_over_wound,Tissue over wound,4,0,0
+0,31C,c,wound_smoothed,Wound smoothed,4,0,0
+1,28C,a,axial_polyp_formation,Axial polyp formation,4,0,0
+1,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+1,28C,a,pigment_over_wound,Pigment over wound,4,0,0
+1,28C,a,tip_exist,Tip exists,4,0,0
+1,28C,a,tip_extension,Tip extension,4,0,0
+1,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+1,28C,a,wound_smoothed,Wound smoothed,4,0,0
+1,28C,c,axial_polyp_formation,Axial polyp formation,4,0,0
+1,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+1,28C,c,pigment_over_wound,Pigment over wound,4,0,0
+1,28C,c,tip_exist,Tip exists,4,0,0
+1,28C,c,tip_extension,Tip extension,4,0,0
+1,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+1,28C,c,wound_smoothed,Wound smoothed,4,0,0
+1,31C,a,axial_polyp_formation,Axial polyp formation,4,0,0
+1,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+1,31C,a,pigment_over_wound,Pigment over wound,4,0,0
+1,31C,a,tip_exist,Tip exists,4,0,0
+1,31C,a,tip_extension,Tip extension,4,0,0
+1,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+1,31C,a,wound_smoothed,Wound smoothed,4,0,0
+1,31C,c,axial_polyp_formation,Axial polyp formation,4,0,0
+1,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+1,31C,c,pigment_over_wound,Pigment over wound,4,0,0
+1,31C,c,tip_exist,Tip exists,4,0,0
+1,31C,c,tip_extension,Tip extension,4,0,0
+1,31C,c,tissue_over_wound,Tissue over wound,2,2,1
+1,31C,c,wound_smoothed,Wound smoothed,4,0,0
+2,28C,a,axial_polyp_formation,Axial polyp formation,4,0,0
+2,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+2,28C,a,pigment_over_wound,Pigment over wound,4,0,0
+2,28C,a,tip_exist,Tip exists,4,0,0
+2,28C,a,tip_extension,Tip extension,4,0,0
+2,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+2,28C,a,wound_smoothed,Wound smoothed,4,0,0
+2,28C,c,axial_polyp_formation,Axial polyp formation,4,0,0
+2,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+2,28C,c,pigment_over_wound,Pigment over wound,4,0,0
+2,28C,c,tip_exist,Tip exists,4,0,0
+2,28C,c,tip_extension,Tip extension,4,0,0
+2,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+2,28C,c,wound_smoothed,Wound smoothed,4,0,0
+2,31C,a,axial_polyp_formation,Axial polyp formation,4,0,0
+2,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+2,31C,a,pigment_over_wound,Pigment over wound,4,0,0
+2,31C,a,tip_exist,Tip exists,4,0,0
+2,31C,a,tip_extension,Tip extension,4,0,0
+2,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+2,31C,a,wound_smoothed,Wound smoothed,4,0,0
+2,31C,c,axial_polyp_formation,Axial polyp formation,4,0,0
+2,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+2,31C,c,pigment_over_wound,Pigment over wound,4,0,0
+2,31C,c,tip_exist,Tip exists,4,0,0
+2,31C,c,tip_extension,Tip extension,4,0,0
+2,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+2,31C,c,wound_smoothed,Wound smoothed,4,0,0
+3,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+3,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+3,28C,a,pigment_over_wound,Pigment over wound,4,0,0
+3,28C,a,tip_exist,Tip exists,4,0,0
+3,28C,a,tip_extension,Tip extension,4,0,0
+3,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+3,28C,a,wound_smoothed,Wound smoothed,4,0,0
+3,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+3,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+3,28C,c,pigment_over_wound,Pigment over wound,4,0,0
+3,28C,c,tip_exist,Tip exists,4,0,0
+3,28C,c,tip_extension,Tip extension,4,0,0
+3,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+3,28C,c,wound_smoothed,Wound smoothed,4,0,0
+3,31C,a,axial_polyp_formation,Axial polyp formation,4,3,0.75
+3,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+3,31C,a,pigment_over_wound,Pigment over wound,4,3,0.75
+3,31C,a,tip_exist,Tip exists,4,0,0
+3,31C,a,tip_extension,Tip extension,4,0,0
+3,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+3,31C,a,wound_smoothed,Wound smoothed,4,0,0
+3,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+3,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+3,31C,c,pigment_over_wound,Pigment over wound,4,0,0
+3,31C,c,tip_exist,Tip exists,4,0,0
+3,31C,c,tip_extension,Tip extension,4,0,0
+3,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+3,31C,c,wound_smoothed,Wound smoothed,4,0,0
+4,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+4,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+4,28C,a,pigment_over_wound,Pigment over wound,4,2,0.5
+4,28C,a,tip_exist,Tip exists,4,0,0
+4,28C,a,tip_extension,Tip extension,4,0,0
+4,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+4,28C,a,wound_smoothed,Wound smoothed,4,3,0.75
+4,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+4,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+4,28C,c,pigment_over_wound,Pigment over wound,4,0,0
+4,28C,c,tip_exist,Tip exists,4,0,0
+4,28C,c,tip_extension,Tip extension,4,0,0
+4,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+4,28C,c,wound_smoothed,Wound smoothed,4,1,0.25
+4,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+4,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+4,31C,a,pigment_over_wound,Pigment over wound,4,4,1
+4,31C,a,tip_exist,Tip exists,4,0,0
+4,31C,a,tip_extension,Tip extension,4,0,0
+4,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+4,31C,a,wound_smoothed,Wound smoothed,4,3,0.75
+4,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+4,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+4,31C,c,pigment_over_wound,Pigment over wound,4,0,0
+4,31C,c,tip_exist,Tip exists,4,0,0
+4,31C,c,tip_extension,Tip extension,4,0,0
+4,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+4,31C,c,wound_smoothed,Wound smoothed,4,1,0.25
+5,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+5,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+5,28C,a,pigment_over_wound,Pigment over wound,4,2,0.5
+5,28C,a,tip_exist,Tip exists,4,3,0.75
+5,28C,a,tip_extension,Tip extension,4,0,0
+5,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+5,28C,a,wound_smoothed,Wound smoothed,4,4,1
+5,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+5,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+5,28C,c,pigment_over_wound,Pigment over wound,4,0,0
+5,28C,c,tip_exist,Tip exists,4,0,0
+5,28C,c,tip_extension,Tip extension,4,0,0
+5,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+5,28C,c,wound_smoothed,Wound smoothed,4,4,1
+5,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+5,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+5,31C,a,pigment_over_wound,Pigment over wound,4,2,0.5
+5,31C,a,tip_exist,Tip exists,4,3,0.75
+5,31C,a,tip_extension,Tip extension,4,0,0
+5,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+5,31C,a,wound_smoothed,Wound smoothed,4,4,1
+5,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+5,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+5,31C,c,pigment_over_wound,Pigment over wound,4,1,0.25
+5,31C,c,tip_exist,Tip exists,4,1,0.25
+5,31C,c,tip_extension,Tip extension,4,0,0
+5,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+5,31C,c,wound_smoothed,Wound smoothed,4,4,1
+6,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+6,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+6,28C,a,pigment_over_wound,Pigment over wound,4,2,0.5
+6,28C,a,tip_exist,Tip exists,4,4,1
+6,28C,a,tip_extension,Tip extension,4,0,0
+6,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+6,28C,a,wound_smoothed,Wound smoothed,4,4,1
+6,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+6,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+6,28C,c,pigment_over_wound,Pigment over wound,4,1,0.25
+6,28C,c,tip_exist,Tip exists,4,2,0.5
+6,28C,c,tip_extension,Tip extension,4,0,0
+6,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+6,28C,c,wound_smoothed,Wound smoothed,4,4,1
+6,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+6,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+6,31C,a,pigment_over_wound,Pigment over wound,4,4,1
+6,31C,a,tip_exist,Tip exists,4,4,1
+6,31C,a,tip_extension,Tip extension,4,0,0
+6,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+6,31C,a,wound_smoothed,Wound smoothed,4,4,1
+6,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+6,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+6,31C,c,pigment_over_wound,Pigment over wound,4,0,0
+6,31C,c,tip_exist,Tip exists,4,0,0
+6,31C,c,tip_extension,Tip extension,4,0,0
+6,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+6,31C,c,wound_smoothed,Wound smoothed,4,4,1
+7,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+7,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+7,28C,a,pigment_over_wound,Pigment over wound,4,1,0.25
+7,28C,a,tip_exist,Tip exists,4,4,1
+7,28C,a,tip_extension,Tip extension,4,0,0
+7,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+7,28C,a,wound_smoothed,Wound smoothed,4,4,1
+7,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+7,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+7,28C,c,pigment_over_wound,Pigment over wound,4,1,0.25
+7,28C,c,tip_exist,Tip exists,4,3,0.75
+7,28C,c,tip_extension,Tip extension,4,0,0
+7,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+7,28C,c,wound_smoothed,Wound smoothed,4,4,1
+7,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+7,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+7,31C,a,pigment_over_wound,Pigment over wound,4,1,0.25
+7,31C,a,tip_exist,Tip exists,4,4,1
+7,31C,a,tip_extension,Tip extension,4,0,0
+7,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+7,31C,a,wound_smoothed,Wound smoothed,4,4,1
+7,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+7,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+7,31C,c,pigment_over_wound,Pigment over wound,4,1,0.25
+7,31C,c,tip_exist,Tip exists,4,2,0.5
+7,31C,c,tip_extension,Tip extension,4,0,0
+7,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+7,31C,c,wound_smoothed,Wound smoothed,4,4,1
+8,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+8,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+8,28C,a,tip_exist,Tip exists,4,4,1
+8,28C,a,tip_extension,Tip extension,4,4,1
+8,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+8,28C,a,wound_smoothed,Wound smoothed,4,4,1
+8,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+8,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+8,28C,c,tip_exist,Tip exists,4,4,1
+8,28C,c,tip_extension,Tip extension,4,1,0.25
+8,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+8,28C,c,wound_smoothed,Wound smoothed,4,4,1
+8,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+8,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+8,31C,a,tip_exist,Tip exists,4,4,1
+8,31C,a,tip_extension,Tip extension,4,4,1
+8,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+8,31C,a,wound_smoothed,Wound smoothed,4,4,1
+8,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+8,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+8,31C,c,tip_exist,Tip exists,4,2,0.5
+8,31C,c,tip_extension,Tip extension,4,0,0
+8,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+8,31C,c,wound_smoothed,Wound smoothed,4,4,1
+9,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+9,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+9,28C,a,tip_exist,Tip exists,4,4,1
+9,28C,a,tip_extension,Tip extension,4,4,1
+9,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+9,28C,a,wound_smoothed,Wound smoothed,4,4,1
+9,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+9,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+9,28C,c,tip_exist,Tip exists,4,4,1
+9,28C,c,tip_extension,Tip extension,4,4,1
+9,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+9,28C,c,wound_smoothed,Wound smoothed,4,4,1
+9,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+9,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+9,31C,a,tip_exist,Tip exists,4,4,1
+9,31C,a,tip_extension,Tip extension,4,4,1
+9,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+9,31C,a,wound_smoothed,Wound smoothed,4,4,1
+9,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+9,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+9,31C,c,tip_exist,Tip exists,4,3,0.75
+9,31C,c,tip_extension,Tip extension,4,1,0.25
+9,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+9,31C,c,wound_smoothed,Wound smoothed,4,4,1
+10,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+10,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+10,28C,a,tip_exist,Tip exists,4,4,1
+10,28C,a,tip_extension,Tip extension,4,4,1
+10,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+10,28C,a,wound_smoothed,Wound smoothed,4,4,1
+10,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+10,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+10,28C,c,tip_exist,Tip exists,4,4,1
+10,28C,c,tip_extension,Tip extension,4,4,1
+10,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+10,28C,c,wound_smoothed,Wound smoothed,4,4,1
+10,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+10,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+10,31C,a,tip_exist,Tip exists,4,4,1
+10,31C,a,tip_extension,Tip extension,4,4,1
+10,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+10,31C,a,wound_smoothed,Wound smoothed,4,4,1
+10,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+10,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+10,31C,c,tip_exist,Tip exists,4,4,1
+10,31C,c,tip_extension,Tip extension,4,2,0.5
+10,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+10,31C,c,wound_smoothed,Wound smoothed,4,4,1
+11,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+11,28C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+11,28C,a,tip_exist,Tip exists,4,4,1
+11,28C,a,tip_extension,Tip extension,4,4,1
+11,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+11,28C,a,wound_smoothed,Wound smoothed,4,4,1
+11,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+11,28C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+11,28C,c,tip_exist,Tip exists,4,4,1
+11,28C,c,tip_extension,Tip extension,4,4,1
+11,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+11,28C,c,wound_smoothed,Wound smoothed,4,4,1
+11,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+11,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+11,31C,a,tip_exist,Tip exists,4,4,1
+11,31C,a,tip_extension,Tip extension,4,4,1
+11,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+11,31C,a,wound_smoothed,Wound smoothed,4,4,1
+11,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+11,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+11,31C,c,tip_exist,Tip exists,4,4,1
+11,31C,c,tip_extension,Tip extension,4,4,1
+11,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+11,31C,c,wound_smoothed,Wound smoothed,4,4,1
+12,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+12,28C,a,new_corallites_on_tip,New corallites on tip,4,3,0.75
+12,28C,a,tip_exist,Tip exists,4,4,1
+12,28C,a,tip_extension,Tip extension,4,4,1
+12,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+12,28C,a,wound_smoothed,Wound smoothed,4,4,1
+12,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+12,28C,c,new_corallites_on_tip,New corallites on tip,4,1,0.25
+12,28C,c,tip_exist,Tip exists,4,4,1
+12,28C,c,tip_extension,Tip extension,4,4,1
+12,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+12,28C,c,wound_smoothed,Wound smoothed,4,4,1
+12,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+12,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+12,31C,a,tip_exist,Tip exists,4,4,1
+12,31C,a,tip_extension,Tip extension,4,4,1
+12,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+12,31C,a,wound_smoothed,Wound smoothed,4,4,1
+12,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+12,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+12,31C,c,tip_exist,Tip exists,4,4,1
+12,31C,c,tip_extension,Tip extension,4,4,1
+12,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+12,31C,c,wound_smoothed,Wound smoothed,4,4,1
+13,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+13,28C,a,new_corallites_on_tip,New corallites on tip,4,3,0.75
+13,28C,a,tip_exist,Tip exists,4,4,1
+13,28C,a,tip_extension,Tip extension,4,4,1
+13,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+13,28C,a,wound_smoothed,Wound smoothed,4,4,1
+13,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+13,28C,c,new_corallites_on_tip,New corallites on tip,4,2,0.5
+13,28C,c,tip_exist,Tip exists,4,4,1
+13,28C,c,tip_extension,Tip extension,4,4,1
+13,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+13,28C,c,wound_smoothed,Wound smoothed,4,4,1
+13,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+13,31C,a,new_corallites_on_tip,New corallites on tip,4,0,0
+13,31C,a,tip_exist,Tip exists,4,4,1
+13,31C,a,tip_extension,Tip extension,4,4,1
+13,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+13,31C,a,wound_smoothed,Wound smoothed,4,4,1
+13,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+13,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+13,31C,c,tip_exist,Tip exists,4,4,1
+13,31C,c,tip_extension,Tip extension,4,4,1
+13,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+13,31C,c,wound_smoothed,Wound smoothed,4,4,1
+14,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+14,28C,a,new_corallites_on_tip,New corallites on tip,4,4,1
+14,28C,a,tip_exist,Tip exists,4,4,1
+14,28C,a,tip_extension,Tip extension,4,4,1
+14,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+14,28C,a,wound_smoothed,Wound smoothed,4,4,1
+14,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+14,28C,c,new_corallites_on_tip,New corallites on tip,4,4,1
+14,28C,c,tip_exist,Tip exists,4,4,1
+14,28C,c,tip_extension,Tip extension,4,4,1
+14,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+14,28C,c,wound_smoothed,Wound smoothed,4,4,1
+14,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+14,31C,a,new_corallites_on_tip,New corallites on tip,4,2,0.5
+14,31C,a,tip_exist,Tip exists,4,4,1
+14,31C,a,tip_extension,Tip extension,4,4,1
+14,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+14,31C,a,wound_smoothed,Wound smoothed,4,4,1
+14,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+14,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+14,31C,c,tip_exist,Tip exists,4,4,1
+14,31C,c,tip_extension,Tip extension,4,4,1
+14,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+14,31C,c,wound_smoothed,Wound smoothed,4,4,1
+15,28C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+15,28C,a,new_corallites_on_tip,New corallites on tip,4,4,1
+15,28C,a,tip_exist,Tip exists,4,4,1
+15,28C,a,tip_extension,Tip extension,4,4,1
+15,28C,a,tissue_over_wound,Tissue over wound,4,4,1
+15,28C,a,wound_smoothed,Wound smoothed,4,4,1
+15,28C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+15,28C,c,new_corallites_on_tip,New corallites on tip,4,4,1
+15,28C,c,tip_exist,Tip exists,4,4,1
+15,28C,c,tip_extension,Tip extension,4,4,1
+15,28C,c,tissue_over_wound,Tissue over wound,4,4,1
+15,28C,c,wound_smoothed,Wound smoothed,4,4,1
+15,31C,a,axial_polyp_formation,Axial polyp formation,4,4,1
+15,31C,a,new_corallites_on_tip,New corallites on tip,4,2,0.5
+15,31C,a,tip_exist,Tip exists,4,4,1
+15,31C,a,tip_extension,Tip extension,4,4,1
+15,31C,a,tissue_over_wound,Tissue over wound,4,4,1
+15,31C,a,wound_smoothed,Wound smoothed,4,4,1
+15,31C,c,axial_polyp_formation,Axial polyp formation,4,4,1
+15,31C,c,new_corallites_on_tip,New corallites on tip,4,0,0
+15,31C,c,tip_exist,Tip exists,4,4,1
+15,31C,c,tip_extension,Tip extension,4,4,1
+15,31C,c,tissue_over_wound,Tissue over wound,4,4,1
+15,31C,c,wound_smoothed,Wound smoothed,4,4,1

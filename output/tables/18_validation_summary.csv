@@ -23,9 +23,18 @@ symbionts,median (cells/cm²),INFO,7.98e+05,~7e5–1e6,
 wax_dipping,n corals,PASS,192,~192,
 wax_dipping,caliper-curve SA correlation,HANDLED,r = 0.653,> 0.7,below threshold; standard curve retained and plotted in figure 07 for transparency
 morphology,n observations,PASS,768,~768,
+morphology,date parsing,PASS,2025-06-04 to 2025-06-19,all physio morphology rows retain calendar dates,
 morphology,wounded corals tracked,INFO,24,~24 (per treatment),
 morphology,28C tank IDs,PASS,"3,6,9,12","3,6,9,12",
 morphology,31C tank IDs,PASS,"4,5,10,11","4,5,10,11",
+microscope,n observations,PASS,256,256,16 photo corals x 16 daily observations
+microscope,n photo corals,PASS,16,16,
+microscope,days scored,PASS,0-15,0-15,
+microscope,cohort,PASS,photo,sample=photo; wound=yes,
+microscope,genets,PASS,"a,c","a,c",
+microscope,28C tank IDs,PASS,"6,9","6,9",photo-only subset uses two of the four ambient tanks
+microscope,31C tank IDs,PASS,"4,5","4,5",photo-only subset uses two of the four heated tanks
+microscope,pigment D8-D15 blanks,HANDLED,128/128 missing after D7,"blank = not scored, not no",
 ysi,n daily readings,PASS,72,~72,9 tanks × ~8 days
 ysi,temperature (°C) range,INFO,"[27.6, 31.7]","[27, 33] reasonable",
 apex,n daily probe-records,INFO,2225,thousands across 6 datalog files,
@@ -33,3 +42,10 @@ worms,total worm-positive obs,INFO,22,0–few,21 unique corals contaminated; con
 cross-stream,PAM ids in metadata,PASS,0,0,Orphans: 
 cross-stream,buoyant-weight ids in metadata,PASS,0,0,
 cross-stream,wax-dipping ids in metadata,PASS,0,0,
+cross-stream,microscope ids in metadata,PASS,0,0,
+provenance,source inventory exists,PASS,source_inventory.csv,data/metadata/source_inventory.csv,
+provenance,raw folders have codebooks,PASS,18,18 raw folders documented,
+provenance,Drive method docs imported,PASS,9,>= 8,
+provenance,imported source paths exist,PASS,30,30 imported sources,
+provenance,analysis inputs inventoried,PASS,12,>= 12,"metadata, physiology, morphology, temperature, worms, and RNA-seq handoff inputs"
+provenance,inventoried analysis scripts exist,PASS,12,12 scripted sources,

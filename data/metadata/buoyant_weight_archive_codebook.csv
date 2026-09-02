@@ -1,0 +1,6 @@
+"file","column","unit","description"
+"Copy_of_buoyant_wt_calcs.xlsx","Sheet1","NA","Duplicate/working buoyant-weight calculation sheet"
+"Copy_of_buoyant_wt_calcs.xlsx","Sheet2","NA","Reference density table for distilled water"
+"Copy_of_buoyant_wt_calcs.xlsx","Sheet3","NA","Additional working sheet in the archived workbook"
+"project","canonical buoyant-weight input","NA","The pipeline uses data/raw/buoyant_weight, not this archive copy"
+

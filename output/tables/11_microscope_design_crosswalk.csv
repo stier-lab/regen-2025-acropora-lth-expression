@@ -1,0 +1,17 @@
+id,tank,treatment,thicket,wound,sample,meta_tank,meta_treatment,meta_thicket,meta_wound,meta_sample,matches_metadata
+10,6,28C,a,yes,photo,6,28C,a,yes,photo,TRUE
+11,6,28C,a,yes,photo,6,28C,a,yes,photo,TRUE
+12,9,28C,a,yes,photo,9,28C,a,yes,photo,TRUE
+13,9,28C,a,yes,photo,9,28C,a,yes,photo,TRUE
+9,6,28C,c,yes,photo,6,28C,c,yes,photo,TRUE
+14,6,28C,c,yes,photo,6,28C,c,yes,photo,TRUE
+15,9,28C,c,yes,photo,9,28C,c,yes,photo,TRUE
+16,9,28C,c,yes,photo,9,28C,c,yes,photo,TRUE
+1,4,31C,a,yes,photo,4,31C,a,yes,photo,TRUE
+2,4,31C,a,yes,photo,4,31C,a,yes,photo,TRUE
+3,5,31C,a,yes,photo,5,31C,a,yes,photo,TRUE
+4,5,31C,a,yes,photo,5,31C,a,yes,photo,TRUE
+5,4,31C,c,yes,photo,4,31C,c,yes,photo,TRUE
+6,4,31C,c,yes,photo,4,31C,c,yes,photo,TRUE
+7,5,31C,c,yes,photo,5,31C,c,yes,photo,TRUE
+8,5,31C,c,yes,photo,5,31C,c,yes,photo,TRUE

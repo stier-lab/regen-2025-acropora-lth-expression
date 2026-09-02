@@ -181,9 +181,49 @@ add("wax_dipping", "caliper-curve SA correlation",
 ph <- readRDS(file.path(DATA_PROC, "physio_clean.rds"))
 add("morphology", "n observations", if (nrow(ph) > 700) "PASS" else "WARN",
     nrow(ph), "~768")
+add("morphology", "date parsing",
+    if (all(!is.na(ph$date))) "PASS" else "FAIL",
+    if (all(!is.na(ph$date))) paste(range(ph$date), collapse = " to ") else paste0(sum(is.na(ph$date)), " missing"),
+    "all physio morphology rows retain calendar dates")
 add("morphology", "wounded corals tracked", "INFO",
     length(unique(ph$id[ph$wound == "yes"])), "~24 (per treatment)")
 check_tanks("morphology", ph)
+
+# ---- Microscope physio morphology -----------------------------------------
+# The separate photo-only microscope cohort. This has a narrower design than the
+# main morphology stream: 16 wounded corals only, genets A/C only, and tanks
+# 6/9 at 28C plus 4/5 at 31C. Validate it separately so it is visible in the
+# pipeline without being pooled into the main morphology inference.
+micro <- readRDS(file.path(DATA_PROC, "microscope_physio_clean.rds"))
+add("microscope", "n observations", if (nrow(micro) == 256) "PASS" else "WARN",
+    nrow(micro), 256, "16 photo corals x 16 daily observations")
+add("microscope", "n photo corals",
+    if (length(unique(micro$id)) == 16) "PASS" else "FAIL",
+    length(unique(micro$id)), 16)
+add("microscope", "days scored",
+    if (identical(sort(unique(micro$day)), 0:15)) "PASS" else "FAIL",
+    paste(range(micro$day), collapse = "-"), "0-15")
+add("microscope", "cohort",
+    if (all(micro$sample == "photo") && all(micro$wound == "yes")) "PASS" else "FAIL",
+    paste(sort(unique(micro$sample)), collapse = ","),
+    "sample=photo; wound=yes")
+add("microscope", "genets",
+    if (setequal(unique(micro$thicket), c("a", "c"))) "PASS" else "FAIL",
+    paste(sort(unique(micro$thicket)), collapse = ","), "a,c")
+add("microscope", "28C tank IDs",
+    if (identical(sort(unique(micro$tank[micro$treatment == "28C"])), c(6L, 9L))) "PASS" else "FAIL",
+    paste(sort(unique(micro$tank[micro$treatment == "28C"])), collapse = ","),
+    "6,9", "photo-only subset uses two of the four ambient tanks")
+add("microscope", "31C tank IDs",
+    if (identical(sort(unique(micro$tank[micro$treatment == "31C"])), c(4L, 5L))) "PASS" else "FAIL",
+    paste(sort(unique(micro$tank[micro$treatment == "31C"])), collapse = ","),
+    "4,5", "photo-only subset uses two of the four heated tanks")
+add("microscope", "pigment D8-D15 blanks",
+    if (all(is.na(micro$pigment_over_wound[micro$day > 7]))) "HANDLED" else "WARN",
+    sprintf("%d/%d missing after D7",
+            sum(is.na(micro$pigment_over_wound[micro$day > 7])),
+            sum(micro$day > 7)),
+    "blank = not scored, not no")
 
 # ---- YSI ------------------------------------------------------------------
 # Daily handheld water-quality spot checks (from 09). na.rm = TRUE because some
@@ -223,10 +263,12 @@ ids_in_meta <- meta$id
 ids_in_pam  <- unique(pam$id)
 ids_in_bw   <- unique(bw$id)
 ids_in_wax  <- unique(wax$id)
+ids_in_micro <- unique(micro$id)
 
 orphan_pam <- setdiff(ids_in_pam, ids_in_meta)
 orphan_bw  <- setdiff(ids_in_bw,  ids_in_meta)
 orphan_wax <- setdiff(ids_in_wax, ids_in_meta)
+orphan_micro <- setdiff(ids_in_micro, ids_in_meta)
 
 add("cross-stream", "PAM ids in metadata",
     if (length(orphan_pam) == 0) "PASS" else "FAIL",
@@ -238,6 +280,66 @@ add("cross-stream", "buoyant-weight ids in metadata",
 add("cross-stream", "wax-dipping ids in metadata",
     if (length(orphan_wax) == 0) "PASS" else "FAIL",
     length(orphan_wax), 0)
+add("cross-stream", "microscope ids in metadata",
+    if (length(orphan_micro) == 0) "PASS" else "FAIL",
+    length(orphan_micro), 0)
+
+# ---- Raw source provenance and documentation ------------------------------
+# In addition to checking biological data integrity, confirm that Drive imports
+# are traceable. This keeps raw data provenance from living only in meeting notes.
+source_inventory_path <- file.path(DATA_META, "source_inventory.csv")
+add("provenance", "source inventory exists",
+    if (file.exists(source_inventory_path)) "PASS" else "FAIL",
+    basename(source_inventory_path), "data/metadata/source_inventory.csv")
+
+raw_dirs <- list.dirs(DATA_RAW, full.names = FALSE, recursive = FALSE)
+expected_codebooks <- file.path(DATA_META, paste0(raw_dirs, "_codebook.csv"))
+missing_codebooks <- raw_dirs[!file.exists(expected_codebooks)]
+add("provenance", "raw folders have codebooks",
+    if (length(missing_codebooks) == 0) "PASS" else "FAIL",
+    if (length(missing_codebooks) == 0) length(raw_dirs) else paste(missing_codebooks, collapse = ","),
+    paste0(length(raw_dirs), " raw folders documented"))
+
+method_dir <- here::here("docs", "provenance", "drive_methods")
+method_files <- list.files(method_dir, all.files = FALSE, recursive = FALSE,
+                           full.names = FALSE)
+add("provenance", "Drive method docs imported",
+    if (length(method_files) >= 8) "PASS" else "WARN",
+    length(method_files), ">= 8")
+
+if (file.exists(source_inventory_path)) {
+  source_inventory <- read_csv(source_inventory_path, show_col_types = FALSE)
+
+  path_exists <- function(path_string) {
+    paths <- str_split(path_string, ";", simplify = FALSE)[[1]] |>
+      str_squish()
+    paths <- paths[nzchar(paths)]
+    length(paths) > 0 && all(file.exists(paths))
+  }
+
+  imported <- source_inventory |>
+    filter(import_status == "imported")
+  missing_imports <- imported$source_title[!map_lgl(imported$local_path, path_exists)]
+  add("provenance", "imported source paths exist",
+      if (length(missing_imports) == 0) "PASS" else "FAIL",
+      if (length(missing_imports) == 0) nrow(imported) else paste(missing_imports, collapse = ","),
+      paste0(nrow(imported), " imported sources"))
+
+  analysis_inputs <- source_inventory |>
+    filter(pipeline_role == "analysis_input")
+  add("provenance", "analysis inputs inventoried",
+      if (nrow(analysis_inputs) >= 12) "PASS" else "WARN",
+      nrow(analysis_inputs), ">= 12",
+      "metadata, physiology, morphology, temperature, worms, and RNA-seq handoff inputs")
+
+  scripted_sources <- source_inventory |>
+    filter(!is.na(analysis_script), nzchar(analysis_script))
+  missing_scripts <- scripted_sources$analysis_script[!file.exists(scripted_sources$analysis_script)]
+  add("provenance", "inventoried analysis scripts exist",
+      if (length(missing_scripts) == 0) "PASS" else "FAIL",
+      if (length(missing_scripts) == 0) nrow(scripted_sources) else paste(unique(missing_scripts), collapse = ","),
+      paste0(nrow(scripted_sources), " scripted sources"))
+}
 
 # ---- Output ---------------------------------------------------------------
 # Stack all the accumulated one-row results into a single table, save it, then

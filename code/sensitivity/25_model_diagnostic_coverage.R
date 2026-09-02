@@ -28,6 +28,7 @@ suppressPackageStartupMessages({ library(DHARMa) })   # simulation-based residua
 
 DIAG_DIR <- file.path(FIG_DIR, "diagnostics")
 dir.create(DIAG_DIR, recursive = TRUE, showWarnings = FALSE)
+diagnostic_notes <- character()
 
 # Every fitted model the pipeline saved to disk; this is the master list we audit.
 model_files <- list.files(MOD_DIR, pattern = "\\.rds$", full.names = TRUE)
@@ -89,10 +90,37 @@ existing_diag <- function(stem) {
 # returns NA so the model is reported as a gap.
 build_dharma <- function(model, stem) {
   out <- file.path(DIAG_DIR, paste0("K_", stem, "_dharma.png"))
+  dharma_warnings <- character()
   ok <- tryCatch({
-    res <- DHARMa::simulateResiduals(model, n = 250, plot = FALSE)
+    res <- withCallingHandlers(
+      DHARMa::simulateResiduals(model, n = 250, plot = FALSE),
+      warning = function(w) {
+        dharma_warnings <<- c(dharma_warnings, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      }
+    )
     png(out, width = 1100, height = 520, res = 130)
-    plot(res); dev.off()
+    op <- par(mfrow = c(1, 2))
+    on.exit(par(op), add = TRUE)
+    plot_output <- utils::capture.output(
+      withCallingHandlers({
+        DHARMa::plotQQunif(res)
+        DHARMa::plotResiduals(res, quantreg = FALSE)
+      }, warning = function(w) {
+        dharma_warnings <<- c(dharma_warnings, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      }),
+      type = "output"
+    )
+    dev.off()
+    diagnostic_messages <- c(unique(dharma_warnings),
+                             unique(plot_output[nzchar(plot_output)]))
+    if (length(diagnostic_messages)) {
+      diagnostic_notes <<- c(
+        diagnostic_notes,
+        sprintf("`%s`: %s", stem, paste(diagnostic_messages, collapse = " | "))
+      )
+    }
     TRUE
   }, error = function(e) { if (dev.cur() > 1) dev.off(); FALSE })
   if (ok) out else NA_character_
@@ -198,6 +226,17 @@ if (n_gap > 0) {
   report <- c(report, "", "## Gaps", "",
               cov |> filter(!grepl("covered", status)) |>
                 mutate(l = sprintf("- `%s` (%s): %s", model, class, status)) |> pull(l))
+}
+report <- c(report, "", "## Diagnostic Notes", "")
+if (length(diagnostic_notes) == 0) {
+  report <- c(report, "None.")
+} else {
+  report <- c(
+    report,
+    paste0("- ", unique(diagnostic_notes)),
+    "",
+    "DHARMa plotting/fitting warnings are retained here as diagnostic caveats; they do not create a coverage gap when the diagnostic figure is successfully written."
+  )
 }
 writeLines(report, file.path(here::here("output", "diagnostics"),
                              "K_model_coverage_report.md"))

@@ -39,6 +39,7 @@ all_plots  <- list.files(DIAG_FIG, pattern = "\\.png$", full.names = TRUE)
 extra_plots <- list.files(here("figures", "12_diagnostics"),
                           pattern = "\\.png$", full.names = TRUE)
 all_plots <- c(all_plots, extra_plots)
+diagnostic_notes <- character()
 
 # plot_for(): given a model file, return the diagnostic plot(s) we expect for it.
 # Naming conventions differ by model family, so this works in tiers: an explicit
@@ -122,18 +123,34 @@ make_inventory <- function() {
 # 2-panel diagnostic (QQ + residual-vs-predicted) to PNG. refit=FALSE uses the
 # fast simulation (no re-estimation per sim). Returns NA on failure so the caller
 # can keep going.
-build_dharma <- function(model_path) {
+build_dharma <- function(model_path, outfile = NULL) {
   m <- readRDS(model_path)
   base <- tools::file_path_sans_ext(basename(model_path))
-  outfile <- file.path(DIAG_FIG, paste0("G_", base, "_dharma.png"))
+  if (is.null(outfile)) {
+    outfile <- file.path(DIAG_FIG, paste0("G_", base, "_dharma.png"))
+  }
+  dir.create(dirname(outfile), recursive = TRUE, showWarnings = FALSE)
+  sim_warnings <- character()
   res <- tryCatch(
-    DHARMa::simulateResiduals(m, n = 500, refit = FALSE),
+    withCallingHandlers(
+      DHARMa::simulateResiduals(m, n = 500, refit = FALSE),
+      warning = function(w) {
+        sim_warnings <<- c(sim_warnings, conditionMessage(w))
+        invokeRestart("muffleWarning")
+      }
+    ),
     error = function(e) {
       message("DHARMa failed on ", base, ": ", conditionMessage(e))
       NULL
     }
   )
   if (is.null(res)) return(NA_character_)
+  if (length(sim_warnings)) {
+    diagnostic_notes <<- c(
+      diagnostic_notes,
+      sprintf("`%s`: %s", base, paste(unique(sim_warnings), collapse = " | "))
+    )
+  }
   png(outfile, width = 1600, height = 800, res = 160)
   plot(res)
   dev.off()
@@ -195,8 +212,44 @@ extra_plots <- list.files(here("figures", "12_diagnostics"),
 all_plots <- c(all_plots, extra_plots)
 inventory <- make_inventory()
 
-# Relabel anything produced this run as BUILT (rather than CURRENT or a
-# leftover MISSING) so the report distinguishes pre-existing from freshly drawn plots.
+# Refresh stale or missing DHARMa-capable diagnostics. This closes the loop when
+# models are refit before this inventory runs: the report should end with CURRENT
+# or BUILT diagnostics, not a stale warning that a later script has to repair.
+refreshable <- inventory |>
+  dplyr::filter(status %in% c("STALE", "MISSING"))
+for (i in seq_len(nrow(refreshable))) {
+  model_path <- file.path(models_dir, refreshable$model[i])
+  m <- tryCatch(readRDS(model_path), error = function(e) NULL)
+  cls <- if (is.null(m)) NA_character_ else class(m)[1]
+  if (is.na(cls) ||
+      !(cls %in% c("lmerMod", "lmerModLmerTest", "glmerMod", "lm", "bglmerMod"))) {
+    next
+  }
+  base <- tools::file_path_sans_ext(refreshable$model[i])
+  expected <- refreshable$diagnostic_plot[i]
+  outfile <- if (!is.na(expected) && expected != "") {
+    file.path(DIAG_FIG, expected)
+  } else {
+    file.path(DIAG_FIG, paste0("G_", base, "_dharma.png"))
+  }
+  cat("  refreshing ", refreshable$model[i], " -> ",
+      basename(outfile), "... ", sep = "")
+  out <- build_dharma(model_path, outfile = outfile)
+  if (!is.na(out)) {
+    cat("done\n")
+    built <- c(built, basename(out))
+  } else cat("skipped\n")
+}
+
+# Recompute inventory after all refreshes so the written CSV/report is final.
+all_plots  <- list.files(DIAG_FIG, pattern = "\\.png$", full.names = TRUE)
+extra_plots <- list.files(here("figures", "12_diagnostics"),
+                          pattern = "\\.png$", full.names = TRUE)
+all_plots <- c(all_plots, extra_plots)
+inventory <- make_inventory()
+
+# Relabel anything produced this run as BUILT (rather than CURRENT or a leftover
+# MISSING) so the report distinguishes pre-existing from freshly drawn plots.
 inventory <- inventory |>
   mutate(status = case_when(
     diagnostic_plot %in% built & status == "CURRENT" ~ "BUILT",
@@ -226,6 +279,16 @@ if (nrow(missing) == 0) cat("None — full coverage.\n") else {
     cat("- `", missing$model[i], "` (mtime ",
         format(missing$model_mtime[i]), ")\n", sep = "")
   }
+}
+cat("\n## Diagnostic notes\n\n")
+if (length(diagnostic_notes) == 0) {
+  cat("None.\n")
+} else {
+  for (note in unique(diagnostic_notes)) cat("- ", note, "\n", sep = "")
+  cat("\nPenalized `bglmerMod` DHARMa plots are retained as visual residual checks; ",
+      "the formal morphology diagnostics are also covered by the unpenalized ",
+      "GLMM diagnostic battery, endpoint/log-rank summaries, and interval-censored ",
+      "timing models.\n", sep = "")
 }
 sink()
 

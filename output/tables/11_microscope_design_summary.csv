@@ -1,0 +1,2 @@
+dataset,source_title,source_url,source_modified_utc,n_observations,n_corals,n_days,day_min,day_max,n_treatments,treatments,n_thickets,thickets,n_tanks,tanks,all_wounded,all_photo_sample,pigment_over_wound_scoring,inferential_scope
+microscope_physio,Microscope physio characterization,https://docs.google.com/spreadsheets/d/1rB5VFJqQov0ZXsPjRKnjwVDOtiPxgbfMMDm9l_9Y-Q4/edit,2025-10-07T18:34:33.762Z,256,16,16,0,15,2,"28C,31C",2,"a,c",4,"4,5,6,9",TRUE,TRUE,scored D0-D7; blank/not-scored D8-D15,separate photo-only validation/descriptive analysis

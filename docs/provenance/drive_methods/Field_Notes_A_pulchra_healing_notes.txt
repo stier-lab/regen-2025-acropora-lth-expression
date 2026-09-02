@@ -1,0 +1,81 @@
+﻿`A. Pulchra Healing General Observations by Day
+
+
+Characteristics were taken quantitatively in gene expression study with yes/no:
+
+
+hole in center
+	polyp in hole
+	wound smoothed
+	pigment over wound
+	tip exist
+	tip extension
+	New corallites on tip
+	
+
+Averaged proportion of character traits by temperature treatment:
+
+
+  
+
+
+
+
+
+
+
+General Observation and Trends across unheated corals:
+
+
+Day
+	Physical Characteristic
+	0
+	Blunt wound; coarse skeleton, no tissue
+	1
+	Same as D0
+	2
+	Skeletal smoothing begins, possible axial polyp hole begins defined
+	3
+	Skeletal smoothing continues, axial polyp hole becomes more defined
+	4
+	Likely an obvious axial polyp hole present with axial polyp present, very likely rounded out skeleton 
+	5
+	
+
+	6
+	Definitive axial hole with polyp and smoothed over skeleton, 50% chance of tip/axial corallite beginning formation
+	7
+	
+
+	8
+	Greater chance of axial corallite existing, and possible extension
+	9
+	
+
+	10
+	Corallite extension continues
+	11
+	
+
+	12
+	New corallites begin forming on axial corallite like branches on a tree
+	13
+	New corallites continue forming on axial corallite, polyps may be present in these corallites
+	14
+	
+
+	15
+	
+
+	16
+	***Possibly next step is pigmentation of axial polyps
+	17
+	
+
+	18
+	
+
+	19
+	
+
+	20

@@ -1,0 +1,12 @@
+"file","column","unit","description"
+"Standard_Curve.csv","ID","NA","Standard-curve object identifier"
+"Standard_Curve.csv","height (mm)","mm","Measured object height"
+"Standard_Curve.csv","diameter (mm)","mm","Measured object diameter"
+"Standard_Curve.csv","Surface area (mm)","mm2","Calculated object surface area"
+"Standard_Curve.csv","dry weight (g)","g","Dry weight before wax dipping"
+"Standard_Curve.csv","wax weight (g)","g","Weight after wax dipping"
+"Standard_Curve.csv","wax - dry (g)","g","Wax mass difference"
+"Standard_Curve.csv","wax-dry","g","Duplicated x-axis values used by chart/calculation cells"
+"Standard_Curve.csv","surface area","mm2","Duplicated y-axis values used by chart/calculation cells"
+"Standard_Curve.csv","notes","NA","Trailing rows record fitted lines and R2 values"
+

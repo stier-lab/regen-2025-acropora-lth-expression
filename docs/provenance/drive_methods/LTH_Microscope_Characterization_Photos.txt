@@ -1,0 +1,41 @@
+﻿LTH Microscope Characterization Photos
+        
+All photos for this project are on the server by date (smb://stier-nas1.eemb.ucsb.edu). Files for .vsi and .tif are included for every photo set.  
+
+
+ 
+Moorea 2025 
+   → LTH 2025 
+      → A. pulchra 
+         → Ambient (28C)
+            → D1
+            → D2
+            → D3
+            → D4
+            → D5
+            → D6
+            → D7
+            → D8
+            → D9
+            → D10
+            → D11
+            → D12
+            → D13
+            → D14
+            → D15
+         → Heated (31C)
+→ D1
+            → D2
+            → D3
+            → D4
+            → D5
+            → D6
+            → D7
+            → D8
+            → D9
+            → D10
+            → D11
+            → D12
+            → D13
+            → D14
+            → D15

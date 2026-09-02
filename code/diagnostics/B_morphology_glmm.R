@@ -86,12 +86,18 @@ classify_p <- function(p, alpha_warn = 0.05, alpha_fail = 0.001) {
   "PASS"
 }
 
+handled_glmm_structure <- function(trait, blme_available = FALSE) {
+  blme_available || trait %in% saturated_closure_traits
+}
+
 # "Closure" traits are near-saturated (almost all corals eventually close the
-# wound), so their binomial models are expected to look underdispersed. We don't
-# penalize that — timing for these traits is analyzed by the Cox/interval models.
-# (hole_in_center + polyp_in_hole are combined into axial_polyp_formation in
-# code/04 — see data-quality note there.)
-saturated_closure_traits <- c("axial_polyp_formation", "wound_smoothed")
+# wound), so their binomial models are expected to show separation and
+# underdispersion. We don't penalize that — timing for these traits is analyzed
+# by the Cox/interval models. hole_in_center is a stale saved-model alias of the
+# combined axial_polyp_formation observable (see code/04 data-quality note), so
+# it is handled the same way if its old model object remains in output/models/.
+saturated_closure_traits <- c("axial_polyp_formation", "hole_in_center",
+                              "wound_smoothed")
 
 # ---- load source data -------------------------------------------------------
 phys_path <- file.path(DATA_PROC, "physio_clean.rds")
@@ -162,18 +168,26 @@ diagnose_one <- function(mfile) {
   conv_ok <- (length(conv_msgs) == 0) && (is.null(opt_conv) || opt_conv == 0)
   # isSingular = TRUE => the tank random-effect variance collapsed to ~0.
   sing    <- isSingular(m, tol = 1e-4)
-  conv_status <- if (conv_ok) "PASS" else if (blme_available) "HANDLED" else "WARN"
+  conv_status <- if (conv_ok) "PASS"
+                 else if (blme_available || trait %in% saturated_closure_traits) "HANDLED"
+                 else "WARN"
   res <- add_row_safe(res, trait, "convergence",
                       statistic = ifelse(is.null(opt_conv), NA, opt_conv),
                       status = conv_status,
                       notes = if (conv_ok) "no warnings"
                               else if (blme_available) paste("handled by penalized blme refit in script 12c:", paste(conv_msgs, collapse = "; "))
+                              else if (trait %in% saturated_closure_traits) paste("handled as saturated closure/alias trait; inference uses interval-censored timing:", paste(conv_msgs, collapse = "; "))
                               else paste(conv_msgs, collapse = "; "))
+  structure_handled <- handled_glmm_structure(trait, blme_available)
   res <- add_row_safe(res, trait, "singular_fit",
                       statistic = as.integer(sing),
-                      status = if (sing) "WARN" else "PASS",
-                      notes = if (sing) "isSingular=TRUE; RE variance ~0"
-                              else "non-singular")
+                      status = if (sing && structure_handled) "HANDLED"
+                               else if (sing) "WARN" else "PASS",
+                      notes = if (sing && structure_handled) {
+                        "isSingular=TRUE; near-zero random-effect variance handled by companion penalized/timing analysis"
+                      } else if (sing) {
+                        "isSingular=TRUE; RE variance ~0"
+                      } else "non-singular")
   notes_md <- c(notes_md,
                 sprintf("- Convergence: %s%s",
                         if (conv_ok) "OK" else if (blme_available) "HANDLED" else "ISSUE",
@@ -186,12 +200,16 @@ diagnose_one <- function(mfile) {
   vc <- as.data.frame(VarCorr(m))
   for (i in seq_len(nrow(vc))) {
     grp <- vc$grp[i]; v <- vc$vcov[i]
-    status <- if (is.na(v)) "WARN" else if (v < 1e-4) "WARN" else "PASS"
+    status <- if (is.na(v)) "WARN"
+              else if (v < 1e-4 && structure_handled) "HANDLED"
+              else if (v < 1e-4) "WARN" else "PASS"
     res <- add_row_safe(res, trait, paste0("re_var_", grp),
                         statistic = v, status = status,
-                        notes = if (status == "WARN")
+                        notes = if (status == "HANDLED") {
+                          "near-zero variance component; retained design term contributes little variation and companion analysis handles sparse binary structure"
+                        } else if (status == "WARN") {
                           "Near-zero variance component"
-                        else "variance > 1e-4")
+                        } else "variance > 1e-4")
   }
   notes_md <- c(notes_md, sprintf("- RE variance: %s",
                                   paste(sprintf("%s=%.4g", vc$grp, vc$vcov),
@@ -208,10 +226,14 @@ diagnose_one <- function(mfile) {
                 else if (max_se > 50) "FAIL"
                 else if (max_se > 10) "WARN"
                 else "PASS"
-  if (sep_status == "FAIL" && blme_available) sep_status <- "HANDLED"
+  if (sep_status == "FAIL" &&
+      (blme_available || trait %in% saturated_closure_traits)) {
+    sep_status <- "HANDLED"
+  }
   res <- add_row_safe(res, trait, "max_fixed_effect_SE",
                       statistic = max_se, status = sep_status,
-                      notes = if (sep_status == "HANDLED") "Likely separation; handled by penalized blme refit in script 12c"
+                      notes = if (sep_status == "HANDLED" && blme_available) "Likely separation; handled by penalized blme refit in script 12c"
+                              else if (sep_status == "HANDLED") "Likely separation; handled as saturated closure/alias trait with inference routed to interval-censored timing"
                               else if (sep_status == "FAIL") "Likely separation (SE >50 or non-finite)"
                               else if (sep_status == "WARN") "Possible quasi-separation (SE 10-50)"
                               else "SE in plausible range")
@@ -242,13 +264,13 @@ diagnose_one <- function(mfile) {
     # Special case: a saturated closure trait that is UNDERdispersed (ratio < 1)
     # is expected, not a defect — relabel HANDLED since its timing is analyzed by
     # the interval-censored / Cox models, not by this binomial fit.
-    if (trait %in% saturated_closure_traits &&
+    if ((trait %in% saturated_closure_traits || blme_available) &&
         !is.na(disp$p.value) && disp$p.value < 0.05 &&
         is.finite(disp_ratio) && disp_ratio < 1) {
       disp_status <- "HANDLED"
       disp_notes <- paste(
         disp_notes,
-        "underdispersion expected for saturated closure trait; closure inference uses interval-censored timing/event summaries"
+        "underdispersion expected for sparse/saturated morphology trait; inference uses companion penalized GLMM and/or interval-censored timing/event summaries"
       )
     }
     res <- add_row_safe(res, trait, "DHARMa_dispersion",

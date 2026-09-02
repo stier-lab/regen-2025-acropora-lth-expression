@@ -1,0 +1,52 @@
+﻿April 29, 2026 Rachael, Shreya, Molly
+1. 1 3 10 
+   1. Random effects: tank, genet
+2. Papers to look at:
+   1. https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2022.979278/full
+   2. https://onlinelibrary.wiley.com/doi/full/10.1111/mec.15535
+   3. https://onlinelibrary.wiley.com/doi/full/10.1111/mec.15820
+   4. 3. Add in genet effects and see if there is a difference
+
+
+August 11, 2026 Shreya, Molly, Michelle
+1. Shreya walks through how to do QA/QC on raw RNA-seq reads (wound only for 0,1,3,10 day post wound) with the last step being a quick and dirty nmds plot
+
+
+September 1, 2026 Molly, Adrian
+
+
+1. Agenda
+   1. Analysis structure 
+   2. Nail down the healing/regeneration and pigmentation decisions
+   3. Leave with a figure-by-figure plan for September
+2. Molly
+   1. How do we handle “pigmentation”
+   2. Did we do enough characterization to be able to parse out healing from regeneration?
+      1. Smoothing of wound could be considered healing… but also it would involve recalcification so is this actually healing, or does remineralization count as regeneration? If so, how does this change our understanding?
+      2. 16_manuscript_figure1
+         1. Something like Xu paper https://www.frontiersin.org/journals/ecology-and-evolution/articles/10.3389/fevo.2022.979278/full
+         2. Or Han paper https://www.nature.com/articles/s42003-025-08089-6
+   3. Genet as a random or fixed effect
+      1. Our 3 is a small subsample but we could treat them as fixed as long as we justify (because we know that genet does 
+         1. Use Conn 2025, 2024 papers
+         2. Craig - look at effect, not p value
+      2. Check Trinity sequences
+         1. Forward Rachael Shreya - can we ID our parent colonies and compare to their sequences
+         2. Distribution of thermal response - we use 3 genetic response
+   4. Figure 1
+      1. We can amend this more, based on genetic results
+      2. Idea is to find resolution 
+      3. Adrian to plot the microscope data and check if its the same as physio characterization
+      4. Molly Representative photos and time series to show each stage of healing/growth
+         1. For ambient and heated
+   5. Figure 2
+   6. Figure 3 
+      1. Regenerative performance versus gene expression PCOA
+      2. 2 multivariate datasets (physiology - color/characterization), (gene expression)
+         1. How do gene bubbles overlap based on morphology
+         2. We could also (maybe) look one to one about characterization 
+   7. Write up methods and results - developmental and physiological results
+      1. Text around this
+      2. Figure 1: stages and characterization (heat effects healing and regeneration stages)
+      3. FIgure 2: Use this to prime reader about differences in gross physiology  in genets
+      4. FIgure 3-4: transcriptomics

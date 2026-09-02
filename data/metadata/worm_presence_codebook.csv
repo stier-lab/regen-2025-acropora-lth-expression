@@ -1,0 +1,11 @@
+"file","column","unit","description"
+"Sheet1.csv","species","NA","Coral species"
+"Sheet1.csv","thicket","NA","Pre-genotype-analysis thicket/genet label"
+"Sheet1.csv","tank","NA","Tank number"
+"Sheet1.csv","id","NA","Coral fragment ID"
+"Sheet1.csv","worms 06/07/2025","count","Worms observed on 2025-06-07"
+"Sheet1.csv","worms 06/08/2025","count","Worms observed on 2025-06-08"
+"Sheet1.csv","worms 06/12/2025","count","Worms observed on 2025-06-12"
+"data/processed/worm_clean.rds","present","0/1","Presence indicator derived from worm count greater than zero"
+"data/processed/worm_clean.rds","treatment","C","Treatment assigned from tank plumbing"
+

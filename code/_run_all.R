@@ -41,6 +41,8 @@ scripts <- c(
   "08_apex_temperature.R",
   "09_ysi_water_chem.R",
   "10_worms.R",
+  "11_microscope_physio.R",    # separate photo-only microscope cohort; not pooled with main morphology
+  "11c_morphology_dataset_plots.R", # comprehensive morphology plots across both separate cohorts
   "12_models.R",               # primary models + color-CLMM & morphology-blme robustness (was 12/12b/12c)
   "13_genet_interaction.R",
   "14_morphology_kaplan.R",

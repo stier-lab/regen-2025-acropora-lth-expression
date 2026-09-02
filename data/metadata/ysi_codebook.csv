@@ -1,0 +1,13 @@
+"file","column","unit","description"
+"Sheet1.csv","date","date","Date of handheld YSI spot check"
+"Sheet1.csv","time","clock time","Approximate reading time"
+"Sheet1.csv","tank","NA","Tank number"
+"Sheet1.csv","TEMP","F","Raw YSI temperature reading; converted to C in processing"
+"Sheet1.csv","DO %","percent saturation","Dissolved oxygen as percent saturation"
+"Sheet1.csv","DO mg/L","mg/L","Dissolved oxygen concentration"
+"Sheet1.csv","SAL","psu","Salinity"
+"Sheet1.csv","PH","pH","pH reading"
+"Sheet1.csv","notes","NA","Free-text water-quality notes"
+"data/processed/ysi_clean.rds","temp_c","C","Temperature converted from F to C"
+"data/processed/ysi_clean.rds","treatment","C","Treatment assigned from tank plumbing"
+

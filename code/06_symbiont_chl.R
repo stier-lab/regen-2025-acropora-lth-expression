@@ -146,7 +146,7 @@ p_zoox <- ggplot(phys, aes(factor(biopsy_day), cells_per_cm2 / 1e6,
   labs(x = "Biopsy day",
        y = expression(Symbionts~(10^6~cells~cm^{-2})),
        title = "Symbiont density loss under heating",
-       subtitle = expression(italic(A.~pulchra)~"biopsies, n = 192 corals across 5 timepoints")) +
+       subtitle = expression(italic(A.~pulchra)~"biopsies, n = 192 across 4 timepoints")) +
   theme_pub(10)
 
 # Chlorophyll-a was never run for this project (the chl-a column is retained
