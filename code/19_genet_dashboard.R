@@ -102,17 +102,17 @@ all_eff <- bind_rows(
 ) |>
   mutate(
     response_label = case_when(
-      response == "pam_fvfm"          ~ "PAM Fv/Fm\nDay-14 contrast",
-      response == "color_dscale"      ~ "Color (D-scale)\nDay-14 contrast",
-      response == "growth_pct"        ~ "Growth\nstart-to-end contrast",
-      response == "log_zoox_density"  ~ "log symbionts per cm2\nfinal biopsy contrast",
+      response == "pam_fvfm"          ~ "Photosynthesis score\nDay 14",
+      response == "color_dscale"      ~ "Color score\nDay 14",
+      response == "growth_pct"        ~ "Growth\nstart to end",
+      response == "log_zoox_density"  ~ "Symbiont density\nfinal tissue sample",
       grepl("^morph_", response)      ~ paste0(str_to_sentence(
-        gsub("_", " ", sub("^morph_", "", response))), "\ntime-to-onset HR"),
+        gsub("_", " ", sub("^morph_", "", response))), "\ntime-to-step"),
       TRUE                            ~ response
     ),
     domain = case_when(
       response %in% c("pam_fvfm","color_dscale","growth_pct","log_zoox_density")
-        ~ "Physiology",
+        ~ "Condition + growth",
       grepl("hole|polyp|smoothed|pigment", response_label, ignore.case = TRUE)
         ~ "Wound closure",
       grepl("tip|corallite", response_label, ignore.case = TRUE)
@@ -134,7 +134,7 @@ source_order <- c("A", "D", "C")
 
 domain_summary <- all_eff |>
   mutate(summary_group = case_when(
-    domain == "Physiology"   ~ "Physiology + growth",
+    domain == "Condition + growth" ~ "Whole-coral condition + growth",
     domain == "Wound closure" ~ "Wound closure",
     domain == "Regeneration" ~ "Regeneration",
     TRUE                     ~ domain
@@ -154,7 +154,7 @@ overall_summary <- all_eff |>
 quick_summary <- bind_rows(overall_summary, domain_summary) |>
   mutate(
     summary_group = factor(summary_group,
-                           levels = c("All responses", "Physiology + growth",
+                           levels = c("All responses", "Whole-coral condition + growth",
                                       "Wound closure", "Regeneration")),
     source_label = factor(str_to_upper(thicket), levels = source_order),
     label_y = case_when(
@@ -188,9 +188,9 @@ p_quick <- ggplot(quick_summary,
   coord_cartesian(ylim = c(-0.48, 1.12), clip = "off") +
   labs(x = NULL,
        y = "Average heat penalty",
-       title = "Source C has the smallest heat penalty",
+       title = "Source patch C has the smallest heat penalty",
        subtitle = str_wrap(
-         "Bars average standardized 31C vs 28C effects within each response group. The detailed response-by-response audit is shown below.",
+         "Bars average 31 °C vs 28 °C heat penalties after each measurement is put on its own 0-to-1 scale. The detailed measurement-by-measurement check is shown below.",
          width = 105
        )) +
   theme_pub(9) +
@@ -204,14 +204,16 @@ save_fig(p_quick, "19e_source_heat_penalty_summary", width = 190, height = 110)
 physiology_detail <- cont_eff |>
   mutate(
     response_label = case_when(
-      response == "pam_fvfm"          ~ "Fv/Fm",
+      response == "pam_fvfm"          ~ "Photosynthesis score",
       response == "color_dscale"      ~ "Color",
       response == "growth_pct"        ~ "Growth",
       response == "log_zoox_density"  ~ "Symbionts",
       TRUE                            ~ response
     ),
-    response_label = factor(response_label,
-                            levels = rev(c("Fv/Fm", "Color", "Growth", "Symbionts")))
+    response_label = factor(
+      response_label,
+      levels = rev(c("Photosynthesis score", "Color", "Growth", "Symbionts"))
+    )
   )
 
 p_physiology <- ggplot(physiology_detail,
@@ -225,20 +227,20 @@ p_physiology <- ggplot(physiology_detail,
              linewidth = 0.35) +
   geom_point(size = 3.4, alpha = 0.95,
              position = position_dodge(width = 0.45)) +
-  scale_colour_manual(values = PAL_GENO, name = "Source",
+  scale_colour_manual(values = PAL_GENO, name = "Source patch",
                       labels = c(a = "A", c = "C", d = "D")) +
-  scale_shape_manual(values = SHP_GENO, name = "Source",
+  scale_shape_manual(values = SHP_GENO, name = "Source patch",
                      labels = c(a = "A", c = "C", d = "D")) +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
-                     labels = c("better\nat 31C", "",
+                     labels = c("better\nat 31 °C", "",
                                 "little/no\npenalty", "",
-                                "worse\nat 31C")) +
+                                "worse\nat 31 °C")) +
   coord_cartesian(xlim = c(-1.05, 1.05)) +
-  labs(x = "Heat effect within each physiology response",
+  labs(x = "Heat penalty within each whole-coral measurement",
        y = NULL,
-       title = "Physiology: C loses less under heat",
+       title = "Whole-coral condition: source patch C loses less under heat",
        subtitle = str_wrap(
-         "Each point is a source-specific endpoint contrast, scaled within that response. C sits closer to little/no penalty for all four colony-wide responses.",
+         "Each point compares 28 °C and 31 °C for one source patch and one measurement. C sits closer to little/no penalty for all four whole-coral measurements.",
          width = 100
        )) +
   theme_pub(9) +
@@ -280,7 +282,7 @@ p_dash_mean <- ggplot(dash_mean,
   coord_cartesian(xlim = c(-0.08, 0.68), clip = "off") +
   labs(x = "Average heat penalty",
        y = NULL,
-       title = "A. Average across responses") +
+       title = "A. Average across measurements") +
   theme_pub(9) +
   theme(plot.title = element_text(size = 9),
         panel.grid.major.y = element_blank(),
@@ -296,19 +298,19 @@ p_dash_detail <- ggplot(all_eff,
   geom_vline(xintercept = 0, linetype = "dashed", colour = "grey55",
              linewidth = 0.35) +
   geom_point(size = 3.0, alpha = 0.95) +
-  scale_colour_manual(values = PAL_GENO, name = "Source",
+  scale_colour_manual(values = PAL_GENO, name = "Source patch",
                       labels = c(a = "A", c = "C", d = "D")) +
-  scale_shape_manual(values = SHP_GENO, name = "Source",
+  scale_shape_manual(values = SHP_GENO, name = "Source patch",
                      labels = c(a = "A", c = "C", d = "D")) +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
-                     labels = c("better/faster\nat 31C", "",
+                     labels = c("better/faster\nat 31 °C", "",
                                 "no\npenalty", "",
-                                "worse/slower\nat 31C")) +
+                                "worse/slower\nat 31 °C")) +
   coord_cartesian(xlim = c(-1.05, 1.05)) +
   facet_grid(domain ~ ., scales = "free_y", space = "free_y") +
-  labs(x = "Heat effect within each response",
+  labs(x = "Heat penalty within each measurement",
        y = NULL,
-       title = "B. Response-level heat effects") +
+       title = "B. Measurement-level heat penalties") +
   theme_pub(9) +
   theme(plot.title = element_text(size = 9),
         panel.grid.major.y = element_line(colour = "grey95", linewidth = 0.2),
@@ -317,13 +319,13 @@ p_dash_detail <- ggplot(all_eff,
 p_dash <- p_dash_mean + p_dash_detail +
   plot_layout(widths = c(0.82, 2.35), guides = "collect") +
   plot_annotation(
-    title = "Source C is least harmed by heat",
+    title = "Source patch C is least harmed by heat",
     subtitle = str_wrap(
-      "A/C/D are field source labels, not verified genetic individuals. Each response is first converted to a 31C vs 28C heat effect and put on a common within-response scale. C stays close to little/no penalty, while A and D show larger losses or delays.",
+      "A, C, and D are source-patch labels, not confirmed genetic individuals. Each measurement is first converted to a 31 °C vs 28 °C heat penalty and put on a common 0-to-1 scale. C stays close to little/no penalty, while A and D show larger losses or delays.",
       width = 105
     ),
     caption = str_wrap(
-      "Positive values mean worse physiology or slower milestone onset at 31C; negative values mean higher physiology or faster onset at 31C. Physiology uses endpoint contrasts averaged across wound state; morphology uses wounded-only Cox time-to-onset effects.",
+      "Positive values mean worse whole-coral condition or slower healing/regrowth at 31 °C; negative values mean higher condition or faster healing/regrowth at 31 °C. Whole-coral measurements use final or full-study values averaged across wound state. Healing/regrowth measurements use wounded fragments and the time when each step appeared.",
       width = 105
     )
   ) &
@@ -368,18 +370,18 @@ p_rank <- ggplot(resilience,
                                 n_responses, pca_displacement)),
             vjust = -0.25, lineheight = 0.95, size = 3, colour = "grey20") +
   scale_fill_manual(values = PAL_GENO, guide = "none") +
-  labs(x = "Source thicket",
-       y = "Mean relative heat penalty\n(row-scaled, unitless)",
-       title = "Composite of standardized heat effects",
-       subtitle = str_wrap(
-         "Lower bars mean smaller heat penalties. Inputs are modeled contrasts or time-to-onset effects, not same-day raw values.",
-         width = 55
-       ),
-       caption = str_wrap(
-         paste0("Finite effects averaged per source thicket: ", composite_n_note,
-                ". Missing or non-finite hazard ratios are omitted. PCA displacement is a separate descriptive check using centered/scaled final physiology values."),
-         width = 70
-       )) +
+	  labs(x = "Source patch",
+	       y = "Mean heat penalty\n(0-to-1 scale)",
+	       title = "Composite of standardized heat penalties",
+	       subtitle = str_wrap(
+	         "Lower bars mean smaller heat penalties. Inputs are 31 °C vs 28 °C comparisons or healing/regrowth timing effects, not same-day raw values.",
+      width = 55
+    ),
+    caption = str_wrap(
+      paste0("Finite effects averaged per source patch: ", composite_n_note,
+             ". Missing timing values are omitted. The multivariate shift is a separate descriptive check using final whole-coral condition values put on the same scale."),
+      width = 70
+    )) +
   coord_cartesian(ylim = c(0, max(resilience$mean_sensitivity) * 1.35)) +
   theme_pub(10)
 
@@ -419,17 +421,17 @@ decomp <- bind_rows(
 ) |>
   mutate(
     response_label = case_when(
-      response == "pam_fvfm"         ~ "PAM Fv/Fm\nDay-14 contrast",
-      response == "color_dscale"     ~ "Color (D)\nDay-14 contrast",
-      response == "growth_pct"       ~ "Growth\nstart-to-end contrast",
-      response == "log_zoox_density" ~ "log symbionts per cm2\nfinal biopsy contrast",
+      response == "pam_fvfm"         ~ "Photosynthesis score\nDay 14",
+      response == "color_dscale"     ~ "Color score\nDay 14",
+      response == "growth_pct"       ~ "Growth\nstart to end",
+      response == "log_zoox_density" ~ "Symbiont density\nfinal tissue sample",
       grepl("^morph_", response)     ~ paste0(str_to_sentence(
-        gsub("_", " ", sub("^morph_", "", response))), "\ntime-to-onset HR"),
+        gsub("_", " ", sub("^morph_", "", response))), "\ntime to step"),
       TRUE                            ~ response
     ),
     domain = case_when(
       response %in% c("pam_fvfm","color_dscale","growth_pct","log_zoox_density")
-        ~ "Physiology",
+        ~ "Condition + growth",
       grepl("hole|polyp|smoothed|pigment", response_label, ignore.case = TRUE)
         ~ "Wound closure",
       grepl("tip|corallite", response_label, ignore.case = TRUE)
@@ -447,22 +449,22 @@ p_decomp <- ggplot(decomp,
              colour = "grey60", linewidth = 0.3) +
   geom_point(size = 2.8, alpha = 0.9) +
   facet_grid(domain ~ scope, scales = "free_y", space = "free_y") +
-  scale_colour_manual(values = PAL_GENO, name = "Source") +
-  scale_shape_manual(values = c(a = 16, c = 17, d = 15), name = "Source") +
+  scale_colour_manual(values = PAL_GENO, name = "Source patch") +
+  scale_shape_manual(values = c(a = 16, c = 17, d = 15), name = "Source patch") +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
-                     labels = c("-1", "-0.5", "0", "0.5", "1\nrow max")) +
+                     labels = c("-1", "-0.5", "0", "0.5", "largest\npenalty")) +
   coord_cartesian(xlim = c(-1.05, 1.05)) +
-  labs(x = "Relative heat penalty within response and scope (unitless; max abs(effect) = 1)",
+  labs(x = "Heat penalty within each measurement and wound-state group",
        y = NULL,
-       title = "Decomposed resilience: heat-only vs heat-while-wounded",
+       title = "Heat penalty by wound state",
        subtitle = str_wrap(
-         "Physiology panels use endpoint 31 °C vs 28 °C contrasts split by wound state; morphology panels use wounded-only time-to-onset hazard ratios.",
+         "Whole-coral panels compare 31 °C with 28 °C separately for wounded and unwounded fragments. Healing/regrowth panels use wounded fragments and the time when each step appeared.",
          width = 115
        ),
-       caption = str_wrap(
-         "Values are row-max scaled within each response and scope. Positive values mean a larger heat penalty; negative values mean the 31 °C group reached a milestone faster or had a higher endpoint value.",
-         width = 115
-       )) +
+    caption = str_wrap(
+      "Values are scaled within each measurement and wound-state group. Positive values mean a larger heat penalty; negative values mean the 31 °C group reached a healing/regrowth step faster or had a higher final value.",
+      width = 115
+    )) +
   theme_pub(9) +
   theme(panel.grid.major.y = element_line(colour = "grey95", linewidth = 0.2),
         strip.text.y = element_text(face = "bold"),
@@ -528,7 +530,7 @@ p_morph_mean <- ggplot(morph_mean,
   scale_x_continuous(breaks = c(-0.2, 0, 0.2),
                      labels = c("earlier", "no\ndelay", "delayed")) +
   coord_cartesian(xlim = c(-0.3, 0.3), clip = "off") +
-  labs(x = "Mean heat effect",
+  labs(x = "Mean heat penalty",
        y = NULL,
        title = "A. Average across milestones") +
   theme_pub(9) +
@@ -547,16 +549,16 @@ p_morph_traits <- ggplot(morph_penalty,
              linewidth = 0.35) +
   geom_point(size = 3.1, alpha = 0.95,
              position = position_dodge(width = 0.45)) +
-  scale_colour_manual(values = PAL_GENO, name = "Source",
+  scale_colour_manual(values = PAL_GENO, name = "Source patch",
                       labels = c(a = "A", c = "C", d = "D")) +
-  scale_shape_manual(values = SHP_GENO, name = "Source",
+  scale_shape_manual(values = SHP_GENO, name = "Source patch",
                      labels = c(a = "A", c = "C", d = "D")) +
   scale_x_continuous(breaks = c(-1, -0.5, 0, 0.5, 1),
-                     labels = c("earlier\nat 31C", "",
+                     labels = c("earlier\nat 31 °C", "",
                                 "no\ndelay", "",
-                                "delayed\nat 31C")) +
+                                "delayed\nat 31 °C")) +
   coord_cartesian(xlim = c(-1.05, 1.05)) +
-  labs(x = "Heat effect on timing within each milestone",
+  labs(x = "Heat penalty on timing within each milestone",
        y = NULL,
        title = "B. Which steps were delayed?") +
   theme_pub(9) +
@@ -566,13 +568,13 @@ p_morph_traits <- ggplot(morph_penalty,
 p_morph <- p_morph_mean + p_morph_traits +
   plot_layout(widths = c(0.8, 2.2), guides = "collect") +
   plot_annotation(
-    title = "Heat delays wound healing less in source C",
+    title = "Heat delayed healing and regrowth less in source patch C",
     subtitle = str_wrap(
-      "Dots left of the dashed line reached a milestone earlier at 31C; dots right of the line were delayed. C clusters near no delay or earlier onset, while A and D show the largest delays for some steps.",
+      "Dots left of the dashed line reached a milestone earlier at 31 °C; dots right of the line were delayed. C clusters near no delay or earlier onset, while A and D show the largest delays for some steps.",
       width = 105
     ),
     caption = str_wrap(
-      "Scores compare source thickets within each milestone after putting Cox timing effects on a common scale. n = 8 wounded fragments per source thicket and milestone (4 at 28C, 4 at 31C); pigment over wound for source A is omitted because the hazard ratio was non-finite.",
+      "Scores compare source patches within each healing/regrowth step after putting timing effects on a common scale. n = 8 wounded fragments per source patch and step (4 at 28 °C, 4 at 31 °C); pigment over wound for source A is omitted because the timing value could not be estimated.",
       width = 105
     )
   ) &

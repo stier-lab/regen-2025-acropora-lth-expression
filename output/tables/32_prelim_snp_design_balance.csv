@@ -1,0 +1,120 @@
+source_thicket,prelim_snp_cluster,prelim_snp_cluster_analysis,design_factor,level,n
+c,1,cluster 1,day,1,16
+c,1,cluster 1,day,10,16
+c,1,cluster 1,day,3,16
+d,2,cluster 2,day,1,6
+d,2,cluster 2,day,10,6
+d,2,cluster 2,day,3,5
+d,3,cluster 3,day,1,6
+d,3,cluster 3,day,10,7
+d,3,cluster 3,day,3,3
+a,4,cluster 4,day,1,13
+d,4,cluster 4,day,1,4
+a,4,cluster 4,day,10,14
+d,4,cluster 4,day,10,1
+a,4,cluster 4,day,3,12
+d,4,cluster 4,day,3,8
+a,5,cluster 5,day,1,1
+a,5,cluster 5,day,10,2
+d,5,cluster 5,day,10,1
+a,5,cluster 5,day,3,3
+a,6,small clusters (6/7/8),day,1,2
+d,8,small clusters (6/7/8),day,10,1
+a,7,small clusters (6/7/8),day,3,1
+c,1,cluster 1,plate,1,24
+c,1,cluster 1,plate,2,24
+d,2,cluster 2,plate,1,8
+d,2,cluster 2,plate,2,9
+d,3,cluster 3,plate,1,9
+d,3,cluster 3,plate,2,7
+a,4,cluster 4,plate,1,20
+d,4,cluster 4,plate,1,7
+a,4,cluster 4,plate,2,19
+d,4,cluster 4,plate,2,6
+a,5,cluster 5,plate,1,2
+a,5,cluster 5,plate,2,4
+d,5,cluster 5,plate,2,1
+a,6,small clusters (6/7/8),plate,1,1
+a,7,small clusters (6/7/8),plate,1,1
+a,6,small clusters (6/7/8),plate,2,1
+d,8,small clusters (6/7/8),plate,2,1
+c,1,cluster 1,tank,10,6
+c,1,cluster 1,tank,11,6
+c,1,cluster 1,tank,12,6
+c,1,cluster 1,tank,3,6
+c,1,cluster 1,tank,4,6
+c,1,cluster 1,tank,5,6
+c,1,cluster 1,tank,6,6
+c,1,cluster 1,tank,9,6
+d,2,cluster 2,tank,10,2
+d,2,cluster 2,tank,11,1
+d,2,cluster 2,tank,12,3
+d,2,cluster 2,tank,3,3
+d,2,cluster 2,tank,4,3
+d,2,cluster 2,tank,6,3
+d,2,cluster 2,tank,9,2
+d,3,cluster 3,tank,10,1
+d,3,cluster 3,tank,11,2
+d,3,cluster 3,tank,12,2
+d,3,cluster 3,tank,3,3
+d,3,cluster 3,tank,4,1
+d,3,cluster 3,tank,5,2
+d,3,cluster 3,tank,6,2
+d,3,cluster 3,tank,9,3
+a,4,cluster 4,tank,10,6
+d,4,cluster 4,tank,10,2
+a,4,cluster 4,tank,11,4
+d,4,cluster 4,tank,11,3
+a,4,cluster 4,tank,12,5
+d,4,cluster 4,tank,12,1
+a,4,cluster 4,tank,3,6
+a,4,cluster 4,tank,4,5
+d,4,cluster 4,tank,4,1
+a,4,cluster 4,tank,5,5
+d,4,cluster 4,tank,5,4
+a,4,cluster 4,tank,6,3
+d,4,cluster 4,tank,6,1
+a,4,cluster 4,tank,9,5
+d,4,cluster 4,tank,9,1
+d,5,cluster 5,tank,10,1
+a,5,cluster 5,tank,11,2
+a,5,cluster 5,tank,6,3
+a,5,cluster 5,tank,9,1
+a,6,small clusters (6/7/8),tank,12,1
+a,6,small clusters (6/7/8),tank,4,1
+d,8,small clusters (6/7/8),tank,4,1
+a,7,small clusters (6/7/8),tank,5,1
+c,1,cluster 1,treatment,28C,24
+c,1,cluster 1,treatment,31C,24
+d,2,cluster 2,treatment,28C,11
+d,2,cluster 2,treatment,31C,6
+d,3,cluster 3,treatment,28C,10
+d,3,cluster 3,treatment,31C,6
+a,4,cluster 4,treatment,28C,19
+d,4,cluster 4,treatment,28C,3
+a,4,cluster 4,treatment,31C,20
+d,4,cluster 4,treatment,31C,10
+a,5,cluster 5,treatment,28C,4
+a,5,cluster 5,treatment,31C,2
+d,5,cluster 5,treatment,31C,1
+a,6,small clusters (6/7/8),treatment,28C,1
+a,6,small clusters (6/7/8),treatment,31C,1
+a,7,small clusters (6/7/8),treatment,31C,1
+d,8,small clusters (6/7/8),treatment,31C,1
+c,1,cluster 1,wound,no,24
+c,1,cluster 1,wound,yes,24
+d,2,cluster 2,wound,no,8
+d,2,cluster 2,wound,yes,9
+d,3,cluster 3,wound,no,7
+d,3,cluster 3,wound,yes,9
+a,4,cluster 4,wound,no,21
+d,4,cluster 4,wound,no,8
+a,4,cluster 4,wound,yes,18
+d,4,cluster 4,wound,yes,5
+a,5,cluster 5,wound,no,2
+d,5,cluster 5,wound,no,1
+a,5,cluster 5,wound,yes,4
+a,6,small clusters (6/7/8),wound,no,1
+a,6,small clusters (6/7/8),wound,yes,1
+a,7,small clusters (6/7/8),wound,yes,1
+d,8,small clusters (6/7/8),wound,yes,1

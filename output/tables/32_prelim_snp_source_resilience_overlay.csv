@@ -1,0 +1,4 @@
+source_thicket,n_rnaseq_libraries,n_prelim_snp_clusters,dominant_cluster,dominant_cluster_n,dominant_cluster_pct,n_libraries_in_shared_ad_clusters,pct_libraries_in_shared_ad_clusters,median_cov_million,n_below_10m,source_mean_heat_sensitivity,source_pca_displacement,source_resilience_rank
+c,48,1,1,48,1,0,0,14.701170964000001,3,0.00688293651331731,1.0222869924241826,1
+d,48,5,2,17,0.3541666666666667,14,0.2916666666666667,15.392962999,6,0.4295440265649352,3.381705702826046,2
+a,48,4,4,39,0.8125,45,0.9375,15.929587017500001,6,0.5648705352225819,3.709775227263097,3

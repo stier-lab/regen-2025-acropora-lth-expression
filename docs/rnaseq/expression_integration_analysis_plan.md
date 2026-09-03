@@ -21,7 +21,7 @@ The current RNA-seq design has 144 margin libraries:
 | Temperature | 28 C, 31 C |
 | Wound state | wounded, unwounded |
 | Day | 1, 3, 10 |
-| Genet/thicket | A, C, D |
+| Source thicket | A, C, D |
 | Tank | 4 tanks per temperature |
 | Tissue position | margin only |
 
@@ -33,6 +33,8 @@ Useful repo anchors:
 | Paper-ready phenotype summary | `output/tables/20_master_results_paper_ready.csv` |
 | Per-library phenotype covariates | `output/tables/31_rnaseq_phenotype_covariates.csv` |
 | Raw library lookup | `output/tables/31_rnaseq_library_lookup_raw.csv` |
+| Preliminary SNP cluster covariates | `output/tables/32_prelim_snp_rnaseq_covariates.csv` |
+| Preliminary SNP join/design audit | `output/tables/32_prelim_snp_join_audit.csv`, `output/tables/32_prelim_snp_response_joinability.csv`, `output/tables/32_prelim_snp_design_balance.csv` |
 | RNA-seq background notes | `docs/rnaseq/README.md` |
 | Coral expression literature synthesis | `docs/rnaseq/coral_expression_literature_synthesis.md` |
 | Candidate gene evidence table | `docs/rnaseq/candidate_genes_reference.csv` |
@@ -44,10 +46,14 @@ Important limits:
 - Day 15 tissue may exist, but it is not part of the current 144-library analysis.
 - The destructive RNA-seq fragments should not be assigned later individual
   regeneration outcomes unless that exact fragment was followed. Link expression
-  to phenotype through treatment, day, genet, tank, and pre-defined phenotype
+  to phenotype through treatment, day, source thicket, tank, and pre-defined phenotype
   summaries.
-- Genet labels A, C, and D are field thicket labels. They are not yet matched to
-  the Cunning CBASS genets.
+- A, C, and D are field source-thicket labels. They are not yet matched to the
+  Cunning CBASS genets.
+- The preliminary SNP cluster file received from Rachael Bay on 2026-09-02 is
+  explicitly provisional. It can be used for exploratory checks and planning,
+  but final expression models should use the final SNP set, genetic PCs, or
+  kinship matrix once delivered.
 
 ## 2. Bias guardrails
 
@@ -58,10 +64,11 @@ Before differential expression:
 3. Document the count matrix basis: host genes only, symbiont reads only, or a
    host/symbiont split.
 4. Record genome/annotation version, read-processing workflow, and mapping rules.
-5. Verify sample IDs against the plate map, raw library lookup, and phenotype
-   covariate table.
+5. Verify sample IDs against the plate map, raw library lookup, phenotype
+   covariate table, and preliminary/final SNP metadata.
 6. Check whether any plate, extraction batch, library batch, lane, or well-position
-   variable is confounded with temperature, wound state, day, genet, or tank.
+   variable is confounded with temperature, wound state, day, source thicket, or
+   tank.
 7. Decide before testing whether candidate genes are used only for interpretation
    or also for formal gene-set scoring.
 
@@ -83,7 +90,7 @@ pipeline itself changes.
 | Regeneration decoupling | Tissue closure proceeds, but new corallite regeneration is suppressed at 31 C | Does heat suppress the skeletal/regenerative program more than early wound closure? |
 | Day 10 transition | New corallite formation diverges most clearly by Day 10 | Does the Day 10 wounded-margin expression state differ between 28 C and 31 C? |
 | Chronic heat stress | 31 C is chronic/sublethal rather than an acute heat-shock challenge | Do expression patterns show sustained stress/acclimation rather than only an acute HSP spike? |
-| Genet resilience | Genet C is the most resilient phenotype; A and D are more sensitive | Does C show a smaller heat-induced expression shift, or a different protective state? |
+| Source/genotype-linked resilience | Source C is the most resilient phenotype; preliminary SNPs show C is coherent while A/D are mixed | Does C show a smaller heat-induced expression shift, or a different protective state, after accounting for final genetic structure? |
 | Whole-organism physiology | Heat affects PAM, color, symbiont density, and growth | Do expression modules track photochemistry, pigment, symbiont density, growth, or multivariate condition? |
 
 ## 4. Competing hypotheses
@@ -132,22 +139,25 @@ Falsifiers:
 - Heat effects are mostly restricted to wounded Day 10 samples.
 - Unwounded 31 C margins show little sustained expression shift.
 
-### H3. Genet-Resilience Hypothesis
+### H3. Source/Genotype-Resilience Hypothesis
 
-Genet C resists chronic heat stress better than A or D, either through a smaller
-heat-induced transcriptome shift or a different protective expression state.
+Source C resists chronic heat stress better than A or D, either through a
+smaller heat-induced transcriptome shift or a different protective expression
+state. The preliminary SNP file suggests C may also be genetically coherent,
+whereas A and D are mixed source labels; the final genetic analysis should
+separate source-label effects from genotype/kinship effects.
 
 Predictions:
 
 - C has a smaller 31 C vs 28 C expression displacement than A/D.
 - C differs from A/D in stress-response, redox, proteostasis, symbiosis, or
   calcification-associated modules.
-- C's module scores correlate with the pre-defined genet resilience summaries.
+- C's module scores correlate with the pre-defined source-resilience summaries.
 
 Falsifiers:
 
 - C is not transcriptionally distinct after accounting for tank, day, wound state,
-  and plate.
+  plate, and final genetic structure.
 - C has the same or larger heat-induced expression displacement than A/D.
 
 Important language limit:
@@ -192,15 +202,16 @@ Preferred model family:
 Minimum biological design terms:
 
 ```text
-expression ~ temperature * wound * day + genet + plate + tank/blocking
+expression ~ temperature * wound * day + source_thicket + plate + tank/blocking
 ```
 
-For genet-specific tests, fit targeted models rather than relying only on one
+For source- or genotype-specific tests, fit targeted models rather than relying only on one
 large omnibus model:
 
 ```text
-expression ~ temperature * genet + day + wound + plate + tank/blocking
-expression ~ temperature * wound * genet + day + plate + tank/blocking
+expression ~ temperature * source_thicket + day + wound + plate + tank/blocking
+expression ~ temperature * wound * source_thicket + day + plate + tank/blocking
+expression ~ temperature * final_genetic_PC_or_kinship + day + wound + plate + tank/blocking
 ```
 
 Primary contrasts:
@@ -212,7 +223,7 @@ Primary contrasts:
 | temperature x wound at Day 10 | Test whether heat changes the wound response specifically | Separates a wound-specific heat effect from general heat stress |
 | temperature x day within wounded margins | Test whether heat changes the temporal wound-to-regeneration trajectory | Supports H1 if divergence increases by Day 10 |
 | 31 C vs 28 C within unwounded margins | Test chronic heat state without acute wound response | Supports H2/H3 if sustained heat modules appear in unwounded tissue |
-| temperature x genet | Test whether C differs from A/D in heat response | Supports H3 if C has smaller or qualitatively different heat response |
+| temperature x source thicket | Test whether C differs from A/D in heat response | Supports H3 if C has smaller or qualitatively different heat response; final SNP PCs/kinship determine whether this is source-label or genotype-linked |
 
 ## 6. Secondary module and pathway analyses
 
@@ -227,12 +238,13 @@ Run these after the genome-wide tests.
    - temperature
    - wound state
    - day
-   - genet
+   - source thicket
+   - final SNP PCs/kinship or genotype cluster
    - PAM/FvFm
    - color score
    - symbiont density
    - growth
-   - genet resilience score
+   - source-resilience score
 4. Host/symbiont split or host:symbiont fraction analysis if mapping supports it.
 
 Candidate genes from `docs/rnaseq/candidate_genes_reference.csv` should be used
@@ -249,7 +261,11 @@ pre-analysis addendum before counts are inspected.
 - Module eigengenes vs individual physiology traits.
 - Regularized models asking whether expression predicts phenotype summaries.
 - Network modules associated with the closed-but-not-regenerated phenotype.
-- SNP calling from host RNA-seq reads to match A/C/D to Cunning CBASS genets.
+- Final SNP calling from host RNA-seq reads to model genetic relatedness and, if
+  possible, match A/C/D-derived samples to Cunning CBASS genets.
+- Preliminary SNP clusters/PCs from `data/raw/rnaseq/PRELIM_LTH_genoclusters.csv`
+  are useful for exploratory balance checks and same-fragment symbiont-density
+  checks, but should not be treated as final genotype calls.
 - Parallel symbiont expression or symbiont-fraction analysis, if read mapping
   supports it.
 
@@ -285,13 +301,14 @@ Suggested deliverables:
 
 The first expression paper or analysis handoff should include:
 
-1. Sample QC PCA/MDS colored by temperature, wound, day, genet, tank, and plate.
+1. Sample QC PCA/MDS colored by temperature, wound, day, source thicket, tank,
+   plate, and final genetic structure.
 2. Primary contrast summary for wound-response positive control.
 3. Day 10 heat effect in wounded margins.
 4. Heat x wound x day expression summary, preferably as module scores or an
    interpretable heatmap.
-5. Source C vs A/D heat-response summary, with SNP clusters or kinship added if
-   available.
+5. Source C vs A/D heat-response summary, with final SNP PCs/kinship added; use
+   the 2026-09-02 preliminary SNP clusters only as a flagged exploratory layer.
 6. Expression-module to phenotype map using the pre-defined organismal traits.
 
 ## 10. Decision log
@@ -302,3 +319,4 @@ Fill this in as choices are made.
 |---|---|---|---|
 | 2026-09-02 | Separate confirmatory contrasts from exploratory phenotype integration | Avoids choosing RNA-seq results after seeing the transcriptome | Adrian/Codex draft |
 | 2026-09-02 | Candidate-gene evidence table uses tiers A-D | Keeps direct Acropora evidence separate from reviews, web-only sources, and lab-only candidates | Adrian/Codex draft |
+| 2026-09-02 | Add Rachael Bay's preliminary SNP cluster file as an exploratory covariate layer | The file joins cleanly to all 144 RNA-seq libraries, but Rachael marked it preliminary and flagged low-coverage singleton concerns | Adrian/Codex draft |

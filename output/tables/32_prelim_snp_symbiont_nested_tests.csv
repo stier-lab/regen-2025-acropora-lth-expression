@@ -1,0 +1,7 @@
+comparison,step,term,df.residual,rss,df,sumsq,statistic,p.value
+source_thicket terms beyond treatment/wound/day,1,log10_symbiont_cells_per_cm2 ~ treatment + wound + day_f,139,4.999450872079807,NA,NA,NA,NA
+source_thicket terms beyond treatment/wound/day,2,log10_symbiont_cells_per_cm2 ~ treatment * source_thicket + wound + day_f,135,4.024435535529651,4,0.9750153365501557,8.176741139981246,6.187580084010231e-6
+preliminary SNP cluster terms beyond treatment/wound/day,1,log10_symbiont_cells_per_cm2 ~ treatment + wound + day_f,139,4.999450872079807,NA,NA,NA,NA
+preliminary SNP cluster terms beyond treatment/wound/day,2,log10_symbiont_cells_per_cm2 ~ treatment * prelim_snp_cluster_analysis + wound + day_f,129,3.2542472762656427,10,1.7452035958141643,6.918074895598371,1.3148552854220305e-8
+preliminary SNP PC terms beyond treatment/wound/day,1,log10_symbiont_cells_per_cm2 ~ treatment + wound + day_f,139,4.999450872079807,NA,NA,NA,NA
+preliminary SNP PC terms beyond treatment/wound/day,2,log10_symbiont_cells_per_cm2 ~ treatment + wound + day_f + prelim_snp_pc1 + prelim_snp_pc2 + prelim_snp_pc3 + prelim_snp_pc4 + treatment:prelim_snp_pc1 + treatment:prelim_snp_pc2 + treatment:prelim_snp_pc3 + treatment:prelim_snp_pc4,131,3.4892079276195918,8,1.5102429444602152,7.087633849441437,9.229654887472587e-8

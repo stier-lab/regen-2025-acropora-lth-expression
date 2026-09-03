@@ -50,7 +50,7 @@ Search provenance: `docs/rnaseq/literature_search_log.md`.
 | Did the sampled margin capture a wound signal? | c-Fos/AP-1, JNK/MAPK, TLR/NOD/NF-kB, ECM remodeling, oxidative response | Wounded vs unwounded at Day 1 and Day 3 |
 | Does heat spare closure but block regeneration? | Wnt, FGF, calicoblast fate, galaxin/SAARP/mucin, carbonic anhydrase, Ca2+ handling, skeletal matrix proteins | 31 C vs 28 C in wounded Day 10 margins |
 | Is the heat response chronic rather than an acute spike? | HSPs, ubiquitin-proteasome, redox, mitochondria, metabolism, cell adhesion, immune/apoptosis | 31 C vs 28 C in unwounded margins across Day 1, 3, 10 |
-| Does source C differ from A/D? | Frontloaded/dampened stress modules, redox/proteostasis, symbiosis, cell adhesion, ion transport | temperature x source-thicket label, with SNP clusters added when available |
+| Does source C differ from A/D? | Frontloaded/dampened stress modules, redox/proteostasis, symbiosis, cell adhesion, ion transport | temperature x source-thicket label; use the 2026-09-02 preliminary SNP clusters/PCs only as an exploratory layer until final SNP/kinship results arrive |
 | Do organismal traits map to expression? | WGCNA modules for stress, symbiosis, pigment, calcification, growth, regeneration | Module eigengenes vs PAM, color, symbionts, growth, morphology milestones |
 
 ## Regeneration evidence
@@ -156,4 +156,3 @@ pathways/modules and let the genome-wide model decide which genes actually move.
 | Stick et al. 2025 | Acropora transcriptomic recovery after sub-bleaching vs bleaching heat | https://doi.org/10.1007/s00338-025-02722-w |
 | Stick et al. 2026 | Acropora heat priming dampens expression response | https://doi.org/10.1002/ece3.72938 |
 | Ren et al. 2026 | Non-Acropora staged tissue-healing transcriptomics | https://doi.org/10.1016/j.aqrep.2026.103629 |
-

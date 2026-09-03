@@ -1,0 +1,7 @@
+response_variable,processed_file,processed_exists,processed_unique_ids,matched_rnaseq_ids,direct_sample_level_join,current_use
+symbiont density,symbiont_chl_clean.rds,TRUE,192,144,TRUE,direct SNP-by-response check
+PAM Fv/Fm,pam_clean.rds,TRUE,48,0,FALSE,not directly joinable; use source/treatment summaries unless these fragments are genotyped
+color-card score,color_clean.rds,TRUE,48,0,FALSE,not directly joinable; use source/treatment summaries unless these fragments are genotyped
+skeletal growth,buoyant_weight_clean.rds,TRUE,48,0,FALSE,not directly joinable; use source/treatment summaries unless these fragments are genotyped
+gross morphology milestones,physio_clean.rds,TRUE,48,0,FALSE,not directly joinable; use source/treatment summaries unless these fragments are genotyped
+microscope morphology milestones,microscope_physio_clean.rds,TRUE,16,0,FALSE,not directly joinable; use source/treatment summaries unless these fragments are genotyped

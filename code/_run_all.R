@@ -17,6 +17,12 @@
 #       "05" sorting before "07" numerically.
 #     - 31 (RNA-seq covariate handoff) runs late: it joins the symbiont table
 #       (06) and the genet resilience summary (19), so both must exist first.
+#     - 32 (preliminary SNP integration) runs after 31: it joins Rachael's
+#       provisional cluster file to the RNA-seq covariates and phenotype
+#       summaries. It is exploratory and exits cleanly if the file is absent.
+#     - 33-35 (trade-off screens) run late: they reuse phenotype summary tables
+#       to ask whether source C's lower heat sensitivity appears to come with
+#       growth or regeneration costs.
 #     - 30 (manuscript audit) runs DEAD LAST: it checks the manuscript against
 #       the freshly regenerated tables, so every table must already be rebuilt.
 #   Edit this list with care: reordering can silently feed a script stale
@@ -68,6 +74,10 @@ scripts <- c(
   "20_master_results_table.R",
   "diagnostics/H_spreadsheet_coverage.R",
   "31_rnaseq_covariate_table.R",    # handoff: per-library phenotype covariates for the RNA-seq
+  "32_prelim_snp_phenotype_integration.R", # exploratory: preliminary SNP clusters x RNA-seq covariates
+  "33_growth_tradeoff_screen.R",    # exploratory: ambient growth vs growth lost under heat
+  "34_regeneration_tradeoff_screen.R", # exploratory: growth/regeneration and heat-tolerance/regeneration screens
+  "35_tradeoff_summary.R",          # team-summary four-panel trade-off check
   "sensitivity/25_model_diagnostic_coverage.R",
   "30_manuscript_audit.R"          # advisory phenotype reproducibility check — warns (never fails) if phenotype numbers drift
 )

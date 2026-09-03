@@ -5,14 +5,17 @@
 #          against organismal traits without re-deriving the joins.
 #
 #          Coding is harmonized to the phenotype convention (data dictionary):
-#          wound U/W -> no/yes; genotype A/C/D -> lowercase a/c/d; Temp_C -> 28C/31C.
+#          wound U/W -> no/yes; source-thicket A/C/D -> lowercase a/c/d;
+#          Temp_C -> 28C/31C.
 #          Join key: Fragment_ID == id.
 #
 #          Covariate types:
-#            - design        : treatment, wound, genet, tank, day, plate (per library)
+#            - design        : treatment, wound, source thicket, tank, day, plate
+#                              (per library)
 #            - per-fragment   : symbiont density at that biopsy (where measured)
-#            - per-genet      : resilience score / PCA displacement / rank
-#                               (genet-level; identical for all libraries of a genet)
+#            - per-source     : resilience score / PCA displacement / rank
+#                               (source-level; identical for all libraries from
+#                               a source thicket)
 #          (Per-coral regeneration outcome is NOT attached: RNA-seq fragments were
 #          destructively biopsied at D1/D3/D10, before the regeneration trajectory.)
 #
@@ -21,7 +24,7 @@
 #   physiology requires expression and phenotype side by side, keyed to the
 #   same fragment. This script does that bookkeeping ONCE: it takes the list of
 #   RNA-seq libraries and glues on (a) the experimental design each fragment was
-#   under, (b) its symbiont density at biopsy, and (c) its genet-level resilience
+#   under, (b) its symbiont density at biopsy, and (c) its source-level resilience
 #   scores. It writes TWO files — a harmonized join (recoded to match the rest of
 #   the phenotype analysis) and a raw, un-recoded lookup (so the gene-expression side can
 #   choose her own factor levels / reference categories). It fits no model; it
@@ -69,7 +72,7 @@ libs <- sel_raw |>
     id         = as.integer(Fragment_ID),
     treatment  = paste0(as.integer(Temp_C), "C"),     # 28C / 31C
     wound      = if_else(Wound == "W", "yes", "no"),  # U/W -> no/yes
-    genet      = str_to_lower(Genotype),              # A/C/D -> a/c/d
+    genet      = str_to_lower(Genotype),              # legacy name: source thicket A/C/D -> a/c/d
     tank       = as.integer(Tank),
     day        = as.integer(Day),
     plate      = as.integer(Plate)
@@ -82,10 +85,11 @@ sym <- readRDS(file.path(DATA_PROC, "symbiont_chl_clean.rds")) |>
   distinct(id, .keep_all = TRUE) |>
   transmute(id, symbiont_cells_per_cm2 = cells_per_cm2)
 
-# ---- Per-genet resilience covariates (genet-level; from the dashboard) -------
-# These three numbers describe the GENET (A/C/D), not the individual fragment, so
-# every library sharing a genet gets the same value once joined by `genet`.
-# `thicket` is this project's column name for genet identity.
+# ---- Per-source resilience covariates (from the dashboard) ------------------
+# These three numbers describe the field source thicket (A/C/D), not a verified
+# genetic individual, so every library sharing a source label gets the same value
+# once joined by `genet`. The column name is preserved for backward compatibility
+# with earlier handoff files.
 res <- read_csv(file.path(TBL_DIR, "19_genet_resilience_summary.csv"),
                 show_col_types = FALSE) |>
   transmute(genet                       = thicket,
@@ -94,7 +98,7 @@ res <- read_csv(file.path(TBL_DIR, "19_genet_resilience_summary.csv"),
             genet_resilience_rank       = rank_overall)
 
 # Assemble: start from one row per library, attach per-fragment symbiont density
-# (by id) and per-genet resilience (by genet). left_join keeps every library even
+# (by id) and per-source resilience (by the legacy `genet` column). left_join keeps every library even
 # if a covariate is missing (NA) — e.g. fragments with no symbiont measurement.
 covariates <- libs |>
   left_join(sym, by = "id") |>
@@ -104,7 +108,7 @@ covariates <- libs |>
 write_csv(covariates, file.path(TBL_DIR, "31_rnaseq_phenotype_covariates.csv"))
 
 cat("\n=== RNA-seq phenotype covariate table ===\n")
-cat(sprintf("Libraries: %d  (design cells: %d temp x %d wound x %d genet x %d day)\n",
+cat(sprintf("Libraries: %d  (design cells: %d temp x %d wound x %d source x %d day)\n",
             nrow(covariates),
             n_distinct(covariates$treatment), n_distinct(covariates$wound),
             n_distinct(covariates$genet), n_distinct(covariates$day)))

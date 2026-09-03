@@ -1,0 +1,4 @@
+treatment,thicket,source_label,n,growth_mean,new_corallites_pct,tip_extension_pct,phys_growth_heat_penalty,n_responses
+31C,c,C,4,4.683505180730296,75,100,0.2827386450376455,4
+31C,d,D,4,3.4190092266273258,25,50,0.9273003440890127,4
+31C,a,A,4,3.622826598762777,0,75,0.9874621958515608,4

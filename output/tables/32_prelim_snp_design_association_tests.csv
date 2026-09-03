@@ -1,0 +1,13 @@
+scope,design_factor,method,statistic,p.value,n,note
+all sources,treatment,Pearson chi-square with simulated p-value (9999 replicates),4.844214608920491,0.4593,144,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+all sources,wound,Pearson chi-square with simulated p-value (9999 replicates),2.1439883645766002,0.8443,144,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+all sources,day,Pearson chi-square with simulated p-value (9999 replicates),4.116273432449903,0.9498,144,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+all sources,plate,Pearson chi-square with simulated p-value (9999 replicates),1.6714608920491274,0.9042,144,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source A only,treatment,Pearson chi-square with simulated p-value (9999 replicates),1.0256410256410255,0.75,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source A only,wound,Pearson chi-square with simulated p-value (9999 replicates),1.2307692307692306,0.5471,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source A only,day,Pearson chi-square with simulated p-value (9999 replicates),3.153846153846154,0.6766,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source A only,plate,Pearson chi-square with simulated p-value (9999 replicates),1.0256410256410255,0.741,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source D only,treatment,Pearson chi-square with simulated p-value (9999 replicates),8.239819004524886,0.0488,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source D only,wound,Pearson chi-square with simulated p-value (9999 replicates),3.001131221719457,0.6616,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source D only,day,Pearson chi-square with simulated p-value (9999 replicates),11.434954751131226,0.1204,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.
+source D only,plate,Pearson chi-square with simulated p-value (9999 replicates),2.385746606334841,0.9002,48,Monte Carlo chi-square check; descriptive because clusters are preliminary and post hoc.

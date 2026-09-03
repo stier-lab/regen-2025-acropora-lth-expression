@@ -1,6 +1,6 @@
 # Raw Data Provenance
 
-Last audited: 2026-09-01
+Last audited: 2026-09-02
 
 Canonical Drive project folder:
 `17. LTH_expression_by_temperature_2025`
@@ -17,6 +17,8 @@ folder has a matching codebook in `data/metadata/*_codebook.csv`.
   the analysis.
 - `plate_layout`: planned RNA-seq plate layout and selected sample manifest.
   Used for RNA-seq covariate/handoff tables.
+- `rnaseq`: preliminary Bay lab SNP clustering for the 144 RNA-seq libraries.
+  Used only by the exploratory preliminary-SNP integration script.
 - `pam`: repeated PAM Fv/Fm measurements for the physiology subset.
 - `color_card`: repeated color-card/health observations for the physiology
   subset.
@@ -57,8 +59,11 @@ folder has a matching codebook in `data/metadata/*_codebook.csv`.
   code standardizes them to `28C` and `31C`.
 - Tank-to-temperature plumbing is fixed: tanks 3, 6, 9, and 12 are ambient;
   tanks 4, 5, 10, and 11 are heated.
-- Genet/thicket labels are pre-genotype-analysis labels: `a`, `c`, and `d` for
-  the main experiment; the microscope photo cohort includes `a` and `c`.
+- Genet/thicket labels are pre-genotype-analysis source labels: `a`, `c`, and
+  `d` for the main experiment; the microscope photo cohort includes `a` and
+  `c`. Rachael Bay's preliminary 2026-09-02 SNP clusters suggest source C is
+  coherent, while A and D include multiple clusters and share some clusters.
+  Treat those clusters as preliminary until the full SNP set is delivered.
 - Some Google Sheet exports preserve printable page headers or blank trailing
   rows. Analysis scripts filter those rows explicitly when a sheet is used.
 - `physio_morphology/data.csv` and its companion `.xlsx` workbook were refreshed

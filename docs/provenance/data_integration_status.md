@@ -1,6 +1,6 @@
 # Data Integration Status
 
-Last checked: 2026-09-01
+Last checked: 2026-09-02
 
 Status categories:
 
@@ -11,6 +11,8 @@ Status categories:
   as a primary response model.
 - `handoff_only`: used to build a downstream handoff table; no statistical
   analysis is run in this repo.
+- `preliminary_analysis`: imported and analyzed only as an explicitly
+  preliminary/exploratory layer; not final phenotype evidence.
 - `provenance_only`: imported and characterized, but not read by the current
   analysis pipeline.
 
@@ -28,6 +30,7 @@ Status categories:
 | `ysi` | `supporting_analysis` | Cleaned/analyzed by `code/09_ysi_water_chem.R`; writes `data/processed/ysi_clean.rds` and water-chemistry figures. |
 | `worm_presence` | `supporting_analysis` | Cleaned/summarized by `code/10_worms.R`; writes `data/processed/worm_clean.rds`, worm-presence figure, and summary table. Used as contamination/QC context. |
 | `plate_layout` | `handoff_only` | Read by `code/31_rnaseq_covariate_table.R`; writes RNA-seq library lookup and phenotype-covariate handoff tables. No expression model is fit in this repo. |
+| `rnaseq` | `preliminary_analysis` | `data/raw/rnaseq/PRELIM_LTH_genoclusters.csv` was received from Rachael Bay by email on 2026-09-02 and is read by `code/32_prelim_snp_phenotype_integration.R`. The script joins preliminary SNP clusters and PCs to the 144 RNA-seq covariate rows, audits direct response availability, and writes exploratory SNP/design/symbiont summaries. These are not final genotype calls. |
 | `shipping` | `provenance_only` | Imported/codebooked sample handling and storage metadata. The current pipeline does not read these sheets directly. |
 | `daily_health_log` | `provenance_only` | Imported/codebooked for completeness; mostly a filled design/template log and not used by the current pipeline. |
 | `printable_data_sheets` | `provenance_only` | Imported/codebooked collection templates for YSI, PAM, color-card, and daily-health logs; not analysis inputs. |
@@ -37,6 +40,6 @@ Status categories:
 | Drive method docs | `provenance_only` | Exported to `docs/provenance/drive_methods/`; used to document design, methods, photo-source paths, and interpretation. |
 | NAS image sources | `provenance_only` | Local NAS paths and file counts are documented in `docs/provenance/nas_image_sources.md`; raw images are not imported or pixel-analyzed in this repo. |
 
-Validation status after this classification:
+Phenotype validation status after this classification:
 
 `39 PASS, 3 HANDLED, 0 WARN, 0 FAIL`
