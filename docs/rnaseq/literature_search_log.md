@@ -17,7 +17,7 @@ explicit follow-up items for a manuscript-grade literature audit.
 | Population | Reef-building corals, prioritized as Acropora, then other scleractinians |
 | Exposure | Temperature stress, sub-bleaching heat, bleaching heat, injury, wound healing, regeneration |
 | Outcome | Host gene expression, RNA-seq, scRNA-seq, qPCR biomarkers, gene-expression modules, expression-linked physiology |
-| LTH link | Heat x wound, tissue closure, skeletal regeneration, calicoblast/biomineralization, physiology, symbionts, source/genotype effects |
+| LTH link | Heat x wound, tissue closure, skeletal regeneration, calicoblast/biomineralization, physiology, symbionts, source-patch/genetic effects |
 
 ## Local searches run first
 
@@ -99,4 +99,3 @@ in the local database.
 5. After counts and annotation arrive, map candidate families to Acropora pulchra
    orthologs and keep one file with gene IDs, gene symbols, annotation source,
    and orthology confidence.
-

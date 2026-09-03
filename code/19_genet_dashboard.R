@@ -1,23 +1,23 @@
 # =============================================================================
-# Purpose: Integrative cross-response source-thicket dashboard. For each of the
-#          3 source thickets (a, c, d), compute a standardized "heat sensitivity" effect
+# Purpose: Integrative cross-response source-patch dashboard. For each of the
+#          3 source patches (a, c, d), compute a standardized "heat sensitivity" effect
 #          across each usable response variable (PAM, color, growth, symbionts,
 #          and morphology time-to-onset traits). Build a forest plot of all
-#          effect sizes to identify which source thicket is most/least thermally
+#          effect sizes to identify which source patch is most/least thermally
 #          sensitive across every dimension.
 #
-#          Also produces a composite heat-sensitivity ranking per source thicket: the
+#          Also produces a composite heat-sensitivity ranking per source patch: the
 #          mean standardized heat effect across finite response-level effects.
 #
 # What & why: synthesis script. Other analyses test whether heat affects a
 #   given response; this one addresses the cross-cutting question of which
-#   source thicket best tolerates heat overall. To put effects measured in different
+#   source patch best tolerates heat overall. To put effects measured in different
 #   units on one axis (Fv/Fm, a colour score, growth,
 #   symbiont counts, and wound-healing hazard ratios), each effect is rescaled
 #   WITHIN its own response so the largest-magnitude effect = 1 (the "z"
 #   column — a row-max standardization, not a statistical z-score). Positive
-#   means the source thicket's phenotype is worse at 31 °C than 28 °C, i.e. more heat-
-#   sensitive. Averaging these standardized values per source thicket yields a single
+#   means the source patch's phenotype is worse at 31 °C than 28 °C, i.e. more heat-
+#   sensitive. Averaging these standardized values per source patch yields a single
 #   resilience ranking; in this dataset source C is the least heat-sensitive group. Nothing
 #   here fits a new model — every number is a re-summary of upstream tables.
 # Input:   output/tables/12_genet_treatment_effects.csv   (continuous responses)
@@ -38,7 +38,7 @@
 # =============================================================================
 
 # 00_setup.R loads packages, shared paths (TBL_DIR, FIG_DIR), theme_pub(),
-# save_fig(), and the source-thicket colour palette PAL_GENO used below.
+# save_fig(), and the source-patch colour palette PAL_GENO used below.
 source(here::here("code", "00_setup.R"))
 
 # ---- Load upstream effect tables ------------------------------------------
@@ -54,7 +54,7 @@ pca  <- read_csv(file.path(TBL_DIR, "15_genet_pca_displacement.csv"),
 
 # ---- Standardize continuous-response effects ------------------------------
 # Continuous responses (from script 12) give estimate = mean(28C) - mean(31C)
-# at the response-specific endpoint per source thicket x wound, with SE:
+# at the response-specific endpoint per source patch x wound, with SE:
 # PAM/color at experimental Day 14, symbionts at the final biopsy, and growth
 # as a start-to-end response. We collapse over wound (both wounded and
 # unwounded corals contribute), then row-max scale within each response.
@@ -72,7 +72,7 @@ cont_eff <- cont |>
   ungroup() |>
   mutate(metric = "Delta phenotype (28C - 31C, response endpoint)")
 
-# ---- Standardize Cox hazard ratios (per source thicket) -------------------
+# ---- Standardize Cox hazard ratios (per source patch) ---------------------
 # HR < 1 means 31C delays/prevents trait expression — i.e., heat sensitivity.
 # Convert to log(HR) so negative = heat-impaired, positive = heat-promoted.
 cox_per_genet <- cox |>
@@ -251,7 +251,7 @@ p_physiology <- ggplot(physiology_detail,
 save_fig(p_physiology, "19f_source_physiology_heat_penalties", width = 160,
          height = 82)
 
-# Forest plot: each point is one source thicket's standardized heat effect on one
+# Forest plot: each point is one source patch's standardized heat effect on one
 # response, faceted by domain. Dashed line at x = 0 marks "no heat effect".
 dash_mean <- all_eff |>
   group_by(thicket) |>
@@ -336,7 +336,7 @@ p_dash <- p_dash_mean + p_dash_detail +
 save_fig(p_dash, "19_genet_dashboard", width = 200, height = 185)
 
 # ---- Composite thermal resilience score ----------------------------------
-# Per source thicket: mean standardized heat sensitivity across finite response effects.
+# Per source patch: mean standardized heat sensitivity across finite response effects.
 # Lower composite = smaller heat penalty and therefore greater resilience.
 resilience <- all_eff |>
   group_by(thicket) |>
@@ -474,12 +474,12 @@ save_fig(p_decomp, "19c_decomposed_resilience", width = 200, height = 175)
 
 # ---- Focused wound-healing heat penalties --------------------------------
 # Same row-max-scaled Cox effects as the dashboard, filtered to the wounded-only
-# morphology milestones so the source-thicket pattern is visible without the physiology
+# morphology milestones so the source-patch pattern is visible without the physiology
 # rows. Positive values mean the milestone was delayed under 31C.
 morph_penalty <- cox_eff |>
   mutate(
     trait = sub("^morph_", "", response),
-    trait_label = recode(
+    trait_label = dplyr::recode(
       trait,
       axial_polyp_formation = "Axial polyp formed",
       wound_smoothed = "Wound smoothed",
@@ -585,7 +585,7 @@ p_morph <- p_morph_mean + p_morph_traits +
 save_fig(p_morph, "19d_wound_healing_heat_penalties", width = 185,
          height = 115)
 
-# Per-source-thicket × scope mean sensitivity
+# Per-source-patch × scope mean sensitivity
 resilience_decomp <- decomp |>
   group_by(thicket, scope) |>
   summarise(mean_sensitivity = mean(z, na.rm = TRUE),
@@ -595,7 +595,7 @@ resilience_decomp <- decomp |>
 write_csv(resilience_decomp,
           file.path(TBL_DIR, "19c_resilience_decomp_by_scope.csv"))
 
-cat("\n=== Source-thicket resilience summary ===\n")
+cat("\n=== Source-patch resilience summary ===\n")
 print(resilience |> mutate(across(where(is.numeric), \(x) round(x, 3))))
 cat("\n=== Decomposed resilience by scope ===\n")
 print(resilience_decomp |> mutate(across(where(is.numeric), \(x) round(x, 3))))

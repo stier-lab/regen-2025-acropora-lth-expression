@@ -1,6 +1,6 @@
 # Data Integration Status
 
-Last checked: 2026-09-02
+Last checked: 2026-09-03
 
 Status categories:
 
@@ -37,7 +37,7 @@ Status categories:
 | `wax_dipping_standard_curve` | `provenance_only` | Standalone standard-curve copy retained for traceability. The current pipeline uses `data/raw/wax_dipping/Standard_curve.csv`. |
 | `buoyant_weight_archive` | `provenance_only` | Duplicate/working buoyant-weight calculation workbook retained for traceability. The current pipeline uses `data/raw/buoyant_weight/` tab CSVs. |
 | `chlorophyll` | `provenance_only` | Example calculation workbook only. Chlorophyll-a was planned but not populated/run for this project. |
-| Drive method docs | `provenance_only` | Exported to `docs/provenance/drive_methods/`; used to document design, methods, photo-source paths, and interpretation. |
+| Drive method docs | `provenance_only` | Exported to `docs/provenance/drive_methods/`; used to document historical design decisions, methods, photo-source paths, and interpretation. The root README, `docs/README.md`, and current scripts override stale planning language in those exports. |
 | NAS image sources | `provenance_only` | Local NAS paths and file counts are documented in `docs/provenance/nas_image_sources.md`; raw images are not imported or pixel-analyzed in this repo. |
 
 Phenotype validation status after this classification:

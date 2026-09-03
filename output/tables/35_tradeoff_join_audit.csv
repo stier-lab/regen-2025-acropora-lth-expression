@@ -5,4 +5,4 @@ joined rows,48,Joined by coral fragment ID.
 unique joined IDs,48,Duplicate IDs would make same-fragment trade-off plots invalid.
 treatment-label mismatches,0,Should be zero before plotting.
 wound-label mismatches,1,One known mismatch means morphology wound labels define the wounded-only regeneration screen.
-source-label mismatches,0,Should be zero before plotting.
+source-patch-label mismatches,0,Should be zero before plotting.

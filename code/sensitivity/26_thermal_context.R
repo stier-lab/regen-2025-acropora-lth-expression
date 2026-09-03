@@ -1,5 +1,5 @@
 # =============================================================================
-# Purpose: Place the LTH chronic temperature treatments and the among-genotype
+# Purpose: Place the LTH chronic temperature treatments and source-patch
 #          resilience variation in the context of an independent, calibrated
 #          acute thermal-tolerance benchmark for the SAME species and island:
 #          Cunning et al. 2024 (Coral Reefs) CBASS Fv/Fm ED50s for Acropora
@@ -8,14 +8,14 @@
 #          (#2) Thermal-context anchor: where do 28 °C and 31 °C sit relative to
 #               the acute ED50 distribution? -> 31 °C is chronic-SUBLETHAL,
 #               well below the acute photochemical threshold.
-#          (#1) Genotype-variation concordance: do acute (CBASS, 20 genets) and
-#               chronic (LTH, 3 thickets) methods both detect substantial
+#          (#1) Variation concordance: do acute (CBASS, 20 genets) and
+#               chronic (LTH, 3 source patches) methods both detect substantial
 #               heritable thermal-tolerance variation in this population?
 #
 #          IMPORTANT distinctions documented in data/external/README.md:
 #           - ED50 is ACUTE (18 h); LTH is CHRONIC (weeks at +3 °C). ED50 is a
 #             reference point, NOT the temperature axis of the chronic design.
-#           - LTH thicket labels (A,C,D) are arbitrary and NOT genotype-matched
+#           - LTH source-patch labels (A,C,D) are field labels and NOT genotype-matched
 #             to Cunning's genets, so an individual-genet correlation is not
 #             possible yet (requires LTH RNA-seq SNPs vs Cunning genet_map).
 #             We therefore compare the STRUCTURE/MAGNITUDE of variation, not

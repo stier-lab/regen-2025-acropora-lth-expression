@@ -1,6 +1,6 @@
 # Tentative RNA-seq expression-phenotype integration plan
 
-Updated: 2026-09-02
+Updated: 2026-09-03
 
 This is a planning document for the LTH heat x wound RNA-seq analysis. It is
 written before the expression counts arrive so the analysis does not drift toward
@@ -21,7 +21,7 @@ The current RNA-seq design has 144 margin libraries:
 | Temperature | 28 C, 31 C |
 | Wound state | wounded, unwounded |
 | Day | 1, 3, 10 |
-| Source thicket | A, C, D |
+| Source patch | A, C, D |
 | Tank | 4 tanks per temperature |
 | Tissue position | margin only |
 
@@ -46,10 +46,11 @@ Important limits:
 - Day 15 tissue may exist, but it is not part of the current 144-library analysis.
 - The destructive RNA-seq fragments should not be assigned later individual
   regeneration outcomes unless that exact fragment was followed. Link expression
-  to phenotype through treatment, day, source thicket, tank, and pre-defined phenotype
+  to phenotype through treatment, day, source patch, tank, and pre-defined phenotype
   summaries.
-- A, C, and D are field source-thicket labels. They are not yet matched to the
-  Cunning CBASS genets.
+- A, C, and D are field source-patch labels. Some code and tables still store
+  these labels as `thicket` or legacy `genet` columns, but they are not yet
+  matched to the Cunning CBASS genets.
 - The preliminary SNP cluster file received from Rachael Bay on 2026-09-02 is
   explicitly provisional. It can be used for exploratory checks and planning,
   but final expression models should use the final SNP set, genetic PCs, or
@@ -67,7 +68,7 @@ Before differential expression:
 5. Verify sample IDs against the plate map, raw library lookup, phenotype
    covariate table, and preliminary/final SNP metadata.
 6. Check whether any plate, extraction batch, library batch, lane, or well-position
-   variable is confounded with temperature, wound state, day, source thicket, or
+   variable is confounded with temperature, wound state, day, source patch, or
    tank.
 7. Decide before testing whether candidate genes are used only for interpretation
    or also for formal gene-set scoring.
@@ -90,7 +91,7 @@ pipeline itself changes.
 | Regeneration decoupling | Tissue closure proceeds, but new corallite regeneration is suppressed at 31 C | Does heat suppress the skeletal/regenerative program more than early wound closure? |
 | Day 10 transition | New corallite formation diverges most clearly by Day 10 | Does the Day 10 wounded-margin expression state differ between 28 C and 31 C? |
 | Chronic heat stress | 31 C is chronic/sublethal rather than an acute heat-shock challenge | Do expression patterns show sustained stress/acclimation rather than only an acute HSP spike? |
-| Source/genotype-linked resilience | Source C is the most resilient phenotype; preliminary SNPs show C is coherent while A/D are mixed | Does C show a smaller heat-induced expression shift, or a different protective state, after accounting for final genetic structure? |
+| Source-patch/genetic resilience | Source patch C is the most resilient phenotype; preliminary SNPs show C is coherent while A/D are mixed | Does C show a smaller heat-induced expression shift, or a different protective state, after accounting for final genetic structure? |
 | Whole-organism physiology | Heat affects PAM, color, symbiont density, and growth | Do expression modules track photochemistry, pigment, symbiont density, growth, or multivariate condition? |
 
 ## 4. Competing hypotheses
@@ -139,20 +140,20 @@ Falsifiers:
 - Heat effects are mostly restricted to wounded Day 10 samples.
 - Unwounded 31 C margins show little sustained expression shift.
 
-### H3. Source/Genotype-Resilience Hypothesis
+### H3. Source-Patch/Genetic-Resilience Hypothesis
 
-Source C resists chronic heat stress better than A or D, either through a
+Source patch C resists chronic heat stress better than A or D, either through a
 smaller heat-induced transcriptome shift or a different protective expression
 state. The preliminary SNP file suggests C may also be genetically coherent,
-whereas A and D are mixed source labels; the final genetic analysis should
-separate source-label effects from genotype/kinship effects.
+whereas A and D are mixed source-patch labels; the final genetic analysis should
+separate source-patch effects from genotype/kinship effects.
 
 Predictions:
 
 - C has a smaller 31 C vs 28 C expression displacement than A/D.
 - C differs from A/D in stress-response, redox, proteostasis, symbiosis, or
   calcification-associated modules.
-- C's module scores correlate with the pre-defined source-resilience summaries.
+- C's module scores correlate with the pre-defined source-patch resilience summaries.
 
 Falsifiers:
 
@@ -205,7 +206,7 @@ Minimum biological design terms:
 expression ~ temperature * wound * day + source_thicket + plate + tank/blocking
 ```
 
-For source- or genotype-specific tests, fit targeted models rather than relying only on one
+For source-patch or genotype-specific tests, fit targeted models rather than relying only on one
 large omnibus model:
 
 ```text
@@ -223,7 +224,7 @@ Primary contrasts:
 | temperature x wound at Day 10 | Test whether heat changes the wound response specifically | Separates a wound-specific heat effect from general heat stress |
 | temperature x day within wounded margins | Test whether heat changes the temporal wound-to-regeneration trajectory | Supports H1 if divergence increases by Day 10 |
 | 31 C vs 28 C within unwounded margins | Test chronic heat state without acute wound response | Supports H2/H3 if sustained heat modules appear in unwounded tissue |
-| temperature x source thicket | Test whether C differs from A/D in heat response | Supports H3 if C has smaller or qualitatively different heat response; final SNP PCs/kinship determine whether this is source-label or genotype-linked |
+| temperature x source patch | Test whether C differs from A/D in heat response | Supports H3 if C has smaller or qualitatively different heat response; final SNP PCs/kinship determine whether this is source-patch or genotype-linked |
 
 ## 6. Secondary module and pathway analyses
 
@@ -238,7 +239,7 @@ Run these after the genome-wide tests.
    - temperature
    - wound state
    - day
-   - source thicket
+   - source patch
    - final SNP PCs/kinship or genotype cluster
    - PAM/FvFm
    - color score
@@ -301,7 +302,7 @@ Suggested deliverables:
 
 The first expression paper or analysis handoff should include:
 
-1. Sample QC PCA/MDS colored by temperature, wound, day, source thicket, tank,
+1. Sample QC PCA/MDS colored by temperature, wound, day, source patch, tank,
    plate, and final genetic structure.
 2. Primary contrast summary for wound-response positive control.
 3. Day 10 heat effect in wounded margins.

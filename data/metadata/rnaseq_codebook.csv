@@ -5,6 +5,6 @@
 "PRELIM_LTH_genoclusters.csv","PC2","NA","Preliminary SNP principal component 2"
 "PRELIM_LTH_genoclusters.csv","PC3","NA","Preliminary SNP principal component 3"
 "PRELIM_LTH_genoclusters.csv","PC4","NA","Preliminary SNP principal component 4"
-"PRELIM_LTH_genoclusters.csv","thicket","NA","Field source-thicket label reported with the preliminary SNP table"
+"PRELIM_LTH_genoclusters.csv","thicket","NA","Field source-patch label reported with the preliminary SNP table; column name kept from the delivered file"
 "PRELIM_LTH_genoclusters.csv","cov","NA","Coverage metric supplied by the Bay lab; lower values were flagged in email as less confident for some singleton clusters"
 "PRELIM_LTH_genoclusters.csv","cluster","NA","Preliminary genotype-cluster assignment from an incomplete SNP set; replace with final SNP calls when available"

@@ -214,12 +214,12 @@ plates_all <- bind_rows(plate1_filled, plate2_filled) %>%
       SampleType != "Primary" ~ "",
       TRUE ~ paste0("T", Tank, "·", Geno)
     ),
-    ctrl_lbl = recode(control_type,
-                      "Extraction NTC"     = "Extr NTC",
-                      "Library NTC"        = "Lib NTC",
-                      "Spike-in"           = "Spike-in",
-                      "Tech Rep (anchor)"  = "Tech Rep",
-                      .default = control_type),
+    ctrl_lbl = dplyr::recode(control_type,
+                             "Extraction NTC"     = "Extr NTC",
+                             "Library NTC"        = "Lib NTC",
+                             "Spike-in"           = "Spike-in",
+                             "Tech Rep (anchor)"  = "Tech Rep",
+                             .default = control_type),
     stroke_col = case_when(
       SampleType=="Primary" & Wound=="U" ~ pal$wound["U"],
       SampleType=="Primary" & Wound=="W" ~ pal$wound["W"],

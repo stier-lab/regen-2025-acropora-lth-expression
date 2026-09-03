@@ -5,17 +5,17 @@
 #          against organismal traits without re-deriving the joins.
 #
 #          Coding is harmonized to the phenotype convention (data dictionary):
-#          wound U/W -> no/yes; source-thicket A/C/D -> lowercase a/c/d;
+#          wound U/W -> no/yes; source patch A/C/D -> lowercase a/c/d;
 #          Temp_C -> 28C/31C.
 #          Join key: Fragment_ID == id.
 #
 #          Covariate types:
-#            - design        : treatment, wound, source thicket, tank, day, plate
+#            - design        : treatment, wound, source patch, tank, day, plate
 #                              (per library)
 #            - per-fragment   : symbiont density at that biopsy (where measured)
 #            - per-source     : resilience score / PCA displacement / rank
 #                               (source-level; identical for all libraries from
-#                               a source thicket)
+#                               a source patch)
 #          (Per-coral regeneration outcome is NOT attached: RNA-seq fragments were
 #          destructively biopsied at D1/D3/D10, before the regeneration trajectory.)
 #
@@ -72,7 +72,7 @@ libs <- sel_raw |>
     id         = as.integer(Fragment_ID),
     treatment  = paste0(as.integer(Temp_C), "C"),     # 28C / 31C
     wound      = if_else(Wound == "W", "yes", "no"),  # U/W -> no/yes
-    genet      = str_to_lower(Genotype),              # legacy name: source thicket A/C/D -> a/c/d
+    genet      = str_to_lower(Genotype),              # legacy name: source patch A/C/D -> a/c/d
     tank       = as.integer(Tank),
     day        = as.integer(Day),
     plate      = as.integer(Plate)
@@ -86,7 +86,7 @@ sym <- readRDS(file.path(DATA_PROC, "symbiont_chl_clean.rds")) |>
   transmute(id, symbiont_cells_per_cm2 = cells_per_cm2)
 
 # ---- Per-source resilience covariates (from the dashboard) ------------------
-# These three numbers describe the field source thicket (A/C/D), not a verified
+# These three numbers describe the field source patch (A/C/D), not a verified
 # genetic individual, so every library sharing a source label gets the same value
 # once joined by `genet`. The column name is preserved for backward compatibility
 # with earlier handoff files.

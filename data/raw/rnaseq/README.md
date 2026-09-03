@@ -1,6 +1,6 @@
 # RNA-seq / Preliminary SNP Inputs
 
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 This folder holds local RNA-seq-adjacent inputs received from the Bay lab.
 
@@ -26,7 +26,7 @@ Current use:
 
 Important limits:
 
-- A/C/D remain field source-thicket labels, not verified genetic individuals.
+- A/C/D remain field source-patch labels, not verified genetic individuals.
 - The current SNP file covers the 144 RNA-seq libraries. Those fragment IDs
   match the symbiont-density biopsy data but do not match the PAM, color-card,
   buoyant-weight, gross morphology, or microscope morphology fragment sets.

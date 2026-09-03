@@ -139,12 +139,12 @@ record_results <- function(model, response_name) {
 }
 
 # record_genet_effect(): from an emmeans grid, extract the 28C-vs-31C contrast
-# *within each genet × wound* combination. This is how we answer "is genet C more
-# heat-tolerant than A/D?" — one treatment-effect estimate per genet. adjust =
+# *within each source-patch × wound* combination. This is how we answer "is
+# source patch C more heat-tolerant than A/D?" — one treatment-effect estimate per source patch. adjust =
 # "none" here because these are pre-specified per-genet contrasts collected for a
 # summary table, not a family we are protecting against false positives.
-# Per-genet treatment effect at end-of-experiment (or biopsy-day max)
-# Returns one row per genet × wound with (28C - 31C) treatment-effect estimate
+# Per-source-patch treatment effect at end-of-experiment (or biopsy-day max)
+# Returns one row per source patch × wound with (28C - 31C) treatment-effect estimate
 record_genet_effect <- function(emm_obj, response_name) {
   contr <- as_tibble(pairs(emm_obj, by = c("thicket", "wound"),
                             adjust = "none"))

@@ -404,7 +404,7 @@ interval_rows <- if (file.exists(file.path(TBL_DIR, "14_interval_survreg.csv")))
     )
 } else tibble()
 
-# Time-varying-coefficient Cox refit for the one case (pigmentation, genet C)
+# Time-varying-coefficient Cox refit for the one case (pigmentation, source patch C)
 # where the standard Cox model violated the proportional-hazards assumption.
 # tt(treatment) lets the treatment effect change with log(t+1); a non-sig
 # result here means the earlier per-genet HR was inflated by the PH violation.
@@ -887,10 +887,10 @@ probc_rows <- if (file.exists(file.path(TBL_DIR, "29_morphology_prob_contrasts.c
 } else tibble()
 
 # ===========================================================================
-# Block 18 — Composite genet resilience scores (script 19)
+# Block 18 — Composite source-patch resilience scores (script 19)
 # ===========================================================================
-# The cross-response synthesis from script 19: each genet's mean standardized
-# heat sensitivity (lower = more resilient; genet C wins). NB the ci_low/ci_high
+# The cross-response synthesis from script 19: each source patch's mean standardized
+# heat sensitivity (lower = more resilient; source patch C wins). NB the ci_low/ci_high
 # columns are repurposed here to carry the median sensitivity and the PCA
 # displacement (not a confidence interval) so they ride along in the same row.
 resilience_rows <- if (file.exists(file.path(TBL_DIR, "19_genet_resilience_summary.csv"))) {

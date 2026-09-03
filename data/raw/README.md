@@ -1,6 +1,6 @@
 # Raw Data Provenance
 
-Last audited: 2026-09-02
+Last audited: 2026-09-03
 
 Canonical Drive project folder:
 `17. LTH_expression_by_temperature_2025`
@@ -59,11 +59,13 @@ folder has a matching codebook in `data/metadata/*_codebook.csv`.
   code standardizes them to `28C` and `31C`.
 - Tank-to-temperature plumbing is fixed: tanks 3, 6, 9, and 12 are ambient;
   tanks 4, 5, 10, and 11 are heated.
-- Genet/thicket labels are pre-genotype-analysis source labels: `a`, `c`, and
+- Source patch labels are pre-genotype-analysis field labels: `a`, `c`, and
   `d` for the main experiment; the microscope photo cohort includes `a` and
-  `c`. Rachael Bay's preliminary 2026-09-02 SNP clusters suggest source C is
-  coherent, while A and D include multiple clusters and share some clusters.
-  Treat those clusters as preliminary until the full SNP set is delivered.
+  `c`. Some code and exported tables still call these `thicket` or legacy
+  `genet` values. Rachael Bay's preliminary 2026-09-02 SNP clusters suggest
+  source patch C is coherent, while A and D include multiple clusters and share
+  some clusters. Treat those clusters as preliminary until the full SNP set is
+  delivered.
 - Some Google Sheet exports preserve printable page headers or blank trailing
   rows. Analysis scripts filter those rows explicitly when a sheet is used.
 - `physio_morphology/data.csv` and its companion `.xlsx` workbook were refreshed
@@ -74,7 +76,7 @@ folder has a matching codebook in `data/metadata/*_codebook.csv`.
   authenticated Drive export on 2026-09-01; the analysis still reads the
   tab-level CSV exports in the same folder.
 - Microscope photo scoring is not pooled with gross morphology. It has a
-  different cohort, tanks, thickets, and photo-only purpose.
+  different cohort, tanks, source patches, and photo-only purpose.
 - The microscope `pigment_over_wound` column is scored only through day 7 in
   the current sheet; blanks after day 7 mean not scored, not no pigmentation.
 - Raw color-card and microscope image files live on the lab NAS, not in Drive.

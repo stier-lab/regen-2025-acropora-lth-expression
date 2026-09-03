@@ -1,3 +1,8 @@
+> **Historical Drive export.** This plan predates the current repo wording.
+> Use source patch A/C/D, not confirmed genet/genotype, unless referring to
+> legacy columns. Chlorophyll-a, microbiome work, symbiont genotyping, and
+> D15 RNA-seq were planned items unless current files confirm them.
+
 Outstanding [Project Tasks](https://docs.google.com/spreadsheets/u/0/d/171cWktNYW2Ci-U9L5AbjZgwh_QRAMHJB2N6CzWsbgJ0/edit):
 
 1. Laboratory analysis on slurry from D1, D3, D10, D15  

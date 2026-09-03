@@ -1,4 +1,8 @@
-﻿Proposal for Long Term Heating Experiment Analysis of Heat x Wounding 
+﻿Proposal for Long Term Heating Experiment Analysis of Heat x Wounding
+Historical Drive export. This sequencing plan preserves the original handoff wording.
+Current docs use source patch A/C/D, not confirmed genotype, unless referring to legacy columns.
+Day 15 samples exist but are not part of the current 144-library RNA-seq design.
+
 LTH Main Gene Expression Analysis Plan — Margin-Only (Days 1, 3, 10)
 Updated plan incorporating four tanks per temperature, each with three genotypes (A, C, D). This represents the main gene expression analysis for Margin-only biopsies collected at three timepoints (Days 1, 3, and 9) after wounding. Day 1 captures the wound response after 24 hours.
 1. Experimental Factors

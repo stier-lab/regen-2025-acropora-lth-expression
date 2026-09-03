@@ -22,8 +22,8 @@
 #        flat around 0) whenever any covariate violates PH, for visual follow-up.
 #     5. Reports events-per-variable (EPV; rule of thumb >= 10 for a stable Cox
 #        fit) and the HR direction (HR > 1 = trait emerges faster under heat).
-#   Per-genet small-sample limitations and a known PH violation that is fixed by a
-#   time-varying refit (pigment, genet C) are downgraded to HANDLED.
+#   Per-source-patch small-sample limitations and a known PH violation that is
+#   fixed by a time-varying refit (pigment, source patch C) are downgraded to HANDLED.
 #
 # Input:   data/processed/physio_clean.rds
 #          output/tables/14c_cox_tt_pigment_genetC.csv (presence => HANDLED)
@@ -292,8 +292,8 @@ for (tr in traits) {
 
 diag_df <- bind_rows(results)
 # Reconcile statuses (numbers untouched): the one PH violation (pigment,
-# genet C) is HANDLED by a time-varying coxph refit saved in 14c_*.csv, and the
-# per-genet small-sample warnings are HANDLED as documented descriptive limits.
+# source patch C) is HANDLED by a time-varying coxph refit saved in 14c_*.csv,
+# and the per-source-patch small-sample warnings are HANDLED as documented descriptive limits.
 tt_path <- file.path(ROOT, "output", "tables", "14c_cox_tt_pigment_genetC.csv")
 diag_df <- diag_df |>
   mutate(

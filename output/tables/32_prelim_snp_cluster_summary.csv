@@ -1,4 +1,4 @@
-prelim_snp_cluster,n_samples,source_thickets,n_source_thickets,median_cov_million,min_cov_million,max_cov_million,n_below_5m,n_below_10m,pct_below_10m
+prelim_snp_cluster,n_samples,source_patches,n_source_patches,median_cov_million,min_cov_million,max_cov_million,n_below_5m,n_below_10m,pct_below_10m
 1,48,C,1,14.701170964000001,7.91216598699998,26.924025989,0,3,0.0625
 2,17,D,1,15.41524299,8.151538982,22.9919969850001,0,2,0.11764705882352941
 3,16,D,1,15.041163451500001,4.16530602,21.337653965999902,1,1,0.0625

@@ -1,9 +1,15 @@
 # Drive Method And Photo Provenance
 
-Last audited: 2026-09-01
+Last audited: 2026-09-03
 
 These files are local exports of Google Docs from the project Drive folder.
-They are provenance material, not generated analysis outputs.
+They are provenance material, not generated analysis outputs or current
+analysis instructions. Use the repo root `README.md`, `docs/README.md`, and
+`RESULTS.docx` for the current design, terminology, and analysis status.
+Several exports still contain early-plan language about confirmed genotypes,
+chlorophyll-a, microbiome work, symbiont genotyping, D15 RNA-seq, or "biopsy"
+wording; treat those as historical unless the current data inventory confirms
+them.
 
 - `README_LTH_expression_by_temperature_2025.md`: project overview, design,
   response variables, and collection methods.

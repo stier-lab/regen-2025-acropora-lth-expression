@@ -53,7 +53,7 @@ join_audit <- tibble(
     "unique joined IDs",
     "treatment-label mismatches",
     "wound-label mismatches",
-    "source-label mismatches"
+    "source-patch-label mismatches"
   ),
   value = c(
     nrow(bw),
@@ -79,16 +79,16 @@ write_csv(join_audit,
           file.path(TBL_DIR, "34_growth_morphology_join_audit.csv"))
 
 if (any(!growth_morph$treatment_match) || any(!growth_morph$thicket_match)) {
-  stop("Growth and morphology disagree on treatment or source labels.")
+  stop("Growth and morphology disagree on treatment or source-patch labels.")
 }
 
 wounded <- growth_morph |>
   filter(wound_morph == "yes") |>
   mutate(
     treatment = factor(treatment_morph, levels = c("28C", "31C")),
-    treatment_label = factor(recode(as.character(treatment),
-                                    `28C` = "28 °C",
-                                    `31C` = "31 °C"),
+    treatment_label = factor(dplyr::recode(as.character(treatment),
+                                           `28C` = "28 °C",
+                                           `31C` = "31 °C"),
                              levels = c("28 °C", "31 °C")),
     thicket = thicket_morph,
     source_label = str_to_upper(thicket),

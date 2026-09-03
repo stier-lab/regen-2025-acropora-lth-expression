@@ -50,7 +50,7 @@ Search provenance: `docs/rnaseq/literature_search_log.md`.
 | Did the sampled margin capture a wound signal? | c-Fos/AP-1, JNK/MAPK, TLR/NOD/NF-kB, ECM remodeling, oxidative response | Wounded vs unwounded at Day 1 and Day 3 |
 | Does heat spare closure but block regeneration? | Wnt, FGF, calicoblast fate, galaxin/SAARP/mucin, carbonic anhydrase, Ca2+ handling, skeletal matrix proteins | 31 C vs 28 C in wounded Day 10 margins |
 | Is the heat response chronic rather than an acute spike? | HSPs, ubiquitin-proteasome, redox, mitochondria, metabolism, cell adhesion, immune/apoptosis | 31 C vs 28 C in unwounded margins across Day 1, 3, 10 |
-| Does source C differ from A/D? | Frontloaded/dampened stress modules, redox/proteostasis, symbiosis, cell adhesion, ion transport | temperature x source-thicket label; use the 2026-09-02 preliminary SNP clusters/PCs only as an exploratory layer until final SNP/kinship results arrive |
+| Does source patch C differ from A/D? | Frontloaded/dampened stress modules, redox/proteostasis, symbiosis, cell adhesion, ion transport | temperature x source-patch label; use the 2026-09-02 preliminary SNP clusters/PCs only as an exploratory layer until final SNP/kinship results arrive |
 | Do organismal traits map to expression? | WGCNA modules for stress, symbiosis, pigment, calcification, growth, regeneration | Module eigengenes vs PAM, color, symbionts, growth, morphology milestones |
 
 ## Regeneration evidence
@@ -118,9 +118,9 @@ pathways/modules and let the genome-wide model decide which genes actually move.
 
 ## Analysis implications
 
-- Treat `source_thicket` A/C/D as a phenotype grouping until the SNP/kinship run
-  resolves genetic identity. Say "source C" rather than "genet C" when the claim
-  depends on identity.
+- Treat `source_thicket` A/C/D as a legacy column storing source-patch labels
+  until the SNP/kinship run resolves genetic identity. Say "source patch C"
+  rather than "genet C" when the claim depends on identity.
 - Do not require HSP70 or HSP90 to move for the heat treatment to be real. At Day
   1/3/10 after chronic exposure, the heat signal could appear as dampening,
   altered recovery, redox/proteostasis load, metabolism, or symbiosis shifts.

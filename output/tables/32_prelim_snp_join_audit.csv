@@ -5,5 +5,5 @@ SNP sample label agrees with SNP library ID,TRUE,PASS,Fragment number parsed fro
 RNA-seq covariate rows,144,PASS,Expected code/31 RNA-seq handoff table.
 All SNP IDs present in code/31 covariates,TRUE,PASS,"Join uses fragment ID, not the differing library label strings."
 All code/31 covariate IDs present in SNP file,TRUE,PASS,"Join uses fragment ID, not the differing library label strings."
-Source thicket labels agree after join,TRUE,PASS,Preliminary SNP thicket label matches the wet-lab source label.
+Source patch labels agree after join,TRUE,PASS,Preliminary SNP source-patch label matches the wet-lab source-patch label.
 Rows with same-fragment symbiont density,144,PASS,This is the only direct same-fragment response variable currently available.

@@ -1,5 +1,10 @@
 # **LTH\_expression\_by\_temperature\_2025 \- README**
 
+> **Historical Drive export.** This file preserves an early project README.
+> Use the repo root `README.md`, `docs/README.md`, and `RESULTS.docx` for
+> current analysis status. It still contains early-plan language about
+> chlorophyll-a, D15 RNA-seq, and A/C/D as confirmed genetic labels.
+
 ## **Project Information**
 
 Title: LTH: expression\_by\_temperature\_2025
@@ -85,4 +90,3 @@ This project investigates how corals regenerate from wounds of different severit
 For access to raw data or collaboration, please contact astier@ucsb.edu.
 
 Last Updated: 14 Oct 2025
-

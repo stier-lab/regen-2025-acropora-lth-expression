@@ -11,7 +11,7 @@
 #
 # What & why: code/31 builds the stable RNA-seq phenotype covariate handoff.
 #   This script joins Rachael's preliminary SNP layer onto that table by coral
-#   fragment ID, audits the join, summarizes how source-thicket labels map to
+#   fragment ID, audits the join, summarizes how source-patch labels map to
 #   SNP clusters, checks treatment/wound/day balance by cluster, and runs the
 #   only direct sample-level phenotype check currently available for the RNA-seq
 #   libraries: symbiont density from the same destructive biopsies. PAM, color,
@@ -125,7 +125,7 @@ if (!file.exists(snp_path)) {
     stop("Some RNA-seq covariate rows did not receive a preliminary SNP cluster.")
   }
   if (any(joined$source_thicket != joined$prelim_snp_source_thicket)) {
-    stop("Source thicket in the SNP file disagrees with code/31 covariates.")
+    stop("Source patch label in the SNP file disagrees with code/31 covariates.")
   }
 
   cluster_n <- joined |>
@@ -211,7 +211,7 @@ if (!file.exists(snp_path)) {
       "RNA-seq covariate rows",
       "All SNP IDs present in code/31 covariates",
       "All code/31 covariate IDs present in SNP file",
-      "Source thicket labels agree after join",
+      "Source patch labels agree after join",
       "Rows with same-fragment symbiont density"
     ),
     value = c(
@@ -243,7 +243,7 @@ if (!file.exists(snp_path)) {
       "Expected code/31 RNA-seq handoff table.",
       "Join uses fragment ID, not the differing library label strings.",
       "Join uses fragment ID, not the differing library label strings.",
-      "Preliminary SNP thicket label matches the wet-lab source label.",
+      "Preliminary SNP source-patch label matches the wet-lab source-patch label.",
       "This is the only direct same-fragment response variable currently available."
     )
   )
@@ -267,9 +267,9 @@ if (!file.exists(snp_path)) {
     group_by(prelim_snp_cluster) |>
     summarise(
       n_samples = n(),
-      source_thickets = paste(sort(unique(str_to_upper(source_thicket))),
-                              collapse = "/"),
-      n_source_thickets = n_distinct(source_thicket),
+      source_patches = paste(sort(unique(str_to_upper(source_thicket))),
+                             collapse = "/"),
+      n_source_patches = n_distinct(source_thicket),
       median_cov_million = median(prelim_snp_cov_million, na.rm = TRUE),
       min_cov_million = min(prelim_snp_cov_million, na.rm = TRUE),
       max_cov_million = max(prelim_snp_cov_million, na.rm = TRUE),

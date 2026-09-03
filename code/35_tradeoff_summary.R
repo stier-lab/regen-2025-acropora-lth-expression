@@ -23,9 +23,9 @@ growth_means <- read_csv(file.path(TBL_DIR, "13_genet_emmeans.csv"),
   filter(response == "Growth (% mass change)") |>
   mutate(
     source_label = str_to_upper(thicket),
-    treatment_label = factor(recode(treatment,
-                                    `28C` = "28 °C",
-                                    `31C` = "31 °C"),
+    treatment_label = factor(dplyr::recode(treatment,
+                                           `28C` = "28 °C",
+                                           `31C` = "31 °C"),
                              levels = c("28 °C", "31 °C")),
     temp_x = if_else(treatment == "28C", 1, 2)
   )
@@ -76,7 +76,7 @@ join_audit <- tibble(
     "unique joined IDs",
     "treatment-label mismatches",
     "wound-label mismatches",
-    "source-label mismatches"
+    "source-patch-label mismatches"
   ),
   value = c(
     nrow(bw),
@@ -101,7 +101,7 @@ join_audit <- tibble(
 write_csv(join_audit, file.path(TBL_DIR, "35_tradeoff_join_audit.csv"))
 
 if (any(!growth_morph$treatment_match) || any(!growth_morph$thicket_match)) {
-  stop("Growth and morphology disagree on treatment or source labels.")
+  stop("Growth and morphology disagree on treatment or source-patch labels.")
 }
 
 wounded_heat <- growth_morph |>
