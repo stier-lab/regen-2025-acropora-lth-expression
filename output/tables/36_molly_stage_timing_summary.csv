@@ -1,0 +1,13 @@
+stage_order,phase,stage,dataset_label,trait,measurement_note,treatment,n_corals,n_reached,n_not_reached,pct_reached,mean_first_day,median_first_day,q25_first_day,q75_first_day,iqr_first_day,complete_both_temperatures
+1,Healing,Coenosarc barrier re-established,Microscope photos,tissue_over_wound,microscope-only coenosarc/tissue-cover score,28C,8,8,0,100,1,1,1,1,0,TRUE
+1,Healing,Coenosarc barrier re-established,Microscope photos,tissue_over_wound,microscope-only coenosarc/tissue-cover score,31C,8,8,0,100,1.25,1,1,1.25,0.25,TRUE
+2,Regeneration,Axial polyp forms,Main morphology,axial_polyp_formation,gross-photo central axial-polyp/hole score,28C,12,12,0,100,4.08,3.5,3,4,1,TRUE
+2,Regeneration,Axial polyp forms,Main morphology,axial_polyp_formation,gross-photo central axial-polyp/hole score,31C,12,12,0,100,3.75,3,3,4,1,TRUE
+3,Regeneration,Wound surface remodels,Main morphology,wound_smoothed,gross-photo smoothed wound-surface score,28C,12,12,0,100,4.67,4,4,6,2,TRUE
+3,Regeneration,Wound surface remodels,Main morphology,wound_smoothed,gross-photo smoothed wound-surface score,31C,12,12,0,100,4.17,4,4,4,0,TRUE
+4,Regeneration,Axial corallite or tip forms,Main morphology,tip_exist,gross-photo visible regenerated-tip score,28C,12,12,0,100,6.5,6,6,6.5,0.5,TRUE
+4,Regeneration,Axial corallite or tip forms,Main morphology,tip_exist,gross-photo visible regenerated-tip score,31C,12,12,0,100,6.83,6,6,8,2,TRUE
+5,Regeneration,Axial corallite or tip extends,Main morphology,tip_extension,gross-photo tip-extension score,28C,12,11,1,91.7,NA,NA,NA,NA,NA,FALSE
+5,Regeneration,Axial corallite or tip extends,Main morphology,tip_extension,gross-photo tip-extension score,31C,12,11,1,91.7,NA,NA,NA,NA,NA,FALSE
+6,Regeneration,New radial corallites bud,Main morphology,new_corallites_on_tip,gross-photo new-corallites-on-tip score,28C,12,12,0,100,NA,NA,NA,NA,NA,FALSE
+6,Regeneration,New radial corallites bud,Main morphology,new_corallites_on_tip,gross-photo new-corallites-on-tip score,31C,12,4,8,33.3,NA,NA,NA,NA,NA,FALSE

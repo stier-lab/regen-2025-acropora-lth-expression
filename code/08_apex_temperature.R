@@ -1,194 +1,167 @@
-# =============================================================================
-# Purpose: Parse Neptune Apex XML datalogs into a per-tank temperature time
-#          series and visualize the heat ramp + steady-state period.
-#          Apex logs are large (one <record> per probe poll); we stream-parse
-#          file-by-file, aggregate to hourly means inside each file, and
-#          discard raw records before moving on. This keeps memory bounded.
-#
-# What & why: the Neptune Apex is the aquarium controller that ran the heating
-#   system; it polls every tank's temperature probe continuously and writes the
-#   readings to XML log files. This is the high-resolution, ground-truth record
-#   of the thermal treatment — it confirms the heated tanks actually held ~+3 °C
-#   (31 vs 28 °C) for the whole experiment, not just at the daily YSI spot check
-#   (code/09). These logs are large (a reading every minute or two,
-#   for every probe, for weeks). Loading them all into memory at once would
-#   exceed available memory, so we parse one file at a time, immediately collapse each file to
-#   hourly means, throw away the raw records, then move to the next file. The
-#   hourly series is rolled up again to daily means for the trend figures.
-# Input:   data/raw/apex/datalog*.xml
-# Output:  data/processed/apex_temperature.rds  (hourly per probe)
-#          data/processed/apex_temperature_daily.rds (daily per probe)
-#          figures/08_apex_temperature.{pdf,png}
-# =============================================================================
-
-# ---- Setup -----------------------------------------------------------------
-# 00_setup.R loads packages and defines shared paths (DATA_RAW, DATA_PROC, ...),
-# theme_pub(), and save_fig(). xml2 is the parser we use to walk the Apex XML.
+# Rebuild temperatures from original and recovered Apex exports.
+# Clock/source conventions: docs/provenance/molly_followup_2026-09-11.md.
 source(here::here("code", "00_setup.R"))
 suppressPackageStartupMessages(library(xml2))
-
-# Collect every Apex datalog in the raw folder. stopifnot() halts immediately
-# with a clear error if none are found, rather than failing cryptically later.
-xml_files <- list.files(file.path(DATA_RAW, "apex"),
-                        pattern = "\\.xml$", full.names = TRUE)
+recovered <- file.path(DATA_RAW, "apex", "recovered_2026-09-10")
+xml_files <- list.files(file.path(DATA_RAW, "apex"), pattern = "\\.xml$",
+                        recursive = TRUE, full.names = TRUE)
 stopifnot(length(xml_files) > 0)
+parse_failures <- list()
 
-# ---- Parser: one XML file -> hourly mean per probe -------------------------
-# This is the memory-bounded parser. It reads a single Apex file, pulls out
-# every probe reading, then immediately summarises to hourly means so the raw
-# (minute-resolution) records can be discarded before the next file is read.
-# Returns tibble(datetime [hour], probe, value_mean, value_sd, n).
-parse_apex_hourly <- function(path) {
-  message("Parsing ", basename(path), " (", round(file.size(path) / 1e6, 1), " MB)")
-  # RECOVER/NOWARNING/NOERROR tell libxml2 to salvage what it can from a
-  # malformed/truncated log instead of aborting; tryCatch returns NULL on a
-  # hard failure so one bad file can't kill the whole run.
-  doc <- tryCatch(
-    read_xml(path, options = c("RECOVER", "NOWARNING", "NOERROR")),
-    error = function(e) NULL
-  )
+# Preserve displayed logger times to match Molly's date-based assignments.
+# UTC is a storage convention here, not a claim about the actual clock zone.
+parse_apex <- function(path) {
+  doc <- tryCatch(read_xml(path), error = function(e) {
+    parse_failures[[path]] <<- tibble(source_file = basename(path),
+                                    reason = conditionMessage(e))
+    message("Excluded malformed XML: ", basename(path))
+    NULL
+  })
   if (is.null(doc)) return(tibble())
-
-  # Each <record> is one poll of all probes at one timestamp.
-  records <- xml_find_all(doc, "//record")
-  if (length(records) == 0) return(tibble())
-
-  # Extract record dates en masse (vectorised over all records at once).
-  # Apex timestamps are US-format mdy_hms; tz set to Tahiti (the field site) so
-  # hours line up with local day/night, not UTC.
-  dates_text <- xml_text(xml_find_first(records, "./date"))
-  dates <- suppressWarnings(mdy_hms(dates_text, tz = "Pacific/Tahiti"))
-
-  # For each record extract probe name+value vectors; collapse to one row per
-  # (record, probe). Records with an unparseable date or no probes are skipped.
-  out_list <- vector("list", length(records))
-  for (i in seq_along(records)) {
-    if (is.na(dates[i])) next
-    probes <- xml_find_all(records[[i]], "./probe")
-    if (length(probes) == 0) next
-    nms <- xml_text(xml_find_first(probes, "./name"))
-    # Probe values arrive as text; as.numeric coerces, with non-numeric -> NA.
-    vals <- suppressWarnings(as.numeric(xml_text(xml_find_first(probes, "./value"))))
-    # Convert °F -> °C at the RAW reading level, for TEMPERATURE probes only. The
-    # Apex ran US firmware and logged °F on some units (switched mid-deployment);
-    # a seawater temperature reading > 60 can only be Fahrenheit. Doing this BEFORE
-    # hourly/daily aggregation matters: averaging first would mix °F and °C
-    # on any firmware-switch day and corrupt that day's mean. We restrict to Temp
-    # probes so non-temp channels (ORP/pH, whose values can legitimately exceed 60)
-    # are never mis-converted.
-    is_temp <- grepl("^Temp\\d+$", trimws(nms))
-    vals <- if_else(is_temp & !is.na(vals) & vals > 60, (vals - 32) * 5 / 9, vals)
-    out_list[[i]] <- tibble(datetime = dates[i], probe = nms, value = vals)
-  }
-
-  # Free the parsed document and force garbage collection before returning;
-  # this keeps total memory flat across hundreds of large files.
-  records <- NULL; doc <- NULL; gc()
-
-  # Stack all records, drop missing values, bin to the hour, and summarise.
-  bind_rows(out_list) |>
-    filter(!is.na(value)) |>
-    mutate(hour = lubridate::floor_date(datetime, "hour")) |>  # truncate to top of hour
-    group_by(hour, probe) |>
-    summarise(value_mean = mean(value, na.rm = TRUE),
-              value_sd   = sd(value, na.rm = TRUE),
-              n          = n(),                                 # readings per hour
-              .groups = "drop") |>
-    rename(datetime = hour)
+  probes <- xml_find_all(doc, "//record/probe[type='Temp']")
+  tibble(
+    source_path = path,
+    serial = xml_text(xml_find_first(doc, "//serial")),
+    logger_timezone = xml_text(xml_find_first(doc, "//timezone")),
+    datetime = mdy_hms(xml_text(xml_find_first(probes, "../date")), tz = "UTC"),
+    probe = str_squish(xml_text(xml_find_first(probes, "./name"))),
+    raw_value = as.numeric(xml_text(xml_find_first(probes, "./value")))
+  ) |> filter(str_detect(probe, "^Temp[0-9]+$")) |>
+    mutate(value = if_else(raw_value > 60, (raw_value - 32) * 5 / 9, raw_value))
 }
+raw <- map_dfr(xml_files, parse_apex)
+write_csv(bind_rows(parse_failures), file.path(TBL_DIR, "08_apex_parse_failures.csv"))
+stopifnot(!anyNA(raw$datetime), !anyNA(raw$value))
+manifest <- raw |> group_by(source_path, serial, logger_timezone) |>
+  summarise(first_record = min(datetime), last_record = max(datetime),
+            n_readings = n(), .groups = "drop") |>
+  mutate(md5 = unname(tools::md5sum(source_path)),
+         source_path = sub(paste0(DATA_RAW, "/"), "", source_path, fixed = TRUE))
+write_csv(manifest, file.path(TBL_DIR, "08_apex_source_manifest.csv"))
 
-# Run the parser over every file and row-bind the hourly results into one table.
-hourly <- map_dfr(xml_files, parse_apex_hourly)
-saveRDS(hourly, file.path(DATA_PROC, "apex_temperature.rds"))
+# Count repeated exports once; never resolve conflicting values by row order.
+duplicates <- raw |> group_by(serial, datetime, probe) |>
+  summarise(n_copies = n(), n_values = n_distinct(value), .groups = "drop") |>
+  filter(n_copies > 1)
+write_csv(duplicates, file.path(TBL_DIR, "08_apex_duplicate_audit.csv"))
+stopifnot(all(duplicates$n_values == 1), n_distinct(raw$serial) == 1)
+readings <- raw |> distinct(serial, datetime, probe, value) |>
+  mutate(tank = as.integer(str_extract(probe, "[0-9]+")),
+         valid = is.finite(value) & value > 15 & value < 40)
+write_csv(filter(readings, !valid), file.path(TBL_DIR, "08_apex_excluded_readings.csv"))
+readings <- filter(readings, valid)
 
-# ---- Daily aggregation for plotting ---------------------------------------
-# Roll the hourly series up to one mean per probe per day — smooth enough to
-# read the heat ramp and steady state on a multi-week figure. str_squish()
-# trims stray whitespace in probe names so e.g. " Temp4" and "Temp4" group as one.
-daily <- hourly |>
-  mutate(date = as_date(datetime),
-         probe = str_squish(probe)) |>
+# Independently cross-check the compiled sheet without adding duplicate records.
+compiled <- read_csv(file.path(recovered, "compiled_temperature.csv"),
+                     show_col_types = FALSE) |>
+  transmute(datetime = mdy_hms(.data[["/record/date"]], tz = "UTC"),
+            probe = .data[["/record/probe/name"]],
+            raw_value = .data[["/record/probe/value"]],
+            compiled_c = if_else(raw_value > 60, (raw_value - 32) * 5 / 9, raw_value))
+compiled_check <- compiled |>
+  left_join(select(readings, datetime, probe, value),
+            by = c("datetime", "probe"), relationship = "many-to-one") |>
+  mutate(matches_xml = !is.na(value) & abs(compiled_c - value) < 1e-8)
+write_csv(tibble(n_compiled = nrow(compiled_check),
+                 n_duplicate_rows = sum(duplicated(compiled)),
+                 n_matches_xml = sum(compiled_check$matches_xml),
+                 n_unmatched = sum(!compiled_check$matches_xml)),
+          file.path(TBL_DIR, "08_apex_compiled_crosscheck.csv"))
+stopifnot(all(compiled_check$matches_xml))
+
+# Check whether the combined sheet alone covers the assigned study period.
+# Export record IDs are not part of the measurement key.
+compiled_unique <- compiled |> distinct(datetime, probe, compiled_c)
+study_xml <- readings |>
+  filter(as.Date(datetime) >= as.Date("2025-05-28"),
+         as.Date(datetime) <= as.Date("2025-06-19"),
+         tank %in% c(TANK_28C, TANK_31C)) |>
+  select(datetime, probe, value)
+missing_compiled <- anti_join(study_xml, compiled_unique,
+                              by = c("datetime", "probe", "value" = "compiled_c"))
+write_csv(tibble(first_compiled = min(compiled_unique$datetime),
+                 last_compiled = max(compiled_unique$datetime),
+                 n_unique_compiled = nrow(compiled_unique),
+                 n_study_xml = nrow(study_xml),
+                 n_study_missing_from_compiled = nrow(missing_compiled)),
+          file.path(TBL_DIR, "08_apex_compiled_standalone_check.csv"))
+stopifnot(nrow(missing_compiled) == 0)
+
+hourly <- readings |> mutate(datetime = floor_date(datetime, "hour")) |>
+  group_by(datetime, probe) |>
+  summarise(value_mean = mean(value), value_sd = sd(value), n = n(), .groups = "drop")
+daily <- readings |> mutate(date = as.Date(datetime)) |>
   group_by(date, probe) |>
-  summarise(value_mean = mean(value_mean, na.rm = TRUE),
-            value_sd   = mean(value_sd, na.rm = TRUE),
-            .groups = "drop")
+  summarise(value_mean = mean(value), value_sd = sd(value), n = n(),
+            n_hours = n_distinct(floor_date(datetime, "hour")), .groups = "drop")
+saveRDS(hourly, file.path(DATA_PROC, "apex_temperature.rds"))
 saveRDS(daily, file.path(DATA_PROC, "apex_temperature_daily.rds"))
 
-# ---- Filter to temperature-like probes ------------------------------------
-# The controller logs many probe types (pH, ORP, etc.); keep only the tank
-# temperature probes, which Apex names `Temp1`-`Temp12` (one per outlet/tank).
-# The regex "^Temp\\d+$" matches exactly that pattern (Temp + digits, nothing else).
+assignments <- read_csv(file.path(recovered, "tank_assignments.csv"),
+                       show_col_types = FALSE) |>
+  filter(project == "17. LTH expression by temperature") |>
+  transmute(date = mdy(date), tank = as.integer(tank),
+            treatment = paste0(treatment, "C"), phase = str_trim(.data[["acc.ramp.hold"]]))
+stopifnot(!anyDuplicated(select(assignments, date, tank)),
+          all(assignments$treatment == tank_treatment(assignments$tank)))
 temp_daily <- daily |>
-  filter(str_detect(probe, "^Temp\\d+$"),
-         is.finite(value_mean), value_mean > 0) |>
-  mutate(
-    # Pull the trailing number out of the probe name to recover the tank ID.
-    tank = as.integer(str_extract(probe, "\\d+")),
-    # value_mean is ALREADY in °C — the °F->°C conversion happens at the raw-
-    # reading level inside parse_apex_hourly(), so the daily means never mix units.
-    value_c = value_mean,
-    # Map tank -> treatment via the shared plumbing layout (tank_treatment() in
-    # 00_setup.R; same assignment used by 09 (YSI) and 16 (Fig 1 panel A)).
-    treatment = tank_treatment(tank)
-  ) |>
-  # Keep experimental tanks only, and drop physically impossible temperatures
-  # (sensor dropouts/air exposure) by bounding to a plausible 15-40 °C window.
-  filter(!is.na(treatment), value_c > 15, value_c < 40)
+  mutate(tank = as.integer(str_extract(probe, "[0-9]+"))) |>
+  inner_join(assignments, by = c("date", "tank"), relationship = "one-to-one") |>
+  mutate(day = as.integer(date - as.Date("2025-06-04")))
+coverage <- expand_grid(date = as.Date("2025-06-04") + 0:16,
+                        tank = sort(c(TANK_28C, TANK_31C))) |>
+  left_join(daily |> mutate(tank = as.integer(str_extract(probe, "[0-9]+"))),
+            by = c("date", "tank")) |>
+  mutate(day = as.integer(date - as.Date("2025-06-04")),
+         treatment = tank_treatment(tank),
+         across(c(n, n_hours), ~replace_na(.x, 0L)))
+write_csv(coverage, file.path(TBL_DIR, "08_apex_daily_coverage.csv"))
+summary <- temp_daily |> filter(day >= 0, day <= 15) |>
+  group_by(treatment) |>
+  summarise(n_tanks = n_distinct(tank), n_tank_days = n(),
+            mean_c = mean(value_mean), min_daily_c = min(value_mean),
+            max_daily_c = max(value_mean), min_hours = min(n_hours), .groups = "drop")
+write_csv(summary, file.path(TBL_DIR, "08_apex_treatment_summary.csv"))
+stopifnot(all(filter(coverage, day <= 15)$n == 144),
+          all(filter(coverage, day <= 15)$n_hours == 24))
+clock_sensitivity <- map_dfr(c(0, -3), function(offset) {
+  readings |> mutate(date = as.Date(datetime + hours(offset)),
+                     treatment = tank_treatment(tank)) |>
+    filter(!is.na(treatment), date >= as.Date("2025-06-04"),
+           date <= as.Date("2025-06-19")) |>
+    group_by(date, tank, treatment) |> summarise(mean_c = mean(value), .groups = "drop") |>
+    group_by(treatment) |> summarise(mean_c = mean(mean_c), .groups = "drop") |>
+    mutate(clock_shift_hours = offset)
+})
+write_csv(clock_sensitivity, file.path(TBL_DIR, "08_apex_clock_sensitivity.csv"))
 
-# ---- Plot: experimental window --------------------------------------------
-# Main figure. Trim to the experiment dates so the steady-state contrast is the
-# focus (the full logger record, with ramps/cooldowns, is the companion below).
-exp_window <- as_date(c("2025-05-25", "2025-06-25"))
-d_plot <- temp_daily |>
-  filter(between(date, exp_window[1], exp_window[2]))
-
-# One line per tank, coloured by treatment. Dashed reference lines mark the two
-# target set-points (28 and 31 °C) so the reader can see how tightly tanks held.
-p_apex <- ggplot(d_plot, aes(date, value_c, group = tank,
-                              colour = treatment)) +
-  geom_hline(yintercept = c(28, 31), linetype = "dashed",
-             colour = "grey60", linewidth = 0.3) +
-  geom_line(linewidth = 0.4, alpha = 0.85) +
-  geom_point(size = 1.0, alpha = 0.75) +
-  # Direct-label the two target lines at the right edge instead of adding a
-  # second legend (inherit.aes = FALSE so this layer ignores the main aes()).
-  geom_text(data = data.frame(date = exp_window[2], y = c(28, 31),
-                              lab = c("28 °C target", "31 °C target")),
-            aes(x = date, y = y, label = lab),
-            inherit.aes = FALSE, hjust = 1.1, vjust = -0.4,
-            size = 2.6, colour = "grey40") +
-  scale_colour_manual(values = c(`28C` = "#56B4E9", `31C` = "#D55E00"),  # blue=ambient, orange=heated
-                      name = "Treatment") +
-  scale_x_date(date_breaks = "5 days", date_labels = "%b %d") +
-  labs(x = NULL, y = "Daily mean tank T (°C)",
-       title = "Apex tank temperatures across the experimental window",
-       subtitle = "One line per tank; heat ramp begins late May, sustained 31 °C through experiment") +
+p_apex <- ggplot(temp_daily, aes(day, value_mean, group = tank, colour = treatment)) +
+  annotate("rect", xmin = -7, xmax = 0, ymin = -Inf, ymax = Inf,
+           fill = "grey94", colour = NA) +
+  geom_hline(yintercept = c(28, 31), linetype = "dashed", colour = "grey60", linewidth = 0.3) +
+  geom_vline(xintercept = 0, linetype = "dotted", colour = "grey40") +
+  geom_line(linewidth = 0.45, alpha = 0.85) + geom_point(size = 1.1) +
+  scale_colour_manual(values = c('28C' = "#56B4E9", '31C' = "#D55E00"),
+                      labels = c('28C' = "28 °C", '31C' = "31 °C"), name = "Treatment") +
+  scale_x_continuous(breaks = c(-7, -3, 0, 5, 10, 15)) +
+  labs(x = "Day relative to tip clipping (Day 0 = 4 June 2025)",
+       y = "Daily mean tank temperature (°C)",
+       title = "Tank temperatures through the final sampling day",
+       subtitle = "One line per tank; shaded area precedes clipping; dashed lines mark targets") +
   theme_pub(10)
+save_fig(p_apex, "08_apex_temperature", width = 180, height = 105)
 
-save_fig(p_apex, "08_apex_temperature", width = 170, height = 100)
-
-# ---- Plot: full datalog period (companion) --------------------------------
-# Same data, no date filter — shows the whole record including the initial ramp
-# up and the post-experiment cooldown, for the supplement / sanity checking.
-p_full <- ggplot(temp_daily, aes(date, value_c, group = tank,
-                                  colour = treatment)) +
-  geom_hline(yintercept = c(28, 31), linetype = "dashed",
-             colour = "grey60", linewidth = 0.3) +
-  geom_line(linewidth = 0.3, alpha = 0.75) +
-  scale_colour_manual(values = c(`28C` = "#56B4E9", `31C` = "#D55E00"),
-                      name = "Treatment") +
-  labs(x = NULL, y = "Daily mean tank T (°C)",
-       title = "Apex tank temperatures — full datalog period",
-       subtitle = "Tanks 3, 6, 9, 12 = 28 °C; tanks 4, 5, 10, 11 = 31 °C") +
-  theme_pub(10)
-save_fig(p_full, "08b_apex_temperature_full", width = 200, height = 100)
-
-# ---- Console report --------------------------------------------------------
-# Print the most-logged probes as a sanity check that the expected Temp
-# probes dominate the file (and to spot any unexpected probe names).
-cat("\nProbes detected (top 20 by record count):\n")
-hourly |> count(probe, sort = TRUE) |> head(20) |> print()
-
-cat("\nWrote apex_temperature.rds (", nrow(hourly), " hourly records),",
-    " apex_temperature_daily.rds (", nrow(daily), "),",
-    " 08_apex_temperature.{pdf,png}\n", sep = "")
+# Tanks were reused; do not label dates outside the main assignment as treatment.
+p_full <- daily |> mutate(tank = as.integer(str_extract(probe, "[0-9]+"))) |>
+  filter(tank %in% c(TANK_28C, TANK_31C)) |>
+  ggplot(aes(date, value_mean)) +
+  geom_line(linewidth = 0.3) + facet_wrap(~tank, ncol = 4) +
+  geom_vline(xintercept = as.Date(c("2025-05-28", "2025-06-19")),
+             linetype = "dotted", colour = "grey50") +
+  labs(x = NULL, y = "Daily mean temperature (°C)",
+       title = "Full recovered logger record, by tank",
+       subtitle = "Dotted lines bound the main LTH assignment period; other dates include other uses") +
+  theme_pub(9)
+save_fig(p_full, "08b_apex_temperature_full", width = 200, height = 120)
+print(summary)
+print(count(coverage, day, n_hours), n = 40)

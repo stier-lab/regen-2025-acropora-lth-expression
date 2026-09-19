@@ -1,0 +1,13 @@
+stage_order,phase,stage,dataset,treatment,n_reached,n_scored,n_not_reached,pct_reached,complete_both_temperatures,mean_day,median_day,iqr_days
+1,Healing,Coenosarc barrier re-established,Microscope photos,28 °C,8,8,0,100,TRUE,1,1,1.00-1.00
+1,Healing,Coenosarc barrier re-established,Microscope photos,31 °C,8,8,0,100,TRUE,1.25,1,1.00-1.25
+2,Regeneration,Axial polyp forms,Main morphology,28 °C,12,12,0,100,TRUE,4.08,3.5,3.00-4.00
+2,Regeneration,Axial polyp forms,Main morphology,31 °C,12,12,0,100,TRUE,3.75,3,3.00-4.00
+3,Regeneration,Wound surface remodels,Main morphology,28 °C,12,12,0,100,TRUE,4.67,4,4.00-6.00
+3,Regeneration,Wound surface remodels,Main morphology,31 °C,12,12,0,100,TRUE,4.17,4,4.00-4.00
+4,Regeneration,Axial corallite or tip forms,Main morphology,28 °C,12,12,0,100,TRUE,6.5,6,6.00-6.50
+4,Regeneration,Axial corallite or tip forms,Main morphology,31 °C,12,12,0,100,TRUE,6.83,6,6.00-8.00
+5,Regeneration,Axial corallite or tip extends,Main morphology,28 °C,11,12,1,91.7,FALSE,NA,NA,NA
+5,Regeneration,Axial corallite or tip extends,Main morphology,31 °C,11,12,1,91.7,FALSE,NA,NA,NA
+6,Regeneration,New radial corallites bud,Main morphology,28 °C,12,12,0,100,FALSE,NA,NA,NA
+6,Regeneration,New radial corallites bud,Main morphology,31 °C,4,12,8,33.3,FALSE,NA,NA,NA

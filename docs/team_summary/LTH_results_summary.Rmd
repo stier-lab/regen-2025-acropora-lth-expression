@@ -1,7 +1,7 @@
 ---
-title: "Long-term heat (LTH): key results for the team"
-subtitle: "Heat + wounding in *Acropora pulchra*, Mo'orea 2025"
-date: "Updated 2026-09-03"
+title: "Long-term heat (LTH): key results"
+subtitle: "Heat and wound repair in *Acropora pulchra*, Mo'orea 2025"
+date: "Updated 2026-09-16"
 output:
   html_document:
     self_contained: true
@@ -33,10 +33,27 @@ cap_wound_day0 <- paste(
 )
 
 cap_apex <- paste(
-  "The tanks stayed close to their target temperatures.",
-  "Each line is one tank from 25 May to 25 June 2025. Blue tanks were held",
-  "at 28 °C and orange tanks were held at 31 °C, with four tanks in each",
-  "temperature. Dashed lines mark the targets."
+  "The intended temperature difference held through the final sampling day.",
+  "Points are daily means of 144 readings per tank at ten-minute intervals.",
+  "Each line follows one tank: blue = 28 °C and orange = 31 °C, four tanks per treatment.",
+  "The x-axis runs from 28 May to 19 June 2025, relative to clipping on 4 June (Day 0).",
+  "Gray shading marks the period before clipping; dashed horizontal lines mark the targets.",
+  "All eight tanks have a complete daily record for Days 0–15.",
+  "Dates follow the displayed logger clock. These are measured temperatures, not model fits; no uncertainty bands are shown."
+)
+
+cap_stage_cumulative <- paste(
+  "Heat reduced the percentage reaching the final regrowth step by Day 15.",
+  "Each panel shows the percentage first observed at a stage by each day after clipping.",
+  "Blue solid lines and circles = 28 °C; orange dashed lines and triangles = 31 °C.",
+  "Each percentage uses all fragments in that panel, including those that had not reached the stage.",
+  "Living tissue covering the wound uses a separate microscope-photo experiment, with 8 wounded fragments per temperature.",
+  "The other five panels use 12 wounded fragments per temperature from the main experiment.",
+  "Two heated fragments lacked a Day 1 tissue-cover score; both were first recorded as covered on Day 2.",
+  "That small difference in first observations does not establish slower healing.",
+  "New skeletal cups are new radial corallites on the regrown tip.",
+  "Curves show observed attainment, not fitted probabilities or continued presence of a feature.",
+  "No uncertainty bands are shown, and the curves do not predict what happened after Day 15."
 )
 
 cap_growth <- paste(
@@ -54,7 +71,7 @@ cap_symbiont <- paste(
   "The y-axis is millions of symbiont cells per square centimeter. Each gray dot",
   "is one small tissue sample. Boxes show the middle half of the tissue samples and the median.",
   "Blue boxes show 28 °C and orange boxes show 31 °C. Wounded and unwounded",
-  "fragments are pooled here. Sample size = 24 tissue samples per temperature and day,",
+  "fragments are combined here. Sample size = 24 tissue samples per temperature and day,",
   "192 total."
 )
 
@@ -66,8 +83,40 @@ cap_morph_km <- paste(
   "No uncertainty bands are shown."
 )
 
+cap_molly_stage_timing <- paste(
+  "This exact-day plot separates early healing from later regeneration.",
+  "Healing means the coenosarc, the sheet of living tissue between coral polyps,",
+  "re-covered the wound surface. Regeneration means the later rebuilding steps.",
+  "Each point is one wounded coral. The x-axis shows the first day a stage was seen.",
+  "Small stacks separate corals that reached the same stage on the same day.",
+  "An X in the gray band means the coral never reached that stage by the final scored day.",
+  "The early healing row uses the microscope-photo data set because coenosarc cover was scored there.",
+  "The regeneration rows use the main morphology data set.",
+  "Right-side labels show how many corals reached each stage out of the number scored.",
+  "The main pattern is that both temperatures reached early healing and most early rebuilding steps,",
+  "but only 4 of 12 heated corals budded new radial corallites by Day 15 compared with 12 of 12 at 28 °C."
+)
+
+cap_molly_stage_violin <- paste(
+  "Heat reduced how many corals reached the final regrowth stage.",
+  "The x-axis shows the healing and regeneration stages. The y-axis shows the",
+  "first day a stage was seen. The gray top band shows fragments that had not",
+  "reached a stage by Day 15. The shaded shapes summarize the first-day",
+  "distribution among corals that reached a stage. Width reflects both how",
+  "closely their first days cluster and how many corals reached the stage. Points are individual corals. X marks show",
+  "individual fragments that had not reached a stage by Day 15. Percent labels",
+  "in the gray band show the percentage not reached. Black box lines show the",
+  "median and the middle half of first days.",
+  "Boxes and white mean-day diamonds appear only for stages reached by every fragment at both temperatures.",
+  "Blue = 28 °C and orange = 31 °C. Stage 1 uses the microscope-photo data set",
+  "because coenosarc cover was scored there (8 wounded fragments per temperature). Stages 2-6 use the main",
+  "morphology data set (12 wounded fragments per temperature). Shapes for incomplete stages describe only the fragments that reached them.",
+  "The key pattern is that all 12 wounded 28 °C fragments budded new radial",
+  "corallites by Day 15, while only 4 of 12 wounded 31 °C fragments did."
+)
+
 cap_timeline <- paste(
-  "The photos show wound sealing and true regrowth as separate steps.",
+  "The photos show wound sealing and later regrowth as separate steps.",
   "Columns are days after clipping, from Day 0 to Day 15. Rows show 28 °C and 31 °C",
   "fragments at whole-tip and close-up views. Both fragments seal the wound",
   "and rebuild a tip. Only the 28 °C fragment buds new corallites by Day 15."
@@ -78,7 +127,7 @@ cap_source_summary <- paste(
   "A heat penalty means how much worse 31 °C was than 28 °C.",
   "Bars show the average heat penalty for source patches A, C, and D. Separate bars",
   "show all measurements together, coral condition and growth, wound sealing,",
-  "and regrowth timing. Each measurement was first put on its own 0-to-1 scale, so",
+  "and regrowth timing. Each measurement was first put on its own relative scale, so",
   "the bars compare source-patch heat penalties, not raw measurements collected on different days.",
   "Values near zero mean little heat penalty. Positive values mean worse condition",
   "or slower regrowth at 31 °C. Negative values mean better condition or faster",
@@ -89,8 +138,8 @@ cap_source_physiology <- paste(
   "Source patch C had the smallest heat penalties for coral condition and growth.",
   "A, C, and D are source-patch labels, not confirmed genetic individuals.",
   "Each point is one measurement: photosynthesis score, color, symbiont",
-  "density, meaning algal cells per coral area, or skeletal growth. For each measurement, the largest heat penalty",
-  "among source patches is set to 1 so the measurements can be compared on the same scale.",
+  "density, meaning algal cells per coral area, or skeletal growth. For each measurement, the largest absolute heat penalty",
+  "among source patches is set to 1 so the measurements can be compared on the same relative scale.",
   "Photosynthesis score and color use Day 14 values, symbionts use the final tissue sample,",
   "and growth uses the full 15-day change. Wounded and unwounded fragments are",
   "averaged together. Points near zero mean little heat penalty; points to the",
@@ -100,29 +149,26 @@ cap_source_physiology <- paste(
 cap_genet_dashboard <- paste(
   "Source patch C stayed near zero across most heat-penalty measurements.",
   "A, C, and D are source-patch labels, not confirmed genetic individuals.",
-  "Preliminary DNA-marker results from RNA sequencing (RNA-seq) show C grouping together,",
-  "while A and D are mixed. The DNA markers are single-nucleotide polymorphisms",
-  "(SNPs), which are single DNA-letter differences.",
   "(a) Mean heat penalty across all measurements that could be estimated for each source patch.",
   "(b) Heat penalties for each measurement, grouped by measurement type. Each point is",
   "one source-patch heat penalty for one measurement. Each measurement was",
-  "put on its own 0-to-1 scale, with the largest effect set to 1. These are",
+  "put on its own relative scale, with the largest absolute effect set to 1. These are",
   "not raw measurements from the same day. Coral-condition rows use late-study",
   "values: photosynthesis score and color at Day 14, growth over the full study,",
   "and symbionts from the final tissue sample. Healing/regrowth rows use timing analyses",
   "for wounded fragments only. Points left of zero mean better condition or",
   "earlier regrowth at 31 °C. Points right of zero mean worse condition or",
   "slower regrowth at 31 °C. Gold circles = A, green triangles = C, blue squares = D.",
-  "Heat-penalty values averaged: A = 9, C = 10, D = 10."
+  "The averages include 9 measurements for A and 10 each for C and D; some timing effects could not be estimated."
 )
 
 cap_wound_heat <- paste(
-  "Heat delayed healing and regrowth less in source patch C.",
+  "Source patch C had smaller estimated heat penalties for repair timing.",
   "A, C, and D are source-patch labels, not confirmed genetic individuals.",
   "(a) Average heat penalty for the timing of wound sealing and regrowth for each source patch.",
   "(b) Heat penalties for each healing or regrowth step. Values come from timing",
-  "analyses for wounded fragments only. Within each step, the largest heat penalty",
-  "is set to 1 so the steps can be compared. Points left of the dashed zero line",
+  "analyses for wounded fragments only. Within each step, the largest effect in either direction",
+  "is scaled to a size of 1, keeping its sign. Points left of the dashed zero line",
   "mean the step happened earlier at 31 °C. Points right of zero mean it happened",
   "later at 31 °C. Gold circles = A, green triangles = C, blue squares = D.",
   "Sample size = 8 wounded fragments per source patch and step, with 4 at 28 °C and",
@@ -131,14 +177,14 @@ cap_wound_heat <- paste(
 )
 
 cap_tradeoff_summary <- paste(
-  "The trade-off check shows one possible growth cost but no regeneration cost.",
+  "These plots suggest a possible growth–heat tolerance trade-off, but do not establish one.",
   "(a) Skeletal growth at 28 °C and 31 °C for each source patch.",
   "(b) Growth at 28 °C versus growth lost under heat, calculated as the",
   "28 °C mean minus the 31 °C mean.",
   "(c) Skeletal growth of heated wounded fragments, grouped by whether they",
   "budded new corallites by Day 15. New corallites are the small skeletal cups",
-  "that mark true regrowth.",
-  "(d) Whole-coral heat penalty, based only on photosynthesis score, color,",
+  "on the regrown tip.",
+  "(d) Whole-fragment heat penalty, based only on photosynthesis score, color,",
   "skeletal growth, and symbiont density, versus the percent of heated wounded",
   "fragments that budded new corallites by Day 15.",
   "Points are source-patch means in panels a, b, and d, and individual coral",
@@ -149,12 +195,14 @@ cap_tradeoff_summary <- paste(
   "Panel c uses 12 heated wounded fragments; panels a, b, and d use",
   "source-patch means.",
   "A, C, and D are source-patch labels, not confirmed genetic individuals.",
-  "These panels are exploratory, not formal tests of trade-offs."
+  "Panel b uses growth at 28 °C on both axes, so that relationship alone is not evidence of a trade-off.",
+  "Panel c shows no clear growth cost of regrowth, but its small sample cannot rule out a cost.",
+  "The text describes the model checks."
 )
 
 cap_prelim_snp_structure <- paste(
   "Preliminary DNA-marker groups, called clusters, change how we should talk about A, C, and D.",
-  "Rachael Bay's 2026-09-02 file is preliminary and should not be treated as",
+  "These genetic groups are preliminary and should not be treated as",
   "final genetic identity. Here, a genetic individual means one confirmed clone.",
   "The file uses single-nucleotide polymorphisms (SNPs), which are single",
   "DNA-letter differences, from RNA sequencing (RNA-seq) libraries, meaning",
@@ -176,33 +224,43 @@ cap_prelim_snp_design <- paste(
   "DNA-letter differences, and clusters are groups of genetically similar samples.",
   "The original design was balanced by source patch.",
   "The SNP clusters split A and D unevenly after the fact, so comparisons by cluster",
-  "are for planning only. Replace these preliminary clusters with final SNP scores",
-  "or a final genetic-similarity table when available."
+  "remain exploratory until the genetic assignments are finalized."
 )
 
 cap_prelim_snp_symbiont <- paste(
-  "The symbiont-density DNA-marker check agrees with the source-patch result.",
+  "Grouping fragments by preliminary DNA markers gives a similar symbiont result to grouping by source patch.",
   "Symbiont density means the number of algal symbiont cells per coral surface area.",
   "Symbiont density is the only measurement from the same 144 fragments that currently have",
   "preliminary single-nucleotide polymorphism (SNP) clusters. SNPs are single",
   "DNA-letter differences, and clusters are groups of genetically similar samples.",
   "Points show the estimated 28 °C minus 31 °C difference",
-  "in symbiont density, after accounting for wound state and sampling day.",
+  "in symbiont density on a base-10 logarithmic scale, after accounting for wound state and sampling day.",
+  "Horizontal lines show 95% confidence intervals, indicating uncertainty in each estimate; the dashed line marks no difference.",
   "Positive values mean fewer symbionts at 31 °C. Source patch C/cluster 1 has the smallest heat penalty,",
   "while clusters associated with A or D generally lose more symbionts. Treat the cluster",
   "estimates as preliminary because the clusters are not final",
   "and some groups are small."
 )
 
+cap_trinity_hauru_context <- paste(
+  "Source patch C lies near Apul-115, but a genetic match is unconfirmed.",
+  "Stars show the LTH source patches A, C, and D. Circles show Hauru colonies",
+  "from Trinity Conn's 10 Aug 2026 table. Circle color shows acute heat limit,",
+  "called ED50. ED50 is the temperature where the photosynthesis-efficiency score drops halfway",
+  "during a short heat assay. Source patch C is closest to Apul-115, 10.5 m away,",
+  "but genetically identical colonies can span field patches. Exact identity requires comparing",
+  "DNA markers from our RNA sequencing (RNA-seq) data with Trinity/Ross whole-genome data."
+)
+
 cap_thermal_context <- paste(
-  "The 31 °C treatment was below the acute heat limit for *Acropora pulchra*.",
+  "The 31 °C treatment was below temperatures that caused a half-drop in photosynthesis efficiency in a short heat test.",
   "The x-axis is temperature. Triangles mark the long-term heat (LTH) treatments: light blue = 28 °C",
   "and dark blue = 31 °C. Orange points show acute heat-limit values from",
   "Cunning et al. 2024. The specific metric is the half-drop temperature (ED50)",
   "for Fv/Fm, the same photosynthesis-efficiency score used above. ED50 is the temperature where",
   "that score drops halfway. The orange band spans the ED50 range,",
   "and the dashed orange line marks the mean ED50, 35.4 °C. The gray arrow shows",
-  "that 31 °C is 3.4-5.6 °C below that acute threshold range."
+  "that 31 °C is 3.4-5.6 °C below that short-test range. These values are not safe limits for weeks of exposure."
 )
 ```
 
@@ -216,6 +274,7 @@ div.figure img, .content-img {
   box-shadow: 0 1px 8px rgba(0,0,0,0.09); padding: 6px; background: #fff;
 }
 p.caption, figcaption { font-size: 0.85em; color: #667; margin-top: 0.6em; }
+div.figure img.hauru-map { max-width: 100%; }
 /* treatment chips */
 .t28 { background:#56B4E9; color:#08374f; padding:1px 6px; border-radius:4px; font-weight:600; white-space:nowrap; }
 .t31 { background:#D55E00; color:#fff;    padding:1px 6px; border-radius:4px; font-weight:600; white-space:nowrap; }
@@ -229,22 +288,21 @@ p.caption, figcaption { font-size: 0.85em; color: #667; margin-top: 0.6em; }
 ```
 
 <div class="banner">
-<strong>Bottom line:</strong> Two weeks at 31 °C weakened *Acropora pulchra* fragments and mostly blocked the last regrowth step: budding new corallites, the small skeletal cups that form on a rebuilt tip. Wounds still sealed. Source patch C was much less heat sensitive than source patches A and D.<br>
-<strong>Genetic caveat:</strong> Rachael's preliminary RNA sequencing (RNA-seq) DNA-marker file shows C grouping together, but A and D are mixed. For now, A, C, and D are source patches, not confirmed genetic individuals.
+<strong>What we found:</strong> At 31 °C, coral fragments became paler, lost algae from their tissue, and gained less skeletal mass. Wounds still sealed, but only 4 of 12 heated fragments budded new corallites, the small skeletal cups on a regrown tip, by Day 15. All 12 fragments at 28 °C did so. Fragments from source patch C were less affected by heat than those from A and D.<br>
+<strong>Still preliminary:</strong> The DNA-marker results do not yet confirm which fragments are genetically identical. A, C, and D therefore remain names for the field patches where we collected the parent material.<br>
+<strong>Species name:</strong> Species identification remains provisional: <em>Acropora cf. pulchra</em>. The abbreviation <em>cf.</em> means “compare with” and indicates that the species identification is uncertain. We retain <em>A. pulchra</em> here to match the project’s existing labels.
 </div>
 
-We heated *Acropora pulchra* fragments at <span class="t28">28 °C</span> or <span class="t31">31 °C</span>. We clipped the growing tip on half of them. For two weeks, we tracked healing, growth, coral condition, and algal symbionts, the algae living in coral tissue. Tank temperature has to hold before the biological comparisons mean anything. Whole-fragment condition shows whether heat weakened the coral. Regrowth timing shows which repair step failed. Source-patch and DNA-marker results ask whether heat tolerance is tied to coral identity.
-
-Rachael's preliminary DNA-marker check changes the genetic wording. The markers come from RNA sequencing (RNA-seq) data. They are single-nucleotide polymorphisms (SNPs), which are single DNA-letter differences. Source patch C looks genetically consistent in that file, but source patches A and D look mixed. For now, this summary treats A, C, and D as source patches, not confirmed genetic individuals.
-
-Every number here comes from `output/tables/20_master_results.csv`; the full write-up with limitations is in `RESULTS.docx`. Coral photos and the design figure are from the project deck (M. Brzezinski); see `img/SLIDE_IMAGES_INDEX.docx`.
+We kept coral fragments at <span class="t28">28 °C</span> or <span class="t31">31 °C</span> and clipped the growing tip on half of them. Over 15 days, we measured wound repair, skeletal growth, color, photosynthesis efficiency, and the algae living in coral tissue, called **algal symbionts**.
 
 ## The experiment
 
 - 8 tanks: four held at <span class="t28">28 °C</span>, four at <span class="t31">31 °C</span>
 - Half the fragments had the growing tip clipped; half were left unwounded
 - 3 field source patches: A, C, D. A source patch is where the parent material came from; these patches are not yet confirmed genetic individuals.
-- Tracked at Days 1, 3, 10, 15
+- Tissue samples collected on Days 1, 3, 10, and 15
+- The 48 fragments sampled on Day 15 were also followed for coral condition and regrowth; 24 were wounded
+- A separate experiment followed wound covering in 16 wounded fragments using microscope photos
 
 ```{r, fig.cap=cap_design}
 knitr::include_graphics(img("slide05_experimental_design.png"))
@@ -260,23 +318,35 @@ knitr::include_graphics(img("slide14_morphology_heated_D0.png"))
 
 ### 1. The +3 °C temperature difference held
 
-Tanks stayed close to <span class="t28">28 °C</span> vs <span class="t31">31 °C</span> for the whole run. The tanks maintained the intended +3 °C difference.
+All eight tanks have 144 readings per day, one every ten minutes, from Day 0 through Day 15 (4–19 June 2025). Daily tank means averaged **27.78 °C** in the 28 °C treatment and **30.87 °C** in the 31 °C treatment, a **3.09 °C difference**. Each treatment had four tanks.
 
 ```{r, fig.cap=cap_apex}
 knitr::include_graphics(fig("08_apex_temperature.png"))
 ```
 
-Tank temperatures did not drift enough to explain the later coral differences.
+The temperature record is complete through Day 15. Treatment averages exclude later days, after the main experiment ended.
 
-### 2. Heat, not wounding, drove the whole-coral decline
+### 2. Heat reduced coral condition and growth
 
-Under <span class="t31">31 °C</span>, corals had lower photosynthesis-efficiency scores, called Fv/Fm, paled, gained less skeletal mass, and lost algal symbionts.
+At <span class="t31">31 °C</span>, fragments became paler, gained less skeletal mass, and lost algal symbionts. Their photosynthesis-efficiency score, **Fv/Fm**, also fell. This score measures how efficiently the algae’s photosynthetic system can use light.
 
-Clipped fragments did not lose much more condition than unwounded fragments. Photosynthesis score, color, growth, and symbiont density changed mainly with temperature. The whole-fragment decline is therefore mainly a heat effect, not a general effect of clipping the tip.
+These changes were similar in clipped and unwounded fragments. We found little evidence that tip clipping added to the decline caused by heat.
 
 - Photosynthesis score and color declined through time under heat.
 - Symbiont density dropped sharply over the two weeks.
-- Skeletal mass gain was **34% lower** at <span class="t31">31 °C</span>. The tank-level test compares tanks rather than individual fragments. The tank-level *p*-value was 0.057, so the growth result is suggestive rather than firm.
+- Skeletal mass gain was **34% lower** at <span class="t31">31 °C</span>. Because temperature was assigned to tanks, the test uses four tanks per treatment as the independent replicates. The growth difference remains uncertain (*p* = 0.057).
+
+**Photosynthesis and color through time**
+
+```{r, fig.cap="Photosynthesis efficiency declined under heat. Panels separate the two temperatures; lines distinguish wounded and unwounded fragments (yes/no in the legend). Points are observed fragment means, with measurement locations averaged within fragments. Shaded bands show one standard error on either side of each group mean, not tank-adjusted confidence intervals. Day 0 marks clipping. Source patches are combined."}
+knitr::include_graphics(fig("02_pam_fvfm_trajectory.png"))
+```
+
+```{r, fig.cap="Heated fragments became paler. Panels separate temperatures and lines distinguish wounded and unwounded fragments (yes/no). Lower color scores mean paler tissue; the axis is reversed, so lower scores appear higher on this plot. Points are observed means across fragments and shaded bands show one standard error on either side, not tank-adjusted confidence intervals. Day 0 marks clipping. Source patches are combined."}
+knitr::include_graphics(fig("03_color_trajectory.png"))
+```
+
+**Skeletal growth and algal symbionts**
 
 ```{r, fig.cap=cap_growth}
 knitr::include_graphics(fig("05_buoyant_weight_growth.png"))
@@ -286,42 +356,94 @@ knitr::include_graphics(fig("05_buoyant_weight_growth.png"))
 knitr::include_graphics(fig("06_symbiont_density_by_day.png"))
 ```
 
-Clipping the tip did not make the whole coral collapse. Heat caused most of the decline across the whole fragment.
+### 3. Wounds sealed, but fewer heated fragments completed regrowth
 
-### 3. Heat did not stop wound sealing, but it blocked new corallites
+Wounds re-covered with living tissue quickly at both temperatures. Only **4 of 12 heated fragments (33%)** had budded new corallites, the small skeletal cups on the rebuilt tip, by Day 15. All **12 of 12 fragments at 28 °C (100%)** had done so. A longer experiment might have allowed more heated fragments to reach this step; these data cannot tell us whether the delay was permanent.
 
-Wounds seal at the same rate whether or not corals are heated. Heated corals also usually rebuild the main polyp and a tip. What they often fail to do is bud new corallites, the small new skeletal cups that show true regrowth.
+Here, **healing** means the coenosarc, the sheet of living tissue between coral polyps, re-covered the wound. **Regeneration** means the later rebuilding steps: the main polyp forms, the wound surface remodels, the tip returns, the tip extends, and new corallites bud.
 
-The Day 15 breakdown for wounded corals shows where heat changed regrowth. Values are the percent of fragments that reached each step; sample size = 12 fragments per temperature.
+The healing panel uses a separate microscope-photo experiment with 16 wounded fragments, eight per temperature. The other panels use the 24 wounded fragments in the main experiment, 12 per temperature. All 14 fragments scored for tissue cover on Day 1 were covered. Two heated fragments lacked that day’s score; all 16 were recorded as covered by Day 2.
 
-| Day 15 sign in wounded fragments | 28 °C | 31 °C |
-|---|---|---|
-| Wound sealed | 100% | 100% |
-| Main polyp rebuilt | 100% | 100% |
-| Tip present | 92% | 92% |
-| Tip grew outward | 92% | 75% |
-| **New corallites budded on the tip** | **100%** | **33%** |
-
-The smaller microscope-photo data set gives the same result. By Day 15, new corallites appeared in 100% of 28 °C fragments but only 25% of 31 °C fragments, matching the main photo data set (100% vs 33%).
-
-The early healing steps, and even tip rebuilding, are nearly identical between temperatures. The difference is the final step: budding *new* corallites on the tip. That is what "not regenerated" means here. The timing analyses test how quickly fragments reached that step.
-
-- New-corallite budding stalls under heat. One timing analysis says budding took **1.32× longer** under heat (*p* = 1.4e-7). A second timing analysis gives a hazard ratio (HR) of **0.22**. HR is a rate comparison. Values below 1 mean heated fragments reached this step more slowly.
-- **67%** of heated corals closed the wound and reformed a tip but never budded new corallites, vs **0%** at 28 °C
-
-```{r, fig.cap=cap_morph_km}
-knitr::include_graphics(fig("14_morphology_KM.png"))
+```{r, fig.cap=cap_stage_cumulative}
+knitr::include_graphics(fig("39b_stage_timing_cumulative_option.png"))
 ```
+
+The curves show the percentage first seen at each stage by each day. Each percentage includes all fragments, including those that had not reached the stage. Once a fragment reaches a stage, it remains counted, even if the feature is not visible in a later photo.
+
+```{r}
+stage_summary_tbl <- readr::read_csv(
+  file.path("..", "..", "output", "tables", "36_molly_stage_timing_mean_iqr.csv"),
+  show_col_types = FALSE
+)
+stage_names <- c("Living tissue covers wound", "Main polyp forms",
+                 "Wound surface remodels", "Tip forms", "Tip extends",
+                 "New skeletal cups bud")
+attainment <- stage_summary_tbl |>
+  dplyr::mutate(Stage = stage_names[stage_order],
+                value = sprintf("%d/%d (%.0f%%)", n_reached, n_scored, pct_reached)) |>
+  dplyr::select(Stage, treatment, value) |>
+  tidyr::pivot_wider(names_from = treatment, values_from = value)
+knitr::kable(attainment, caption = paste(
+  "Fragments observed at each stage at least once by Day 15.",
+  "Tissue cover uses the separate microscope-photo experiment; other rows use the main experiment."
+))
+```
+
+This differs from asking whether a feature was **present on Day 15 itself**. For example, every fragment had formed a tip at some point, but a tip was visible on 11 of 12 fragments in each treatment on Day 15. Tip extension had been recorded on 11 of 12 in each treatment, although it was visible on only 9 of 12 heated fragments on Day 15. The table and curves consistently show “reached by,” not “present on.”
+
+**Average time to each stage.** Each point averages the first observation days of fragments that reached that stage. Filled points include every fragment; open points leave out those that had not reached the stage by Day 15. The counts show how many contribute. We keep the percentage-by-day plot above as the main comparison because it includes all fragments.
+
+```{r, fig.cap="Average first-observation days among fragments that reached each stage. Blue = 28 °C; orange = 31 °C. Points show means; horizontal lines show the middle half of observed first days, not confidence intervals. Open points average only fragments that reached the stage by Day 15. Right-hand labels give reached/total counts. Tissue cover uses 8 fragments per temperature from the separate microscope experiment; other stages use 12 per temperature from the main experiment. In particular, the final heated-stage mean describes only 4 of 12 fragments and cannot represent the full heated group."}
+knitr::include_graphics(fig("40_stage_mean_review.png"))
+```
+
+For incomplete stages, these averages favor the fragments that finished sooner. They do not estimate when the others would finish. The table below therefore keeps averages only for stages reached by every fragment at both temperatures.
+
+```{r}
+complete_timing <- stage_summary_tbl |>
+  dplyr::filter(complete_both_temperatures) |>
+  dplyr::transmute(Stage = stage_names[stage_order], Temperature = treatment,
+                   `Mean first-observation day` = mean_day,
+                   `Middle half of first days` = iqr_days)
+knitr::kable(complete_timing, digits = 2, caption = paste(
+  "Timing summaries for stages reached by all fragments at both temperatures.",
+  "The middle-half range runs from the 25th to the 75th percentile.",
+  "These are first observation days, not exact biological onset times.",
+  "Two missing Day 1 tissue-cover scores affect the heated group's observed mean."
+))
+```
+
+**Individual timing and unfinished stages.** The distributions below show when fragments reached each stage, with unfinished stages retained above the day axis.
+
+```{r, fig.cap=cap_molly_stage_violin}
+knitr::include_graphics(fig("36b_molly_stage_violin.png"))
+```
+
+<details>
+<summary>Exact observation days for each fragment</summary>
+
+```{r, fig.cap=cap_molly_stage_timing}
+knitr::include_graphics(fig("36_molly_stage_timing.png"))
+```
+
+</details>
+
+
+**Scoring uncertainty.** Two fragments have stage-order records that need review. The original scores are retained. Omitting both leaves 11/11 fragments at 28 °C versus 3/11 at 31 °C reaching new-corallite budding, so the direction of the observed difference does not depend on these records. This check does not replace refitting the timing models if scores change.
+
+**How the timing models handle unfinished stages.** A fragment that had not reached a stage by its final observation contributes “not yet reached” information. It is not dropped or assigned an invented completion day. For fragments that did reach a stage, the main timing model places onset between the last absent score and the first present score.
+
+The existing model estimates a **1.32-fold longer time** to new-corallite budding at 31 °C. This is a model estimate, not the average time of the four heated fragments that budded. It assumes a particular pattern of event times and adjusts for source patch; its uncertainty does not account for fragments sharing a tank. The observed 4/12 versus 12/12 result does not depend on that model.
 
 A closed wound is not the same thing as a regenerated tip. If we scored only wound sealing, we would miss the main heat effect.
 
-In the photo timeline below, both temperatures seal the wound and rebuild a tip. The difference is whether *new corallites* bud on that tip. Look for those small new cups, not just the tip itself.
+The two fragments shown below both seal the wound and rebuild a tip. Only the fragment at 28 °C buds new corallites by Day 15.
 
 ```{r, fig.cap=cap_timeline}
 knitr::include_graphics(img("slide15_morphology_timeline.jpg"))
 ```
 
-The looping time-lapse shows the same sequence from Day 0 to Day 15. The 28 °C fragment on the left heals and buds new corallites. The 31 °C fragment on the right heals and rebuilds a tip but stalls before new-corallite budding.
+The time-lapse follows these two fragments from Day 0 to Day 15: 28 °C on the left and 31 °C on the right.
 
 ```{r, results='asis'}
 vid <- function(f, cap) sprintf(
@@ -338,14 +460,13 @@ cat(vid("morphology_ambient_healing.mp4",
 
 ### 4. Source patch C was hurt less by heat
 
-The three source patches did not respond alike. Fragments from source patch **C** kept their photosynthesis score, color, and symbionts far better than fragments from source patches A and D.
+Fragments from **source patch C** retained more of their photosynthesis efficiency, color, and algal symbionts under heat than fragments from A and D. Growth followed the same pattern, but the evidence for a growth difference is weaker.
 
-Source patch C did not merely start healthier. Heat hurt C less. Photosynthesis score, color, and symbiont density all show that source patch C had a smaller heat penalty. Growth changed in the same direction, but the growth result is weaker.
+We compare each patch at 31 °C with the same patch at 28 °C. That tells us how much heat changed its response, rather than which patch had the highest starting value.
 
-- Heat hit source patch C about **2.7–3.5× less** than source patches A and D, depending on the measurement. For example, symbiont loss was about 3.5× steeper in A and D, and photosynthesis-score loss was about 2.6× steeper in A and D.
-- When the four whole-coral condition measurements are summarized together, source patch C changed much less under heat: C = 1.02 vs A = 3.71 and D = 3.38. Bigger values mean a larger change from 28 °C.
+The estimated heat effects on symbiont density were about **3.5 times larger** in A and D than in C. For the photosynthesis score, they were about **2.6 times larger**.
 
-The summary plot below gives the clearest view. A heat penalty means how much worse 31 °C was than 28 °C. The plot averages those penalties by source patch and measurement type.
+The figures below summarize these differences as a **heat penalty**: how much worse a response was at 31 °C than at 28 °C. Each measurement is put on a relative scale before the penalties are averaged.
 
 ```{r, fig.cap=cap_source_summary}
 knitr::include_graphics(fig("19e_source_heat_penalty_summary.png"))
@@ -353,33 +474,31 @@ knitr::include_graphics(fig("19e_source_heat_penalty_summary.png"))
 
 In the summary plot, source patch C stays near zero overall. Source patches A and D have bigger condition, growth, and regrowth penalties. Wound-sealing traits sit near or below zero because heat did not slow sealing itself.
 
-Source patch C's advantage is heat tolerance, not simply better condition in every treatment. The question is how much each source patch changes when heated.
-
-For the whole-coral condition measurements alone, source patch C has the smaller heat penalty in every measurement.
+The four condition and growth measurements each show a smaller estimated heat penalty for C.
 
 ```{r, fig.cap=cap_source_physiology}
 knitr::include_graphics(fig("19f_source_physiology_heat_penalties.png"))
 ```
 
-The next plot shows the individual condition and healing measurements behind the average.
+The next plot shows the measurements used in the combined score.
 
 ```{r, fig.cap=cap_genet_dashboard}
 knitr::include_graphics(fig("19_genet_dashboard.png"))
 ```
 
-The last plot in this section shows healing and regrowth only.
+The final plot focuses on wound repair and regrowth.
 
 ```{r, fig.cap=cap_wound_heat}
 knitr::include_graphics(fig("19d_wound_healing_heat_penalties.png"))
 ```
 
-**How the heat-penalty score is built** (`code/19`)
+**How the heat-penalty score is built**
 
 The score has two steps.
 
 **Step 1: calculate the heat effect for each source patch within each measurement.**
 
-For whole-coral condition and growth:
+For whole-fragment condition and growth:
 
 \[
 \text{heat effect}_{source,measurement} =
@@ -388,14 +507,14 @@ For whole-coral condition and growth:
 
 For these measurements, higher values mean better coral condition or growth. A positive heat effect means the source patch did worse at 31 °C.
 
-For wound sealing and regrowth timing, the timing analysis first gives a hazard ratio (HR). HR is the rate at which a healing or regrowth step appeared at 31 °C compared with 28 °C.
+For repair timing, the model compares how quickly fragments reach a step while they have yet to reach it. This comparison is called a **hazard ratio (HR)**: the rate at 31 °C divided by the rate at 28 °C.
 
 \[
 \text{heat effect}_{source,measurement} =
 -\log(\text{HR}_{31^\circ\text{C} / 28^\circ\text{C}})
 \]
 
-If HR is below 1, the step happened more slowly at 31 °C, and the heat effect becomes positive.
+If HR is below 1, the step occurred more slowly at 31 °C. Taking its natural logarithm and reversing the sign gives a positive heat penalty.
 
 **Step 2: put each measurement on the same scale, then average.**
 
@@ -412,80 +531,101 @@ This makes the largest source-patch difference within each measurement equal to 
 \text{mean of scaled heat penalties across usable measurements}
 \]
 
-The score therefore does not average raw values collected on different days. It first asks, within each measurement, how much worse 31 °C was than 28 °C for each source patch. Then it puts that measurement on the same 0-to-1 scale as the others. This score ranks the three source patches. It is not a formal statistical test. Heat-penalty values averaged: A = 9, C = 10, D = 10. Heat-penalty score: C = 0.01 vs A = 0.56 and D = 0.43.
+We compare temperatures within each measurement before combining the effects. Photosynthesis score and color use Day 14, symbionts use the final tissue sample, and growth uses the full 15-day change. Those comparisons average wounded and unwounded fragments. Repair timing uses wounded fragments only.
 
-**Trade-off checks**
+The combined scores are **C = 0.01, A = 0.56, and D = 0.43**. They summarize relative responses, not a formal test of differences among patches. The averages include nine effects for A and ten each for C and D because some timing effects could not be estimated. The patches therefore do not contribute exactly the same measurements.
 
-The trade-off checks are exploratory. The one possible cost is growth: source patch C grew less at 28 °C, but lost less growth under heat. We do not see the same cost for regeneration. Heated wounded fragments that budded new corallites did not grow less. Source patch C also had the lowest whole-fragment heat penalty and the most new-corallite budding under heat.
+**Possible trade-offs**
+
+A trade-off would mean that better performance in one response comes with worse performance in another. Source patch C grew less at 28 °C but lost less growth under heat. The pattern remains when growth is left out of the heat-penalty score. Still, this comparison has only three source patches. A plot of growth against growth lost under heat also uses the 28 °C growth value on both axes, so it cannot establish a trade-off on its own.
+
+We found **no clear growth cost of regeneration** in the 12 heated wounded fragments. Fragments that budded new corallites gained 0.57 percentage points more mass, on average, than those that did not. That difference was uncertain (*p* = 0.196).
+
+Models that followed when each fragment reached a stage also found no clear evidence that faster growth went with slower repair. Checks that reduced the influence of unusual observations, or omitted one fragment at a time, did not change that conclusion.
+
+Some growth estimates were sensitive to individual fragments. With only 12 heated wounded fragments, we cannot rule out a smaller cost. These results show no clear trade-off so far; they do not show that regeneration is cost-free.
 
 ```{r, fig.cap=cap_tradeoff_summary}
 knitr::include_graphics(fig("35_tradeoff_summary.png"))
 ```
 
-### 5. What Rachael's preliminary DNA-marker file changes
+### 5. What the preliminary DNA markers and Hauru table change
 
-Rachael's 2 Sept 2026 preliminary file uses DNA markers from RNA sequencing (RNA-seq). The markers are single-nucleotide polymorphisms (SNPs), or single DNA-letter differences. In that file, the source-patch labels are not all single genetic individuals. Source patch C falls into its own DNA-marker cluster, but source patches A and D are mixed. Source patches A and D appear to include several possible genetic individuals, and some DNA-marker clusters are shared between them.
+Preliminary DNA-marker results group fragments by genetic similarity. The markers are **single-nucleotide polymorphisms (SNPs)**, differences at individual DNA positions. They came from **RNA sequencing (RNA-seq)**, which measures gene activity and can also reveal some DNA differences.
 
-The result does not disappear, but we should name the groups more carefully. We should say **source patch C was less heat sensitive**, not **genet C was less heat sensitive**. A genet is one confirmed cloned genetic individual, and we do not have that final call yet. Once the final genetic file is ready, we can join it to the coral-measurement table. That will let us ask whether source patch C still looks heat tolerant when genetically similar fragments are compared more directly.
+A group of genetically similar samples is called a **cluster**. These preliminary clusters do not yet confirm which fragments belong to the same genetic individual, or **genet**.
 
-Rachael's file (`PRELIM_LTH_genoclusters.csv`) lets us start that check, but it is still **preliminary**. The file matched all 144 RNA-seq libraries by fragment ID, the number assigned to each coral fragment. A library is a tissue sample prepared for sequencing. The file shows:
+The file matches 144 tissue samples prepared for sequencing, called **libraries**, using each fragment’s identifying number:
 
-- Source patch C: **48/48** libraries in preliminary SNP cluster 1.
-- Source patch A: 48 libraries split across clusters 4, 5, 6, and 7; cluster 4 dominates.
-- Source patch D: 48 libraries split across clusters 2, 3, 4, 5, and 8.
-- Clusters 4 and 5 are shared between A and D.
+- All **48 samples from C** fall in cluster 1.
+- The 48 samples from A fall in clusters 4, 5, 6, and 7, mostly cluster 4.
+- The 48 samples from D fall in clusters 2, 3, 4, 5, and 8.
+- A and D share clusters 4 and 5.
 
 ```{r, fig.cap=cap_prelim_snp_structure}
 knitr::include_graphics(fig("32_prelim_snp_structure.png"))
 ```
 
-Source patch C is straightforward in the preliminary DNA-marker file; source patches A and D are not. That is why this summary says "source patch C" instead of "genet C."
-
-The preliminary DNA-marker clusters help label possible genetic groups, but they are not new treatment groups. The experiment was balanced by source patch. The clusters were found afterward, and they split A and D unevenly.
+Source patch C forms one preliminary genetic cluster, but this does not yet confirm that all its fragments belong to one genetic individual. We assigned treatments by source patch before the genetic results were available. Some genetic clusters consequently have few samples in particular combinations of temperature, wound state, and day.
 
 ```{r, fig.cap=cap_prelim_snp_design}
 knitr::include_graphics(fig("32_prelim_snp_design_balance.png"))
 ```
 
-The preliminary DNA-marker clusters tell us what to check next. They should not be treated like treatments we assigned evenly at the start.
+**Which responses can we link to DNA markers?** The current 144 sequenced fragments were sampled on Days 1, 3, and 10. Symbiont density is the only response measured on those same fragments that we can directly link to these markers.
 
-The main limit is whether the same coral fragment has both data types. These 144 RNA-seq/SNP fragments directly match the symbiont-density tissue samples. They do **not** directly match the fragments measured for photosynthesis score, color, growth, whole-tip healing photos, or microscope photos. That leaves symbiont density as the only direct preliminary SNP-by-measurement check. For the other measurements, we can compare source patch C with source patches A and D within each treatment. We cannot yet compare DNA markers and those measurements fragment by fragment unless those fragments are sequenced too.
+The 48 fragments sampled on Day 15 have the broader response record: photosynthesis score and color through Day 14, growth and symbiont density at Day 15, and regrowth through Day 15. We do not yet have DNA-marker results for those fragments.
+
+Genotyping the Day 15 fragments would let us ask whether genetic identity helps explain these responses and their changes under heat. That could be done without new gene-expression measurements. Additional RNA sequencing would address a separate question: which genes were active at the final sampling day.
 
 ```{r, fig.cap=cap_prelim_snp_symbiont}
 knitr::include_graphics(fig("32_prelim_snp_symbiont_heat_effects.png"))
 ```
 
-At this stage, symbiont density is the only direct fragment-by-fragment DNA-marker check. It agrees with the source-patch result: source patch C/cluster 1 loses fewer symbionts under heat.
+The preliminary symbiont comparison agrees with the source-patch result: fragments from C, which fall in cluster 1, lost fewer symbionts under heat. Because this uses the same response data, it is a different grouping of the evidence, not an independent replication.
 
-### 6. The heat treatment was long-term, but below the acute heat limit
+**How the Hauru colonies might connect.** A preliminary survey of Hauru colonies by Trinity Conn and Ross Cunning provides a possible link to short-term heat responses. It lists colony locations, genetic groups, the most common symbionts, and responses to a short heat test.
 
-<span class="t31">31 °C</span> sits about **4.4 °C below** the acute heat limit for this species at this site. That heat limit is the half-drop temperature (ED50) for Fv/Fm, the photosynthesis-efficiency score. ED50 is the temperature where that score drops halfway. The mean in Cunning et al. 2024 was 35.4 °C. This was weeks of heat stress below the acute bleaching threshold, not a short heat shock.
+Their heat-response measure is **ED50**: the temperature at which the photosynthesis-efficiency score falls halfway during that test. It describes a short exposure, not how long a coral can tolerate weeks of heat.
+
+Source patch C is **10.5 m from Apul-115**, whose ED50 is 36.380 °C. A and D are closest to Apul-111. Nearby colonies can be genetically identical across field patches, so distance alone cannot identify a match.
+
+Trinity’s table places Apul-115 in clonal group 2, a group of colonies identified as genetically identical, and labels its dominant symbiont “A.” That symbiont label is unrelated to our source patch A. These details may help guide a comparison of our DNA markers with the Hauru whole-genome data.
+
+```{r, fig.cap=cap_trinity_hauru_context, out.extra='class="hauru-map"'}
+knitr::include_graphics(fig("26b_trinity_hauru_context.png"))
+```
+
+Apul-115 and Apul-111 are candidates for genetic comparison. Their ED50 values cannot yet be assigned to source patches A, C, or D.
+
+### 6. Weeks of heat affected corals below their short-test heat limit
+
+Our <span class="t31">31 °C</span> treatment was **4.4 °C below** the mean short-test ED50 of 35.4 °C reported by Cunning et al. (2024). ED50 is the temperature at which the photosynthesis-efficiency score falls halfway during a short heat test.
+
+That comparison puts the treatment in context. It does not make 35.4 °C a safe limit for a longer exposure or establish the limit of our particular fragments.
 
 ```{r, fig.cap=cap_thermal_context}
 knitr::include_graphics(fig("26_thermal_context.png"))
 ```
 
-31 °C was not an extreme acute shock. Moderate, sustained heat was enough to disrupt regeneration.
+Even at 31 °C, sustained exposure reduced coral condition and the percentage completing regrowth by Day 15.
 
 ## Take-homes
 
-- Heat drove the whole-fragment response. At 31 °C, fragments had lower photosynthesis score, paler color, fewer symbionts, and lower skeletal growth. Wounding added little to those whole-fragment changes.
-- Heat did not stop wound sealing. It mostly blocked the final regrowth step: new corallites budded on 33% of heated wounded fragments by Day 15, compared with 100% at 28 °C. The smaller microscope-photo data set showed the same failure, 25% at 31 °C versus 100% at 28 °C.
-- Source patch C had the smallest heat penalty. Source patches A and D lost more condition, growth, and regrowth under heat.
-- The trade-off checks show one possible cost but no regeneration cost so far. Source patch C may trade faster growth at 28 °C for steadier growth under heat, but it did not regenerate worse.
-- Rachael's preliminary DNA-marker file changes the wording, not the main result. Source patch C is genetically coherent in the preliminary file, while source patches A and D split across several clusters. Treat A, C, and D as source-patch labels for now, not confirmed genetic individuals.
-- Symbiont density is the only direct fragment-by-fragment DNA-marker measurement we can test now. It agrees with the source-patch results: source patch C/cluster 1 loses fewer symbionts under heat.
-- The <span class="t31">31 °C</span> treatment was long-term heat stress about 4.4 °C below the acute heat threshold, not a short heat shock.
+- **The temperature difference held.** All eight tanks have a complete logger record through Day 15, with a mean difference of 3.09 °C.
+- **Heat reduced coral condition.** Heated fragments had lower photosynthesis scores, paler color, fewer symbionts, and lower average skeletal growth. The growth difference is less certain. Tip clipping added little to these changes.
+- **Wound covering and later regrowth differed.** Wounds re-covered quickly at both temperatures. Only 4/12 heated wounded fragments budded new corallites by Day 15, compared with 12/12 at 28 °C. We do not know whether the others would have budded later.
+- **Source patch C was less affected by heat.** The clearest differences were in photosynthesis score, color, and symbiont density. Its genetic identity remains preliminary.
+- **Trade-offs remain unresolved.** C grew less at 28 °C but lost less growth under heat. Within heated wounded fragments, we found no clear evidence that regrowth came at a cost to growth. The small sample cannot rule out a cost.
+- **More genetic data could connect the results.** Current DNA markers link directly only to symbiont density. Genotyping the Day 15 fragments could connect genetic identity to the broader response record. Matching our fragments to the Hauru colonies would also allow a direct comparison with their short-test heat responses.
 
-## Where to find things
+## Open questions
 
-- Full results and limitations: `RESULTS.docx`
-- Every statistic: `output/tables/20_master_results.csv`
-- Figure catalog: `figures/FIGURE_INDEX.docx`
-- Slide photos and where they came from: `docs/team_summary/img/SLIDE_IMAGES_INDEX.docx`
-- RNA-seq notes: `docs/rnaseq/`
+- **Does genetic identity explain differences in heat response?** Final genetic assignments and genotyping of the 48 Day 15 fragments would connect identity to photosynthesis, color, growth, symbiont density, and regrowth.
+- **Which gene responses accompany slower regrowth?** Gene-expression comparisons can test whether heat changes activity associated with rebuilding the wounded tip.
+- **Do short-test heat responses predict performance during sustained heat?** Confirmed DNA matches to the Hauru colonies would allow this comparison.
+- **How certain are the repair-timing estimates?** The two flagged scoring records need review, and timing uncertainty needs to account for fragments sharing a tank.
 
-<div class="docfooter">
-Repo: <code>stier-lab/17.-LTH_expression_by_temperature_2025</code> · branch <code>docs/annotate-code</code> · source <code>docs/team_summary/LTH_results_summary.Rmd</code><br>
-Questions: Adrian Stier / Molly Brzezinski. Analysis figures from the code pipeline; coral photos and design figure by the LTH field team (M. Brzezinski).
+ <div class="docfooter">
+Coral photos and experimental design: LTH field team (M. Brzezinski). Preliminary genetic analyses: Rachael Bay and collaborators. Hauru colony data: Trinity Conn and Ross Cunning.
 </div>

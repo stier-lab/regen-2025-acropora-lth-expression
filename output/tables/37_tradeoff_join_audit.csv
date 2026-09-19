@@ -1,0 +1,9 @@
+check,value,status,notes
+growth rows,48,ok,One growth row per physiology fragment.
+Day-15 morphology rows,48,ok,One Day-15 morphology row per physiology fragment.
+joined rows,48,ok,Joined by coral fragment ID.
+unique joined IDs,48,ok,Duplicate IDs would invalidate same-fragment trade-off tests.
+treatment-label mismatches,0,ok,Must be zero for same-fragment treatment tests.
+wound-label mismatches,1,known mismatch,Morphology wound labels define the wounded-only regeneration screen.
+source-patch-label mismatches,0,ok,Must be zero for source-patch adjustment.
+tank-label mismatches,0,ok,Must be zero for treatment-tank consistency.

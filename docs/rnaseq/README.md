@@ -2,6 +2,13 @@
 
 **Project:** LTH #17 — heat × wound × *Acropora pulchra*, Mahana/Tiahura, Mo'orea 2025 (*Expression by Temperature*).
 This is the consolidated brief; the repo root `README.md` is the index for running things.
+For the cross-project priority order, start with `docs/next_analysis_roadmap.md`;
+this file is the RNA-seq handoff and background brief.
+
+Taxonomy note: the project historically uses *Acropora pulchra* and `apulchra`
+filenames. Trinity Conn's 2026-08-10 note recommends *Acropora cf. pulchra* for
+the Mo'orea animal until the taxonomy is settled. Keep the historical filenames
+for compatibility, but carry the caveat in manuscript-facing wording.
 
 ---
 
@@ -30,6 +37,10 @@ The RNA-seq analysis has not been run yet. The **phenotype analysis** (Methods +
 | Raw un-recoded library lookup | `output/tables/31_rnaseq_library_lookup_raw.csv` |
 | Preliminary SNP cluster file | `data/raw/rnaseq/PRELIM_LTH_genoclusters.csv` |
 | Preliminary SNP integration outputs | `output/tables/32_prelim_snp_*.csv`, `figures/32_prelim_snp_*.png` (built by `code/32_prelim_snp_phenotype_integration.R`) |
+| Trinity/Ross preliminary Hauru colony attachment | `data/external/trinity_conn_hauru_colonies_2026-08-10.xlsx` |
+| Trinity/Ross cleaned/context outputs | `data/external/trinity_conn_hauru_colonies_2026-08-10.csv`, `output/tables/26b_trinity_hauru_*.csv`, `figures/26b_trinity_hauru_context.png` |
+| Trinity/Ross provenance note | `docs/provenance/trinity_conn_hauru_context.md` |
+| Project-level next-analysis roadmap | `docs/next_analysis_roadmap.md` |
 | Tentative expression-phenotype integration plan | `docs/rnaseq/expression_integration_analysis_plan.md` |
 | Coral expression literature synthesis | `docs/rnaseq/coral_expression_literature_synthesis.md` |
 | Candidate gene evidence table | `docs/rnaseq/candidate_genes_reference.csv` |
@@ -91,10 +102,12 @@ The analyst chooses the expression tool and normalization, but the minimum desig
 3. **Sustained response, not an acute heat-shock spike?** 31 °C sits ~4.4 °C below the acute Fv/Fm ED50 (35.4 °C; Cunning et al. 2024), and wounding came after 7 days at temperature, so the short-lived HSP burst may have faded. Expect expression that reflects maintained stress or acclimation after chronic exposure, not only a quick HSP70 burst.
 4. **Does wounding change source-patch or genetic differences?** The source-patch heat-sensitivity spread remains strong in both scopes: unwounded margins (A = 0.99, D = 0.90, C = 0.43) and wounded margins/morphology (A = 0.56, D = 0.44, C = -0.05). Test whether the source-patch effect and source-patch-by-temperature effect differ by wound state, then ask whether that pattern is better explained by final genetic PCs/kinship/clusters. Symbiont (*Symbiodiniaceae*) reads, if retained after host/symbiont mapping, could corroborate the symbiont-density loss and C's retention.
 
-**Final genetic matching (A/C/D-derived samples ↔ Cunning genets) — high-value if the SNP match works.** Cunning et al. 2024 (*Coral Reefs*, doi:10.1007/s00338-024-02577-7) measured **acute CBASS Fv/Fm ED50 for 20 genotyped *A. pulchra* genets from Mahana** (range 34.4–36.6 °C; ED50 predicts bleaching, R = 0.74; collected Dec 2022, "mahana"). We measured **chronic** resilience for 3 source patches from the same site. The test: call genotype-distinguishing SNPs from the host RNA-seq reads, match A/C/D-derived samples to Cunning's reference, then ask whether **acute CBASS ED50 predicts our chronic wound-context source-patch ranking (C > D > A)** — a cross-method validation and a link to source-patch/genetic-by-temperature expression differences.
+**Final genetic matching (A/C/D-derived samples ↔ Cunning/Trinity/Ross genotypes) — high-value if the SNP match works.** Cunning et al. 2024 (*Coral Reefs*, doi:10.1007/s00338-024-02577-7) measured **acute CBASS Fv/Fm ED50 for 20 genotyped *A. pulchra* genets from Mahana** (range 34.4–36.6 °C; ED50 predicts bleaching, R = 0.74; collected Dec 2022, "mahana"). Molly's 2026-09-03 forwarded email adds Trinity Conn's preliminary Hauru colony table from the Ross Cunning / Trinity Conn work, with coordinates, acute ED50, whole-genome clonal groups, and dominant symbiont calls for 23 Hauru colonies. We measured **chronic** resilience for 3 source patches from the same reef. The test: call genotype-distinguishing SNPs from the host RNA-seq reads, match A/C/D-derived samples to Trinity/Ross whole-genome genotypes if possible, then ask whether **acute CBASS ED50 predicts our chronic wound-context source-patch ranking (C > D > A)** — a cross-method validation and a link to source-patch/genetic-by-temperature expression differences.
 
-- **Supporting GPS** (`data/raw/metadata/metadata.csv`, `coord_lat`/`coord_long`): A = 17.49735 °S, 149.91557 °W (72 frags); C = 17.49808, 149.91595 (72); D = 17.49726, 149.91581 (64). They sit ~40–90 m apart, all in the Mahana/Tiahura stand Cunning sampled. Proximity is **suggestive, not conclusive** (*A. pulchra* forms clonal thickets).
-- **External ask we can chase:** Cunning's per-genet host SNP genotypes (not just ED50 + genet number) — from the CBASS_methods repo (`github.com/jrcunning/CBASS_methods`, `data/reproducibility/genet_map.xlsx`) or by asking Cunning/Putnam directly (co-authors Detmer & Moeller are in the UCSB/Mo'orea network). *How* (reference genome, variant caller, identity metric) is yours.
+- **Supporting GPS** (`data/raw/metadata/metadata.csv`, `coord_lat`/`coord_long`): A = 17.49735 °S, 149.91557 °W (72 frags); C = 17.49808, 149.91595 (72); D = 17.49726, 149.91581 (64). They sit ~40–90 m apart, all in the Mahana/Tiahura stand Cunning sampled. Proximity is **suggestive, not conclusive** (*Acropora cf. pulchra* forms clonal thickets).
+- **Current Trinity/Ross coordinate screen:** source patch C is closest to `Apul-115` (10.5 m; ED50 = 36.380 °C; clonal group 2; dominant symbiont A). Source patches A and D are both closest to `Apul-111`, and several nearby colonies are also clonal group 2. Geography therefore gives candidate matches, not confirmed source-patch identities.
+- **Clone/inversion caution from Molly's 2026-09-03 thread:** Trinity/Ross have seen Hauru clones span different thickets and large distances, and Trinity mentioned a possible chromosomal inversion in four Hauru individuals. Treat this as another reason to resolve genetic identity from DNA markers rather than from coordinates or source-patch labels.
+- **External ask we can chase:** Cunning/Trinity/Ross per-genet host SNP genotypes (not just ED50 + genet number) — from the CBASS_methods repo (`github.com/jrcunning/CBASS_methods`, `data/reproducibility/genet_map.xlsx`) or by asking Ross Cunning / Trinity Conn / Putnam directly. *How* (reference genome, variant caller, identity metric) is yours.
 - **Fallback:** if genotypes can't be matched, the population-level statement still holds (already in the manuscript): both acute (CBASS) and chronic (LTH) methods independently detect substantial thermal-tolerance variation in Mahana *A. pulchra*.
 
 ---

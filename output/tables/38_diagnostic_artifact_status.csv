@@ -1,0 +1,16 @@
+artifact,scope,status_counts,exists,fail_rows
+output/tables/18_validation_summary.csv,data-integrity checks,HANDLED=3; INFO=8; PASS=39,TRUE,0
+output/diagnostics/A_continuous_diagnostics.csv,continuous-response mixed-model diagnostics,HANDLED=6; PASS=28; WARN=2,TRUE,0
+output/diagnostics/B_morphology_glmm_diagnostics.csv,morphology GLMM diagnostics,HANDLED=30; PASS=57,TRUE,0
+output/diagnostics/C_cox_diagnostics.csv,Cox proportional-hazards diagnostics,HANDLED=29; PASS=63,TRUE,0
+output/diagnostics/D_pca_lrt_diagnostics.csv,PCA and source-patch LRT diagnostics,INFO=14; NS=1; PASS=23,TRUE,0
+output/diagnostics/E_design_alignment.csv,model/design structure audit,HANDLED=2; INFO=1; PASS=29,TRUE,0
+output/diagnostics/F_model_reproducibility.csv,model refit reproducibility,DRIFT=2; HANDLED=4; PASS=5,TRUE,0
+output/diagnostics/G_plot_inventory.csv,diagnostic plot inventory,BUILT=14; CURRENT=12,TRUE,0
+output/diagnostics/11f_morphology_dataset_diagnostic_checks.csv,cross-dataset morphology support checks,HANDLED=7; PASS=53,TRUE,0
+output/tables/23_timeseries_diagnostics.csv,time-series sensitivity,"9 checks: AR(1), random-slope, nonlinear-time, and headline-effect robustness; reported heat effects unchanged",TRUE,0
+output/tables/25_model_diagnostic_coverage.csv,all saved model diagnostic coverage,50/50 fitted models covered; 0 coverage gaps,TRUE,0
+output/tables/28_multiple_testing.csv,confirmatory/exploratory p-value handling,14 tests; 5 reported significant after confirmatory/raw or exploratory/BH rule,TRUE,0
+output/tables/32_prelim_snp_join_audit.csv,preliminary SNP join audit,PASS=8,TRUE,0
+output/tables/37_tradeoff_model_diagnostics.csv,formal trade-off model diagnostics,flagged=7; passed=57,TRUE,0
+output/tables/30_manuscript_audit.csv,manuscript-number reproducibility,TRUE=15,TRUE,0

@@ -1,0 +1,4 @@
+check,n_rows,n_trait_values,agrees
+CSV vs workbook,32,96,TRUE
+CSV vs live sheet,32,96,TRUE
+CSV vs processed,32,96,TRUE

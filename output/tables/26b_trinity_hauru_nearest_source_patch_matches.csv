@@ -1,0 +1,10 @@
+source_patch,lth_lat,lth_lon,nearest_rank,hauru_colony_id,hauru_lat,hauru_lon,distance_m,hauru_ed50,hauru_clonal_group,hauru_dominant_sym,interpretation
+A,-17.497351,-149.915567,1,Apul-111,-17.4979011341929,-149.915735833347,63.7,36.893,2,A,closest coordinate match; requires SNP comparison for exact identity
+A,-17.497351,-149.915567,2,Apul-115,-17.4980051536113,-149.915883103386,80.1,36.38,2,A,nearby external colony; context only
+A,-17.497351,-149.915567,3,Apul-101,-17.4984816648066,-149.915867848322,129.7,36.517,2,A,nearby external colony; context only
+C,-17.498075,-149.91595,1,Apul-115,-17.4980051536113,-149.915883103386,10.5,36.38,2,A,closest coordinate match; requires SNP comparison for exact identity
+C,-17.498075,-149.91595,2,Apul-111,-17.4979011341929,-149.915735833347,29.8,36.893,2,A,nearby external colony; context only
+C,-17.498075,-149.91595,3,Apul-101,-17.4984816648066,-149.915867848322,46.1,36.517,2,A,nearby external colony; context only
+D,-17.49726,-149.915809,1,Apul-111,-17.4979011341929,-149.915735833347,71.7,36.893,2,A,closest coordinate match; requires SNP comparison for exact identity
+D,-17.49726,-149.915809,2,Apul-115,-17.4980051536113,-149.915883103386,83.2,36.38,2,A,nearby external colony; context only
+D,-17.49726,-149.915809,3,Apul-101,-17.4984816648066,-149.915867848322,136,36.517,2,A,nearby external colony; context only

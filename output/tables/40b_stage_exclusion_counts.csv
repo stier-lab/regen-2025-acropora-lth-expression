@@ -1,0 +1,5 @@
+scenario,treatment,n_total,n_reached
+Omit both flagged fragments,28C,11,11
+Omit both flagged fragments,31C,11,3
+Original observations,28C,12,12
+Original observations,31C,12,4

@@ -192,11 +192,12 @@ for (f in trait_files) {
   trait <- gsub("^12c_morph_(.*)_blme\\.rds$", "\\1", basename(f))
   m <- readRDS(f)
   form <- paste(format(formula(m)), collapse = " ")
+  has_morph_fixed_structure <- grepl("treatment \\* day(_z)? \\* thicket", form)
   # Fixed structure should be 3-way (heat x time x genet); wound is absent because
   # the data are already restricted to wounded corals (it's a subset, not a term).
   add_row(basename(f), "fixed structure", form,
-          "treatment * day * thicket (wound dropped — wounded-only)",
-          if (grepl("treatment \\* day \\* thicket", form)) "PASS" else "FAIL",
+          "treatment * day(or day_z) * thicket (wound dropped — wounded-only)",
+          if (has_morph_fixed_structure) "PASS" else "FAIL",
           "Restricted to wounded corals; wound is a stratification, not a covariate")
   # Confirm the Cauchy/Student-t(scale=2.5, df=1) prior is the Gelman (2008)
   # default that pulls in coefficients when a binary trait is perfectly separated.

@@ -1,0 +1,385 @@
+stage_order,stage_short,treatment,day,n_scored,n_reached,pct_reached
+1,"Living tissue
+covers wound",28C,0,8,0,0
+1,"Living tissue
+covers wound",28C,1,8,8,100
+1,"Living tissue
+covers wound",28C,2,8,8,100
+1,"Living tissue
+covers wound",28C,3,8,8,100
+1,"Living tissue
+covers wound",28C,4,8,8,100
+1,"Living tissue
+covers wound",28C,5,8,8,100
+1,"Living tissue
+covers wound",28C,6,8,8,100
+1,"Living tissue
+covers wound",28C,7,8,8,100
+1,"Living tissue
+covers wound",28C,8,8,8,100
+1,"Living tissue
+covers wound",28C,9,8,8,100
+1,"Living tissue
+covers wound",28C,10,8,8,100
+1,"Living tissue
+covers wound",28C,11,8,8,100
+1,"Living tissue
+covers wound",28C,12,8,8,100
+1,"Living tissue
+covers wound",28C,13,8,8,100
+1,"Living tissue
+covers wound",28C,14,8,8,100
+1,"Living tissue
+covers wound",28C,15,8,8,100
+1,"Living tissue
+covers wound",31C,0,8,0,0
+1,"Living tissue
+covers wound",31C,1,8,6,75
+1,"Living tissue
+covers wound",31C,2,8,8,100
+1,"Living tissue
+covers wound",31C,3,8,8,100
+1,"Living tissue
+covers wound",31C,4,8,8,100
+1,"Living tissue
+covers wound",31C,5,8,8,100
+1,"Living tissue
+covers wound",31C,6,8,8,100
+1,"Living tissue
+covers wound",31C,7,8,8,100
+1,"Living tissue
+covers wound",31C,8,8,8,100
+1,"Living tissue
+covers wound",31C,9,8,8,100
+1,"Living tissue
+covers wound",31C,10,8,8,100
+1,"Living tissue
+covers wound",31C,11,8,8,100
+1,"Living tissue
+covers wound",31C,12,8,8,100
+1,"Living tissue
+covers wound",31C,13,8,8,100
+1,"Living tissue
+covers wound",31C,14,8,8,100
+1,"Living tissue
+covers wound",31C,15,8,8,100
+2,"Main polyp
+forms",28C,0,12,0,0
+2,"Main polyp
+forms",28C,1,12,0,0
+2,"Main polyp
+forms",28C,2,12,0,0
+2,"Main polyp
+forms",28C,3,12,6,50
+2,"Main polyp
+forms",28C,4,12,10,83.33333333333333
+2,"Main polyp
+forms",28C,5,12,10,83.33333333333333
+2,"Main polyp
+forms",28C,6,12,11,91.66666666666667
+2,"Main polyp
+forms",28C,7,12,11,91.66666666666667
+2,"Main polyp
+forms",28C,8,12,11,91.66666666666667
+2,"Main polyp
+forms",28C,9,12,12,100
+2,"Main polyp
+forms",28C,10,12,12,100
+2,"Main polyp
+forms",28C,11,12,12,100
+2,"Main polyp
+forms",28C,12,12,12,100
+2,"Main polyp
+forms",28C,13,12,12,100
+2,"Main polyp
+forms",28C,14,12,12,100
+2,"Main polyp
+forms",28C,15,12,12,100
+2,"Main polyp
+forms",31C,0,12,0,0
+2,"Main polyp
+forms",31C,1,12,0,0
+2,"Main polyp
+forms",31C,2,12,0,0
+2,"Main polyp
+forms",31C,3,12,8,66.66666666666667
+2,"Main polyp
+forms",31C,4,12,11,91.66666666666667
+2,"Main polyp
+forms",31C,5,12,11,91.66666666666667
+2,"Main polyp
+forms",31C,6,12,11,91.66666666666667
+2,"Main polyp
+forms",31C,7,12,11,91.66666666666667
+2,"Main polyp
+forms",31C,8,12,11,91.66666666666667
+2,"Main polyp
+forms",31C,9,12,12,100
+2,"Main polyp
+forms",31C,10,12,12,100
+2,"Main polyp
+forms",31C,11,12,12,100
+2,"Main polyp
+forms",31C,12,12,12,100
+2,"Main polyp
+forms",31C,13,12,12,100
+2,"Main polyp
+forms",31C,14,12,12,100
+2,"Main polyp
+forms",31C,15,12,12,100
+3,"Wound surface
+remodels",28C,0,12,0,0
+3,"Wound surface
+remodels",28C,1,12,0,0
+3,"Wound surface
+remodels",28C,2,12,0,0
+3,"Wound surface
+remodels",28C,3,12,0,0
+3,"Wound surface
+remodels",28C,4,12,8,66.66666666666667
+3,"Wound surface
+remodels",28C,5,12,8,66.66666666666667
+3,"Wound surface
+remodels",28C,6,12,12,100
+3,"Wound surface
+remodels",28C,7,12,12,100
+3,"Wound surface
+remodels",28C,8,12,12,100
+3,"Wound surface
+remodels",28C,9,12,12,100
+3,"Wound surface
+remodels",28C,10,12,12,100
+3,"Wound surface
+remodels",28C,11,12,12,100
+3,"Wound surface
+remodels",28C,12,12,12,100
+3,"Wound surface
+remodels",28C,13,12,12,100
+3,"Wound surface
+remodels",28C,14,12,12,100
+3,"Wound surface
+remodels",28C,15,12,12,100
+3,"Wound surface
+remodels",31C,0,12,0,0
+3,"Wound surface
+remodels",31C,1,12,0,0
+3,"Wound surface
+remodels",31C,2,12,0,0
+3,"Wound surface
+remodels",31C,3,12,0,0
+3,"Wound surface
+remodels",31C,4,12,11,91.66666666666667
+3,"Wound surface
+remodels",31C,5,12,11,91.66666666666667
+3,"Wound surface
+remodels",31C,6,12,12,100
+3,"Wound surface
+remodels",31C,7,12,12,100
+3,"Wound surface
+remodels",31C,8,12,12,100
+3,"Wound surface
+remodels",31C,9,12,12,100
+3,"Wound surface
+remodels",31C,10,12,12,100
+3,"Wound surface
+remodels",31C,11,12,12,100
+3,"Wound surface
+remodels",31C,12,12,12,100
+3,"Wound surface
+remodels",31C,13,12,12,100
+3,"Wound surface
+remodels",31C,14,12,12,100
+3,"Wound surface
+remodels",31C,15,12,12,100
+4,"Tip
+forms",28C,0,12,0,0
+4,"Tip
+forms",28C,1,12,0,0
+4,"Tip
+forms",28C,2,12,0,0
+4,"Tip
+forms",28C,3,12,0,0
+4,"Tip
+forms",28C,4,12,0,0
+4,"Tip
+forms",28C,5,12,0,0
+4,"Tip
+forms",28C,6,12,9,75
+4,"Tip
+forms",28C,7,12,9,75
+4,"Tip
+forms",28C,8,12,12,100
+4,"Tip
+forms",28C,9,12,12,100
+4,"Tip
+forms",28C,10,12,12,100
+4,"Tip
+forms",28C,11,12,12,100
+4,"Tip
+forms",28C,12,12,12,100
+4,"Tip
+forms",28C,13,12,12,100
+4,"Tip
+forms",28C,14,12,12,100
+4,"Tip
+forms",28C,15,12,12,100
+4,"Tip
+forms",31C,0,12,0,0
+4,"Tip
+forms",31C,1,12,0,0
+4,"Tip
+forms",31C,2,12,0,0
+4,"Tip
+forms",31C,3,12,0,0
+4,"Tip
+forms",31C,4,12,0,0
+4,"Tip
+forms",31C,5,12,0,0
+4,"Tip
+forms",31C,6,12,7,58.333333333333336
+4,"Tip
+forms",31C,7,12,7,58.333333333333336
+4,"Tip
+forms",31C,8,12,12,100
+4,"Tip
+forms",31C,9,12,12,100
+4,"Tip
+forms",31C,10,12,12,100
+4,"Tip
+forms",31C,11,12,12,100
+4,"Tip
+forms",31C,12,12,12,100
+4,"Tip
+forms",31C,13,12,12,100
+4,"Tip
+forms",31C,14,12,12,100
+4,"Tip
+forms",31C,15,12,12,100
+5,"Tip
+extends",28C,0,12,0,0
+5,"Tip
+extends",28C,1,12,0,0
+5,"Tip
+extends",28C,2,12,0,0
+5,"Tip
+extends",28C,3,12,0,0
+5,"Tip
+extends",28C,4,12,0,0
+5,"Tip
+extends",28C,5,12,0,0
+5,"Tip
+extends",28C,6,12,0,0
+5,"Tip
+extends",28C,7,12,0,0
+5,"Tip
+extends",28C,8,12,11,91.66666666666667
+5,"Tip
+extends",28C,9,12,11,91.66666666666667
+5,"Tip
+extends",28C,10,12,11,91.66666666666667
+5,"Tip
+extends",28C,11,12,11,91.66666666666667
+5,"Tip
+extends",28C,12,12,11,91.66666666666667
+5,"Tip
+extends",28C,13,12,11,91.66666666666667
+5,"Tip
+extends",28C,14,12,11,91.66666666666667
+5,"Tip
+extends",28C,15,12,11,91.66666666666667
+5,"Tip
+extends",31C,0,12,0,0
+5,"Tip
+extends",31C,1,12,0,0
+5,"Tip
+extends",31C,2,12,0,0
+5,"Tip
+extends",31C,3,12,0,0
+5,"Tip
+extends",31C,4,12,0,0
+5,"Tip
+extends",31C,5,12,0,0
+5,"Tip
+extends",31C,6,12,0,0
+5,"Tip
+extends",31C,7,12,0,0
+5,"Tip
+extends",31C,8,12,8,66.66666666666667
+5,"Tip
+extends",31C,9,12,8,66.66666666666667
+5,"Tip
+extends",31C,10,12,9,75
+5,"Tip
+extends",31C,11,12,9,75
+5,"Tip
+extends",31C,12,12,9,75
+5,"Tip
+extends",31C,13,12,9,75
+5,"Tip
+extends",31C,14,12,10,83.33333333333333
+5,"Tip
+extends",31C,15,12,11,91.66666666666667
+6,"New skeletal
+cups bud",28C,0,12,0,0
+6,"New skeletal
+cups bud",28C,1,12,0,0
+6,"New skeletal
+cups bud",28C,2,12,0,0
+6,"New skeletal
+cups bud",28C,3,12,0,0
+6,"New skeletal
+cups bud",28C,4,12,0,0
+6,"New skeletal
+cups bud",28C,5,12,0,0
+6,"New skeletal
+cups bud",28C,6,12,0,0
+6,"New skeletal
+cups bud",28C,7,12,0,0
+6,"New skeletal
+cups bud",28C,8,12,0,0
+6,"New skeletal
+cups bud",28C,9,12,0,0
+6,"New skeletal
+cups bud",28C,10,12,0,0
+6,"New skeletal
+cups bud",28C,11,12,0,0
+6,"New skeletal
+cups bud",28C,12,12,9,75
+6,"New skeletal
+cups bud",28C,13,12,9,75
+6,"New skeletal
+cups bud",28C,14,12,11,91.66666666666667
+6,"New skeletal
+cups bud",28C,15,12,12,100
+6,"New skeletal
+cups bud",31C,0,12,0,0
+6,"New skeletal
+cups bud",31C,1,12,0,0
+6,"New skeletal
+cups bud",31C,2,12,0,0
+6,"New skeletal
+cups bud",31C,3,12,0,0
+6,"New skeletal
+cups bud",31C,4,12,0,0
+6,"New skeletal
+cups bud",31C,5,12,0,0
+6,"New skeletal
+cups bud",31C,6,12,0,0
+6,"New skeletal
+cups bud",31C,7,12,0,0
+6,"New skeletal
+cups bud",31C,8,12,0,0
+6,"New skeletal
+cups bud",31C,9,12,0,0
+6,"New skeletal
+cups bud",31C,10,12,0,0
+6,"New skeletal
+cups bud",31C,11,12,0,0
+6,"New skeletal
+cups bud",31C,12,12,1,8.333333333333334
+6,"New skeletal
+cups bud",31C,13,12,1,8.333333333333334
+6,"New skeletal
+cups bud",31C,14,12,4,33.333333333333336
+6,"New skeletal
+cups bud",31C,15,12,4,33.333333333333336

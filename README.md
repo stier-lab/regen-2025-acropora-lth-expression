@@ -1,6 +1,6 @@
 # LTH: 15-day heat x wound experiment with RNA-seq samples in *Acropora pulchra*
 
-> Project #17 · Gump Station, Mo'orea, French Polynesia · May–July 2025 · Repo: `stier-lab/regen-2025-acropora-lth-expression` · Updated 2026-09-03
+> Project #17 · Gump Station, Mo'orea, French Polynesia · May–July 2025 · Repo: `stier-lab/regen-2025-acropora-lth-expression` · Updated 2026-09-05
 
 <p align="center">
   <img src="docs/team_summary/img/healing_ambient_vs_heated.gif" width="720"
@@ -11,15 +11,17 @@
 
 A 15-day heat x wound experiment on the branching coral *A. pulchra*: we clipped about 1 cm from the growing tip of half the fragments, held corals at **28 °C** or **31 °C (+3 °C)**, and tracked tissue closure, skeletal regrowth, growth, physiology, and symbionts for 15 days. We also collected tissue for RNA-seq.
 
-**The phenotype result:** heat does not slow recovery uniformly. Corals close the wound with tissue (coenosarc coverage) at the same rate at 28 °C and 31 °C, but heated corals often fail to rebuild the apical skeleton and new corallites. Heat blocks skeletal regeneration, not tissue closure. Expression counts are still pending/integration-ready; this repo is the phenotype analysis, RNA-seq sample handoff, and an explicitly preliminary SNP-cluster covariate check.
+**The phenotype result:** heat does not slow recovery uniformly. Corals heal early wounds with tissue at the same rate at 28 °C and 31 °C, but heated corals often fail to regenerate the apical skeleton and new corallites. Here, healing means the coenosarc tissue sheet re-covers the wound. Regeneration means later rebuilding steps such as tip extension and new radial corallite budding. Expression counts are still pending/integration-ready; this repo is the phenotype analysis, RNA-seq sample handoff, and an explicitly preliminary SNP-cluster covariate check.
 
-**More detail:** plain-language team summary → `docs/team_summary/LTH_results_summary.html` · full results → `RESULTS.docx` · figures → `figures/FIGURE_INDEX.docx` · data → `data/DATA_DICTIONARY.docx` · docs map → `docs/README.md` · RNA-seq notes → `docs/rnaseq/`.
+**More detail:** plain-language team summary → `docs/team_summary/LTH_results_summary.html` · analysis/diagnostic inventory → `docs/analysis_diagnostic_inventory.md` · next-analysis roadmap → `docs/next_analysis_roadmap.md` · full results → `RESULTS.docx` · figures → `figures/FIGURE_INDEX.md` · data → `data/DATA_DICTIONARY.docx` · docs map → `docs/README.md` · RNA-seq notes → `docs/rnaseq/`.
 
 **Terms used consistently here:**
 
 - **Wounded** = about 1 cm removed from the growing tip on D0 with a band saw.
 - **No-wound control** = fragments assigned to the no-wound level. The exact sham/handling procedure still needs to be verified before manuscript wording calls this a "sham" control.
 - **Source patch label** = field source-patch labels A, C, and D. These are stored as `thicket` or legacy `genet` columns in some code and tables. Rachael Bay's preliminary 2026-09-02 SNP clusters suggest C is coherent while A and D are mixed source-patch labels. A, C, and D are not confirmed genetic individuals and are not yet matched to Cunning et al. (2024)'s numbered genets.
+- **Healing vs regeneration** = healing is early tissue re-covering of the wound; regeneration is later rebuilding of structures such as the tip and new radial corallites.
+- **Species wording** = the repo historically uses *Acropora pulchra* and `apulchra` filenames. Trinity Conn's 2026-08-10 note recommends *Acropora cf. pulchra* for the Mo'orea animal until the taxonomy is settled, because the Mo'orea form may not be the Australian type specimen of *A. pulchra*.
 
 ## Quick start
 
@@ -41,7 +43,7 @@ Requires R ≥ 4.3. Everything regenerates from `code/_run_all.R`; **never hand-
 | **Tank** | 8 total, 4 per temperature (28 °C: 3, 6, 9, 12; 31 °C: 4, 5, 10, 11). Random effect. |
 | **Time** | Daily observations; destructive tissue samples D0, D1, D3, D10, D15. |
 
-**n = 208 fragments total.** The main destructive sampling set has 192 fragments; 48 of those were also tracked non-destructively for physiology through Day 15; 144 selected margin libraries form the current RNA-seq design (D1, D3, D10); and a separate 16-fragment photo-only set was photographed for microscope time-lapse imagery. **Site:** Mahana / Tiahura, NW Mo'orea — source patches A (17.49735 °S / 149.91557 °W), C (17.49808 °S / 149.91595 °W), D (17.49726 °S / 149.91581 °W), the same reef as Cunning et al. 2024's CBASS genets.
+**n = 208 fragments total.** The main destructive sampling set has 192 fragments; 48 of those were also tracked non-destructively for physiology through Day 15; 144 selected margin libraries form the current RNA-seq design (D1, D3, D10); and a separate 16-fragment photo-only set was photographed for microscope time-lapse imagery. **Site:** Mahana / Tiahura, NW Mo'orea — source patches A (17.49735 °S / 149.91557 °W), C (17.49808 °S / 149.91595 °W), D (17.49726 °S / 149.91581 °W), the same reef as Cunning et al. 2024's CBASS genets. Molly's forwarded Trinity/Ross Hauru table is now stored in `data/external/` as preliminary external context; source patch C's closest coordinate candidate is `Apul-115` (10.5 m away), but exact identity requires SNP comparison.
 
 ## Key findings (phenotype half)
 
@@ -63,13 +65,14 @@ The separate 16-fragment microscope/photo cohort is analyzed in `code/11_microsc
 | `code/` | Analysis scripts; run order = file number, driven by `code/_run_all.R`. Each has a Purpose/Input/Output header. `sensitivity/` and `diagnostics/` hold robustness and model-diagnostic suites. |
 | `data/raw/` | Exported from Drive — never hand-edited. Decoded in `data/DATA_DICTIONARY.docx`. |
 | `data/processed/` | Cleaned `.rds` the pipeline produces (regenerable). |
-| `data/external/` | Cunning et al. 2024 CBASS ED50 reference. |
+| `data/external/` | External heat-tolerance context: Cunning et al. 2024 CBASS ED50 reference plus preliminary Trinity/Ross Hauru colony table from Molly's 2026-09-03 forwarded email. |
 | `output/tables/` | Every result as CSV; `20_master_results.csv` is the single source of truth. |
 | `output/` | Also `models/` (fitted `.rds`). Model-diagnostic reports + plots (`output/diagnostics/`, `figures/diagnostics/`) are regenerated by the pipeline and gitignored, not committed. |
-| `figures/` | All figures (`.pdf` + `.png`); catalogued in `figures/FIGURE_INDEX.docx`. |
+| `figures/` | All figures (`.pdf` + `.png`); catalogued in `figures/FIGURE_INDEX.md` (legacy `.docx` retained for provenance). |
 | `literature/` | 101 PDFs + `LITERATURE.docx` (bibliography + synthesis). |
 | `manuscript/Manuscript_LTH.docx` | Working draft — phenotype Methods + Results. |
 | `docs/README.md` | Current documentation map and terminology. |
+| `docs/next_analysis_roadmap.md` | Prioritized queue for the next analyses: final genetics, RNA-seq expression, phenotype integration, and supporting checks. |
 | `docs/rnaseq/` | RNA-seq design, analysis proposal, preliminary SNP integration, genetic matching, candidate genes (suggestions, not a prescribed pipeline). |
 | `docs/team_summary/` | Plain-language results summary (`.Rmd` + HTML) and pulled deck imagery. |
 | `RESULTS.docx` | Full results narrative (all responses, source effects, thermal context, §10 limitations). |
@@ -84,6 +87,12 @@ Raw data is exported **from** Google Drive (the project of record: raw Sheets, f
 144 selected margin libraries were shipped to UC Davis; expression counts will land in `data/raw/sequencing/` when available. The current RNA-seq analysis design uses D1, D3, and D10 margin samples. Any D0/D15 tissue should be described as collected tissue, not part of the 144-library design, unless the sequencing plan changes. The per-library phenotype covariate table is already built (`output/tables/31_rnaseq_phenotype_covariates.csv`, joined by `Fragment_ID`).
 
 Rachael Bay sent a preliminary SNP cluster/PC file on 2026-09-02 (`data/raw/rnaseq/PRELIM_LTH_genoclusters.csv`). It joins cleanly to all 144 RNA-seq libraries and is integrated by `code/32_prelim_snp_phenotype_integration.R`, which writes `output/tables/32_prelim_snp_*.csv` and `figures/32_prelim_snp_*.pdf/png`. Treat these outputs as preliminary: the full SNP set should replace this layer for final genotype/kinship models.
+
+Molly forwarded Trinity Conn's Hauru colony table on 2026-09-03. That file is now preserved at `data/external/trinity_conn_hauru_colonies_2026-08-10.xlsx` as preliminary external context; `code/sensitivity/26b_trinity_hauru_context.R` writes the cleaned copy, nearest-coordinate candidate table, and map. Do not assign Trinity/Ross ED50 values to source patches A/C/D yet. Use the file to prioritize candidate matches, then compare LTH RNA-seq SNPs to Trinity/Ross whole-genome genotypes.
+
+Molly's follow-ups through 2026-09-10 are tracked by `code/36_molly_followup_checks.R` and `code/39_stage_timing_visual_options.R`. The summary now uses cumulative stage attainment and restricts timing averages to stages reached by everyone at both temperatures. Recovered temperature logs fill Days 0-15 for all eight tanks; see `docs/provenance/molly_followup_2026-09-11.md`.
+
+The ordered analysis queue is in `docs/next_analysis_roadmap.md`. In short: finish the coauthor-summary cleanup, resolve final genetics, run expression genome-wide, then link expression modules or contrasts back to phenotype summaries without assigning destructive RNA-seq samples outcomes they did not directly receive.
 
 ## License and funding
 

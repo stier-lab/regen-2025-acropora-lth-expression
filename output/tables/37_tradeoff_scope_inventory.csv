@@ -1,0 +1,11 @@
+candidate,evidence_level,valid_analysis,diagnostic_plan,current_status
+growth vs Day-15 new corallites,same fragment,"linear model, robust regression, and heated-only exact permutation sensitivity","residual plots, Q-Q plot, Shapiro-Wilk, Cook's distance, leave-one-out, robust-regression weights",tested here
+growth vs Day-15 tip extension,same fragment,"linear model, robust regression, and heated-only exact permutation sensitivity","residual plots, Q-Q plot, Shapiro-Wilk, Cook's distance, leave-one-out, robust-regression weights",tested here
+growth vs timing of wound smoothing,same fragment,Cox time-to-event model,"Schoenfeld proportional hazards check, dfbeta influence",tested here
+growth vs timing of tip extension,same fragment,Cox time-to-event model,"Schoenfeld proportional hazards check, dfbeta influence",tested here
+growth vs timing of new corallites,same fragment,Cox time-to-event model,"Schoenfeld proportional hazards check, dfbeta influence",tested here
+growth vs daily regeneration transitions,same fragment,bias-reduced discrete-time transition model with complementary log-log link,"convergence, DHARMa screens, calibration plot, residual-over-time plot, leverage",tested here
+ambient growth vs growth heat drop,source-patch summary,descriptive bootstrap only; n = 3 source patches,no model diagnostics; uncertainty summarized by bootstrap sign,tested here
+ambient growth vs non-growth heat penalty,source-patch summary,leave-growth-out heat-penalty index; descriptive bootstrap only; n = 3 source patches,no model diagnostics; uncertainty summarized by bootstrap sign,tested here
+condition heat penalty vs heated regeneration,source-patch summary,descriptive bootstrap only; n = 3 source patches,no model diagnostics; uncertainty summarized by bootstrap sign,tested here
+SNP cluster vs growth or regeneration,not directly joinable,do not test yet,joinability audit only,blocked for growth/regeneration; direct SNP join currently only for symbiont density

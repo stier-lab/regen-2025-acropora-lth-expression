@@ -1,0 +1,18 @@
+day,date,apex_tanks_present,apex_tanks,apex_missing_tanks,apex_mean_28_c,apex_mean_31_c,ysi_tanks_present,ysi_tanks,ysi_missing_tanks,ysi_mean_28_c,ysi_mean_31_c,apex_delta_31_minus_28_c,ysi_delta_31_minus_28_c,apex_status,ysi_status
+0,2025-06-04,8,"3,4,5,6,9,10,11,12",none,27.893,31.043,0,,"3,4,5,6,9,10,11,12",NA,NA,3.15,NA,complete in current export,absent from current export
+1,2025-06-05,8,"3,4,5,6,9,10,11,12",none,27.743,30.844,8,"3,4,5,6,9,10,11,12",none,27.889,30.875,3.101,2.986,complete in current export,complete in current export
+2,2025-06-06,8,"3,4,5,6,9,10,11,12",none,27.719,30.898,8,"3,4,5,6,9,10,11,12",none,27.903,30.861,3.179,2.958,complete in current export,complete in current export
+3,2025-06-07,8,"3,4,5,6,9,10,11,12",none,27.721,30.934,0,,"3,4,5,6,9,10,11,12",NA,NA,3.213,NA,complete in current export,absent from current export
+4,2025-06-08,8,"3,4,5,6,9,10,11,12",none,27.732,30.728,0,,"3,4,5,6,9,10,11,12",NA,NA,2.997,NA,complete in current export,absent from current export
+5,2025-06-09,8,"3,4,5,6,9,10,11,12",none,27.722,30.847,0,,"3,4,5,6,9,10,11,12",NA,NA,3.125,NA,complete in current export,absent from current export
+6,2025-06-10,8,"3,4,5,6,9,10,11,12",none,27.783,30.882,0,,"3,4,5,6,9,10,11,12",NA,NA,3.099,NA,complete in current export,absent from current export
+7,2025-06-11,8,"3,4,5,6,9,10,11,12",none,27.635,30.842,0,,"3,4,5,6,9,10,11,12",NA,NA,3.206,NA,complete in current export,absent from current export
+8,2025-06-12,8,"3,4,5,6,9,10,11,12",none,27.638,30.695,0,,"3,4,5,6,9,10,11,12",NA,NA,3.057,NA,complete in current export,absent from current export
+9,2025-06-13,8,"3,4,5,6,9,10,11,12",none,27.728,30.492,0,,"3,4,5,6,9,10,11,12",NA,NA,2.764,NA,complete in current export,absent from current export
+10,2025-06-14,8,"3,4,5,6,9,10,11,12",none,27.766,30.717,0,,"3,4,5,6,9,10,11,12",NA,NA,2.95,NA,complete in current export,absent from current export
+11,2025-06-15,8,"3,4,5,6,9,10,11,12",none,27.816,30.866,0,,"3,4,5,6,9,10,11,12",NA,NA,3.05,NA,complete in current export,absent from current export
+12,2025-06-16,8,"3,4,5,6,9,10,11,12",none,27.883,31.028,0,,"3,4,5,6,9,10,11,12",NA,NA,3.144,NA,complete in current export,absent from current export
+13,2025-06-17,8,"3,4,5,6,9,10,11,12",none,27.934,31.032,0,,"3,4,5,6,9,10,11,12",NA,NA,3.098,NA,complete in current export,absent from current export
+14,2025-06-18,8,"3,4,5,6,9,10,11,12",none,27.85,31.02,0,,"3,4,5,6,9,10,11,12",NA,NA,3.17,NA,complete in current export,absent from current export
+15,2025-06-19,8,"3,4,5,6,9,10,11,12",none,27.848,30.981,0,,"3,4,5,6,9,10,11,12",NA,NA,3.133,NA,complete in current export,absent from current export
+16,2025-06-20,8,"3,4,5,6,9,10,11,12",none,25.347,27.173,0,,"3,4,5,6,9,10,11,12",NA,NA,1.826,NA,complete in current export,absent from current export

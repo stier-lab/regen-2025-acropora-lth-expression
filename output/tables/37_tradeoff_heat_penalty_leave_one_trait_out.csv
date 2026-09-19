@@ -1,0 +1,19 @@
+index_name,omitted_response,thicket,heat_penalty,n_responses,responses_used
+all whole-fragment traits,none,a,0.9874621958515608,4,pam_fvfm; color_dscale; growth_pct; log_zoox_density
+all whole-fragment traits,none,c,0.2827386450376455,4,pam_fvfm; color_dscale; growth_pct; log_zoox_density
+all whole-fragment traits,none,d,0.9273003440890127,4,pam_fvfm; color_dscale; growth_pct; log_zoox_density
+leave growth out,skeletal growth,a,1,3,pam_fvfm; color_dscale; log_zoox_density
+leave growth out,skeletal growth,c,0.2726737691866768,3,pam_fvfm; color_dscale; log_zoox_density
+leave growth out,skeletal growth,d,0.903067125452017,3,pam_fvfm; color_dscale; log_zoox_density
+leave photosynthesis score out,photosynthesis score,a,0.983282927802081,3,color_dscale; growth_pct; log_zoox_density
+leave photosynthesis score out,photosynthesis score,c,0.2868005685704999,3,color_dscale; growth_pct; log_zoox_density
+leave photosynthesis score out,photosynthesis score,d,0.9193231579640819,3,color_dscale; growth_pct; log_zoox_density
+leave color out,color,a,0.983282927802081,3,pam_fvfm; growth_pct; log_zoox_density
+leave color out,color,c,0.3172694775227598,3,pam_fvfm; growth_pct; log_zoox_density
+leave color out,color,d,0.957951175314546,3,pam_fvfm; growth_pct; log_zoox_density
+leave symbiont density out,symbiont density,a,0.983282927802081,3,pam_fvfm; color_dscale; growth_pct
+leave symbiont density out,symbiont density,c,0.2542107648706454,3,pam_fvfm; color_dscale; growth_pct
+leave symbiont density out,symbiont density,d,0.928859917625406,3,pam_fvfm; color_dscale; growth_pct
+leave regeneration out,all regeneration traits,a,0.9874621958515608,4,pam_fvfm; color_dscale; growth_pct; log_zoox_density
+leave regeneration out,all regeneration traits,c,0.2827386450376455,4,pam_fvfm; color_dscale; growth_pct; log_zoox_density
+leave regeneration out,all regeneration traits,d,0.9273003440890127,4,pam_fvfm; color_dscale; growth_pct; log_zoox_density

@@ -121,8 +121,8 @@ p_color <- ggplot(traj, aes(day, mean_color,
   geom_vline(xintercept = 0, linetype = "dotted", colour = "grey50") +
   facet_wrap(~ treatment, ncol = 2) +
   # Reverse the y-axis so the DARKEST score (D6, healthy) sits at the bottom and
-  # PALING reads as a downward movement — the direction for "losing color /
-  # bleaching". Limits padded beyond 1-6 for visual margin.
+  # Lower, paler scores appear higher on this reversed axis.
+  # Limits padded beyond 1-6 for visual margin.
   scale_y_reverse(breaks = 1:6, limits = c(6.2, 0.8)) +  # darker = higher D, plot 1 on top
   scale_colour_manual(values = PAL_WOUND,
                       name = "Wound") +
@@ -131,7 +131,7 @@ p_color <- ggplot(traj, aes(day, mean_color,
   labs(x = "Day relative to wounding (D0)",
        y = "Color score (Siebeck D-scale; lower = paler)",
        title = "Pigmentation trajectory",
-       subtitle = "Mean ± 1 SE; axis reversed so paling is downward") +
+       subtitle = "Mean ± 1 SE; paler scores appear higher on the reversed axis") +
   theme_pub(10)
 
 save_fig(p_color, "03_color_trajectory", width = 170, height = 90)

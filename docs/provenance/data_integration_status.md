@@ -1,6 +1,6 @@
 # Data Integration Status
 
-Last checked: 2026-09-03
+Last checked: 2026-09-06
 
 Status categories:
 
@@ -22,13 +22,14 @@ Status categories:
 | `pam` | `full_analysis` | Cleaned/analyzed by `code/02_pam_analysis.R`; writes `data/processed/pam_clean.rds`, PAM figures, and treatment contrasts. |
 | `color_card` | `full_analysis` | Cleaned/analyzed by `code/03_color_card_analysis.R`; writes `data/processed/color_clean.rds`, color figures, end proportions, and contributes to the main models. |
 | `physio_morphology` | `full_analysis` | Cleaned/analyzed by `code/04_physio_morphology.R`; writes `data/processed/physio_clean.rds`, morphology trajectory figures, GLMM summaries, and feeds survival/KM/model scripts. Also feeds the cross-dataset morphology plots, endpoint/timing tests, and diagnostic coverage checks in `code/11c_morphology_dataset_plots.R`. |
-| `microscope_physio` | `full_analysis` | Cleaned/analyzed by `code/11_microscope_physio.R` as a separate photo-only cohort; writes cleaned data, design/event/trajectory tables, and microscope figures. Also feeds the cross-dataset morphology plots, endpoint/timing tests, and diagnostic coverage checks in `code/11c_morphology_dataset_plots.R`. |
+| `microscope_physio` | `full_analysis` | Cleaned/analyzed by `code/11_microscope_physio.R` as a separate photo-only data set; writes cleaned data, design/event/trajectory tables, and microscope figures. Also feeds the cross-dataset morphology plots, endpoint/timing tests, and diagnostic coverage checks in `code/11c_morphology_dataset_plots.R`. |
 | `wax_dipping` | `supporting_analysis` | Cleaned/analyzed by `code/07_wax_dipping.R`; writes `data/processed/wax_clean.rds`, the wax standard-curve figure, and surface areas used by growth/symbiont calculations. |
 | `buoyant_weight` | `full_analysis` | Cleaned/analyzed by `code/05_buoyant_weight.R`; writes `data/processed/buoyant_weight_clean.rds`, growth figures, growth model tables, tank tests, and metric comparisons. |
 | `symbiont_counts` | `full_analysis` | Cleaned/analyzed by `code/06_symbiont_chl.R`; writes `data/processed/symbiont_chl_clean.rds`, symbiont-density figure, summaries, and RNA-seq covariates. Chlorophyll-a is explicitly handled as not run. |
-| `apex` | `supporting_analysis` | Parsed/analyzed by `code/08_apex_temperature.R`; writes hourly/daily temperature RDS files and thermal-context figures. |
-| `ysi` | `supporting_analysis` | Cleaned/analyzed by `code/09_ysi_water_chem.R`; writes `data/processed/ysi_clean.rds` and water-chemistry figures. |
+| `apex` | `supporting_analysis` | Updated 2026-09-11: Molly's recovered XML and compiled sheet fill the late gap. All eight tanks have 144 ten-minute readings per day through Days 0-15 (and Day 16). `code/08_apex_temperature.R` verifies duplicate agreement, checks the compiled sheet, uses dated tank assignments, and exports hourly/daily data plus coverage and clock-sensitivity tables. See `docs/provenance/molly_followup_2026-09-11.md`. |
+| `ysi` | `supporting_analysis` | Cleaned/analyzed by `code/09_ysi_water_chem.R`; writes `data/processed/ysi_clean.rds` and water-chemistry figures. A 2026-09-06 search found no later YSI hand-meter file in the repo, synced Google Drive project folder, or mounted NAS project folder. The current processed export has Days 1-2 only within the Day 0-16 experimental window; later spot-check logs need a new source file if they exist. See `docs/provenance/temperature_log_search_2026-09-06.md`. |
 | `worm_presence` | `supporting_analysis` | Cleaned/summarized by `code/10_worms.R`; writes `data/processed/worm_clean.rds`, worm-presence figure, and summary table. Used as contamination/QC context. |
+| `trinity_hauru_colonies` | `supporting_analysis` | Preliminary external Hauru colony table attached to Trinity Conn's 2026-08-10 email and forwarded by Molly Brzezinski on 2026-09-03. Read by `code/sensitivity/26b_trinity_hauru_context.R`, which writes a cleaned CSV, nearest-coordinate table, and map. This is context for future DNA-marker matching only, not a confirmed genotype match to LTH source patches. |
 | `plate_layout` | `handoff_only` | Read by `code/31_rnaseq_covariate_table.R`; writes RNA-seq library lookup and phenotype-covariate handoff tables. No expression model is fit in this repo. |
 | `rnaseq` | `preliminary_analysis` | `data/raw/rnaseq/PRELIM_LTH_genoclusters.csv` was received from Rachael Bay by email on 2026-09-02 and is read by `code/32_prelim_snp_phenotype_integration.R`. The script joins preliminary SNP clusters and PCs to the 144 RNA-seq covariate rows, audits direct response availability, and writes exploratory SNP/design/symbiont summaries. These are not final genotype calls. |
 | `shipping` | `provenance_only` | Imported/codebooked sample handling and storage metadata. The current pipeline does not read these sheets directly. |
@@ -43,3 +44,11 @@ Status categories:
 Phenotype validation status after this classification:
 
 `39 PASS, 3 HANDLED, 0 WARN, 0 FAIL`
+
+Molly follow-up outputs added 2026-09-05 and updated 2026-09-06:
+
+- `output/tables/36_molly_temperature_coverage_days0_16.csv`
+- `output/tables/36_molly_stage_timing.csv`
+- `output/tables/36_molly_stage_timing_summary.csv`
+- `output/tables/36_molly_followup_action_items.csv`
+- `figures/36_molly_stage_timing.png`

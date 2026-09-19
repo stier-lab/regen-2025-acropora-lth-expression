@@ -61,7 +61,7 @@ temp_pa <- apex |>
     treatment = tank_treatment(tank)   # shared tank->treatment map (00_setup.R)
   ) |>
   filter(!is.na(treatment), value_c > 15, value_c < 40,
-         between(date, as_date("2025-05-25"), as_date("2025-06-22")))
+         between(date, as_date("2025-05-28"), as_date("2025-06-19")))
 
 # With only two groups we direct-label instead of using a legend (CLAUDE.md
 # tiered legend rule). Take one anchor point per treatment — the last date of one

@@ -1,10 +1,13 @@
 # Tentative RNA-seq expression-phenotype integration plan
 
-Updated: 2026-09-03
+Updated: 2026-09-04
 
 This is a planning document for the LTH heat x wound RNA-seq analysis. It is
 written before the expression counts arrive so the analysis does not drift toward
 the phenotype story only after we see the transcriptome. The core rule is:
+
+For the broader project order, see `docs/next_analysis_roadmap.md`. This file
+focuses on RNA-seq expression and phenotype integration.
 
 **Run the expression analysis genome-wide first; use physiology and regeneration
 results to define contrasts and interpret modules, not to pre-select winners.**
@@ -35,6 +38,9 @@ Useful repo anchors:
 | Raw library lookup | `output/tables/31_rnaseq_library_lookup_raw.csv` |
 | Preliminary SNP cluster covariates | `output/tables/32_prelim_snp_rnaseq_covariates.csv` |
 | Preliminary SNP join/design audit | `output/tables/32_prelim_snp_join_audit.csv`, `output/tables/32_prelim_snp_response_joinability.csv`, `output/tables/32_prelim_snp_design_balance.csv` |
+| Trinity/Ross preliminary Hauru candidate-match context | `docs/provenance/trinity_conn_hauru_context.md` |
+| Trinity/Ross cleaned table, nearest candidates, and map | `data/external/trinity_conn_hauru_colonies_2026-08-10.csv`, `output/tables/26b_trinity_hauru_*.csv`, `figures/26b_trinity_hauru_context.png` |
+| Project-level next-analysis roadmap | `docs/next_analysis_roadmap.md` |
 | RNA-seq background notes | `docs/rnaseq/README.md` |
 | Coral expression literature synthesis | `docs/rnaseq/coral_expression_literature_synthesis.md` |
 | Candidate gene evidence table | `docs/rnaseq/candidate_genes_reference.csv` |
@@ -55,6 +61,13 @@ Important limits:
   explicitly provisional. It can be used for exploratory checks and planning,
   but final expression models should use the final SNP set, genetic PCs, or
   kinship matrix once delivered.
+- The Trinity/Ross Hauru table forwarded by Molly on 2026-09-03 is preliminary external
+  context only. Source patch C is closest by coordinate to `Apul-115`, but ED50
+  values should not be assigned to A/C/D until LTH RNA-seq SNPs are compared
+  against Trinity/Ross whole-genome genotypes.
+- The repo historically uses *Acropora pulchra*. Trinity Conn's 2026-08-10 note
+  recommends *Acropora cf. pulchra* for the Mo'orea animal until taxonomy is
+  settled.
 
 ## 2. Bias guardrails
 
@@ -146,7 +159,10 @@ Source patch C resists chronic heat stress better than A or D, either through a
 smaller heat-induced transcriptome shift or a different protective expression
 state. The preliminary SNP file suggests C may also be genetically coherent,
 whereas A and D are mixed source-patch labels; the final genetic analysis should
-separate source-patch effects from genotype/kinship effects.
+separate source-patch effects from genotype/kinship effects. The preliminary
+Trinity/Ross Hauru table gives a candidate external match for C (`Apul-115`,
+10.5 m away), but this remains a candidate until DNA markers are compared
+directly.
 
 Predictions:
 
@@ -263,7 +279,9 @@ pre-analysis addendum before counts are inspected.
 - Regularized models asking whether expression predicts phenotype summaries.
 - Network modules associated with the closed-but-not-regenerated phenotype.
 - Final SNP calling from host RNA-seq reads to model genetic relatedness and, if
-  possible, match A/C/D-derived samples to Cunning CBASS genets.
+  possible, match A/C/D-derived samples to Trinity/Ross or Cunning CBASS
+  genotypes. Use coordinates only to prioritize candidates such as `Apul-115`,
+  `Apul-111`, and clonal group 2.
 - Preliminary SNP clusters/PCs from `data/raw/rnaseq/PRELIM_LTH_genoclusters.csv`
   are useful for exploratory balance checks and same-fragment symbiont-density
   checks, but should not be treated as final genotype calls.
@@ -321,3 +339,4 @@ Fill this in as choices are made.
 | 2026-09-02 | Separate confirmatory contrasts from exploratory phenotype integration | Avoids choosing RNA-seq results after seeing the transcriptome | Adrian/Codex draft |
 | 2026-09-02 | Candidate-gene evidence table uses tiers A-D | Keeps direct Acropora evidence separate from reviews, web-only sources, and lab-only candidates | Adrian/Codex draft |
 | 2026-09-02 | Add Rachael Bay's preliminary SNP cluster file as an exploratory covariate layer | The file joins cleanly to all 144 RNA-seq libraries, but Rachael marked it preliminary and flagged low-coverage singleton concerns | Adrian/Codex draft |
+| 2026-09-04 | Add Trinity/Ross Hauru colony table as preliminary candidate-match context only | The coordinate screen makes `Apul-115` the first candidate for source patch C, but exact identity requires SNP comparison to Trinity/Ross whole-genome data | Adrian/Codex draft |

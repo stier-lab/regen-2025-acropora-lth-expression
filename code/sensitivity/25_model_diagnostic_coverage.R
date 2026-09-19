@@ -16,7 +16,8 @@
 #   that shows its result. If any model lacks a diagnostic, the script ends with a
 #   WARNING and a non-zero gap count. This is bookkeeping for reproducibility, not
 #   new statistics.
-# Input:   output/models/*.rds  (+ Cox PH plots from script 14)
+# Input:   output/models/*.rds  (+ Cox PH plots from script 14 and trade-off
+#          model diagnostics from script 37)
 # Output:  output/tables/25_model_diagnostic_coverage.csv
 #          output/diagnostics/K_model_coverage_report.md
 #          figures/diagnostics/K_<model>_dharma.png   (for any that were missing)
@@ -198,6 +199,47 @@ for (cf in cox_ph_figs) {
     result_figure = "figures/14_morphology_KM.pdf",
     status = "covered (cox.zph Schoenfeld)"
   )
+}
+
+# ---- Trade-off models (diagnostics written by script 37) -------------------
+# The formal trade-off script fits small endpoint and timing models whose
+# diagnostics live in a dedicated table/figure folder. They are not saved as
+# reusable .rds model objects, so include them here from their manifest rather
+# than refitting them in this bookkeeping script.
+tradeoff_diag_file <- file.path(TBL_DIR, "37_tradeoff_model_diagnostics.csv")
+if (file.exists(tradeoff_diag_file)) {
+  tradeoff_cov <- read_csv(tradeoff_diag_file, show_col_types = FALSE) |>
+    mutate(diagnostic_figure = str_split(diagnostic_figure, fixed(" / "))) |>
+    unnest(diagnostic_figure) |>
+    group_by(model) |>
+    summarise(
+      diagnostic_figure = paste(unique(basename(diagnostic_figure)),
+                                collapse = " / "),
+      n_flagged = sum(status == "flagged", na.rm = TRUE),
+      .groups = "drop"
+    ) |>
+    mutate(
+      class = case_when(
+        str_detect(model, "^lm_") ~ "lm",
+        str_detect(model, "^lmrob_") ~ "lmrob",
+        str_detect(model, "^brglm_") ~ "brglmFit",
+        str_detect(model, "^cloglog_transition_") ~ "brglmFit",
+        str_detect(model, "^cox_") ~ "coxph",
+        TRUE ~ "model"
+      ),
+      result_figure = "figures/35_tradeoff_summary.pdf / output/tables/37_tradeoff_main_results.csv",
+      status = if_else(
+        n_flagged == 0,
+        "covered (37 trade-off diagnostics)",
+        paste0("covered (37 trade-off diagnostics; ", n_flagged,
+               " flagged check", if_else(n_flagged == 1, "", "s"), ")")
+      )
+    ) |>
+    select(model, class, diagnostic_figure, result_figure, status)
+
+  for (i in seq_len(nrow(tradeoff_cov))) {
+    rows[[paste0("tradeoff_", tradeoff_cov$model[[i]])]] <- tradeoff_cov[i, ]
+  }
 }
 
 # ---- Tally coverage --------------------------------------------------------
