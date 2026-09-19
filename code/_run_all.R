@@ -23,6 +23,11 @@
 #     - 33-35 (trade-off screens) run late: they reuse phenotype summary tables
 #       to ask whether source C's lower heat sensitivity appears to come with
 #       growth or regeneration costs.
+#     - 36 (Molly follow-up checks) runs after 32-35: it reads the refreshed
+#       temperature, morphology, SNP-joinability, and trade-off artifacts to
+#       answer Molly's 2026-09-04 coauthor-summary requests.
+#     - 26b (Trinity/Ross Hauru context) runs after 26: it reads an external
+#       Hauru CBASS/genotype table and writes coordinate-match context only.
 #     - 30 (manuscript audit) runs DEAD LAST: it checks the manuscript against
 #       the freshly regenerated tables, so every table must already be rebuilt.
 #   Edit this list with care: reordering can silently feed a script stale
@@ -61,6 +66,7 @@ scripts <- c(
   "sensitivity/23_timeseries_diagnostics.R",
   "sensitivity/24_headline_model_comparison.R",
   "sensitivity/26_thermal_context.R",
+  "sensitivity/26b_trinity_hauru_context.R",
   "sensitivity/27_variance_partitioning.R",
   "sensitivity/28_multiple_testing.R",
   "sensitivity/29_morphology_prob_contrasts.R",
@@ -78,7 +84,17 @@ scripts <- c(
   "33_growth_tradeoff_screen.R",    # exploratory: ambient growth vs growth lost under heat
   "34_regeneration_tradeoff_screen.R", # exploratory: growth/regeneration and heat-tolerance/regeneration screens
   "35_tradeoff_summary.R",          # team-summary four-panel trade-off check
+  "37_tradeoff_formal_tests.R",      # formal trade-off model set + diagnostics
+  "36_molly_followup_checks.R",      # answers Molly's 2026-09-04 notes for the coauthor summary
   "sensitivity/25_model_diagnostic_coverage.R",
+  "38_analysis_diagnostic_inventory.R", # parent list of analyses + diagnostic / GOF coverage
+  "39_stage_timing_visual_options.R", # cumulative attainment + score-missingness audit
+  "40_molly_stage_mean_review.R", # descriptive means and stage-sequence review
+  # 41 is the recommended stage-timing display. 36/39a/39c/40 stay as the design
+  # options they were commissioned as, but read 41's header before reusing them:
+  # 40's mean-of-reachers renders the headline result as a 0.9-day gap when it is
+  # 12/12 vs 4/12, and 39a draws violins from <=12 reachers.
+  "41_stage_progression_figure.R", # recommended: per-fragment timing + never-reached + proportion
   "30_manuscript_audit.R"          # advisory phenotype reproducibility check — warns (never fails) if phenotype numbers drift
 )
 
