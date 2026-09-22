@@ -9,7 +9,7 @@ output/diagnostics/F_model_reproducibility.csv,model refit reproducibility,DRIFT
 output/diagnostics/G_plot_inventory.csv,diagnostic plot inventory,BUILT=14; CURRENT=12,TRUE,0
 output/diagnostics/11f_morphology_dataset_diagnostic_checks.csv,cross-dataset morphology support checks,HANDLED=7; PASS=53,TRUE,0
 output/tables/23_timeseries_diagnostics.csv,time-series sensitivity,"9 checks: AR(1), random-slope, nonlinear-time, and headline-effect robustness; reported heat effects unchanged",TRUE,0
-output/tables/25_model_diagnostic_coverage.csv,all saved model diagnostic coverage,50/50 fitted models covered; 0 coverage gaps,TRUE,0
+output/tables/25_model_diagnostic_coverage.csv,all saved model diagnostic coverage,Script 25 snapshot: 50/50 fitted models covered; 0 coverage gaps (new script 42 fits audited separately),TRUE,0
 output/tables/28_multiple_testing.csv,confirmatory/exploratory p-value handling,14 tests; 5 reported significant after confirmatory/raw or exploratory/BH rule,TRUE,0
 output/tables/32_prelim_snp_join_audit.csv,preliminary SNP join audit,PASS=8,TRUE,0
 output/tables/37_tradeoff_model_diagnostics.csv,formal trade-off model diagnostics,flagged=7; passed=57,TRUE,0

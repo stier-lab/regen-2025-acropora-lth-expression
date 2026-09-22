@@ -63,7 +63,7 @@ coverage_summary <- function() {
   if (!file.exists(here::here(p))) return("model coverage table missing")
   x <- suppressMessages(readr::read_csv(here::here(p), show_col_types = FALSE))
   n_gap <- sum(str_detect(str_to_lower(x$status), "gap|missing|failed|fail"))
-  sprintf("%d/%d fitted models covered; %d coverage gaps",
+  sprintf("Script 25 snapshot: %d/%d fitted models covered; %d coverage gaps (new script 42 fits audited separately)",
           nrow(x) - n_gap, nrow(x), n_gap)
 }
 
@@ -190,6 +190,30 @@ inventory <- tibble::tribble(
   paste(diag_counts$continuous, "|", diag_counts$timeseries),
   "One Cook's-distance warning remains, but the heat direction check and upgraded-model comparison preserve the conclusion.",
   "Primary whole-fragment physiology result.",
+
+  "P2", "pam_location", "Paired near-tip versus near-base photosynthesis",
+  "support",
+  "code/42_pam_location_and_score_audit.R",
+  "output/tables/42_pam_location_heat_tests.csv; output/tables/42_pam_location_diagnostics.csv; output/tables/42_pam_location_trajectory_test.csv",
+  "figures/42_pam_location_comparison.pdf; figures/42_pam_location_diagnostics.pdf",
+  "Tank-level exact label permutations; paired-difference repeated-measures LMM; correlated unequal-variance sensitivity",
+  "Complete-pair and canonical-average agreement; residual/Q-Q inspection; convergence; singularity; residual serial correlation; leave-one-tank-out; tank medians",
+  "yes", "partial",
+  "LMM converged and is not singular, but residual tails and unequal spread remain. Tank permutations give mean heat-gap p=0.20 and trajectory p=0.143; correlated model gives mean-gap p=0.204.",
+  "Only eight tanks. Do not interpret the LMM-only treatment-by-day p=0.030 as decisive; no prespecified equivalence margin. See September 22 follow-up note.",
+  "Both sites retain the heat decline; averaging is a two-location summary, not proof of equivalence.",
+
+  "P1", "morphology_score_review", "Tip reversals and missing pigment scores",
+  "support",
+  "code/42_pam_location_and_score_audit.R",
+  "output/tables/42_morphology_fragment_review.csv; output/tables/42_morphology_missing_calls.csv",
+  "none",
+  "Descriptive score audit, no imputation or model refit",
+  "Unique ID/day keys; all wounded-fragment tip sequences and missing calls",
+  "yes", "not applicable",
+  "Tip reversals in 116, 121, 143; 23/24 Day 9 pigment calls missing. Original observations preserved.",
+  "Field-note review pending. Separate microscope cohort cannot validate individual main-experiment scores.",
+  "Carry score uncertainty in captions and first-observation interpretation.",
 
   "P2", "color_score", "Color-card paling score",
   "primary",
@@ -466,6 +490,7 @@ parent_checked <- parent_list |>
     n_analysis_rows = map_int(parent_id, \(id) sum(inventory_checked$parent_id == id)),
     diagnostic_readiness = case_when(
       parent_id == "P5" ~ "mixed: SNP and Trinity/Ross layers remain preliminary",
+      parent_id == "P2" ~ "primary condition analyses covered; location-model fit checks remain partial",
       parent_id == "P7" ~ model_coverage,
       TRUE ~ "covered for current manuscript use"
     )

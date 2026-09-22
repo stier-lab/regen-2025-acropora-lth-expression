@@ -1,0 +1,2 @@
+scope,estimate_heated_minus_ambient,lower,upper,p_exact,n_tanks
+Median paired gap within each tank,-0.005500000000000005,-0.02165783206741215,0.010657832067412141,0.45714285714285713,8

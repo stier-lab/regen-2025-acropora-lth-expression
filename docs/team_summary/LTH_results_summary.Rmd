@@ -1,7 +1,7 @@
 ---
 title: "Long-term heat (LTH): key results"
 subtitle: "Heat and wound repair in *Acropora pulchra*, Mo'orea 2025"
-date: "Updated 2026-09-16"
+date: "Updated 2026-09-22"
 output:
   html_document:
     self_contained: true
@@ -342,6 +342,16 @@ These changes were similar in clipped and unwounded fragments. We found little e
 knitr::include_graphics(fig("02_pam_fvfm_trajectory.png"))
 ```
 
+**Near the tip versus near the base.** We measured photosynthesis efficiency about 1 cm from each end of every fragment. All 48 fragments have both readings at all seven visits. Both locations declined under heat, so the overall heat response does not depend on averaging them.
+
+From Day 0 onward, the tip score averaged 0.012 below the base at 28 °C and 0.021 below it at 31 °C. The estimated extra tip-to-base difference under heat was small and uncertain: −0.009 score units (95% interval −0.023 to 0.006; tank-level test, *p* = 0.20). The gap varied through time, but the tank-level comparison did not clearly show different time patterns between temperatures (*p* = 0.143). We also found no clear added effect of clipping on the gap.
+
+The two-location average remains useful for describing overall fragment condition. It does **not** mean the locations are equivalent or that a local response near the wound is absent. We retain both readings for the location comparison.
+
+```{r, fig.cap="Both sampled locations lost photosynthesis efficiency under heat. Upper panels show readings about 1 cm from the tip (green) and base (purple), separately for clipped and unwounded fragments. Thin lines are observed tank means; thick lines average the four tanks per temperature. Lower panels show the paired difference, near-tip minus near-base, calculated within each fragment before averaging by tank. Negative values mean lower efficiency near the tip. Each tank contributes three fragments per wound state. Day −1 is before clipping, not an unheated baseline; statistical comparisons use Days 0–14. Lines describe observations, not model fits or uncertainty bands."}
+knitr::include_graphics(fig("42_pam_location_comparison.png"))
+```
+
 ```{r, fig.cap="Heated fragments became paler. Panels separate temperatures and lines distinguish wounded and unwounded fragments (yes/no). Lower color scores mean paler tissue; the axis is reversed, so lower scores appear higher on this plot. Points are observed means across fragments and shaded bands show one standard error on either side, not tank-adjusted confidence intervals. Day 0 marks clipping. Source patches are combined."}
 knitr::include_graphics(fig("03_color_trajectory.png"))
 ```
@@ -362,13 +372,13 @@ Wounds re-covered with living tissue quickly at both temperatures. Only **4 of 1
 
 Here, **healing** means the coenosarc, the sheet of living tissue between coral polyps, re-covered the wound. **Regeneration** means the later rebuilding steps: the main polyp forms, the wound surface remodels, the tip returns, the tip extends, and new corallites bud.
 
-The healing panel uses a separate microscope-photo experiment with 16 wounded fragments, eight per temperature. The other panels use the 24 wounded fragments in the main experiment, 12 per temperature. All 14 fragments scored for tissue cover on Day 1 were covered. Two heated fragments lacked that day’s score; all 16 were recorded as covered by Day 2.
+The healing panel uses a separate microscope-photo experiment with 16 wounded fragments, eight per temperature. The other panels use the 24 wounded fragments in the main experiment, 12 per temperature. All 14 fragments scored for tissue cover on Day 1 were covered. Two heated fragments lacked that day’s score; all 16 were recorded as covered by Day 2. The microscope photos illustrate the stages in a separate group; they cannot verify individual scores in the main experiment.
 
 ```{r, fig.cap=cap_stage_cumulative}
 knitr::include_graphics(fig("39b_stage_timing_cumulative_option.png"))
 ```
 
-The curves show the percentage first seen at each stage by each day. Each percentage includes all fragments, including those that had not reached the stage. Once a fragment reaches a stage, it remains counted, even if the feature is not visible in a later photo.
+The curves show the percentage first recorded at each stage by each day. Each percentage includes all fragments, including those that had not reached the stage. Once a fragment has a positive score, it remains counted, even if a later score marks the feature absent. A later absence may reflect a real change or a scoring inconsistency; these curves do not distinguish the two.
 
 ```{r}
 stage_summary_tbl <- readr::read_csv(
@@ -429,7 +439,9 @@ knitr::include_graphics(fig("36_molly_stage_timing.png"))
 </details>
 
 
-**Scoring uncertainty.** Two fragments have stage-order records that need review. The original scores are retained. Omitting both leaves 11/11 fragments at 28 °C versus 3/11 at 31 °C reaching new-corallite budding, so the direction of the observed difference does not depend on these records. This check does not replace refitting the timing models if scores change.
+**Scoring uncertainty.** Three fragments have a tip scored present and later absent: in two, it remains marked absent through the end; in the third, it is absent for one day. Another fragment has budding recorded one day before tip extension. These observations need review, not automatic correction. Pigment scores are also missing for 23 of 24 wounded fragments on Day 9; missing scores remain unknown, not absent. Pigment is not one of the six stages plotted above.
+
+The earlier check that omitted fragments 121 and 115 still gives 11/11 fragments at 28 °C versus 3/11 at 31 °C reaching new-corallite budding. That check addresses those two records only, not every scoring uncertainty. Original scores and models are unchanged pending review.
 
 **How the timing models handle unfinished stages.** A fragment that had not reached a stage by its final observation contributes “not yet reached” information. It is not dropped or assigned an invented completion day. For fragments that did reach a stage, the main timing model places onset between the last absent score and the first present score.
 

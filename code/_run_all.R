@@ -87,7 +87,6 @@ scripts <- c(
   "37_tradeoff_formal_tests.R",      # formal trade-off model set + diagnostics
   "36_molly_followup_checks.R",      # answers Molly's 2026-09-04 notes for the coauthor summary
   "sensitivity/25_model_diagnostic_coverage.R",
-  "38_analysis_diagnostic_inventory.R", # parent list of analyses + diagnostic / GOF coverage
   "39_stage_timing_visual_options.R", # cumulative attainment + score-missingness audit
   "40_molly_stage_mean_review.R", # descriptive means and stage-sequence review
   # 41 is the recommended stage-timing display. 36/39a/39c/40 stay as the design
@@ -95,6 +94,8 @@ scripts <- c(
   # 40's mean-of-reachers renders the headline result as a 0.9-day gap when it is
   # 12/12 vs 4/12, and 39a draws violins from <=12 reachers.
   "41_stage_progression_figure.R", # recommended: per-fragment timing + never-reached + proportion
+  "42_pam_location_and_score_audit.R", # paired tip/base readings and morphology score audit
+  "38_analysis_diagnostic_inventory.R", # inventory after all supporting analyses
   "30_manuscript_audit.R"          # advisory phenotype reproducibility check — warns (never fails) if phenotype numbers drift
 )
 

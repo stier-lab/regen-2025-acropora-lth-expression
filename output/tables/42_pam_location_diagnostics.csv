@@ -1,0 +1,2 @@
+model,singular,convergence,residual_sd,adjacent_visit_residual_correlation,max_absolute_standardized_residual
+paired-gap LMM,FALSE,,0.032739082069205304,-0.06282201739975311,3.666732338732181

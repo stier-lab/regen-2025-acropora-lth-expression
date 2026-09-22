@@ -75,9 +75,9 @@ pam <- pam_raw |>
   filter(!is.na(fv_fm), fv_fm > 0, fv_fm < 1)
 
 # Average the two within-coral probe readings (top + bottom) into one value per
-# coral per day. These are technical replicates of the same fragment, not
-# independent observations, so they are collapsed before modelling (this is
-# tested in the sensitivity block below).
+# coral per day. These are spatial subsamples, not independent fragments or
+# interchangeable technical replicates. This average describes the two sampled
+# positions; code/42 retains their paired differences for the location question.
 pam_avg <- pam |>
   group_by(date, day, treatment, tank, thicket, wound, id) |>
   summarise(fv_fm = mean(fv_fm, na.rm = TRUE), .groups = "drop")
@@ -91,7 +91,8 @@ saveRDS(pam_avg, file.path(DATA_PROC, "pam_clean.rds"))
 # averages the two as technical replicates (above). Here we test that decision:
 # fit the model on the UN-averaged data with location as a fixed factor and
 # report the location terms. If location and its interactions are
-# non-significant, averaging is justified.
+# non-significant, that does not establish equivalence. This legacy screen is
+# superseded for interpretation by the tank-aware paired analysis in code/42.
 if ("location" %in% names(pam) &&
     length(unique(na.omit(pam$location))) > 1) {
   pam_loc <- pam |> mutate(location = factor(location))
@@ -128,7 +129,7 @@ if ("location" %in% names(pam) &&
     "  location main effect %s; location x (experimental factor) interactions %s.\n",
     if (main_sig) "SIGNIFICANT (real top/bottom offset)" else "n.s.",
     if (inter_sig) "SIGNIFICANT — averaging may distort effects; see 02b table"
-    else "n.s. — averaging top/bottom is justified for treatment/wound/day effects"))
+    else "n.s. — not evidence of equivalence; use the paired analysis in code/42"))
 }
 
 # ---- Mixed model -----------------------------------------------------------
